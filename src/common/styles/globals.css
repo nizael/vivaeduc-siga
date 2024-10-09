@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+html, body {
+  width: 100%;
+  height: 100vh;
+  background-color: aqua;
+}
+
+body {
+  color: var(--foreground);
+  background: #F3F4FF;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+details summary {
+  list-style: none; /* Remove o estilo da seta */
+}
+
+details[open] summary::-webkit-details-marker {
+  display: none; /* Remove a seta no Chrome, Safari, Edge */
+}
+
+details summary::-webkit-details-marker {
+  display: none; /* Remove a seta no Chrome, Safari, Edge */
+}
+
+details summary::marker {
+  display: none; /* Remove a seta no Firefox */
+}
