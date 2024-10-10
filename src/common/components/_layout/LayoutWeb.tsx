@@ -14,8 +14,6 @@ export const LayoutWeb = ({ titlePage, children }: ILayoutWebProps) => {
         <main className="p-4 flex flex-col gap-4 h-full overflow-y-auto">
           {children}
         </main>
-        {/* 
-        */}
       </div>
     </div>
   )
