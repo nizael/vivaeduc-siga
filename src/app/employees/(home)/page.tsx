@@ -1,4 +1,4 @@
-import { LayoutWeb } from "../../common/components/_layout/LayoutWeb";
+import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { ListEmployees } from "./components/list-employees/ListEmployees";
 import { ToolBar } from "./components/ToolBar";
 

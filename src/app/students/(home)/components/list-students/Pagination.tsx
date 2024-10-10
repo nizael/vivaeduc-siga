@@ -1,4 +1,4 @@
-import { DropdownIcon } from "@/common/common/components/icons/DropdownIcon"
+import { DropdownIcon } from "@/components/icons/DropdownIcon"
 
 export const Pagination = () => {
   return (

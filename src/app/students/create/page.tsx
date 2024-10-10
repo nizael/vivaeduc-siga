@@ -1,4 +1,4 @@
-import { LayoutWeb } from "@/common/common/components/_layout/LayoutWeb";
+import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { FormStudent } from "./components/FormStudent";
 
 

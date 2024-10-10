@@ -1,7 +1,7 @@
 import { Kpi } from "./Kpi"
-import { Student2Icon } from "@/common/common/components/icons/Student2Icon"
-import { EmployeeIcon } from "@/common/common/components/icons/EmployeeIcon"
-import { CalenderIcon } from "@/common/common/components/icons/CalenderIcon"
+import { Student2Icon } from "@/components/icons/Student2Icon"
+import { EmployeeIcon } from "@/components/icons/EmployeeIcon"
+import { CalenderIcon } from "@/components/icons/CalenderIcon"
 
 export const Overview = () => {
   return (

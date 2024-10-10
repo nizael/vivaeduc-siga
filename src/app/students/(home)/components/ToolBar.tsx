@@ -1,4 +1,4 @@
-import { SearchIcon } from "@/common/common/components/icons/SearchIcon"
+import { SearchIcon } from "@/components/icons/SearchIcon"
 import Link from "next/link"
 
 export const ToolBar = () => {

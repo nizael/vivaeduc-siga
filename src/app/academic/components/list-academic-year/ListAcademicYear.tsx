@@ -1,5 +1,5 @@
-import { DotsIcon } from "@/common/common/components/icons/DotsIcon"
-import { SubjectIcon } from "@/common/common/components/icons/SubjectIcon"
+import { DotsIcon } from "@/components/icons/DotsIcon"
+import { SubjectIcon } from "@/components/icons/SubjectIcon"
 import Link from "next/link"
 
 const academicYears = [

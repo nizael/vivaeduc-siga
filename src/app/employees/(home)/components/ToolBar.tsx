@@ -1,5 +1,5 @@
-import { DropdownIcon } from "@/common/common/components/icons/DropdownIcon"
-import { SearchIcon } from "@/common/common/components/icons/SearchIcon"
+import { DropdownIcon } from "@/components/icons/DropdownIcon"
+import { SearchIcon } from "@/components/icons/SearchIcon"
 import Link from "next/link"
 
 export const ToolBar = () => {

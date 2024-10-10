@@ -1,6 +1,6 @@
-import { CallIcon } from "@/common/common/components/icons/CallIcon"
-import { DotsIcon } from "@/common/common/components/icons/DotsIcon"
-import { EmailIcon } from "@/common/common/components/icons/EmailIcon"
+import { CallIcon } from "@/components/icons/CallIcon"
+import { DotsIcon } from "@/components/icons/DotsIcon"
+import { EmailIcon } from "@/components/icons/EmailIcon"
 
 interface ICardEmployeesProps {
   image?: string

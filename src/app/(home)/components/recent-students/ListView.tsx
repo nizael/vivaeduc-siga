@@ -1,4 +1,4 @@
-import { EmailIcon } from "@/common/common/components/icons/EmailIcon"
+import { EmailIcon } from "@/components/icons/EmailIcon"
 
 export const ListView = ({ classroomName, studentName, image }: { image?: string, studentName: string, classroomName: string }) => {
   return (

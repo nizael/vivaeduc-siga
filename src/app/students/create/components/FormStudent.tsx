@@ -1,6 +1,6 @@
-import { SearchIcon } from "@/common/common/components/icons/SearchIcon"
+import { SearchIcon } from "@/components/icons/SearchIcon"
 import { ImageUpload } from "./ImageUpload"
-import { DropdownIcon } from "@/common/common/components/icons/DropdownIcon"
+import { DropdownIcon } from "@/components/icons/DropdownIcon"
 
 export const FormStudent = () => {
   return (
