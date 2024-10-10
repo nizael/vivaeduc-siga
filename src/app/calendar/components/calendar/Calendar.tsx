@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Day } from "./Day"
 import { getDaysInMonth, getFirstDayOfMonth } from "@/utils/dateUtils"
 
@@ -8,6 +8,8 @@ export const Calendar = () => {
   const daysInMonth = getDaysInMonth(currentDate)
   const firstDay = getFirstDayOfMonth(currentDate)
   const today = new Date()
+
+  useEffect(()=>{setCurrentDate(new Date())},[])// excluir depois
 
   // const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
   //   const newMonth = parseInt(e.target.value)

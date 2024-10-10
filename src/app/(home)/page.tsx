@@ -1,5 +1,5 @@
 import { LayoutWeb } from "../../common/components/_layout/LayoutWeb";
-import { CalenderFinance } from "./components/calender-finance/CalenderFinance";
+import { CalendarFinance } from "./components/calendar-finance/CalendarFinance";
 import { Overview } from "./components/overview/Overview";
 import { Performance } from "./components/performance/Perfomance";
 import { RightSide } from "./components/right-side/RightSide";
@@ -11,7 +11,7 @@ export default function Home() {
         <div className="flex flex-col gap-4 grow">
           <Overview />
           <Performance />
-          <CalenderFinance />
+          <CalendarFinance />
         </div>
         <RightSide />
       </div>

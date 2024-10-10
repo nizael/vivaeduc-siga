@@ -3,7 +3,7 @@ import { Calendar } from "./components/calendar/Calendar";
 import { RightSide } from "./components/right-side/RightSide";
 import { ToolBar } from "./components/ToolBar";
 
-export default function CalenderPage() {
+export default function CalendarPage() {
   return (
     <LayoutWeb titlePage="Calendário">
       <div className="flex gap-4 h-full">

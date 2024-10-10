@@ -1,10 +1,10 @@
-import { Calender } from "./Calender"
+import { Calendar } from "./Calendar"
 import { Finance } from "./Fianance"
 
-export const CalenderFinance = () => {
+export const CalendarFinance = () => {
   return (
     <section className="flex max-md:flex-col gap-4 justify-between">
-      <Calender />
+      <Calendar />
       <Finance />
     </section>
   )

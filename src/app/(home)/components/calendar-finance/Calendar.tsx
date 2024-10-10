@@ -1,4 +1,4 @@
-export const Calender = () => {
+export const Calendar = () => {
   return (
     <svg width="100%" height="562" viewBox="0 0 520 562" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 24C0 10.7452 10.7452 0 24 0H496C509.255 0 520 10.7452 520 24V538C520 551.255 509.255 562 496 562H24C10.7452 562 0 551.255 0 538V24Z" fill="white" />
