@@ -1,5 +1,5 @@
 import { LayoutWeb } from "@/components/_layout/LayoutWeb";
-import { PrincipalDetails } from "./components/principal-data/PrincipalDetails";
+import { SchoolDetails } from "./components/principal-data/SchoolDetails";
 import { RightSide } from "./components/right-side/RightSide";
 
 export default function SchoolPage() {
@@ -7,7 +7,7 @@ export default function SchoolPage() {
     <LayoutWeb titlePage="Escola">
       <div className="flex gap-4 h-full"> 
         <div className="flex flex-col gap-4 grow">
-          <PrincipalDetails />
+          <SchoolDetails />
         </div>
         <RightSide />
       </div>
