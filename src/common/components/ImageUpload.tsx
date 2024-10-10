@@ -1,29 +1,18 @@
 'use client'
-// import { PhotoEditIcon } from "@/components/common/icons/PhotoEditIcon";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Cropper, ReactCropperElement } from "react-cropper";
 import 'cropperjs/dist/cropper.css';
 
 export const ImageUpload = () => {
-  // const { setPersonalDataAttribute, personalData, disabledFormPersonalData } = useStudentCreateUpdate()
   const [image, setImage] = useState<string | null>(null);
   const [croppedImage, setCroppedImage] = useState<string>('');
   const [isOpenCrop, setIsOpenCrop] = useState(false);
   const cropperRef = useRef<ReactCropperElement>(null);
-  // const [disabled, setDisabled] = useState(false)
 
   useEffect(() => {
     setIsOpenCrop(true)
   }, [image])
-
-  // useEffect(() => {
-  //   setDisabled(!!(!!personalData && disabledFormPersonalData))
-  // }, [personalData, disabledFormPersonalData])
-
-  useEffect(() => {
-    // if (croppedImage) setPersonalDataAttribute('image', croppedImage)
-  }, [croppedImage])
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -78,7 +67,6 @@ export const ImageUpload = () => {
           accept="image/*"
           className="hidden"
           onChange={handleImageChange}
-          // disabled={disabled}
         />
         {/* {!croppedImage && <PhotoEditIcon className="w-full h-full opacity-10" />} */}
       </label>

@@ -1,5 +1,5 @@
 import { SearchIcon } from "@/components/icons/SearchIcon"
-import { ImageUpload } from "./ImageUpload"
+import { ImageUpload } from "@/components/ImageUpload"
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 
 export const FormStudent = () => {
