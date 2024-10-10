@@ -1,5 +1,5 @@
 import { AcademicIcon } from "../../icons/AcademicIcon"
-import { CalenderIcon } from "../../icons/CalenderIcon"
+import { CalendarIcon } from "../../icons/CalendarIcon"
 import { ChatIcon } from "../../icons/ChatIcon"
 import { EmployeeIcon } from "../../icons/EmployeeIcon"
 import { FinanceIcon } from "../../icons/FinanceIcon"
@@ -16,7 +16,7 @@ export const NavigatorSection = () => {
       <LinkButton icon={<AcademicIcon />} label="Acadêmico" href={'/academic'} />
       <LinkButton icon={<EmployeeIcon />} label="Funcionários" href={'/employees'} />
       <LinkButton icon={<GuardianIcon />} label="Responsáveis" href={'/guardians'} />
-      <LinkButton icon={<CalenderIcon />} label="Calendário" href={'/calender'} />
+      <LinkButton icon={<CalendarIcon />} label="Calendário" href={'/calendar'} />
       <LinkButton icon={<FinanceIcon />} label="Financeiro" href={'/finance'} />
       <LinkButton icon={<ChatIcon />} label="Chat" href={'/chat'} />
     </nav>
