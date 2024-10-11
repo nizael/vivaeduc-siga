@@ -1,6 +1,6 @@
 export const Finance = () => {
   return (
-    <section className="flex flex-col gap-4 rounded-lg bg-gray-50 shadow-sm p-6 max-h-[482px]">
+    <section className="flex flex-col gap-4 rounded-lg bg-gray-50 shadow-sm p-6 max-h-[482px] w-full">
       <div className="text-[#303972] font-semibold flex  justify-between">
         <p className="text-lg">Finâncias</p>
         <div className="flex items-center gap-4">
@@ -20,7 +20,7 @@ export const Finance = () => {
           </div>
         </div>
       </div>
-      <svg width="453" height="420" viewBox="0 0 453 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-full" width="453" height="420" viewBox="0 0 453 420" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="43" y="359.627" width="410" height="1.36136" rx="0.680678" fill="#C1BBEB" />
         <rect x="43" y="290.198" width="410" height="1.36136" rx="0.680678" fill="#C1BBEB" />
         <rect x="43" y="220.769" width="410" height="1.36136" rx="0.680678" fill="#C1BBEB" />

@@ -2,7 +2,7 @@ import { LayoutWeb } from "../../../common/components/_layout/LayoutWeb";
 import { ListStudents } from "./components/list-students/ListStudets";
 import { ToolBar } from "./components/ToolBar";
 
-export default function Students() {
+export default function StudentsPage() {
   return (
     <LayoutWeb titlePage="Alunos">
       <div className="flex flex-col gap-8">
