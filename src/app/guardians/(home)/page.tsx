@@ -1,6 +1,7 @@
-import { LayoutWeb } from "../../common/components/_layout/LayoutWeb";
+import { LayoutWeb } from "../../../common/components/_layout/LayoutWeb";
 import { ListGuardians } from "./components/list-guardians/ListGuardians";
 import { ToolBar } from "./components/ToolBar";
+
 
 export default function Guardians() {
   return (

@@ -1,15 +1,15 @@
 import { SearchIcon } from "@/components/icons/SearchIcon"
-import { ImageUpload } from "@/components/ImageUpload"
+import { ImageUpload } from "@/components/ImageUpload" 
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { InputText } from "@/components/inputs/InputText"
 
-export const FormStudent = () => {
+export const FormGuardian = () => {
   return (
     <form action="" className="flex flex-col gap-8">
       <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm">
         <summary>
           <div className="rounded-t-lg bg-[#4D44B5] px-4 py-2 text-gray-50 flex items-center justify-between">
-            <p>Dados do aluno</p>
+            <p>Dados do pessoais</p>
             <DropdownIcon />
           </div>
         </summary>
@@ -19,10 +19,6 @@ export const FormStudent = () => {
           </div>
           <div className="grid grid-cols-2 gap-4 p-4 w-full">
             <InputText label="Nome Completo *" />
-            <div className="flex items-center gap-4 justify-between">
-              <InputText label="Matrícula" />
-              <InputText label="INEP" />
-            </div>
             <div className="flex items-center gap-4 justify-between">
               <InputText label="Etado Civil *" />
               <InputText label="Cor ou Raça *" />
@@ -36,14 +32,17 @@ export const FormStudent = () => {
               <InputText label="Orgão emissor" />
               <InputText label="Date de emissão" />
             </div>
-            <InputText label="UF" />
+            <div className="flex items-center gap-4 justify-between">
+              <InputText label="UF" />
+              <InputText label="Telefone *" />
+            </div>
             <div className="flex items-center gap-4 justify-between">
               <InputText label="email" />
-              <InputText label="Telefone" />
             </div>
           </div>
         </div>
       </details>
+
       <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
         <summary>
           <div className="rounded-t-lg bg-[#4D44B5] px-4 py-2 text-gray-50 flex items-center justify-between">
@@ -67,24 +66,17 @@ export const FormStudent = () => {
           </div>
         </div>
       </details>
+
       <details className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm">
         <summary>
           <div className="rounded-t-lg bg-[#4D44B5] px-4 py-2 text-gray-50 flex items-center justify-between">
-            <p>Responsáveis</p>
+            <p>Dados do trabalho</p>
             <DropdownIcon />
           </div>
         </summary>
         <div className="grid grid-cols-2 gap-4 p-4">
-          <InputText label="Responsável 1 *" />
-          <div className="flex items-end gap-4 justify-between">
-            <InputText label="Parentesco *" />
-            <label className="flex items-center flex-none gap-2 py-2 font-semibold text-[#303972]" htmlFor="guardian_1"><input type="radio" id="guardian_1" name="guardian" />Responsável financeiro</label>
-          </div>
-          <InputText label="Responsável 2" />
-          <div className="flex items-end gap-4 justify-between">
-            <InputText label="Parentesco" />
-            <label className="flex items-center flex-none gap-2 py-2 font-semibold text-[#303972] " htmlFor="guardian_2"><input type="radio" id="guardian_2" name="guardian" />Responsável financeiro</label>
-          </div>
+          <InputText label="Local de trabalho" />
+          <InputText label="Telefone do trabalho" />
         </div>
       </details>
       <div className="flex items-center gap-4 justify-end">
@@ -94,6 +86,7 @@ export const FormStudent = () => {
     </form>
   )
 }
+
 
 const CheckboxGender = () => {
   return (

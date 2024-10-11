@@ -1,5 +1,5 @@
-import { Calendar } from "./Calendar"
-import { Finance } from "./Fianance"
+import { Calendar } from "./calendar/Calendar"
+import { Finance } from "./finance/Finance"
 
 export const CalendarFinance = () => {
   return (

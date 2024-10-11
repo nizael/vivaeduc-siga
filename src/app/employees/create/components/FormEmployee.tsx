@@ -1,6 +1,7 @@
 import { SearchIcon } from "@/components/icons/SearchIcon"
 import { ImageUpload } from "@/components/ImageUpload" 
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
+import { InputText } from "@/components/inputs/InputText"
 
 export const FormEmployee = () => {
   return (
@@ -74,8 +75,7 @@ export const FormEmployee = () => {
           </div>
         </summary>
         <div className="grid grid-cols-2 gap-4 p-4">
-          <InputText label="Local de trabalho" />
-          <InputText label="Telefone do trabalho" />
+          <InputText label="Cargo *" />
         </div>
       </details>
       <div className="flex items-center gap-4 justify-end">
@@ -83,20 +83,6 @@ export const FormEmployee = () => {
         <button type="submit" className="flex items-center px-4 h-[40px] text-gray-50 bg-[#4D44B5] rounded-full">Salvar</button>
       </div>
     </form>
-  )
-}
-
-interface IInputTextProps {
-  label: string
-  type?: 'text' | 'email'
-  id?: string
-}
-const InputText = ({ label, type }: IInputTextProps) => {
-  return (
-    <label htmlFor="" className="flex flex-col gap-2 w-full">
-      <span className=" text-[#303972] font-semibold ">{label}</span>
-      <input type={type || "text"} className="border border-[#C1BBEB] bg-white rounded-lg p-2 text-base text-[#303972] font-medium outline-[#4D44B5]" />
-    </label>
   )
 }
 

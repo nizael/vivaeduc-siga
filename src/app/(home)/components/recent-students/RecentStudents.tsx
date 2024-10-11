@@ -2,11 +2,11 @@ import Link from "next/link"
 import { ListView } from "./ListView"
 
 const recentStudents = [
-  { id: '1', image: '/temp/student.jpg', studentName: 'Samantha William', classroom: 'VII A' },
-  { id: '2', image: '/temp/student.jpg', studentName: 'Tony Soap', classroom: 'VII A' },
-  { id: '3', image: '/temp/student.jpg', studentName: 'Karen Hope', classroom: 'VII A' },
-  { id: '4', image: '/temp/student.jpg', studentName: 'Jordan Nico', classroom: 'VII A' },
-  { id: '5', image: '/temp/student.jpg', studentName: 'Nadila Adja', classroom: 'VII A' },
+  { id: '1', image: '/temp/employee.jpg', studentName: 'Samantha William', classroom: 'VII A' },
+  { id: '2', image: '/temp/employee.jpg', studentName: 'Tony Soap', classroom: 'VII A' },
+  { id: '3', image: '/temp/employee.jpg', studentName: 'Karen Hope', classroom: 'VII A' },
+  { id: '4', image: '/temp/employee.jpg', studentName: 'Jordan Nico', classroom: 'VII A' },
+  { id: '5', image: '/temp/employee.jpg', studentName: 'Nadila Adja', classroom: 'VII A' },
 ]
 
 export const RecentStudents = () => {
