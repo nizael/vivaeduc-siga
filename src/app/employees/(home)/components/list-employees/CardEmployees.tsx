@@ -18,11 +18,11 @@ export const CardEmployees = ({ employeeName, employeeRole, image }: ICardEmploy
       <div className="w-[120px] h-[120px] rounded-full bg-[#C1BBEB] overflow-hidden" >
         {image && <Image src={image} width={120} height={120} alt={employeeName} />}
       </div>
-      <p className="text-[#303972] font-bold text-xl">{employeeName}</p>
+      <p className="text-[--text-primary] font-bold text-xl">{employeeName}</p>
       <p className="text-sm text-gray-500">{employeeRole}</p>
       <div className="flex gap-4">
-        <button className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[#4D44B5] text-gray-50"><CallIcon /></button>
-        <button className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[#4D44B5] text-gray-50"><EmailIcon /></button>
+        <button className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[--bg-primary] text-gray-50"><CallIcon /></button>
+        <button className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[--bg-primary] text-gray-50"><EmailIcon /></button>
       </div>
 
     </div>

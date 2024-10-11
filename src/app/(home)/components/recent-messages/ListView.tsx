@@ -14,7 +14,7 @@ export const ListView = ({ message, sender, image, hour }: IListViewProps) => {
           {image && <Image src={image} width={40} height={40} alt={sender} />}
         </div>
         <div className="flex flex-col grow gap-1">
-          <p className="text-sm font-semibold text-[#303972]">{sender}</p>
+          <p className="text-sm font-semibold text-[--text-primary]">{sender}</p>
           <p className="text-xs text-gray-500 truncate">{message}</p>
         </div>
         <div className="flex h-full text-gray-500 text-sm">

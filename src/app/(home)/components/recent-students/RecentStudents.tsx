@@ -14,15 +14,15 @@ export const RecentStudents = () => {
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-2xl font-semibold text-[#303972]">Alunos Recentes</p>
+          <p className="text-2xl font-semibold text-[--text-primary]">Alunos Recentes</p>
           <p className="text-gray-500">Você tem <b>452</b> alunos</p>
         </div>
-        <Link href={'/students/create'} className="font-semibold text-3xl bg-[#4D44B5] w-[40px] h-[40px] grid place-content-center rounded-full text-gray-50">+</Link>
+        <Link href={'/students/create'} className="font-semibold text-3xl bg-[--bg-primary] w-[40px] h-[40px] grid place-content-center rounded-full text-gray-50">+</Link>
       </div>
       <ul className="flex-col flex gap-4">
         {recentStudents.map(student => <ListView key={student.id} classroomName={student.classroom} studentName={student.studentName} image={student.image} />)}
       </ul>
-      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[#4D44B5] bg-opacity-10 text-[#4D44B5] font-semibold">Ver mais</Link>
+      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[--bg-primary] bg-opacity-10 text-[--text-primary] font-semibold">Ver mais</Link>
     </div>
   )
 }

@@ -55,8 +55,8 @@ export const ImageUpload = () => {
             initialAspectRatio={0.75}
           />
           <div className="flex items-center gap-2 justify-between">
-            <button type="button" className="bg-[#4D44B5] text-gray-50 font-semibold p-2 rounded-md w-full" onClick={cancelCropped}>Cancelar</button>
-            <button type="button" className="bg-[#4D44B5] text-gray-50 font-semibold p-2 rounded-md  w-full" onClick={getCroppedImage}>Recortar</button>
+            <button type="button" className="bg-[--bg-primary] text-gray-50 font-semibold p-2 rounded-md w-full" onClick={cancelCropped}>Cancelar</button>
+            <button type="button" className="bg-[--bg-primary] text-gray-50 font-semibold p-2 rounded-md  w-full" onClick={getCroppedImage}>Recortar</button>
           </div>
         </div>
       )}

@@ -61,7 +61,7 @@ export const Calendar = () => {
       </div> */}
       <table className="w-full table-fixed">
         <thead>
-          <tr className="text-center text-[#303972] text-sm font-semibold">
+          <tr className="text-center text-[--text-primary] text-sm font-semibold">
             <td>Domingo</td>
             <td>Segunda</td>
             <td>Terça</td>

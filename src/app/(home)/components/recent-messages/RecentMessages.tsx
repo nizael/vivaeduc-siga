@@ -12,11 +12,11 @@ const recentMessages = [
 export const RecentMessages = () => {
   return (
     <div className="flex flex-col gap-8">
-      <p className="text-2xl font-semibold text-[#303972]">Mensagens</p>
+      <p className="text-2xl font-semibold text-[--text-primary]">Mensagens</p>
       <ul className="flex-col flex gap-4">
         {recentMessages.map(message => <ListView key={message.id} message={message.message} sender={message.sender} image={message.image} hour={message.hour} />)}
       </ul>
-      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[#4D44B5] bg-opacity-10 text-[#4D44B5] font-semibold">Ver mais</Link>
+      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[--bg-primary] bg-opacity-10 text-[--text-primary] font-semibold">Ver mais</Link>
     </div>
   )
 }

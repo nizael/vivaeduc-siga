@@ -10,10 +10,10 @@ interface IEventCardProps {
 }
 export const EventCard = ({ date, hour, indexColor, subtitle, title }: IEventCardProps) => {
   const colors = {
-    0: 'border-[#4D44B5]',
+    0: 'border-[--bg-primary]',
     1: 'border-[#FB7D5B]',
     2: 'border-[#FCC43E]',
-    3: 'border-[#303972]',
+    3: 'border-[--text-primary]',
   }
   return (
     <div className={`w-full rounded-xl p-4 border-l-[16px] flex flex-col gap-4 shadow-sm ${colors[indexColor as keyof typeof colors]}`}>

@@ -9,10 +9,10 @@ const listDependents = [
 export const ListDependents = () => {
   return (
     <div className="flex flex-col gap-8 shadow-sm rounded-xl p-4 bg-gray-50">
-      <p className="text-xl font-semibold text-[#303972] px-4">Dependentes</p>
+      <p className="text-xl font-semibold text-[--text-primary] px-4">Dependentes</p>
       <table className="w-full">
         <thead className="p-4">
-          <tr className="text-xs font-semibold text-[#303972]">
+          <tr className="text-xs font-semibold text-[--text-primary]">
             <td className="p-4 w-[100px]">Imagems</td>
             <td className="p-4">Nome</td>
             <td className="p-4 text-center">Parentesco</td>

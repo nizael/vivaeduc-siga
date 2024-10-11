@@ -17,7 +17,7 @@ export const NavBar = () => {
 
 export const NavButton = ({ label }: { label: string, href: string }) => {
   return (
-    <Link href={'/'} className="flex items-center gap-1 shadow-sm bg-[#C1BBEB] bg-opacity-50 rounded-md font-semibold text-sm text-[#303972] px-4 py-2">
+    <Link href={'/'} className="flex items-center gap-1 shadow-sm bg-[#C1BBEB] bg-opacity-50 rounded-md font-semibold text-sm text-[--text-primary] px-4 py-2">
       {label}
     </Link>
   )

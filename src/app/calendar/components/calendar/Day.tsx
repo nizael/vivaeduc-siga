@@ -8,7 +8,7 @@ interface DayProps {
 }
 export const Day = ({ value, isToday, isSunday, isSaturday, selected }: DayProps) => {
   const dayClasses = [
-    isToday ? "bg-[#4D44B5] text-gray-50" : "text-[#303972]", // Dia atual
+    isToday ? "bg-[--bg-primary] text-gray-50" : "text-[--text-primary]", // Dia atual
     isSunday && "border-[#FB7D5B]", // Estilo de domingo
     isSaturday && "border-[#FCC43E]", // Estilo de sábado
     selected && !isToday && "bg-[#FB7D5B] text-gray-50" // Estilo de dia selecionado, mas não hoje

@@ -9,7 +9,7 @@ export const ListView = ({ classroomName, studentName, image }: { image?: string
           {image && <Image src={image} width={40} height={40} alt={studentName} />}
         </div>
         <div className="flex flex-col">
-          <p className="text-sm font-semibold text-[#303972]">{studentName}</p>
+          <p className="text-sm font-semibold text-[--text-primary]">{studentName}</p>
           <p className="text-xs text-gray-500">Turma: {classroomName}</p>
         </div>
       </div>

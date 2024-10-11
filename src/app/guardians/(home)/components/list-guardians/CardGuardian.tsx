@@ -20,10 +20,10 @@ export const CardGuardian = ({ guardianName, image, id }: ICardGuardianProps) =>
       <div className="flex flex-col items-end h-full justify-between w-full gap-4">
         <Link href={`/guardians/details/${id}`} className="w-[40px] h-[40px] rounded-full grid place-content-center text-gray-500 top-2 right-4"><DotsIcon /></Link>
         {/* <button className="w-[40px] h-[40px] rounded-full grid place-content-center text-gray-500 top-2 right-4"><DotsIcon /></button> */}
-        <p className="text-[#303972] font-bold text-xl text-start w-full">{guardianName}</p>
+        <p className="text-[--text-primary] font-bold text-xl text-start w-full">{guardianName}</p>
         <div className="flex gap-4">
-          <button className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[#4D44B5] text-gray-50"><CallIcon /></button>
-          <button className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[#4D44B5] text-gray-50"><EmailIcon /></button>
+          <button className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[--bg-primary] text-gray-50"><CallIcon /></button>
+          <button className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[--bg-primary] text-gray-50"><EmailIcon /></button>
         </div>
       </div>
 

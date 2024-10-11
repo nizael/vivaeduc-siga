@@ -61,12 +61,12 @@ export const Calendar = () => {
         </button>
       </div> */}
       <div className="flex justify-between py-2">
-        <h5 className="text-lg font-semibold text-[#303972]">Calendário Escolar</h5>
-        <button className=" text-[#303972]  h-[40px] flex items-center gap-2">Janeiro <span className="text-gray-500"><DropdownIcon /></span></button>
+        <h5 className="text-lg font-semibold text-[--text-primary]">Calendário Escolar</h5>
+        <button className=" text-[--text-primary]  h-[40px] flex items-center gap-2">Janeiro <span className="text-gray-500"><DropdownIcon /></span></button>
       </div>
       <table className="w-full table-fixed">
         <thead>
-          <tr className="text-center text-[#303972] text-sm font-semibold py-4">
+          <tr className="text-center text-[--text-primary] text-sm font-semibold py-4">
             <td className="py-4">Dom</td>
             <td className="py-4">Seg</td>
             <td className="py-4">Ter</td>

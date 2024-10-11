@@ -16,7 +16,7 @@ export const ListStudents = () => {
     <section className="bg-gray-50 rounded-xl w-full flex flex-col gap-4 overflow-x-auto">
       <table className="w-full">
         <thead className="p-4">
-          <tr className="text-xs font-semibold text-[#303972]">
+          <tr className="text-xs font-semibold text-[--text-primary]">
             <td className="p-4 w-12"><input type="checkbox" /></td>
             <td className="p-4">Nome</td>
             <td className="p-4">Matrícula</td>
@@ -27,9 +27,9 @@ export const ListStudents = () => {
           </tr>
         </thead>
         <tbody className="p-4">
-          {listStudents.map(student => <tr key={student.id} className="text-xs font-semibold text-[#4D44B5] border-l-[4px] border-transparent border-t border-t-gray-200 even:border-l-[#4D44B5]">
+          {listStudents.map(student => <tr key={student.id} className="text-xs font-semibold text-[--text-primary] border-l-[4px] border-transparent border-t border-t-gray-200 even:border-l-[--bg-primary]">
             <td className="p-4"><input type="checkbox" /></td>
-            <td className="p-4 text-[#303972] text-sm font-bold">{student.name}</td>
+            <td className="p-4 text-[--text-primary] text-sm font-bold">{student.name}</td>
             <td className="p-4">{student.code}</td>
             <td className="p-4 flex items-center gap-1 justify-center">
               <button className="w-[40px] h-[40px] grid place-content-center bg-gray-100 rounded-full"><CallIcon /></button>
