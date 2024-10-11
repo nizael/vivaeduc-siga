@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Cropper, ReactCropperElement } from "react-cropper";
 import 'cropperjs/dist/cropper.css';
+import { ImageIcon } from "./ImageIcon";
 
 export const ImageUpload = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -44,7 +45,7 @@ export const ImageUpload = () => {
   return (
     <div className="">
       {(image && isOpenCrop) && (
-        <div className="absolute top-0 left-1/2 z-20 p-10 rounded-md -translate-x-1/2 bg-sky-100 shadow-md flex flex-col gap-4">
+        <div className="absolute top-0 left-1/2 z-20 p-10 rounded-md -translate-x-1/2 bg-[#C1BBEB] shadow-md flex flex-col gap-4">
           <Cropper
             src={image}
             style={{ height: '400px', width: '400px' }}
@@ -54,12 +55,12 @@ export const ImageUpload = () => {
             initialAspectRatio={0.75}
           />
           <div className="flex items-center gap-2 justify-between">
-            <button type="button" className="bg-sky-200 p-2 rounded-md w-full" onClick={cancelCropped}>Cancelar</button>
-            <button type="button" className="bg-sky-200 p-2 rounded-md  w-full" onClick={getCroppedImage}>Recortar</button>
+            <button type="button" className="bg-[#4D44B5] text-gray-50 font-semibold p-2 rounded-md w-full" onClick={cancelCropped}>Cancelar</button>
+            <button type="button" className="bg-[#4D44B5] text-gray-50 font-semibold p-2 rounded-md  w-full" onClick={getCroppedImage}>Recortar</button>
           </div>
         </div>
       )}
-      <label htmlFor="file-upload" className={` w-[152px] h-[152px] bg-gray-50 p-1 flex items-center justify-center cursor-pointer rounded-md`}>
+      <label htmlFor="file-upload" className={` w-[152px] h-[152px] bg-gray-50 p-1 flex items-center justify-center cursor-pointer rounded-md text-[#C1BBEB] text-opacity-80 `}>
         {(croppedImage) && <Image src={croppedImage } alt="" width={120} height={160} className="rounded-lg" />}
         <input
           type="file"
@@ -68,7 +69,7 @@ export const ImageUpload = () => {
           className="hidden"
           onChange={handleImageChange}
         />
-        {/* {!croppedImage && <PhotoEditIcon className="w-full h-full opacity-10" />} */}
+        {!croppedImage && <ImageIcon/>}
       </label>
     </div>
   )

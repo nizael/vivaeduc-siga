@@ -1,5 +1,5 @@
 import { SearchIcon } from "@/components/icons/SearchIcon"
-import { ImageUpload } from "@/components/ImageUpload"
+import { ImageUpload } from "@/components/image-uploads/ImageUpload"
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { InputText } from "@/components/inputs/InputText"
 
