@@ -22,7 +22,7 @@ export const RecentStudents = () => {
       <ul className="flex-col flex gap-4">
         {recentStudents.map(student => <ListView key={student.id} classroomName={student.classroom} studentName={student.studentName} image={student.image} />)}
       </ul>
-      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[--bg-primary] bg-opacity-10 text-[--text-primary] font-semibold">Ver mais</Link>
+      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[--bg-secondary] text-[--text-primary] font-semibold">Ver mais</Link>
     </div>
   )
 }

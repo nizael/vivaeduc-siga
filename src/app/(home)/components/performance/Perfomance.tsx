@@ -1,3 +1,5 @@
+import { Chart } from "./Chart"
+
 export const Performance = () => {
   return (
     <section className="flex flex-col gap-4 rounded-lg bg-gray-50 shadow-sm p-8">
@@ -14,7 +16,8 @@ export const Performance = () => {
           </div>
         </div>
       </div>
-      <svg width="100%" height="339" viewBox="0 0 1006 339" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <Chart />
+      {/* <svg width="100%" height="339" viewBox="0 0 1006 339" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M66 0V282" stroke="#C1BBEB" />
         <path d="M148 0V282" stroke="#C1BBEB" />
         <path d="M234 0V282" stroke="#C1BBEB" />
@@ -60,7 +63,7 @@ export const Performance = () => {
             <stop offset="1" stopColor="#FB7D5B" stopOpacity="0" />
           </linearGradient>
         </defs>
-      </svg>
+      </svg> */}
     </section>
   )
 }

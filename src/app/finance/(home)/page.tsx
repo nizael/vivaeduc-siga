@@ -1,5 +1,6 @@
 import { LayoutWeb } from "../../../common/components/_layout/LayoutWeb";
 import { BalanceAnalytics } from "./components/balance-analytics/BalanceAnalytics";
+import { CashFlow } from "./components/cashflow/CashFlow";
 import { KpiSection } from "./components/kpi-section/KpiSection";
 
 export default function Finance() {
@@ -8,6 +9,7 @@ export default function Finance() {
       <div className="flex flex-col gap-8">
         <KpiSection />
         <BalanceAnalytics />
+        <CashFlow />
       </div>
     </LayoutWeb>
   );

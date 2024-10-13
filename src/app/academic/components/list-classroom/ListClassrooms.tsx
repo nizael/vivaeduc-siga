@@ -12,7 +12,7 @@ const classrooms = [
 export const ListClassrooms = () => {
   return (
     <section className="rounded-xl bg-gray-50 shadow-md flex flex-col max-h-[395px] h-full">
-      <div className="flex items-center justify-between p-4 bg-[#C1BBEB] bg-opacity-50 rounded-t-xl">
+      <div className="flex items-center justify-between p-4 bg-[--bg-tertiary] bg-opacity-50 rounded-t-xl">
         <div className="flex items-center gap-2 text-[--text-primary]">
           <ClassroomIcon />
           <p className="font-semibold text-lg">Turmas</p>
@@ -25,7 +25,7 @@ export const ListClassrooms = () => {
           <button className="w-[40px] h-[40px] grid place-content-center text-gray-500">{<DotsIcon />}</button>
         </li>)}
       </ul>
-      <button className="p-2 rounded-b-xl bg-[#C1BBEB] text-[--text-primary] font-semibold">Ver mais</button>
+      <button className="p-2 rounded-b-xl bg-[--bg-secondary] text-[--text-primary] font-semibold">Ver mais</button>
     </section>
   )
 }

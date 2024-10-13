@@ -7,6 +7,9 @@
   --foreground: #171717;
   --text-primary: #303972;
   --bg-primary: #4D44B5;
+  --bg-secondary:#C1BBEB;
+  --bg-tertiary:#dcd9f0;
+  --hover-primary: #C1BBEB;
 }
 
 /* @media (prefers-color-scheme: dark) {
