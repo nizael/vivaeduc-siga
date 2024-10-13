@@ -7,11 +7,11 @@ interface EnrollmentData {
   enrollments: number;
 }
 
-interface Props {
+interface IChartLineProps {
   data: EnrollmentData[];
 }
 
-const MonthlyEnrollmentsChart: React.FC<Props> = ({ data }) => {
+export const LineChart = ({ data }: IChartLineProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -119,5 +119,3 @@ const MonthlyEnrollmentsChart: React.FC<Props> = ({ data }) => {
     </div>
   );
 };
-
-export  {MonthlyEnrollmentsChart};

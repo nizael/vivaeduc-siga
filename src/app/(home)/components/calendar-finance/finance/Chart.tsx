@@ -1,4 +1,4 @@
-import { MonthlyFinanceChart } from "./MonthlyFinanceChart";
+import { BarChart } from "@/components/charts/BarChart";
 
 export const Chart = () => {
   const enrollmentData = [
@@ -17,7 +17,7 @@ export const Chart = () => {
   ];
 
   return (
-      <MonthlyFinanceChart data={enrollmentData} />
+      <BarChart data={enrollmentData} />
   );
 };
 

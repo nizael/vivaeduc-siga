@@ -1,4 +1,4 @@
-import { LineChart } from "@/components/charts/LineChart";
+import { CurveChart } from "@/components/charts/CurveChart";
 
 export const Chart = () => {
   const enrollmentData = [
@@ -17,7 +17,7 @@ export const Chart = () => {
   ];
 
   return (
-      <LineChart data={enrollmentData} />
+      <CurveChart data={enrollmentData} />
   );
 };
 

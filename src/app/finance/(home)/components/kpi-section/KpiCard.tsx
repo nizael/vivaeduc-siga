@@ -17,7 +17,7 @@ export const KpiCard = ({ score, title, amount, color, icon }: IKpiCardProps) =>
 
   }
   return (
-    <div className="flex gap-4 items-center bg-gray-50 p-6 rounded-xl shadow-sm">
+    <div className="flex gap-4 items-center bg-gray-50 p-6 rounded-xl shadow-sm flex-none">
       <div className={`w-[40px] h-[40px] rounded-full  text-gray-50 grid place-content-center  ${colors[color]}`}>
         {icon}
       </div>
