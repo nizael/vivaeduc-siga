@@ -14,7 +14,7 @@ export const FormEmployee = () => {
           </div>
         </summary>
         <div className="flex gap-4 p-4 ">
-          <div className="border rounded-lg border-[#C1BBEB]">
+          <div className="border rounded-lg border-[#C1BBEB] h-fit">
             <ImageUpload />
           </div>
           <div className="grid grid-cols-2 gap-4 p-4 w-full">

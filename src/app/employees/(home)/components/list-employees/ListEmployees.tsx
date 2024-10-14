@@ -14,9 +14,8 @@ export const ListEmployees = () => {
   return (
     <section className=" w-full flex flex-col gap-4">
       <div className="w-full flex gap-4 flex-wrap">
-      {listEmployees.map(employee => <CardEmployees key={employee.id} contact={employee.contact} employeeName={employee.name} employeeRole={employee.role} image={employee.image} />)}
+      {listEmployees.map(employee => <CardEmployees key={employee.id} id={employee.id} contact={employee.contact} employeeName={employee.name} employeeRole={employee.role} image={employee.image} />)}
       </div>
-
       <Pagination />
     </section>
 

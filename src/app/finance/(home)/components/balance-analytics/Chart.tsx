@@ -2,18 +2,18 @@ import { LineChart } from "@/components/charts/LineChart";
 
 export const Chart = () => {
   const enrollmentData = [
-    { month: 'Jan', enrollments: 30 },
-    { month: 'Fev', enrollments: 25 },
-    { month: 'Mar', enrollments: 40 },
-    { month: 'Abr', enrollments: 50 },
-    { month: 'Mai', enrollments: 45 },
-    { month: 'Jun', enrollments: 100 },
-    { month: 'Jul', enrollments: 55 },
-    { month: 'Ago', enrollments: 35 },
-    { month: 'Set', enrollments: 30 },
-    { month: 'Out', enrollments: 20 },
-    { month: 'Nov', enrollments: 40 },
-    { month: 'Dez', enrollments: 50 },
+    { month: 'Jan', enrollments: 30000 },
+    { month: 'Fev', enrollments: 25000 },
+    { month: 'Mar', enrollments: 40000 },
+    { month: 'Abr', enrollments: 50000 },
+    { month: 'Mai', enrollments: 45000 },
+    { month: 'Jun', enrollments: 123254.00 },
+    { month: 'Jul', enrollments: 55000 },
+    { month: 'Ago', enrollments: 35000 },
+    { month: 'Set', enrollments: 30000 },
+    { month: 'Out', enrollments: 20000 },
+    { month: 'Nov', enrollments: 40000 },
+    { month: 'Dez', enrollments: 50000 },
   ];
 
   return (

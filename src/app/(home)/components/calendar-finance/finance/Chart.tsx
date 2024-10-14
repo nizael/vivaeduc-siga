@@ -17,7 +17,9 @@ export const Chart = () => {
   ];
 
   return (
+    <div className="h-fit">
       <BarChart data={enrollmentData} />
+    </div>
   );
 };
 

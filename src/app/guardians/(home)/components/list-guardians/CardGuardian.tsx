@@ -1,8 +1,7 @@
 import { CallIcon } from "@/components/icons/CallIcon"
-import { DotsIcon } from "@/components/icons/DotsIcon"
 import { EmailIcon } from "@/components/icons/EmailIcon"
 import Image from "next/image"
-import Link from "next/link"
+import { NavMenu } from "@/components/nav-menu/NavMenu"
 
 interface ICardGuardianProps {
   image?: string
@@ -18,7 +17,10 @@ export const CardGuardian = ({ guardianName, image, id }: ICardGuardianProps) =>
         {image && <Image src={image} width={80} height={80} alt={guardianName} />}
       </div>
       <div className="flex flex-col items-end h-full justify-between w-full gap-4">
-        <Link href={`/guardians/details/${id}`} className="w-[40px] h-[40px] rounded-full grid place-content-center text-gray-500 top-2 right-4"><DotsIcon /></Link>
+        <NavMenu position="bottom" items={[
+          { href: `/guardians/details/${id}`, label: 'Detalhes' },
+          { href: `/guardians/details/${id}`, label: 'Editar' },
+        ]} />
         {/* <button className="w-[40px] h-[40px] rounded-full grid place-content-center text-gray-500 top-2 right-4"><DotsIcon /></button> */}
         <p className="text-[--text-primary] font-bold text-xl text-start w-full">{guardianName}</p>
         <div className="flex gap-4">

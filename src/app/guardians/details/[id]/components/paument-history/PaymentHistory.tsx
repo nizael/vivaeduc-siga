@@ -1,3 +1,5 @@
+import { FinanceIcon } from "@/components/icons/FinanceIcon"
+
 const payments = [
   { code: '#1125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
   { code: '#2125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
@@ -6,7 +8,10 @@ const payments = [
 export const PaymentHistory = () => {
   return (
     <div className="flex flex-col gap-8 shadow-sm rounded-xl p-4 bg-gray-50">
-      <p className="text-xl font-semibold text-[--text-primary] px-4">Histórico de Pagamentos</p>
+      <div className="flex text-[--text-primary] items-center  gap-2 px-4">
+        <FinanceIcon />
+        <p className="text-xl font-semibold">Histórico de Pagamentos</p>
+      </div>
       <table className="w-full">
         {/* <thead className="p-4">
           <tr className="text-xs font-semibold text-[--text-primary]">
@@ -20,7 +25,7 @@ export const PaymentHistory = () => {
         <tbody className="p-4">
           {payments.map(payment => <tr key={payment.code}>
             <td className="p-4 flex text-[--text-primary] font-semibold">
-              { payment.code}
+              {payment.code}
             </td>
             <td className="p-4 text-sm text-gray-500">{payment.date}</td>
             <td className="p-4 text-center text-[--text-primary] font-semibold">{payment.value}</td>

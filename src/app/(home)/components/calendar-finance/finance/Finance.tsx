@@ -2,7 +2,7 @@ import { Chart } from "./Chart"
 
 export const Finance = () => {
   return (
-    <section className="flex flex-col gap-4 rounded-lg bg-gray-50 shadow-sm p-6 max-h-[482px] w-full">
+    <section className="flex flex-col gap-4 rounded-lg bg-gray-50 shadow-sm p-6 w-full">
       <div className="text-[--text-primary] font-semibold flex  justify-between">
         <p className="text-lg">Finâncias</p>
         <div className="flex items-center gap-4">

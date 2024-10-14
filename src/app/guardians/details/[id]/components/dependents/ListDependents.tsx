@@ -1,4 +1,5 @@
 import { DotsIcon } from "@/components/icons/DotsIcon"
+import { Student2Icon } from "@/components/icons/Student2Icon"
 import Image from "next/image"
 
 const listDependents = [
@@ -9,7 +10,10 @@ const listDependents = [
 export const ListDependents = () => {
   return (
     <div className="flex flex-col gap-8 shadow-sm rounded-xl p-4 bg-gray-50">
-      <p className="text-xl font-semibold text-[--text-primary] px-4">Dependentes</p>
+      <div className="flex text-[--text-primary] items-center  gap-2 px-4">
+        <Student2Icon />
+        <p className="text-xl font-semibold">Dependentes</p>
+      </div>
       <table className="w-full">
         <thead className="p-4">
           <tr className="text-xs font-semibold text-[--text-primary]">

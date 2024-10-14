@@ -38,7 +38,7 @@ export const Calendar = () => {
   }
 
   return (
-    <div className=" w-full bg-gray-50 p-6 rounded-xl shadow-sm h-fit">
+    <div className="flex flex-col gap-4 w-full bg-gray-50 p-6 rounded-xl shadow-sm ">
       {/* <div className="flex justify-between items-center mb-4">
         <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}>
           Anterior
@@ -64,7 +64,7 @@ export const Calendar = () => {
         <h5 className="text-lg font-semibold text-[--text-primary]">Calendário Escolar</h5>
         <button className=" text-[--text-primary]  h-[40px] flex items-center gap-2">Janeiro <span className="text-gray-500"><DropdownIcon /></span></button>
       </div>
-      <table className="w-full table-fixed">
+      <table className="w-full h-full table-fixed">
         <thead>
           <tr className="text-center text-[--text-primary] text-sm font-semibold py-4">
             <td className="py-4">Dom</td>

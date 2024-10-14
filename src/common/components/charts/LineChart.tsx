@@ -55,7 +55,6 @@ export const LineChart = ({ data }: IChartLineProps) => {
 
       // Desenhar linhas de grade verticais
       const stepX = chartWidth / (data.length - 1);
-
       data.forEach((_, index) => {
         const x = padding + index * stepX;
         ctx.beginPath();
@@ -67,7 +66,6 @@ export const LineChart = ({ data }: IChartLineProps) => {
       // Desenhar o gráfico de linhas
       ctx.beginPath();
       ctx.moveTo(padding, height - padding - data[0].enrollments * stepY);
-
       data.forEach((item, index) => {
         const x = padding + index * stepX;
         const y = height - padding - item.enrollments * stepY;

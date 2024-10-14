@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { BellIcon } from "../icons/BellIcon"
 // import { SearchIcon } from "../icons/SearchIcon"
-import { SettingsIcon } from "../icons/SettingsIcon"
+// import { SettingsIcon } from "../icons/SettingsIcon"
 
 const user = {
   id: '1',
@@ -23,9 +23,9 @@ export const Header = ({ titlePage }: { titlePage: string }) => {
         <button className="grid place-content-center rounded-full bg-gray-50 p-1 text-slate-500">
           <BellIcon />
         </button>
-        <button className="grid place-content-center rounded-full bg-gray-50 p-1 text-slate-500">
+        {/* <button className="grid place-content-center rounded-full bg-gray-50 p-1 text-slate-500">
           <SettingsIcon />
-        </button>
+        </button> */}
         <div className="flex flex-col items-end">
           <p className="text-[--text-primary] font-semibold">{user.name}</p>
           <p className="text-xs text-gray-500">{user.role}</p>

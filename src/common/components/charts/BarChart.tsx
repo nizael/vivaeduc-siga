@@ -34,7 +34,7 @@ export const BarChart = ({ data }: IChartBarProps) => {
       ctx.clearRect(0, 0, width, height);
 
       // Definir o estilo do gráfico
-      const padding = 40;
+      const padding = 24;
       const chartWidth = width - 2 * padding;
       const chartHeight = height - 2 * padding;
 
@@ -101,7 +101,7 @@ export const BarChart = ({ data }: IChartBarProps) => {
   }, [data]);
 
   return (
-    <div ref={containerRef} className="w-full">
+    <div ref={containerRef} className="w-full h-full">
       <canvas ref={canvasRef}></canvas>
     </div>
   );
