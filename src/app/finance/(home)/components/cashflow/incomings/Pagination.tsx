@@ -1,21 +1,20 @@
 'use client'
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { useEffect, useState } from "react"
-import { useEmployeesStore } from "../../../stores/useEmployeesStore"
-
+import { useIncomingStore } from "../../../stores/useIncomingStore"
 
 export const Pagination = () => {
-  const { listEmployees, setCurrentPage, currentPage, } = useEmployeesStore()
+  const { listIncomings, setCurrentPage, currentPage, } = useIncomingStore()
 
   const [pageNumbers, setPageNumbers] = useState<number[]>([])
 
   useEffect(() => {
-    if (listEmployees) {
-      const pageAmount = Math.ceil(listEmployees.length / 10);
+    if (listIncomings) {
+      const pageAmount = Math.ceil(listIncomings.length / 5);
       const pageNumbers = Array.from({ length: pageAmount }, (_, index) => index + 1);
       setPageNumbers(pageNumbers)
     }
-  }, [listEmployees])
+  }, [listIncomings])
 
   const previousPage = () => {
     if (currentPage > 1)
@@ -28,7 +27,7 @@ export const Pagination = () => {
   }
 
   return (
-    <div className="flex items-center justify-between w-full">
+    <div className="flex items-center justify-between">
       <p className="text-xs text-gray-500">Exibindo <b>{currentPage}-{pageNumbers.length}</b> paginas</p>
       <div className="flex items-center gap-2">
         <button onClick={previousPage} className="w-[40px] h-[40px] rounded-full grid place-content-center text-gray-500 rotate-90"><DropdownIcon /></button>

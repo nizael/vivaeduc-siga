@@ -6,7 +6,7 @@ import { KpiSection } from "./components/kpi-section/KpiSection";
 export default function Finance() {
   return (
     <LayoutWeb titlePage="Financeiro">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4">
         <KpiSection />
         <BalanceAnalytics />
         <CashFlow />

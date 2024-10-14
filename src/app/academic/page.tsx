@@ -8,7 +8,7 @@ import { Overview } from "./components/overview/Overview";
 export default function Academic() {
   return (
     <LayoutWeb titlePage="Acadêmico">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4">
         <Overview />
         <NavBar />
         <div className="grid grid-cols-2 gap-4">

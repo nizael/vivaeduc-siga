@@ -5,7 +5,7 @@ import { FormStudent } from "./components/FormStudent";
 export default function StudentsCreatePage() {
   return (
     <LayoutWeb titlePage="Novo Alunos">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4">
         <FormStudent />
       </div>
     </LayoutWeb>

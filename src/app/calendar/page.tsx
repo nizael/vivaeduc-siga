@@ -7,7 +7,7 @@ export default function CalendarPage() {
   return (
     <LayoutWeb titlePage="Calendário">
       <div className="flex gap-4 h-full">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           <ToolBar />
           <Calendar />
         </div>

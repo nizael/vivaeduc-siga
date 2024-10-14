@@ -37,7 +37,7 @@ export const Calendar = () => {
   }
 
   return (
-    <section className=" bg-gray-50 p-4 rounded-lg shadow-md">
+    <section className=" bg-gray-50 p-4 rounded-lg shadow-md h-full">
       {/* <div className="flex justify-between items-center mb-4">
         <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}>
           Anterior
@@ -59,7 +59,7 @@ export const Calendar = () => {
           Próximo
         </button>
       </div> */}
-      <table className="w-full table-fixed">
+      <table className="w-full table-fixed h-full">
         <thead>
           <tr className="text-center text-[--text-primary] text-sm font-semibold">
             <td>Domingo</td>
@@ -80,13 +80,13 @@ export const Calendar = () => {
                     isToday={today.getDate() === day && currentDate.getMonth() === today.getMonth() && currentDate.getFullYear() === today.getFullYear()}
                     isSunday={dayIndex === 0}
                     isSaturday= {dayIndex === 6}
-                  /> : <div className="border rounded-xl p-2 w-full h-[130px] " />}
+                  /> : <div className="border rounded-xl p-2 w-full h-full" />}
                 </td>
               ))}
               {/* Se a última semana tiver menos de 7 dias, preenche com células vazias */}
               {week.length < 7 &&
                 Array.from({ length: 7 - week.length }).map((_, i) => (
-                  <td key={`empty-${i}`} className="p-2 " ><div className="border rounded-xl p-2 w-full h-[130px] " /></td>
+                  <td key={`empty-${i}`} className="p-2 " ><div className="border rounded-xl p-2 w-full h-full" /></td>
                 ))}
             </tr>
           ))}

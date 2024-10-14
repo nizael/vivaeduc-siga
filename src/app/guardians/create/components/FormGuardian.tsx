@@ -5,7 +5,7 @@ import { InputText } from "@/components/inputs/InputText"
 
 export const FormGuardian = () => {
   return (
-    <form action="" className="flex flex-col gap-8">
+    <form action="" className="flex flex-col gap-4">
       <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm">
         <summary>
           <div className="rounded-t-lg bg-[--bg-primary] px-4 py-2 text-gray-50 flex items-center justify-between">

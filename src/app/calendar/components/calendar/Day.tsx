@@ -15,7 +15,7 @@ export const Day = ({ value, isToday, isSunday, isSaturday, selected }: DayProps
   ].filter(Boolean).join(" ")
 
   return (
-    <div className={`border rounded-xl p-2 w-full h-[130px] ${dayClasses}`}>
+    <div className={`border rounded-xl p-2 w-full h-full ${dayClasses}`}>
       <span className="text-lg font-semibold ">{value}</span>
     </div>
   )

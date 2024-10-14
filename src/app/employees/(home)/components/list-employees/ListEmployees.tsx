@@ -1,20 +1,24 @@
+'use client'
+import { useEffect } from "react"
+import { IEmployees, useEmployeesStore } from "../../../stores/useEmployeesStore"
 import { CardEmployees } from "./CardEmployees"
 import { Pagination } from "./Pagination"
 
-const listEmployees = [
-  { id: '1', image:'/temp/employee.jpg', name: 'Samanta William', code: '#123456789', contact: { email: 's@email', phone: '123' }, role: 'Science', classroom: '8-FND' },
-  { id: '2', image:'/temp/employee.jpg', name: 'Tony Soap', code: '#123456789', contact: { email: 's@email', phone: '123' }, role: 'Science', classroom: '8-FND' },
-  { id: '3', image:'/temp/employee.jpg', name: 'Karen Hope', code: '#123456789', contact: { email: 's@email', phone: '123' }, role: 'Science', classroom: '8-FND' },
-  { id: '4', image:'/temp/employee.jpg', name: 'Jordan Nico', code: '#123456789', contact: { email: 's@email', phone: '123' }, role: 'Science', classroom: '8-FND' },
-  { id: '5', image:'/temp/employee.jpg', name: 'Nadila Adja', code: '#123456789', contact: { email: 's@email', phone: '123' }, role: 'Science', classroom: '8-FND' },
-  { id: '6', image:'/temp/employee.jpg', name: 'Johnny Ahmad', code: '#123456789', contact: { email: 's@email', phone: '123' }, role: 'Science', classroom: '8-FND' },
-  { id: '7', image:'/temp/employee.jpg', name: 'Johnny Ahmad', code: '#123456789', contact: { email: 's@email', phone: '123' }, role: 'Science', classroom: '8-FND' },
-]
-export const ListEmployees = () => {
+
+export const ListEmployees = ({ employees }: { employees: IEmployees[] }) => {
+
+  const { setListEmployees, employeesView } = useEmployeesStore()
+
+  useEffect(() => {
+    if (employees) setListEmployees(employees)
+  }, [employees])
+
   return (
-    <section className=" w-full flex flex-col gap-4">
-      <div className="w-full flex gap-4 flex-wrap">
-      {listEmployees.map(employee => <CardEmployees key={employee.id} id={employee.id} contact={employee.contact} employeeName={employee.name} employeeRole={employee.role} image={employee.image} />)}
+    <section className="grow bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
+      <div className="grow">
+        <div className="w-full grid grid-cols-5 gap-4">
+          {employeesView?.map(employee => <CardEmployees key={employee.id} id={employee.id} contact={employee.contact} employeeName={employee.name} employeeRole={employee.role} image={employee.image} />)}
+        </div>
       </div>
       <Pagination />
     </section>

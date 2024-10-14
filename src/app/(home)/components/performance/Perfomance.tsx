@@ -2,7 +2,7 @@ import { Chart } from "./Chart"
 
 export const Performance = () => {
   return (
-    <section className="flex flex-col gap-4 rounded-lg bg-gray-50 shadow-sm p-8">
+    <section className="flex flex-col gap-4 rounded-lg bg-gray-50 shadow-sm p-4">
       <div className="text-[--text-primary] font-semibold flex justify-between">
         <p className="text-lg">Performance da escola</p>
         <div className="flex items-center gap-4">

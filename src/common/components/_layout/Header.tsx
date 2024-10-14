@@ -14,12 +14,12 @@ const user = {
 
 export const Header = ({ titlePage }: { titlePage: string }) => {
   return (
-    <header className="flex items-center justify-between">
-      <div className="flex items-center justify-between grow  p-4">
+    <header className="col-start-2 col-end-3 flex items-center justify-between  px-4 gap-4 border-b">
+      <div className="flex items-center justify-between grow">
         <h1 className="text-[--text-primary] text-3xl font-semibold">{titlePage}</h1>
         {/* <button className="flex gap-2 px-4 py-1 bg-gray-50 max-w-96 w-full flex-none rounded-full text-[--text-primary]"><SearchIcon /><span className="text-slate-500">Pesquisar por...</span></button> */}
       </div>
-      <div className="flex items-center gap-4  p-4">
+      <div className="flex items-center gap-4">
         <button className="grid place-content-center rounded-full bg-gray-50 p-1 text-slate-500">
           <BellIcon />
         </button>

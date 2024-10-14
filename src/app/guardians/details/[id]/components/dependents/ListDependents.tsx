@@ -9,7 +9,7 @@ const listDependents = [
 
 export const ListDependents = () => {
   return (
-    <div className="flex flex-col gap-8 shadow-sm rounded-xl p-4 bg-gray-50">
+    <div className="flex flex-col gap-4 shadow-sm rounded-xl p-4 bg-gray-50">
       <div className="flex text-[--text-primary] items-center  gap-2 px-4">
         <Student2Icon />
         <p className="text-xl font-semibold">Dependentes</p>

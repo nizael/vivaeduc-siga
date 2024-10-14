@@ -25,7 +25,7 @@ export const UserData = () => {
       <div className="absolute top-36 -translate-y-1/2 left-8 w-36 h-36 rounded-full border-[8px] bg-[#C1BBEB] border-gray-50 overflow-hidden shadow-sm">
         <Image src={userData.logo} alt="scholl" width={144} height={144} />
       </div>
-      <div className="p-8 mt-14 flex flex-col gap-4 relative">
+      <div className="p-4 mt-14 flex flex-col gap-4 relative">
         <button className="absolute top-0 right-10 text-[--text-primary]"><EditIcon /></button>
         <h5 className="text-2xl font-semibold text-[--text-primary]">{userData.name}</h5>
         <div className="flex flex-col gap-4">

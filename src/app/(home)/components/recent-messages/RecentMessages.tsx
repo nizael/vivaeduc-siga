@@ -11,7 +11,7 @@ const recentMessages = [
 
 export const RecentMessages = () => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <p className="text-2xl font-semibold text-[--text-primary]">Mensagens</p>
       <ul className="flex-col flex gap-4">
         {recentMessages.map(message => <ListView key={message.id} message={message.message} sender={message.sender} image={message.image} hour={message.hour} />)}

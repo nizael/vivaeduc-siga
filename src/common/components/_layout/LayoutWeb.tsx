@@ -7,14 +7,12 @@ type ILayoutWebProps = PropsWithChildren & {
 }
 export const LayoutWeb = ({ titlePage, children }: ILayoutWebProps) => {
   return (
-    <div className="flex w-full h-full">
+    <div className="grid grid-cols-[250px,1fr] grid-rows-[66px,1fr]  w-full h-full">
       <Aside />
-      <div className="flex flex-col gap-2 grow overflow-auto">
-        <Header titlePage={titlePage} />
-        <main className="p-4 flex flex-col gap-4 h-full overflow-y-auto">
-          {children}
-        </main>
-      </div>
+      <Header titlePage={titlePage} />
+      <main className="flex flex-col gap-4 overflow-y-auto p-4">
+        {children}
+      </main>
     </div>
   )
 }
