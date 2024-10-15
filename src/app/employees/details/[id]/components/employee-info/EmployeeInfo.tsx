@@ -1,12 +1,14 @@
 import { EditIcon } from "@/components/icons/EditIcon"
 import Image from "next/image"
-import { FieldData } from "./FieldData"
+import { FieldData } from "../field-data/FieldData"
 import { CallIcon } from "@/components/icons/CallIcon"
 import { EmailIcon } from "@/components/icons/EmailIcon"
-import { EmployeeDetails } from "./EmployeeDatails"
+import { EmployeeDetails } from "../details/EmployeeDatails"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
+import Link from "next/link"
 
 const employeeData = {
+  id: '122',
   image: '/temp/employee.jpg',
   name: 'Thalita Valente',
   address: 'Passagem Dom Jorge, Belém',
@@ -25,7 +27,7 @@ const employeeData = {
   role: 'TEACHER'
 }
 
-export const EmployeeData = () => {
+export const EmployeeInfo = () => {
 
   return (
     <section className="rounded-xl bg-gray-50 shadow-md relative flex flex-col gap-4 ">
@@ -38,8 +40,11 @@ export const EmployeeData = () => {
           <Image src={employeeData.image} alt="scholl" width={144} height={144} />
         </div>
         <div className="p-4 mt-14 flex flex-col gap-4 relative">
-          <button className="absolute top-0 right-10 text-[--text-primary]"><EditIcon /></button>
-          <h5 className="text-2xl font-semibold text-[--text-primary]">{employeeData.name}</h5>
+          {/* <button className="absolute top-0 right-10 text-[--text-primary]"><EditIcon /></button> */}
+          <div className="flex items-center justify-between">
+            <h5 className="text-2xl font-semibold text-[--text-primary]">{employeeData.name}</h5>
+            <Link href={`/students/update/${employeeData.id}`} className="shadow-sm text-[--text-primary] text-sm font-semibold  rounded-full h-[40px] px-4 flex items-center gap-1"><EditIcon /> Editar</Link>
+          </div>
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <FieldData field="Endereço" value={employeeData.address} icon={<LocationIcon />} />

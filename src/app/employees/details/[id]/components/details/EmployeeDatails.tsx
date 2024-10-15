@@ -1,5 +1,5 @@
 import { DotsIcon } from "@/components/icons/DotsIcon"
-import { FieldData } from "./FieldData"
+import { FieldData } from "../field-data/FieldData"
 import { UserEditIcon } from "@/components/icons/UserEditiIcon"
 
 interface IEmployeeDetails {
@@ -23,8 +23,8 @@ interface IEmployeeDetails {
 
 export const EmployeeDetails = ({ employeeData }: { employeeData: IEmployeeDetails }) => {
   return (
-    <details className=" rounded-b-xl bg-gray-50  group">
-        <summary className="px-4 grid grid-cols-3 bg-[--bg-tertiary] place-items-center text-gray-500 py-2"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon/> Dados pessoais</span> <DotsIcon /> <span /></summary>
+    <details open className=" rounded-b-xl bg-gray-50  group">
+        <summary className="px-4 grid grid-cols-3 group-open:rounded-b-none rounded-b-xl bg-[--bg-tertiary] place-items-center text-gray-500 py-2"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon/> Dados pessoais</span> <DotsIcon /> <span /></summary>
       <div className="relative grid grid-cols-4 gap-4  p-6">
         <FieldData field="Data de nascimento" value={employeeData.dateOfBirth} />
         <FieldData field="Estado civil" value={employeeData.maritalStatus} />

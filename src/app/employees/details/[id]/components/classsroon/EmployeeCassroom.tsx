@@ -8,7 +8,7 @@ const classrooms = [
   { id: '5', name: '5º ANO', academicYear: '2021', grade: '4º Ano', status: 'Concluído' },
 ]
 
-export const StudentClassrooms = () => {
+export const EmployeeClassrooms = () => {
   return (
     <section className="rounded-xl bg-gray-50 shadow-md flex flex-col max-h-[395px]">
       <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl px-4 p-2 bg-[--bg-tertiary] ">

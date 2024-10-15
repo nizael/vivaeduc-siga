@@ -1,5 +1,5 @@
 import { DotsIcon } from "@/components/icons/DotsIcon"
-import { FieldData } from "./FieldData"
+import { FieldData } from "../field-data/FieldData"
 import { UserEditIcon } from "@/components/icons/UserEditiIcon"
 
 interface IGuardianDetails {

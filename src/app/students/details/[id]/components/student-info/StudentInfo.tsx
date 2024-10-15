@@ -6,10 +6,12 @@ import { EmailIcon } from "@/components/icons/EmailIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
 import { StudentDetails } from "../details/StudentDatails"
 import { MedicalRecord } from "../medical-record/MedicalRecord"
+import Link from "next/link"
 
 
 
 const studentData = {
+  id: '4',
   image: '/temp/employee.jpg',
   name: 'Thalita Valente',
   address: 'Passagem Dom Jorge, Belém',
@@ -41,11 +43,16 @@ export const StudentInfo = () => {
           <div className="w-[261px] h-[275px] rounded-3xl bg-[#FCC43E]  " />
         </div>
         <div className="absolute top-36 -translate-y-1/2 left-8 w-36 h-36 rounded-full border-[8px] bg-[#C1BBEB] border-gray-50 overflow-hidden shadow-sm">
-          <Image src={studentData.image} alt="scholl" width={144} height={144} />
+          <Image src={studentData.image} alt={studentData.name} width={144} height={144} />
         </div>
         <div className="p-4 mt-14 flex flex-col gap-4 relative">
-          <button className="absolute top-0 right-10 text-[--text-primary]"><EditIcon /></button>
-          <h5 className="text-2xl font-semibold text-[--text-primary]">{studentData.name}</h5>
+          <div className="flex items-center justify-between">
+            <h5 className="text-2xl font-semibold text-[--text-primary]">{studentData.name}</h5>
+            <div className="flex items-center top-0 right-10 gap-4">
+              <Link href={'/students/create'} className="shadow-sm text-sm font-semibold text-[--text-primary] rounded-full h-[40px] px-4 flex items-center gap-1"><b className="text-2xl">+</b> Nova matrícula</Link>
+              <Link href={`/students/update/${studentData.id}`} className="shadow-sm text-[--text-primary] text-sm font-semibold  rounded-full h-[40px] px-4 flex items-center gap-1"><EditIcon /> Editar</Link>
+            </div>
+          </div>
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <FieldData field="Endereço" value={studentData.address} icon={<LocationIcon />} />

@@ -1,9 +1,9 @@
 import Image from "next/image"
-import { FieldData } from "./FieldData"
+import { FieldData } from "../field-data/FieldData"
 import { CallIcon } from "@/components/icons/CallIcon"
 import { EmailIcon } from "@/components/icons/EmailIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
-import { GuardianDetails } from "./GuardianDatails"
+import { GuardianDetails } from "../details/GuardianDatails"
 import { EditIcon } from "@/components/icons/EditIcon"
 
 const guardianData = {
@@ -26,7 +26,7 @@ const guardianData = {
   workPhone: '91 9 8888-8888'
 }
 
-export const GuardianData = () => {
+export const GuardianInfo = () => {
 
   return (
     <section className="rounded-xl bg-gray-50 shadow-sm relative">

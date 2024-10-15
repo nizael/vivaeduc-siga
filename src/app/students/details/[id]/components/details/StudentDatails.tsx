@@ -3,6 +3,7 @@ import { FieldData } from "../field-data/FieldData"
 import { UserEditIcon } from "@/components/icons/UserEditiIcon"
 
 interface IStudentDetails {
+  id: string
   image: string
   name: string
   address: string
