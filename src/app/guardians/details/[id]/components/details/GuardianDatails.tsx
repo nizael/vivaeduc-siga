@@ -25,7 +25,7 @@ export const GuardianDetails = ({ guardianData }: { guardianData: IGuardianDetai
   return (
     <details open className=" rounded-b-xl bg-gray-50 group">
       {/* <summary className="flex justify-center  text-gray-500 p-2"><DotsIcon /></summary> */}
-      <summary className="px-4 grid grid-cols-3  group-open:rounded-b-none rounded-b-xl bg-[--bg-tertiary] place-items-center text-gray-500 py-2"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
+      <summary className="px-4 grid grid-cols-3  border-t p-4 place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
       <div className="relative grid grid-cols-4 gap-4  p-6">
         <FieldData field="Data de nascimento" value={guardianData?.dateOfBirth || '-'} />
         <FieldData field="Estado civil" value={guardianData?.maritalStatus || '-'} />

@@ -2,8 +2,8 @@
 import React, { useEffect, useRef } from 'react'
 
 interface EnrollmentData {
-  month: string
-  enrollments: number
+  label: string
+  value: number
 }
 
 interface IChartBarProps {
@@ -30,17 +30,17 @@ export const BarChart = ({ data }: IChartBarProps) => {
       const height = canvas.height
       ctx.clearRect(0, 0, width, height)
 
-      const padding = 24
+      const padding = (Math.max(...data.map(data => data.value)).toString().length - 1) * 8 + 18
       const chartWidth = width - 2 * padding
       const chartHeight = height - 2 * padding
 
-      const maxEnrollment = Math.max(...data.map((item) => item.enrollments))
-      const stepY = chartHeight / maxEnrollment
+      const maxValue = Math.max(...data.map((item) => item.value))
+      const stepY = chartHeight / maxValue
 
       ctx.strokeStyle = 'rgba(200, 200, 200, 0.5)'
       ctx.lineWidth = 1
 
-      for (let i = 0; i <= maxEnrollment; i += Math.floor(maxEnrollment / 5)) {
+      for (let i = 0; i <= maxValue; i += Math.floor(maxValue / 5)) {
         const y = height - padding - i * stepY
         ctx.beginPath()
         ctx.moveTo(padding, y)
@@ -64,8 +64,8 @@ export const BarChart = ({ data }: IChartBarProps) => {
 
       data.forEach((item, index) => {
         const x = padding + index * stepX + (stepX - barWidth) / 2
-        const y = height - padding - item.enrollments * stepY
-        const barHeight = item.enrollments * stepY
+        const y = height - padding - item.value * stepY
+        const barHeight = item.value * stepY
 
         ctx.fillRect(x, y, barWidth, barHeight)
       })
@@ -76,12 +76,12 @@ export const BarChart = ({ data }: IChartBarProps) => {
       ctx.textAlign = 'center'
       data.forEach((item, index) => {
         const x = padding + index * stepX + stepX / 2
-        ctx.fillText(item.month, x, height - 10)
+        ctx.fillText(item.label, x, height - 10)
       })
 
 
       ctx.textAlign = 'right'
-      for (let i = 0; i <= maxEnrollment; i += Math.floor(maxEnrollment / 5)) {
+      for (let i = 0; i <= maxValue; i += Math.floor(maxValue / 5)) {
         const y = height - padding - i * stepY
         ctx.fillText(i.toString(), padding - 10, y + 5)
       }

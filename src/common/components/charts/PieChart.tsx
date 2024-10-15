@@ -2,8 +2,8 @@
 import React, { useEffect, useRef } from 'react'
 
 interface EnrollmentData {
-  month: string
-  enrollments: number
+  label: string
+  value: number
 }
 
 interface IPieChartProps {
@@ -30,7 +30,7 @@ export const PieChart = ({ data }: IPieChartProps) => {
       const height = canvas.height
       ctx.clearRect(0, 0, width, height)
 
-      const totalEnrollments = data.reduce((total, item) => total + item.enrollments, 0)
+      const totalValue = data.reduce((total, item) => total + item.value, 0)
 
       const centerX = width / 2
       const centerY = height / 2
@@ -48,7 +48,7 @@ export const PieChart = ({ data }: IPieChartProps) => {
 
       let startAngle = 0
       data.forEach((item, index) => {
-        const sliceAngle = (item.enrollments / totalEnrollments) * 2 * Math.PI
+        const sliceAngle = (item.value / totalValue) * 2 * Math.PI
         const endAngle = startAngle + sliceAngle
 
         ctx.beginPath()
@@ -64,7 +64,7 @@ export const PieChart = ({ data }: IPieChartProps) => {
         ctx.fillStyle = 'white'
         ctx.font = '14px Arial'
         ctx.textAlign = 'center'
-        ctx.fillText(item.month, textX, textY)
+        ctx.fillText(item.label, textX, textY)
 
         startAngle = endAngle
       })
@@ -72,7 +72,7 @@ export const PieChart = ({ data }: IPieChartProps) => {
       ctx.fillStyle = 'black'
       ctx.font = '16px Arial'
       ctx.textAlign = 'center'
-      ctx.fillText(`Total: ${totalEnrollments}`, centerX, centerY)
+      ctx.fillText(`Total: ${totalValue}`, centerX, centerY)
     }
 
     resizeCanvas() 

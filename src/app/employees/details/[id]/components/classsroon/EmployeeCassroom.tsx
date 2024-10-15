@@ -11,9 +11,11 @@ const classrooms = [
 export const EmployeeClassrooms = () => {
   return (
     <section className="rounded-xl bg-gray-50 shadow-md flex flex-col max-h-[395px]">
-      <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl px-4 p-2 bg-[--bg-tertiary] ">
-        <ClassroomIcon />
-        <p className="font-semibold">Turmas</p>
+      <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl p-4 border-b">
+        <h5 className="text-[--text-primary] font-semibold flex items-center gap-2">
+          <ClassroomIcon />
+          Turmas
+        </h5>
       </div>
 
       <table className=" overflow-y-auto h-full ">
@@ -27,10 +29,10 @@ export const EmployeeClassrooms = () => {
         </thead>
         <tbody>
           {classrooms.map(classroom => <tr key={classroom.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary]">
-            <td className="px-4 py-2"> {classroom.name}</td>
-            <td className="px-4 py-2 text-center"> {classroom.academicYear}</td>
-            <td className="px-4 py-2 text-center"> {classroom.grade}</td>
-            <td className="px-4 py-2 text-end"> {classroom.status}</td>
+            <td className="p-4"> {classroom.name}</td>
+            <td className="p-4 text-center"> {classroom.academicYear}</td>
+            <td className="p-4 text-center"> {classroom.grade}</td>
+            <td className="p-4 text-end"> {classroom.status}</td>
           </tr>)}
         </tbody>
       </table>

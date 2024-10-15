@@ -2,8 +2,8 @@
 import React, { useEffect, useRef } from 'react'
 
 interface EnrollmentData {
-  month: string
-  enrollments: number
+  label: string
+  value: number
 }
 
 interface IChartLineProps {
@@ -30,11 +30,11 @@ export const LineChart = ({ data }: IChartLineProps) => {
       const height = canvas.height
       ctx.clearRect(0, 0, width, height)
 
-      const padding = 40
+      const padding = (Math.max(...data.map(data => data.value)).toString().length - 1) * 8 + 18
       const chartWidth = width - 2 * padding
       const chartHeight = height - 2 * padding
 
-      const maxEnrollment = Math.max(...data.map((item) => item.enrollments))
+      const maxEnrollment = Math.max(...data.map((item) => item.value))
       const stepY = chartHeight / maxEnrollment
 
       ctx.strokeStyle = 'rgba(200, 200, 200, 0.5)'
@@ -58,10 +58,10 @@ export const LineChart = ({ data }: IChartLineProps) => {
       })
 
       ctx.beginPath()
-      ctx.moveTo(padding, height - padding - data[0].enrollments * stepY)
+      ctx.moveTo(padding, height - padding - data[0].value * stepY)
       data.forEach((item, index) => {
         const x = padding + index * stepX
-        const y = height - padding - item.enrollments * stepY
+        const y = height - padding - item.value * stepY
         ctx.lineTo(x, y)
       })
 
@@ -71,7 +71,7 @@ export const LineChart = ({ data }: IChartLineProps) => {
 
       data.forEach((item, index) => {
         const x = padding + index * stepX
-        const y = height - padding - item.enrollments * stepY
+        const y = height - padding - item.value * stepY
         ctx.beginPath()
         ctx.arc(x, y, 5, 0, 2 * Math.PI)
         ctx.fillStyle = '#FB7D5B'
@@ -83,7 +83,7 @@ export const LineChart = ({ data }: IChartLineProps) => {
       ctx.textAlign = 'center'
       data.forEach((item, index) => {
         const x = padding + index * stepX
-        ctx.fillText(item.month, x, height - 10)
+        ctx.fillText(item.label, x, height - 10)
       })
 
       ctx.textAlign = 'right'

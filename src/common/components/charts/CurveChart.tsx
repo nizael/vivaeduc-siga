@@ -2,8 +2,8 @@
 import React, { useEffect, useRef } from 'react'
 
 interface EnrollmentData {
-  month: string
-  enrollments: number
+  label: string
+  value: number
 }
 
 interface Props {
@@ -34,8 +34,8 @@ export const CurveChart: React.FC<Props> = ({ data }) => {
 
       ctx.clearRect(0, 0, width, height)
 
-      const maxEnrollment = Math.max(...data.map((item) => item.enrollments))
-      const stepY = chartHeight / maxEnrollment
+      const maxValue = Math.max(...data.map((item) => item.value))
+      const stepY = chartHeight / maxValue
       const stepX = chartWidth / (data.length - 1)
 
       ctx.strokeStyle = '#4CBC9A' 
@@ -44,13 +44,13 @@ export const CurveChart: React.FC<Props> = ({ data }) => {
 
       data.forEach((item, index) => {
         const x = padding + index * stepX
-        const y = height - padding - item.enrollments * stepY
+        const y = height - padding - item.value * stepY
         
         if (index === 0) {
           ctx.moveTo(x, y)
         } else {
           const prevX = padding + (index - 1) * stepX
-          const prevY = height - padding - data[index - 1].enrollments * stepY
+          const prevY = height - padding - data[index - 1].value * stepY
           const cp1x = prevX + stepX / 2 
           const cp1y = prevY
           const cp2x = x - stepX / 2 

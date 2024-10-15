@@ -24,7 +24,7 @@ interface IStudentDetails {
 export const StudentDetails = ({ studentData }: { studentData: IStudentDetails }) => {
   return (
       <details open className=" rounded-b-x ">
-        <summary className="px-4 grid grid-cols-3 bg-[--bg-tertiary] place-items-center text-gray-500 py-2"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon/> Dados pessoais</span> <DotsIcon /> <span /></summary>
+        <summary className="p-4 grid grid-cols-3 border-t  place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon/> Dados pessoais</span> <DotsIcon /> <span /></summary>
         <div className="relative grid grid-cols-4 gap-4  p-4">
           <FieldData field="Matrícula" value={studentData?.code || '-'} />
           <FieldData field="INEP" value={studentData?.inep || '-'} />

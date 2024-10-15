@@ -12,11 +12,11 @@ const classrooms = [
 export const ListClassrooms = () => {
   return (
     <section className="rounded-xl bg-gray-50 shadow-md flex flex-col max-h-[395px] h-full">
-      <div className="flex items-center justify-between p-4 bg-[--bg-tertiary] bg-opacity-50 rounded-t-xl">
-        <div className="flex items-center gap-2 text-[--text-primary]">
+      <div className="flex items-center justify-between p-4 bg-opacity-50 rounded-t-xl">
+        <h3 className="text-[--text-primary] font-semibold flex items-center gap-2">
           <ClassroomIcon />
-          <p className="font-semibold text-lg">Turmas</p>
-        </div>
+          Turmas
+        </h3>
         <Link href={'/'} className="text-2xl font-bold text-gray-50 bg-[--bg-primary] w-[40px] h-[40px] rounded-full grid place-content-center">+</Link>
       </div>
       <ul className=" overflow-y-auto h-full">
@@ -25,7 +25,7 @@ export const ListClassrooms = () => {
           <button className="w-[40px] h-[40px] grid place-content-center text-gray-500">{<DotsIcon />}</button>
         </li>)}
       </ul>
-      <button className="p-2 rounded-b-xl bg-[--bg-secondary] text-[--text-primary] font-semibold">Ver mais</button>
+      <button className="p-2 rounded-b-xl bg-[--bg-tertiary] text-[--text-primary] font-semibold">Ver mais</button>
     </section>
   )
 }

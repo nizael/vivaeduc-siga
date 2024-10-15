@@ -152,7 +152,7 @@ export const CustomSelect = ({
           disabled={disabled}
           onClick={toggleDropdown}
           className={`${disabled ? 'bg-gray-200' : 'bg-gray-50'
-            } flex justify-between w-full border border-gray-300 rounded-lg px-1 py-2 text-left focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            } flex justify-between w-full border border-gray-300 rounded-lg px-1 py-2 text-left focus:outline-none focus:ring-2 focus:ring-[--bg-primary]`}
           onKeyDown={handleKeyDown}
           aria-expanded={isOpen}
           aria-haspopup="listbox"
@@ -192,7 +192,7 @@ export const CustomSelect = ({
                   <li
                     key={option.value}
                     onClick={() => handleSelect(option)}
-                    className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${index === highlightedIndex ? 'bg-blue-200' : ''
+                    className={`px-4 py-2 cursor-pointer hover:bg-[--hover-secondary] ${index === highlightedIndex ? 'bg-blue-200' : ''
                       }`}
                     onMouseEnter={() => setHighlightedIndex(index)}
                     aria-selected={index === highlightedIndex}

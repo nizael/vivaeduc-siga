@@ -36,7 +36,7 @@ const medicalRecord = {
 
 export const StudentInfo = () => {
   return (
-    <section className="rounded-xl bg-gray-50 shadow-md relative flex flex-col gap-4">
+    <section className="rounded-xl bg-gray-50 shadow-md relative flex flex-col gap-4 pb-4">
       <div className="rounded-b-xl bg-gray-50 flex flex-col ">
         <div className="h-36 w-full bg-[--bg-primary] rounded-t-xl flex justify-end p-10 overflow-hidden">
           <div className="w-[261px] h-[275px] rounded-3xl bg-[#FB7D5B] mt-10 -mr-40 " />

@@ -1,20 +1,20 @@
 'use client'
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { useEffect, useState } from "react"
-import { useIncomingStore } from "../../../stores/useIncomingStore"
+import { useHistoryPaymentStore } from "../../stores/useHistoryPaymentStore"
 
 export const Pagination = () => {
-  const { listIncomings, setCurrentPage, currentPage, } = useIncomingStore()
+  const { listHistoryPayments, setCurrentPage, currentPage, } = useHistoryPaymentStore()
 
   const [pageNumbers, setPageNumbers] = useState<number[]>([])
 
   useEffect(() => {
-    if (listIncomings) {
-      const pageAmount = Math.ceil(listIncomings.length / 5);
+    if (listHistoryPayments) {
+      const pageAmount = Math.ceil(listHistoryPayments.length / 6);
       const pageNumbers = Array.from({ length: pageAmount }, (_, index) => index + 1);
       setPageNumbers(pageNumbers)
     }
-  }, [listIncomings])
+  }, [listHistoryPayments])
 
   const previousPage = () => {
     if (currentPage > 1)

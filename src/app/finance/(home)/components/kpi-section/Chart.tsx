@@ -2,18 +2,18 @@ import { CurveChart } from "@/components/charts/CurveChart";
 
 export const Chart = () => {
   const enrollmentData = [
-    { month: 'Jan', enrollments: 30 },
-    { month: 'Fev', enrollments: 25 },
-    { month: 'Mar', enrollments: 40 },
-    { month: 'Abr', enrollments: 50 },
-    { month: 'Mai', enrollments: 45 },
-    { month: 'Jun', enrollments: 100 },
-    { month: 'Jul', enrollments: 55 },
-    { month: 'Ago', enrollments: 35 },
-    { month: 'Set', enrollments: 30 },
-    { month: 'Out', enrollments: 20 },
-    { month: 'Nov', enrollments: 40 },
-    { month: 'Dez', enrollments: 50 },
+    { label: 'Jan', value: 30 },
+    { label: 'Fev', value: 25 },
+    { label: 'Mar', value: 40 },
+    { label: 'Abr', value: 50 },
+    { label: 'Mai', value: 45 },
+    { label: 'Jun', value: 100 },
+    { label: 'Jul', value: 55 },
+    { label: 'Ago', value: 35 },
+    { label: 'Set', value: 30 },
+    { label: 'Out', value: 20 },
+    { label: 'Nov', value: 40 },
+    { label: 'Dez', value: 50 },
   ];
 
   return (

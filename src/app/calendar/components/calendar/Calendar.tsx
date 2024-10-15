@@ -37,7 +37,7 @@ export const Calendar = () => {
   }
 
   return (
-    <section className=" bg-gray-50 p-4 rounded-lg shadow-md h-full">
+    <section className=" bg-gray-50 p-4 rounded-lg shadow-sm h-full">
       {/* <div className="flex justify-between items-center mb-4">
         <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}>
           Anterior

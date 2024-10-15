@@ -9,8 +9,8 @@ const listDependents = [
 
 export const ListDependents = () => {
   return (
-    <div className="flex flex-col gap-4 shadow-sm rounded-xl bg-gray-50">
-      <div className="flex text-[--text-primary] items-center rounded-t-xl gap-2 px-4 py-2 bg-[--bg-tertiary]">
+    <div className="flex flex-col shadow-sm rounded-xl bg-gray-50">
+      <div className="flex text-[--text-primary] items-center rounded-t-xl gap-2 p-4 border-b">
         <Student2Icon />
         <p className="font-semibold">Dependentes</p>
       </div>
@@ -26,15 +26,15 @@ export const ListDependents = () => {
         </thead>
         <tbody className="p-4">
           {listDependents.map(dependent => <tr key={dependent.id}>
-            <td className="px-4 grid place-content-center ">
+            <td className="p-4">
               <div className="w-[40px] h-[40px] rounded-full bg-[#C1BBEB] flex-none overflow-hidden">
                 {dependent.image && <Image src={dependent.image} width={40} height={40} alt={dependent.dependentName} />}
               </div>
             </td>
-            <td className="px-4 py-2">{dependent.dependentName}</td>
-            <td className="px-4 py-2 text-center">{dependent.kinship}</td>
-            <td className="px-4 py-2 text-center">{dependent.isActive ? 'Ativo' : 'Inativo'}</td>
-            <td className="px-4 py-2 flex justify-end">
+            <td className="p-4">{dependent.dependentName}</td>
+            <td className="p-4 text-center">{dependent.kinship}</td>
+            <td className="p-4 text-center">{dependent.isActive ? 'Ativo' : 'Inativo'}</td>
+            <td className="p-4 flex justify-end">
               <NavMenu items={[
                 { href: `/students/details/${dependent.id}`, label: 'Detalhes' },
                 { href: `/students/details/${dependent.id}`, label: 'Editar' },

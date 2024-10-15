@@ -2,22 +2,18 @@ import { BarChart } from "@/components/charts/BarChart";
 
 export const Chart = () => {
   const enrollmentData = [
-    { month: 'Jan', enrollments: 30 },
-    { month: 'Fev', enrollments: 25 },
-    { month: 'Mar', enrollments: 40 },
-    { month: 'Abr', enrollments: 50 },
-    { month: 'Mai', enrollments: 45 },
-    { month: 'Jun', enrollments: 60 },
-    { month: 'Jul', enrollments: 55 },
-    { month: 'Ago', enrollments: 35 },
-    { month: 'Set', enrollments: 30 },
-    { month: 'Out', enrollments: 20 },
-    { month: 'Nov', enrollments: 40 },
-    { month: 'Dez', enrollments: 50 },
+    { label: 'Dom', value: 3000 },
+    { label: 'Seg', value: 2000 },
+    { label: 'Ter', value: 4000 },
+    { label: 'Qua', value: 5000 },
+    { label: 'Qui', value: 4000 },
+    { label: 'Sex', value: 6000 },
+    { label: 'Sáb', value: 5000 },
+   
   ];
 
   return (
-    <div className="h-fit">
+    <div className="p-4">
       <BarChart data={enrollmentData} />
     </div>
   );
