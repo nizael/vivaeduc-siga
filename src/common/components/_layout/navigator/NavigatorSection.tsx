@@ -18,7 +18,7 @@ export const NavigatorSection = () => {
       <LinkButton icon={<Student2Icon />} label="Alunos" href={'/students'} />
       <LinkButton icon={<EmployeeIcon />} label="Funcionários" href={'/employees'} />
       <LinkButton icon={<FinanceIcon />} label="Financeiro" href={'/finance'} />
-      <LinkButton icon={<ChatIcon />} label="Chat" href={'/chat'} />
+      <LinkButton icon={<ChatIcon />} label="Chat" href={'/chats'} />
     </nav>
   )
 } 

@@ -20,9 +20,9 @@ export const RecentStudents = () => {
         <Link href={'/students/create'} className="font-semibold text-3xl bg-[--bg-primary] w-[40px] h-[40px] grid place-content-center rounded-full text-gray-50">+</Link>
       </div>
       <ul className="flex-col flex gap-4">
-        {recentStudents.map(student => <ListView key={student.id} classroomName={student.classroom} studentName={student.studentName} image={student.image} />)}
+        {recentStudents.map(student => <ListView key={student.id} id={student.id} classroomName={student.classroom} studentName={student.studentName} image={student.image} />)}
       </ul>
-      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[--bg-secondary] text-[--text-primary] font-semibold">Ver mais</Link>
+      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[--bg-tertiary] text-[--text-primary] font-semibold">Ver mais</Link>
     </div>
   )
 }

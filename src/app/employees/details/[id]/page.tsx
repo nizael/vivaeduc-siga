@@ -1,5 +1,5 @@
 import { LayoutWeb } from "@/components/_layout/LayoutWeb";
-import { UserDetails } from "./components/user-data/UserDetails";
+import { EmployeeData } from "./components/employee-data/EmployeeData";
 import { RightSide } from "./components/right-side/RightSide";
 
 export default function EmployeeDetailsPage() {
@@ -7,7 +7,7 @@ export default function EmployeeDetailsPage() {
     <LayoutWeb titlePage="Detalhes do Funcionário">
       <div className="flex gap-4 h-full"> 
         <div className="flex flex-col gap-4 grow">
-          <UserDetails />
+          <EmployeeData />
         </div>
         <RightSide />
       </div>

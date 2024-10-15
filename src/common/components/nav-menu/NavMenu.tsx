@@ -10,8 +10,8 @@ interface INavMenuProps {
 }
 export const NavMenu = ({ items, position = 'top' }: INavMenuProps) => {
   const positions = {
-    bottom: 'translate-y-full bottom-0',
-    top: '-translate-y-full top-0',
+    bottom: 'translate-y-full bottom-4',
+    top: '-translate-y-full top-4',
   }
   return (
     <div className="relative group text-gray-500" tabIndex={0} >

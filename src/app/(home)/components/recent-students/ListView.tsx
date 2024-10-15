@@ -1,7 +1,14 @@
-import { EmailIcon } from "@/components/icons/EmailIcon"
+import { NavMenu } from "@/components/nav-menu/NavMenu"
 import Image from "next/image"
 
-export const ListView = ({ classroomName, studentName, image }: { image?: string, studentName: string, classroomName: string }) => {
+interface IListViewProps {
+  image?: string
+  studentName: string
+  classroomName: string
+  id: string
+}
+
+export const ListView = ({ classroomName, studentName, image, id }: IListViewProps) => {
   return (
     <li className="flex items-center gap-4 justify-between">
       <div className="flex items-center  gap-4">
@@ -13,7 +20,10 @@ export const ListView = ({ classroomName, studentName, image }: { image?: string
           <p className="text-xs text-gray-500">Turma: {classroomName}</p>
         </div>
       </div>
-      <button className="w-[40px] h-[40px] rounded-full text-gray-500 border border-gray-500 grid place-content-center"><EmailIcon /></button>
+      <NavMenu position="bottom" items={[
+        { href: `/students/details/${id}`, label: 'Detalhes' },
+        { href: `/students/details/${id}`, label: 'Editar' },
+      ]} />
     </li>
   )
 }

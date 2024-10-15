@@ -16,7 +16,7 @@ export const RecentMessages = () => {
       <ul className="flex-col flex gap-4">
         {recentMessages.map(message => <ListView key={message.id} message={message.message} sender={message.sender} image={message.image} hour={message.hour} />)}
       </ul>
-      <Link href={'/students'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[--bg-secondary] text-[--text-primary] font-semibold">Ver mais</Link>
+      <Link href={'/chats'} className="h-[40px] grid place-content-center  w-full rounded-full bg-[--bg-tertiary] text-[--text-primary] font-semibold">Ver mais</Link>
     </div>
   )
 }

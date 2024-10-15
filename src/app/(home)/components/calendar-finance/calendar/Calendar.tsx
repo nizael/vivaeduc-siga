@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { Day } from "./Day"
 import { getDaysInMonth, getFirstDayOfMonth } from "@/utils/dateUtils"
-import { DropdownIcon } from "@/components/icons/DropdownIcon"
+import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
 
 export const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date())
@@ -10,22 +10,21 @@ export const Calendar = () => {
   const firstDay = getFirstDayOfMonth(currentDate)
   const today = new Date()
 
-  useEffect(() => { setCurrentDate(new Date()) }, [])// excluir depois
+  useEffect(() => { setCurrentDate(new Date()) }, [])
 
-  // const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const newMonth = parseInt(e.target.value)
-  //   const updatedDate = new Date(currentDate.setMonth(newMonth))
-  //   setCurrentDate(new Date(updatedDate)) // Atualiza o estado com o novo mês
-  // }
+  const handleMonthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMonth = parseInt(e.currentTarget.value)
+    const updatedDate = new Date(currentDate.setMonth(newMonth))
+    setCurrentDate(new Date(updatedDate))
+  }
 
-  // const months = [
-  //   "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-  //   "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-  // ]
+  const months = [
+    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+  ]
 
-  // Dividindo os dias em semanas, preenchendo os dias vazios no início
   const weeks = []
-  let week: number[] = new Array(firstDay).fill(null) // Preenche a primeira semana com dias vazios até o dia certo
+  let week: number[] = new Array(firstDay).fill(null) 
   for (let day = 1; day <= daysInMonth; day++) {
     week.push(day)
     if (week.length === 7) {
@@ -39,30 +38,14 @@ export const Calendar = () => {
 
   return (
     <div className="flex flex-col gap-4 w-full bg-gray-50 p-6 rounded-xl shadow-sm ">
-      {/* <div className="flex justify-between items-center mb-4">
-        <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}>
-          Anterior
-        </button>
-
-        <select
-          value={currentDate.getMonth()}
-          onChange={handleMonthChange}
-          className="border p-2 rounded-md"
-        >
-          {months.map((month, index) => (
-            <option key={index} value={index}>
-              {month}
-            </option>
-          ))}
-        </select>
-
-        <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() + 1)))}>
-          Próximo
-        </button>
-      </div> */}
       <div className="flex justify-between py-2">
         <h5 className="text-lg font-semibold text-[--text-primary]">Calendário Escolar</h5>
-        <button className=" text-[--text-primary]  h-[40px] flex items-center gap-2">Janeiro <span className="text-gray-500"><DropdownIcon /></span></button>
+        <CustomSelect
+          onChange={handleMonthChange}
+          className="w-32 border-none"
+          initialValue={{ value: `${currentDate.getMonth()}`, label: months[currentDate.getMonth()] }}
+          options={months.map((month, index) => ({ label: month, value: `${index}` }))}
+        />
       </div>
       <table className="w-full h-full table-fixed">
         <thead>
@@ -88,7 +71,6 @@ export const Calendar = () => {
                   /> : <div className="rounded-full p-2 h-[48px] w-[48px]" />}
                 </td>
               ))}
-              {/* Se a última semana tiver menos de 7 dias, preenche com células vazias */}
               {week.length < 7 &&
                 Array.from({ length: 7 - week.length }).map((_, i) => (
                   <td key={`empty-${i}`} className="p-2 border" ><div className="rounded-full p-2 h-[48px] w-[48px]" /></td>

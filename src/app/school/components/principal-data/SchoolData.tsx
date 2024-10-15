@@ -13,7 +13,7 @@ const schoolData = {
   email: 'jordan@mail.com'
 }
 
-export const SchoolDetails = () => {
+export const SchoolData = () => {
 
   return (
     <section className="rounded-xl bg-gray-50 shadow-md relative">
