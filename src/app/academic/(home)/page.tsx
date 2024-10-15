@@ -1,11 +1,11 @@
-import { LayoutWeb } from "../../common/components/_layout/LayoutWeb";
 // import { ListAcademicYear } from "./components/list-academic-year/ListAcademicYear";
+import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { ListClassrooms } from "./components/list-classroom/ListClassrooms";
 import { ListSubjects } from "./components/list-subjects/ListSubjects";
 import { NavBar } from "./components/nav-bar/NavBar";
 import { Overview } from "./components/overview/Overview";
 
-export default function Academic() {
+export default function AcademicPage() {
   return (
     <LayoutWeb titlePage="Acadêmico">
       <div className="flex flex-col gap-4">

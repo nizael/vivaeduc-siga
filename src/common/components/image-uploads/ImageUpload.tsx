@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Cropper, ReactCropperElement } from "react-cropper";
 import 'cropperjs/dist/cropper.css';
-import { ImageIcon } from "./ImageIcon";
 
 export const ImageUpload = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -43,9 +42,9 @@ export const ImageUpload = () => {
   }
 
   return (
-    <div className="">
+    <div>
       {(image && isOpenCrop) && (
-        <div className="absolute top-0 left-1/2 z-20 p-10 rounded-md -translate-x-1/2 bg-[#C1BBEB] shadow-md flex flex-col gap-4">
+        <div className="absolute top-0 left-1/2 z-20 p-10 rounded-md -translate-x-1/2 bg-[--bg-secondary] shadow-md flex flex-col gap-4">
           <Cropper
             src={image}
             style={{ height: '400px', width: '400px' }}
@@ -60,7 +59,7 @@ export const ImageUpload = () => {
           </div>
         </div>
       )}
-      <label htmlFor="file-upload" className={` w-[152px] h-[152px] bg-gray-50 p-1 flex items-center justify-center cursor-pointer rounded-md text-[#C1BBEB] text-opacity-80 `}>
+      <label htmlFor="file-upload" className={` w-[152px] h-[152px] bg-gray-50 p-1 flex items-center justify-center cursor-pointer rounded-md text-gray-500 `}>
         {(croppedImage) && <Image src={croppedImage } alt="" width={120} height={160} className="rounded-lg" />}
         <input
           type="file"
@@ -69,7 +68,7 @@ export const ImageUpload = () => {
           className="hidden"
           onChange={handleImageChange}
         />
-        {!croppedImage && <ImageIcon/>}
+        {!croppedImage && <span className="text-center">Clique aqui para selecionar uma foto</span>}
       </label>
     </div>
   )

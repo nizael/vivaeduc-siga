@@ -3,7 +3,7 @@ import { Chart } from "./Chart"
 
 export const BalanceAnalytics = () => {
   return (
-    <section className="flex flex-col gap-4 rounded-lg bg-gray-50 shadow-sm p-6  w-full">
+    <section className="flex flex-col rounded-lg bg-gray-50 shadow-sm p-6  w-full">
       <div className="text-[--text-primary] font-semibold flex  justify-between">
         <p className="text-lg">Análise de saldo</p>
         <div className="flex items-center gap-6">

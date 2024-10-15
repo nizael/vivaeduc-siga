@@ -10,7 +10,7 @@ const classrooms = [
 
 export const StudentClassrooms = () => {
   return (
-    <section className="rounded-xl bg-gray-50 shadow-md flex flex-col max-h-[395px]">
+    <section className="rounded-xl bg-gray-50 shadow-sm flex flex-col max-h-[395px]">
       <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl p-4 border-b">
         <ClassroomIcon />
         <h5 className="font-semibold">Turmas</h5>

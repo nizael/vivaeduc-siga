@@ -25,7 +25,7 @@ export const ListClassrooms = () => {
           <button className="w-[40px] h-[40px] grid place-content-center text-gray-500">{<DotsIcon />}</button>
         </li>)}
       </ul>
-      <button className="p-2 rounded-b-xl bg-[--bg-tertiary] text-[--text-primary] font-semibold">Ver mais</button>
+      <Link href={'/academic/classrooms'} className="p-2 text-center rounded-b-xl bg-[--bg-tertiary] text-[--text-primary] font-semibold">Ver mais</Link>
     </section>
   )
 }

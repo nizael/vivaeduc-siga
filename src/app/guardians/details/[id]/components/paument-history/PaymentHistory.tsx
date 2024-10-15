@@ -15,7 +15,7 @@ export const PaymentHistory = ({ historyPayments }: { historyPayments: IHistoryP
     return {
       height: `${historyPayments.length > 6 ? 6*56 : historyPayments.length*56}px`
     }
-  }, [])
+  }, [historyPayments])
 
   return (
     <div className="flex flex-col gap-4 shadow-sm rounded-xl bg-gray-50">
