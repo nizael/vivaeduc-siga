@@ -21,6 +21,7 @@ export const ListClassrooms = () => {
             <td className="px-4 py-2 text-center">Sigla</td>
             <td className="px-4 py-2 text-center">Turno</td>
             <td className="px-4 py-2 text-center">Quandidade de alunos</td>
+            <td className="px-4 py-2 text-center">Situação</td>
             <td className="px-4 py-2 text-center">Ação</td>
           </tr>
         </thead>

@@ -7,6 +7,7 @@ export const NavBar = () => {
       <NavButton href="/academic/classrooms" label="Turmas" />
       <NavButton href="/academic/grades" label="Séries" />
       <NavButton href="/academic/subjects" label="Disciplinas" />
+      <NavButton href="/academic/courses" label="Cursos" />
       {/* <NavButton href="/" label="Grade Curricular" />
       <NavButton href="/" label="Diário de Classe" />
       <NavButton href="/" label="Notas" />

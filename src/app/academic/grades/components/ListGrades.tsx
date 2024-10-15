@@ -1,6 +1,6 @@
 import { EditIcon } from "@/components/icons/EditIcon"
 
-const classrooms = [
+const grades = [
   { id: '1',  name: 'Jardim I', service: 'Mens Educação Infantil/Maternal I', course: 'Educação Infantil', isActive: true },
   { id: '2',  name: 'Jardim I', service: 'Mens Educação Infantil/Maternal I', course: 'Educação Infantil', isActive: true },
   { id: '3',  name: 'Jardim I', service: 'Mens Educação Infantil/Maternal I', course: 'Educação Infantil', isActive: true },
@@ -17,14 +17,16 @@ export const ListGrades = () => {
             <td className="px-4 py-2 ">Curso</td>
             <td className="px-4 py-2 text-center">Nome da série</td>
             <td className="px-4 py-2 text-center">Serviço</td>
+            <td className="px-4 py-2 text-center">Situação</td>
             <td className="px-4 py-2 text-end">Ação</td>
           </tr>
         </thead>
         <tbody>
-          {classrooms.map(classroom => <tr key={classroom.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary] border-b last:border-none">
-            <td className="p-4 "> {classroom.course}</td>
-            <td className="p-4 text-center"> {classroom.name}</td>
-            <td className="p-4 text-center"> {classroom.isActive ? 'Ativo' : 'Inativo'}</td>
+          {grades.map(grade => <tr key={grade.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary] border-b last:border-none">
+            <td className="p-4 "> {grade.course}</td>
+            <td className="p-4 text-center"> {grade.name}</td>
+            <td className="p-4 text-center"> {grade.service}</td>
+            <td className="p-4 text-center"> {grade.isActive ? 'Ativo' : 'Inativo'}</td>
             <td className="p-4 text-end"> <button><EditIcon /></button> </td>
           </tr>)}
         </tbody>
