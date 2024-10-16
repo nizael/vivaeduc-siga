@@ -16,6 +16,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Akademic",
   description: "Sistema de gestão escolar",
+  icons: {
+    icon: '/svg/logo_48.svg',
+  },
 };
 
 export default function RootLayout({
