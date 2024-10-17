@@ -13,6 +13,7 @@ interface ISelectProps {
   required?: boolean
   placeholder?: string
   className?: string
+  position?: 'top' | 'bottom'
 }
 
 export const CustomSelect = ({
@@ -25,6 +26,7 @@ export const CustomSelect = ({
   required,
   placeholder,
   className = '',
+  position = 'bottom',
 }: ISelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
@@ -58,6 +60,9 @@ export const CustomSelect = ({
         )
         break
       case 'ArrowUp':
+        setHighlightedIndex((prevIndex) => Math.max(prevIndex - 1, 0))
+        break
+      case 'TabSpace':
         setHighlightedIndex((prevIndex) => Math.max(prevIndex - 1, 0))
         break
       case 'Enter':
@@ -133,6 +138,11 @@ export const CustomSelect = ({
     }
   }, [])
 
+  const positions = {
+    bottom: 'translate-y-full -bottom-1',
+    top: '-translate-y-full -top-2',
+  }
+
   return (
     <label className={`flex flex-col gap-1 justify-between ${className}`} >
       {label && <span>{label}</span>}
@@ -168,7 +178,7 @@ export const CustomSelect = ({
         </button>
 
         {isOpen && (
-          <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+          <div className={`${positions[position as keyof typeof positions]} absolute  z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg`}>
             <input
               type="text"
               ref={listRef}
@@ -186,7 +196,7 @@ export const CustomSelect = ({
               className="max-h-48 overflow-y-auto"
               role="listbox"
               id="dropdown-options"
-            >
+              >
               {filteredOptions?.length > 0 ? (
                 filteredOptions.map((option, index) => (
                   <li

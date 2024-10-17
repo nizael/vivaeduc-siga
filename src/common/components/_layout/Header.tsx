@@ -1,37 +1,35 @@
 'use client'
-// import Image from "next/image"
 import { BellIcon } from "../icons/BellIcon"
-import { useEffect } from "react";
-import { IUserData, useAuthData } from "../../../app/(auth)/stores/useAuthData";
-// import { SearchIcon } from "../icons/SearchIcon"
-// import { SettingsIcon } from "../icons/SettingsIcon"
+import { ReactNode, useEffect } from "react";
+import { IUserData, useAuthDataStore } from "../../../app/(auth)/stores/useAuthData";
 
-// const user = {
-//   id: '1',
-//   name: 'Thalita',
-//   role: 'Admin',
-//   image: '/temp/employee.jpg',
-//   studentName: 'Samantha William',
-//   classroom: 'VII A'
-// }
+export const roles = {
+  MANAGER: 'Gerente',
+  CONSULTANT: 'Consultor(a)',
+  CFO: 'Diretor Financeiro',
+  TEACHER: 'Professor(a)',
+  COORDINATOR: 'Coordenador(a)',
+  SECRETARY: 'Secretário(a)',
+  ASSISTANT: 'Assistente',
+  ADVISOR: 'Orientador(a)',
+  PRINCIPAL: 'Diretor(a)'
+}
 
-
-
-export const Header = ({ titlePage, authData }: { titlePage: string, authData: IUserData }) => {
-  const { userData: user } = useAuthData()
+export const Header = ({ titlePage, authData }: { titlePage: ReactNode, authData: IUserData }) => {
+  const { userData, reset, setUserData } = useAuthDataStore()
 
   useEffect(() => {
     if (authData) {
-      useAuthData.setState({
-        userData: authData
-      })
+      setUserData(authData)
     }
+    return reset
   }, [authData])
+
 
   return (
     <header className="col-start-2 col-end-3 flex items-center justify-between  px-4 gap-4 border-b">
       <div className="flex items-center justify-between grow">
-        <h1 className="text-[--text-primary] text-3xl font-semibold">{titlePage}</h1>
+        <h1 className="text-[--text-primary] text-xl font-semibold">{titlePage}</h1>
       </div>
       <div className="flex items-center gap-4">
         <button className="grid place-content-center rounded-full bg-gray-50 p-1 text-slate-500">
@@ -40,10 +38,11 @@ export const Header = ({ titlePage, authData }: { titlePage: string, authData: I
         {/* <button className="grid place-content-center rounded-full bg-gray-50 p-1 text-slate-500">
           <SettingsIcon />
         </button> */}
-        <div className="flex flex-col items-end">
-          <p className="text-[--text-primary] font-semibold">{user?.name}</p>
-          <p className="text-xs text-gray-500">{user?.profile}</p>
-        </div>
+        {userData && (<div className="flex flex-col items-end">
+          <p className="text-[--text-primary] font-semibold">{userData?.name}</p>
+          <p className="text-xs text-gray-500">{roles[userData.role as keyof typeof roles]}</p>
+        </div>)
+        }
         <div className="bg-[#C1BBEB] w-[40px] h-[40px] rounded-full flex-none overflow-hidden">
           {/* {user?.profile && <Image src={user?.profile} alt={user?.profile} width={40} height={40} />} */}
         </div>

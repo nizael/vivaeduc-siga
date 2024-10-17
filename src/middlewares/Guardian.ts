@@ -1,51 +1,57 @@
 import jwt, { JwtPayload } from 'jsonwebtoken'
-import { env } from '../configs/env'
+import { IEnv } from '../configs/env'
 import { cookiesManager } from '../di/dependencyInjection'
 import { redirect } from 'next/navigation'
 
 export type IPlans = 'BASIC' | 'PLUS' | 'PREMIUM' | 'MASTER'
 export type IProfile = 'STAFF' | 'STUDENT' | 'GUARDIAN' | 'EMPLOYEE'
-
-
-
 export interface DecodedToken extends JwtPayload {
   schoolId?: string
   profile: IProfile
   permissions: string[]
   plan: IPlans
   name: string
+  role: string
 }
 
 export class Guardian {
- async authenticate() {
-    const JWT_SECRET = env.JWT_SECRET
+  constructor(private env: IEnv) { }
+
+  private async getToken() {
+    if (!this.env.JWT_SECRET) {
+      return redirect('/session')
+    }
+    const token = await cookiesManager.getCookie('user_token')
+    if (!token) return redirect('/session')
+    return token.value
+  }
+
+  private async decodedToken(token: string) {
     try {
-      if (!JWT_SECRET) {
-        return redirect('/session')
-      }
-      const token = await cookiesManager.getCookie('user_token')
-      const tokenValue = token?.value.replace(/^Bearer\s/, '')
-
-      if (!tokenValue) return redirect('/session')
-
-      let decoded: DecodedToken
-      try {
-        decoded = jwt.verify(tokenValue, JWT_SECRET) as DecodedToken
-      } catch {
-        return redirect('/session')
-      }
-      console.log('name==>',decoded.name)
-      return {
-        schoolId: decoded.schoolId,
-        profile: decoded.profile,
-        permissions: decoded.permissions,
-        plan: decoded.plan,
-        name: decoded.name,
-      }
-
+      if (!this.env.JWT_SECRET) return redirect('/session')
+      return jwt.verify(token, this.env.JWT_SECRET) as unknown as DecodedToken
     } catch {
       return redirect('/session')
     }
+  }
 
+  async authenticate() {
+    const token = await this.getToken()
+    const decoded = await this.decodedToken(token)
+    return {
+      schoolId: decoded.schoolId,
+      profile: decoded.profile,
+      permissions: decoded.permissions,
+      plan: decoded.plan,
+      name: decoded.name,
+      role: decoded.role
+    }
+  }
+
+  async checkPermission(permission: string) {
+    const token = await this.getToken()
+    const decoded = await this.decodedToken(token)
+    console.log(decoded.permissions)
+    return decoded.permissions.includes(permission)
   }
 }

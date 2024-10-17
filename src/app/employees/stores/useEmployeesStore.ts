@@ -4,6 +4,7 @@ interface IUseEmployeeStore {
   listEmployees?: IEmployees[]
   employeesView?: IEmployees[]
   currentPage: number
+  pushEmployee(employee: IEmployees): void
   setCurrentPage(currentPage: number): void
   setListEmployees(listEmployees: IEmployees[]): void
 }
@@ -12,10 +13,8 @@ export interface IEmployees {
   id: string
   image?: string
   name: string
-  code: string
   contact: { email: string, phone: string }
   role: string
-  classroom: string
 }
 export const useEmployeesStore = create<IUseEmployeeStore>((set, get) => ({
   currentPage: 1,
@@ -31,5 +30,13 @@ export const useEmployeesStore = create<IUseEmployeeStore>((set, get) => ({
       currentPage,
       employeesView: listEmployees?.slice(start, end)
     })
+  },
+  pushEmployee: (employee) => {
+    const listEmployee = get().listEmployees
+    if (listEmployee) {
+      set({ listEmployees: [employee, ...listEmployee] })
+    } else {
+      set({ listEmployees: [employee] })
+    }
   }
 }))

@@ -68,7 +68,7 @@ export const Calendar = () => {
             {weeks.map((week, weekIndex) => (
               <tr key={weekIndex}>
                 {week.map((day, dayIndex) => (
-                  <td key={dayIndex} className="p-2 h-12 border">
+                  <td key={dayIndex} className="p-2 h-12 border text-center align-middle">
                     {day ? <Day value={day}
                       isToday={today.getDate() === day && currentDate.getMonth() === today.getMonth() && currentDate.getFullYear() === today.getFullYear()}
                       isSunday={dayIndex === 0}

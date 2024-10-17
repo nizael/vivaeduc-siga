@@ -1,5 +1,6 @@
 import { SchoolIcon } from "../icons/SchoolIcon"
 import { SettingsIcon } from "../icons/SettingsIcon"
+import { Logout } from "./Logout"
 import { LinkButton } from "./navigator/LinkButton"
 import { NavigatorSection } from "./navigator/NavigatorSection"
 
@@ -16,6 +17,7 @@ export const Aside = () => {
       <nav className="w-full flex flex-col gap-2">
         <LinkButton icon={<SchoolIcon />} label="Escola" href={'/school'} />
         <LinkButton icon={<SettingsIcon />} label="Configurações" href={'/settings'} />
+        <Logout />
       </nav>
     </aside>
   )

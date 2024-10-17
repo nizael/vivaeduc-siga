@@ -11,7 +11,6 @@ export const PaymentHistory = ({ historyPayments }: { historyPayments: IHistoryP
   }, [historyPayments])
 
   const { height } = useMemo(() => {
-    console.log(historyPaymentsViews?.length)
     return {
       height: `${historyPayments.length > 6 ? 6*56 : historyPayments.length*56}px`
     }

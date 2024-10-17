@@ -32,6 +32,17 @@ export class CookiesManager {
     }
   }
 
+  async deleteCookie(name: string): Promise<null> {
+    if (typeof document !== 'undefined') {
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      return null;
+    } else {
+      const { cookies } = await import('next/headers');
+      cookies().delete(name)
+      return null
+    }
+  }
+
 }
 
 

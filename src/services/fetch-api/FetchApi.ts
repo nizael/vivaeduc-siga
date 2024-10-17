@@ -25,7 +25,6 @@ export class FetchApi {
 
   protected async post(endpoint: string, data: unknown) {
     interceptorRequest(this.fetch)
-    console.log()
     const response = await this.fetch.post(endpoint, data).then(response => ({
       status: response?.status as number,
       data: response?.data

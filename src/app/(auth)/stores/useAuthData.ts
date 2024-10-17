@@ -3,6 +3,8 @@ import { IPlans, IProfile } from "../../../middlewares/Guardian";
 
 interface IUseAuthData {
   userData?: IUserData
+  setUserData(userData: IUserData): void
+  reset(): void
 }
 
 export interface IUserData {
@@ -11,5 +13,14 @@ export interface IUserData {
   permissions: string[];
   plan: IPlans;
   name: string
+  role: string
 }
-export const useAuthData = create<IUseAuthData>(()=>({}))
+export const useAuthDataStore = create<IUseAuthData>((set) => ({
+  setUserData: (userData) => {
+    const data = { ...userData }
+    set({ userData: data })
+  },
+  reset: () => {
+    set({ userData: undefined })
+  },
+}))

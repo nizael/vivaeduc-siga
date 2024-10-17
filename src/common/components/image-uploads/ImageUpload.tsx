@@ -60,7 +60,8 @@ export const ImageUpload = () => {
         </div>
       )}
       <label htmlFor="file-upload" className={` w-[152px] h-[152px] bg-gray-50 p-1 flex items-center justify-center cursor-pointer rounded-md text-gray-500 `}>
-        {(croppedImage) && <Image src={croppedImage } alt="" width={120} height={160} className="rounded-lg" />}
+        {(croppedImage) && <Image src={croppedImage} alt="" width={120} height={160} className="rounded-lg" />}
+        <input type="hidden" value={croppedImage}  name="image"/>
         <input
           type="file"
           id="file-upload"
