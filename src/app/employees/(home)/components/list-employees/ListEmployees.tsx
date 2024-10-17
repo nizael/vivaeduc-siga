@@ -12,7 +12,6 @@ export const ListEmployees = ({ employees }: { employees: IEmployees[] }) => {
   useEffect(() => {
     if (employees) setListEmployees(employees)
   }, [employees])
-
   return (
     <section className="grow bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
       <div className="grow">

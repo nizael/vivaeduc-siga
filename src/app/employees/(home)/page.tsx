@@ -2,6 +2,7 @@ import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { ListEmployees } from "./components/list-employees/ListEmployees";
 import { ToolBar } from "./components/ToolBar";
 import { employeeListAll } from "../../../services/employee/employeeListAll";
+import { EmptyStateEmployee } from "./components/empty-state/EmptyStateEmployee";
 
 // const listEmployees = [
 //   { id: '1', image: '/temp/employee.jpg', name: 'Samanta William', code: '#123456789', contact: { email: 's@email', phone: '+5591981730582' }, role: 'Science', classroom: '8-FND' },
@@ -24,7 +25,7 @@ export default async function EmployeesPage() {
     <LayoutWeb titlePage="Funcionários">
       <div className="flex flex-col gap-4 h-full">
         <ToolBar />
-        <ListEmployees employees={listEmployees.data} />
+        {listEmployees.data ? <ListEmployees employees={listEmployees.data} /> : <EmptyStateEmployee />}
       </div>
     </LayoutWeb>
   );

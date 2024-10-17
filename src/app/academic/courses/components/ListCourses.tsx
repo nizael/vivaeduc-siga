@@ -10,7 +10,7 @@ const courses = [
 
 export const ListCourses = () => {
   return (
-    <section className="rounded-xl bg-gray-50 shadow-sm flex flex-col max-h-[395px] p-4">
+    <section className="rounded-xl bg-gray-50 shadow-sm flex flex-col p-4">
       <table className=" overflow-y-auto h-full ">
         <thead>
           <tr className="text-sm font-semibold text-gray-500 border-b">
