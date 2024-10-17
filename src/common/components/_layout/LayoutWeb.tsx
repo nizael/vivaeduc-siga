@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactNode } from "react"
 import { Aside } from "./Aside"
 import { Header } from "./Header"
-import { guardian } from "../../../di/dependencyInjection"
+// import { guardian } from "../../../di/dependencyInjection"
 import { IUserData } from "../../../app/(auth)/stores/useAuthData"
 
 type ILayoutWebProps = PropsWithChildren & {
