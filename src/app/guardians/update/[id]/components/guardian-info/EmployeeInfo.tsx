@@ -1,13 +1,13 @@
 import Image from "next/image"
-import { EmployeeDetails } from "../details/EmployeeDatails"
+import { GuardianDetails } from "../details/GuardianDetails"
 import { IAddress } from "@/types/address/IAddress"
-import { IEmployeeInfo } from "../../../../@types/IEmployeeInfo"
-import { EmployeeAddress } from "../details/EmployeeAddress"
+import { GuardianAddress } from "../details/GuardianAddress"
+import { IGuardianInfo } from "../../../../@types/IGuardianInfo"
 
 
 
-export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & {address: IAddress} }) => {
-  const {address, ...employee} = employeeData
+export const GuardianInfo = ({ guardianData: guardianData }: { guardianData: IGuardianInfo & {address: IAddress} }) => {
+  const {address, ...guardian} = guardianData
   return (
     <section className="rounded-xl bg-gray-50 shadow-sm relative flex flex-col gap-4 ">
       <div className=" rounded-b-xl flex flex-col">
@@ -16,14 +16,14 @@ export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & {
           <div className="w-[261px] h-[275px] rounded-full border-[16px] border-[#FCC43E]  " />
         </div>
         <div className="absolute top-36 -translate-y-1/2 left-8 w-36 h-36 rounded-full border-[8px] bg-[#C1BBEB] border-gray-50 overflow-hidden shadow-sm">
-          {employee.image && <Image src={employee.image} alt="school" width={144} height={144} />}
+          {guardian.image && <Image src={guardian.image} alt="school" width={144} height={144} />}
         </div>
         <div className="p-4 mt-14 flex flex-col gap-4 relative border-b">
-          <h5 className="text-2xl  h-[40px] flex items-center font-semibold text-[--text-primary]">{employee.name}</h5>
+          <h5 className="text-2xl  h-[40px] flex items-center font-semibold text-[--text-primary]">{guardian.name}</h5>
         </div>
       </div>
-      <EmployeeDetails employee={employee} />
-      <EmployeeAddress address={address} />
+      <GuardianDetails guardian={guardian} />
+      <GuardianAddress address={address} />
 
     </section>
   )

@@ -20,7 +20,7 @@ export const CardGuardian = ({ guardianName, image, id, contact }: ICardGuardian
       <div className="flex flex-col items-end h-full justify-between w-full gap-4">
         <NavMenu position="bottom" items={[
           { href: `/guardians/details/${id}`, label: 'Detalhes' },
-          { href: `/guardians/details/${id}`, label: 'Editar' },
+          { href: `/guardians/update/${id}`, label: 'Editar' },
         ]} />
         <p className="text-[--text-primary] font-bold text-xl text-start w-full">{guardianName}</p>
         <div className="flex gap-4">

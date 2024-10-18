@@ -8,8 +8,8 @@ import { LocationIcon } from "@/components/icons/LocationsIcon"
 import Link from "next/link"
 import { formatPhone } from "@/utils/formatPhone"
 import { IEmployeeInfo } from "../../../../@types/IEmployeeInfo"
-import { EmployeeAddress } from "../details/EmployeeAddress"
 import { IAddress } from "@/types/address/IAddress"
+import { AddressDetails } from "@/components/templates/address/AddressDetails"
 
 export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & { address: IAddress } }) => {
   const { address, ...employee } = employeeData
@@ -39,7 +39,7 @@ export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & {
       </div>
 
       <EmployeeDetails employeeData={employee} />
-      <EmployeeAddress address={address} />
+      <AddressDetails address={address} />
 
     </section>
   )
