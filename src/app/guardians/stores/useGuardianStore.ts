@@ -4,7 +4,7 @@ interface IUseGuardianStore {
   listGuardians?: IGuardians[]
   guardiansView?: IGuardians[]
   currentPage: number
-  pushGuardian(Guardian: IGuardians): void
+  pushGuardian(guardian: IGuardians): void
   setCurrentPage(currentPage: number): void
   setListGuardians(listGuardians: IGuardians[]): void
 }
@@ -31,12 +31,12 @@ export const useGuardiansStore = create<IUseGuardianStore>((set, get) => ({
       guardiansView: listGuardians?.slice(start, end)
     })
   },
-  pushGuardian: (Guardian) => {
+  pushGuardian: (guardian) => {
     const listGuardian = get().listGuardians
     if (listGuardian) {
-      set({ listGuardians: [Guardian, ...listGuardian] })
+      set({ listGuardians: [guardian, ...listGuardian] })
     } else {
-      set({ listGuardians: [Guardian] })
+      set({ listGuardians: [guardian] })
     }
   }
 }))

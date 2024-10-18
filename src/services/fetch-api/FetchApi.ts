@@ -2,7 +2,6 @@ import { AxiosInstance, AxiosStatic } from "axios"
 import { env } from "../../configs/env"
 import { interceptorRequest } from "../../middlewares/interceptors/interceptorRequest"
 
-
 export class FetchApi {
   protected fetch: AxiosInstance
   constructor(axios: AxiosStatic) {
@@ -10,7 +9,6 @@ export class FetchApi {
       baseURL: env.API_BASE_URL,
     })
   }
-  
 
   protected async get(endpoint: string) {
     interceptorRequest(this.fetch)

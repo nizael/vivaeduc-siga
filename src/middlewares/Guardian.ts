@@ -51,7 +51,6 @@ export class Guardian {
   async checkPermission(permission: string) {
     const token = await this.getToken()
     const decoded = await this.decodedToken(token)
-    console.log(decoded.permissions)
     return decoded.permissions.includes(permission)
   }
 }

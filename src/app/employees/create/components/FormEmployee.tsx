@@ -12,6 +12,7 @@ import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
 import { LoginIcon } from "@/components/icons/LoginIcon"
 import { ToolIcon } from "@/components/icons/ToolIcon"
+import { redirect } from "next/navigation"
 
 export const maritalStatusOptions = [
   { label: "Solteiro", value: 'SINGLE' },
@@ -39,10 +40,10 @@ export const employeeRoleOptions = [
 export const FormEmployee = () => {
   const { pushEmployee } = useEmployeesStore()
   async function handleFormCation(formData: FormData) {
-    const response = await employeeCreate(formData)
-
-    if (response.status === 201) {
-      pushEmployee(response.data)
+    const {status, data} = await employeeCreate(formData)
+    if (status === 201) {
+      pushEmployee(data)
+      redirect('/employees')
     }
   }
 

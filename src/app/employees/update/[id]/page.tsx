@@ -10,12 +10,11 @@ interface IEmployeeDetailsPageProps {
 }
 
 export default async function EmployeeUpdatePage(props: IEmployeeDetailsPageProps) {
-  const employeeData = await employeeDetails(props.params.id)
-  console.log(employeeData)
+  const {status, data} = await employeeDetails(props.params.id)
   return (
     <LayoutWeb titlePage={<TitlePage />}>
       <div className="flex flex-col gap-4 grow">
-        <EmployeeInfo employeeData={employeeData.data} />
+        <EmployeeInfo employeeData={data} />
         {/* <EmployeeClassrooms /> */}
       </div>
     </LayoutWeb>
