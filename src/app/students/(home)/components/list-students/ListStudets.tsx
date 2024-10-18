@@ -48,6 +48,5 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
       </div>
       <Pagination />
     </section>
-
   )
 }

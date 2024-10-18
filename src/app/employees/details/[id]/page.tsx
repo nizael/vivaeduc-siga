@@ -14,7 +14,7 @@ export default async function EmployeeDetailsPage(props: IEmployeeDetailsPagePro
   return (
     <LayoutWeb titlePage={<TitlePage />}>
       <div className="flex flex-col gap-4 grow">
-        {status === 200 && data ? <EmployeeInfo employeeData={data} /> : <EmptyPage label="Funcionário nõ encontrado" />}
+        {status === 200 && data ? <EmployeeInfo employeeData={data} /> : <EmptyPage label="Funcionário não encontrado" />}
         <EmployeeClassrooms />
       </div>
     </LayoutWeb>

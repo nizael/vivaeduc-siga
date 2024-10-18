@@ -1,43 +1,29 @@
 import { DotsIcon } from "@/components/icons/DotsIcon"
 import { FieldData } from "../field-data/FieldData"
 import { UserEditIcon } from "@/components/icons/UserEditIcon"
+import { IStudentInfo } from "../../../../@types/IStudentInfo"
+import { maritalStatus } from "@/configs/maritalStatus"
+import { gender } from "@/configs/gender"
+import { colorOrRace } from "@/configs/colorOrRace"
 
-interface IStudentDetails {
-  id: string
-  image: string
-  name: string
-  address: string
-  phone: string
-  email: string
-  dateOfBirth: string
-  maritalStatus: string
-  gender: string
-  colorOrRace: string
-  document: string
-  identityCard: string
-  issuingAuthority: string
-  state: string
-  issueDate: string
-  code: string
-  inep: string
-}
-export const StudentDetails = ({ studentData }: { studentData: IStudentDetails }) => {
+
+export const StudentDetails = ({ student }: { student: IStudentInfo }) => {
   return (
-      <details open className=" rounded-b-x ">
-        <summary className="p-4 grid grid-cols-3 border-t  place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon/> Dados pessoais</span> <DotsIcon /> <span /></summary>
-        <div className="relative grid grid-cols-4 gap-4  p-4">
-          <FieldData field="Matrícula" value={studentData?.code || '-'} />
-          <FieldData field="INEP" value={studentData?.inep || '-'} />
-          <FieldData field="Data de nascimento" value={studentData?.dateOfBirth || '-'} />
-          <FieldData field="Estado civil" value={studentData?.maritalStatus || '-'} />
-          <FieldData field="Sexo" value={studentData?.gender || '-'} />
-          <FieldData field="Cor/Raça" value={studentData?.colorOrRace || '-'} />
-          <FieldData field="CPF" value={studentData?.document || '-'} />
-          <FieldData field="Identidade" value={studentData?.identityCard || '-'} />
-          <FieldData field="Orgão emissor" value={studentData?.issuingAuthority || '-'} />
-          <FieldData field="Data de emissão" value={studentData?.issueDate || '-'} />
-          <FieldData field="UF" value={studentData?.state || '-'} />
-        </div>
-      </details>
+    <details open className=" rounded-b-x ">
+      <summary className="p-4 grid grid-cols-3 border-t  place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
+      <div className="relative grid grid-cols-4 gap-4  p-4">
+        <FieldData field="Matrícula" value={student?.code || '-'} />
+        <FieldData field="INEP" value={student?.inep || '-'} />
+        <FieldData field="Data de nascimento" value={student?.dateOfBirth || '-'} />
+        <FieldData field="Estado civil" value={maritalStatus[student.maritalStatus as keyof typeof maritalStatus] || '-'} />
+        <FieldData field="Sexo" value={gender[student.gender as keyof typeof gender] || '-'} />
+        <FieldData field="Cor/Raça" value={colorOrRace[student.colorOrRace as keyof typeof colorOrRace] || '-'} />
+        <FieldData field="CPF" value={`***.***.***-${student.document.slice(-2)}` || '-'} />
+        <FieldData field="Identidade" value={`******${student.identityCard.slice(-2)}` || '-'} />
+        <FieldData field="Orgão emissor" value={student?.issuingAuthority || '-'} />
+        <FieldData field="Data de emissão" value={student?.issueDate || '-'} />
+        <FieldData field="UF" value={student?.state || '-'} />
+      </div>
+    </details>
   )
 }

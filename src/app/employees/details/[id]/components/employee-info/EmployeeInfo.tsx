@@ -38,7 +38,7 @@ export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & {
         </div>
       </div>
 
-      <EmployeeDetails employeeData={employee} />
+      <EmployeeDetails employee={employee} />
       <AddressDetails address={address} />
 
     </section>
