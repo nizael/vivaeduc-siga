@@ -1,8 +1,8 @@
 'use client'
 import { useEffect } from "react"
-import { IGuardians, useGuardiansStore } from "../../../stores/useGuardiansStore"
 import { CardGuardian } from "./CardGuardian"
 import { Pagination } from "./Pagination"
+import { IGuardians, useGuardiansStore } from "../../../stores/useGuardianStore"
 
 export const ListGuardians = ({ guardians }: { guardians: IGuardians[] }) => {
   const { setListGuardians, guardiansView } = useGuardiansStore()

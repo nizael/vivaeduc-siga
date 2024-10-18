@@ -1,7 +1,7 @@
 'use client'
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { useEffect, useState } from "react"
-import { useGuardiansStore } from "../../../stores/useGuardiansStore"
+import { useGuardiansStore } from "../../../stores/useGuardianStore"
 
 
 export const Pagination = () => {

@@ -6,6 +6,7 @@ import { CookiesManager } from "@/utils/CookiesManager";
 import { Guardian } from "../middlewares/Guardian";
 import { EmployeeApi } from "../services/employee/EmployeeApi";
 import { env } from "../configs/env";
+import { GuardianApi } from "../services/guardian/GuardianApi";
 // import { StudentApi } from "../services/register/student/StudentApi";
 // import { GuardianApi } from "../services/register/guardian/GuardianApi";
 // import { AddressApi } from "../services/register/address/AddressApi";
@@ -13,6 +14,7 @@ import { env } from "../configs/env";
 const fetchApi = new FetchApi(axios)
 const sessionApi = new SessionApi(axios)
 const employeeApi = new EmployeeApi(axios)
+const guardianApi = new GuardianApi(axios)
 // const studentApi = new StudentApi(axios)
 // const guardianApi = new GuardianApi(axios)
 // const addressApi = new AddressApi(axios)
@@ -24,6 +26,7 @@ export {
   fetchApi,
   sessionApi,
   employeeApi,
+  guardianApi,
   // studentApi,
   // guardianApi,
   // addressApi,
