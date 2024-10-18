@@ -22,7 +22,6 @@ export const CardGuardian = ({ guardianName, image, id, contact }: ICardGuardian
           { href: `/guardians/details/${id}`, label: 'Detalhes' },
           { href: `/guardians/details/${id}`, label: 'Editar' },
         ]} />
-        {/* <button className="w-[40px] h-[40px] rounded-full grid place-content-center text-gray-500 top-2 right-4"><DotsIcon /></button> */}
         <p className="text-[--text-primary] font-bold text-xl text-start w-full">{guardianName}</p>
         <div className="flex gap-4">
           <Link href={`tel:${contact.phone}`} className="w-[40px] h-[40px] rounded-full grid place-content-center bg-[--bg-primary] text-gray-50"><CallIcon /></Link>

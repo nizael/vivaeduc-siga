@@ -21,7 +21,8 @@
       "@/components/*": ["./src/common/components/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/configs/*": ["./src/configs/*"],
-      "@/types/*": ["./src/common/types/*"]
+      "@/types/*": ["./src/common/types/*"],
+      "@/services/*": ["./src/services/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -2,7 +2,7 @@
 'use client'
 import { LoginIcon } from '@/components/icons/LoginIcon';
 import { InputText } from '@/components/inputs/InputText';
-import { sessionCreate } from '../../services/session/sessionCreate';
+import { sessionCreate } from '@/services/session/sessionCreate';
 import { cookiesManager } from '../../di/dependencyInjection';
 import { redirect } from 'next/navigation';
 

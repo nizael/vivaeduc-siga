@@ -1,8 +1,8 @@
 import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { ListEmployees } from "./components/list-employees/ListEmployees";
 import { ToolBar } from "./components/ToolBar";
-import { employeeListAll } from "../../../services/employee/employeeListAll";
-import { EmptyStateEmployee } from "./components/empty-state/EmptyStateEmployee";
+import { employeeListAll } from "@/services/employee/employeeListAll"; 
+import { EmptyPage } from "@/components/empty-state/EmptyPage";
 
 export default async function EmployeesPage() {
   const { status, data } = await employeeListAll()
@@ -10,7 +10,7 @@ export default async function EmployeesPage() {
     <LayoutWeb titlePage="Funcionários">
       <div className="flex flex-col gap-4 h-full">
         <ToolBar />
-        {status === 200 && data ? <ListEmployees employees={data} /> : <EmptyStateEmployee />}
+        {status === 200 && data ? <ListEmployees employees={data} /> : <EmptyPage label="Não existem funcionários cadastrados!" />}
       </div>
     </LayoutWeb>
   );

@@ -1,9 +1,9 @@
 import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { EmployeeInfo } from "./components/employee-info/EmployeeInfo";
 import { EmployeeClassrooms } from "./components/classsroon/EmployeeCassroom";
-import { employeeDetails } from "../../../../services/employee/employeeDetails";
+import { employeeDetails } from "@/services/employee/employeeDetails";
 import { TitlePage } from "./components/TitlePage";
-import { EmptyStateGuardian } from "../../../guardians/(home)/components/empty-state/EmptyStateGuardian";
+import { EmptyPage } from "@/components/empty-state/EmptyPage";
 
 interface IEmployeeDetailsPageProps {
   params: { id: string }
@@ -14,7 +14,7 @@ export default async function EmployeeDetailsPage(props: IEmployeeDetailsPagePro
   return (
     <LayoutWeb titlePage={<TitlePage />}>
       <div className="flex flex-col gap-4 grow">
-        {status === 200 && data ? <EmployeeInfo employeeData={data} /> : <EmptyStateGuardian />}
+        {status === 200 && data ? <EmployeeInfo employeeData={data} /> : <EmptyPage label="Funcionário nõ encontrado" />}
         <EmployeeClassrooms />
       </div>
     </LayoutWeb>

@@ -2,9 +2,9 @@ import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { GuardianInfo } from "./components/guardian-info/GuardianInfo";
 import { ListDependents } from "./components/dependents/ListDependents";
 import { PaymentHistory } from "./components/paument-history/PaymentHistory";
-import { guardian } from "../../../../di/dependencyInjection";
-import { guardianDetails } from "../../../../services/guardian/guardianDetails";
-import { EmptyStateGuardian } from "../../(home)/components/empty-state/EmptyStateGuardian";
+import { guardianDetails } from "@/services/guardian/guardianDetails";
+import { TitlePage } from "./components/TitlePage";
+import { EmptyPage } from "@/components/empty-state/EmptyPage";
 
 const historyPayments = [
   { id: '1', code: '#1125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
@@ -25,9 +25,9 @@ interface IGuardianDetailsPageProps {
 export default async function GuardianDetailsPage(props: IGuardianDetailsPageProps) {
   const { status, data } = await guardianDetails(props.params.id)
   return (
-    <LayoutWeb titlePage="Detalhes do Responsável">
+    <LayoutWeb titlePage={<TitlePage />}>
       <div className="flex flex-col gap-4 grow">
-        {status === 200 && data ? <GuardianInfo guardianData={data} /> : <EmptyStateGuardian />}
+        {status === 200 && data ? <GuardianInfo guardianData={data} /> : <EmptyPage label="Responsável não encontrado!"/>}
         <ListDependents />
         <PaymentHistory historyPayments={historyPayments} />
 

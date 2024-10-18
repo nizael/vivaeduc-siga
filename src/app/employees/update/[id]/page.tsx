@@ -1,6 +1,6 @@
 import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { TitlePage } from "./components/TitlePage";
-import { employeeDetails } from "../../../../services/employee/employeeDetails";
+import { employeeDetails } from "@/services/employee/employeeDetails";
 import { EmployeeInfo } from "./components/employee-info/EmployeeInfo";
 // import { EmployeeClassrooms } from "./components/classsroon/EmployeeCassroom";
 
