@@ -1,6 +1,6 @@
 import { DotsIcon } from "@/components/icons/DotsIcon"
 import { FieldData } from "../field-data/FieldData"
-import { UserEditIcon } from "@/components/icons/UserEditiIcon"
+import { UserEditIcon } from "@/components/icons/UserEditIcon"
 
 interface IStudentDetails {
   id: string

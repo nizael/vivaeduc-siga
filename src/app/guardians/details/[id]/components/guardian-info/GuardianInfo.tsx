@@ -1,33 +1,15 @@
-import Image from "next/image"
 import { FieldData } from "../field-data/FieldData"
 import { CallIcon } from "@/components/icons/CallIcon"
 import { EmailIcon } from "@/components/icons/EmailIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
 import { GuardianDetails } from "../details/GuardianDatails"
 import { EditIcon } from "@/components/icons/EditIcon"
+import { IGuardianInfo } from "../../../../@types/IGuardianInfo"
+import { GuardianAddress } from "../details/GuardianAddress"
+import { IAddress } from "@/types/address/IAddress"
 
-const guardianData = {
-  image: '/temp/employee.jpg',
-  name: 'Thalita Valente',
-  address: 'Passagem Dom Jorge, Belém',
-  phone: '(12) 3456-7890',
-  email: 'jordan@mail.com',
-  dateOfBirth: '21/05/2010',
-  maritalStatus: 'Solteiro',
-  gender: 'FEMALE',
-  colorOrRace: 'WHITE',
-  document: '888.888.888-88',
-  identityCard: '8888888',
-  issuingAuthority: 'SSP',
-  state: 'PA',
-  issueDate: '25/04/2019',
-  workplace: 'Colégio Ômega',
-  profession: 'TEACHER',
-  workPhone: '91 9 8888-8888'
-}
-
-export const GuardianInfo = () => {
-
+export const GuardianInfo = ({ guardianData }: { guardianData: IGuardianInfo & { address: IAddress } }) => {
+  const { address, ...guardian } = guardianData
   return (
     <section className="rounded-xl bg-gray-50 shadow-sm relative">
       <div className="flex flex-col">
@@ -36,21 +18,22 @@ export const GuardianInfo = () => {
           <div className="w-[261px] h-[275px] rounded-3xl border-[16px] border-[#FCC43E]  " />
         </div>
         <div className="absolute top-36 -translate-y-1/2 left-8 w-36 h-36 rounded-full border-[8px] bg-[#C1BBEB] border-gray-50 overflow-hidden shadow-sm">
-          <Image src={guardianData.image} alt={guardianData.name} width={144} height={144} />
+          {/* <Image src={guardianData.image} alt={guardianData.name} width={144} height={144} /> */}
         </div>
         <div className="p-4 mt-14 flex flex-col gap-4 relative">
           <button className="absolute top-0 right-10 text-[--text-primary]"><EditIcon /></button>
-          <h5 className="text-2xl font-semibold text-[--text-primary]">{guardianData.name}</h5>
+          <h5 className="text-2xl font-semibold text-[--text-primary]">{guardian.name}</h5>
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
-              <FieldData field="Endereço" value={guardianData.address} icon={<LocationIcon />} />
-              <FieldData field="Telefone" value={guardianData.phone} icon={<CallIcon />} />
-              <FieldData field="Email" value={guardianData.email} icon={<EmailIcon />} />
+              <FieldData field="Endereço" value={address.street} icon={<LocationIcon />} />
+              <FieldData field="Telefone" value={guardian.phone} icon={<CallIcon />} />
+              <FieldData field="Email" value={guardian.email} icon={<EmailIcon />} />
             </div>
           </div>
         </div>
       </div>
-      <GuardianDetails guardianData={guardianData} />
+      <GuardianDetails guardian={guardian} />
+      <GuardianAddress address={address} />
     </section>
   )
 }

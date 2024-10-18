@@ -8,7 +8,7 @@ import { CheckboxGender } from "./CheckboxGender"
 import { employeeCreate } from "../../../../services/employee/employeeCreate"
 import { useEmployeesStore } from "../../stores/useEmployeesStore"
 import { DotsIcon } from "@/components/icons/DotsIcon"
-import { UserEditIcon } from "@/components/icons/UserEditiIcon"
+import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
 import { LoginIcon } from "@/components/icons/LoginIcon"
 import { ToolIcon } from "@/components/icons/ToolIcon"
@@ -36,13 +36,11 @@ export const employeeRoleOptions = [
   { label: "Orientador(a)", value: 'ADVISOR' }
 ]
 
-
-
-
 export const FormEmployee = () => {
   const { pushEmployee } = useEmployeesStore()
   async function handleFormCation(formData: FormData) {
     const response = await employeeCreate(formData)
+
     if (response.status === 201) {
       pushEmployee(response.data)
     }

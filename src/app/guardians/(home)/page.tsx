@@ -1,4 +1,5 @@
 import { LayoutWeb } from "../../../common/components/_layout/LayoutWeb";
+import { guardianListAll } from "../../../services/guardian/guardianListAll";
 import { EmptyStateGuardian } from "./components/empty-state/EmptyStateGuardian";
 import { ListGuardians } from "./components/list-guardians/ListGuardians";
 import { ToolBar } from "./components/ToolBar";
@@ -32,12 +33,13 @@ const listGuardians = null
 //   { id: '24', image: '/temp/guardian.jpeg', name: 'Johnny Ahmad', code: '#123456789', contact: { email: 's@email', phone: '123' }, role: 'Science', classroom: '8-FND' },
 // ]
 
-export default function GuardiansPage() {
+export default async function GuardiansPage() {
+  const { status, data } = await guardianListAll()
   return (
     <LayoutWeb titlePage="Responsáveis">
       <div className="flex flex-col gap-4 h-full">
         <ToolBar />
-        {listGuardians ? <ListGuardians guardians={listGuardians} /> : <EmptyStateGuardian />}
+        {status === 200 && data ? <ListGuardians guardians={data} /> : <EmptyStateGuardian />}
       </div>
     </LayoutWeb>
   );

@@ -6,7 +6,7 @@ import { InputText } from "@/components/inputs/InputText"
 import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
 import { CheckboxGender } from "./CheckboxGender"
 import { DotsIcon } from "@/components/icons/DotsIcon"
-import { UserEditIcon } from "@/components/icons/UserEditiIcon"
+import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
 import { LoginIcon } from "@/components/icons/LoginIcon"
 import { ToolIcon } from "@/components/icons/ToolIcon"
@@ -44,6 +44,7 @@ export const FormGuardian = () => {
   const { pushGuardian } = useGuardiansStore()
   async function handleFormCation(formData: FormData) {
     const response = await guardianCreate(formData)
+    console.log(response.data)
     if (response.status === 201) {
       pushGuardian(response.data)
     }

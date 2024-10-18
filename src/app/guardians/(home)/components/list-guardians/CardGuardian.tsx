@@ -13,7 +13,7 @@ interface ICardGuardianProps {
 }
 export const CardGuardian = ({ guardianName, image, id, contact }: ICardGuardianProps) => {
   return (
-    <div className="max-w-[300px] w-full items-center border flex shadow-sm gap-4 p-4 bg-gray-50 rounded-lg">
+    <div className=" w-full items-center border flex shadow-sm gap-4 p-4 bg-gray-50 rounded-lg">
       <div className="w-[80px] h-[80px] rounded-full bg-[#C1BBEB] flex-none overflow-hidden" >
         {image && <Image src={image} width={80} height={80} alt={guardianName} />}
       </div>

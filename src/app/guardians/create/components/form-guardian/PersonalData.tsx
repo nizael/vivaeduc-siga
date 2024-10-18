@@ -1,7 +1,7 @@
 import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
 import { DotsIcon } from "@/components/icons/DotsIcon"
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
-import { UserEditIcon } from "@/components/icons/UserEditiIcon"
+import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { ImageUpload } from "@/components/image-uploads/ImageUpload"
 import { InputText } from "@/components/inputs/InputText"
 import { CheckboxGender } from "../CheckboxGender"

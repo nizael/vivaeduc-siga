@@ -7,30 +7,12 @@ import { EmployeeDetails } from "../details/EmployeeDatails"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
 import Link from "next/link"
 import { formatPhone } from "@/utils/formatPhone"
-import {  IAddress } from "../details/EmployeeAddress"
+import { IEmployeeInfo } from "../../../../@types/IEmployeeInfo"
+import { EmployeeAddress } from "../details/EmployeeAddress"
+import { IAddress } from "@/types/address/IAddress"
 
-export interface IEmployeeInfo {
-  id: string
-  image?: string
-  name: string
-  phone: string
-  email: string
-  dateOfBirth: string
-  maritalStatus: string
-  gender: string
-  colorOrRace: string
-  document: string
-  identityCard: string
-  issuingAuthority: string
-  state: string
-  issueDate: string
-  nickname: string
-  role: string
-  address: IAddress
-}
-
-export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo }) => {
-
+export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & { address: IAddress } }) => {
+  const { address, ...employee } = employeeData
   return (
     <section className="rounded-xl bg-gray-50 shadow-md relative flex flex-col gap-4 ">
       <div className=" rounded-b-xl flex flex-col">
@@ -42,14 +24,13 @@ export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo }) 
           {employeeData.image && <Image src={employeeData.image} alt="school" width={144} height={144} />}
         </div>
         <div className="p-4 mt-14 flex flex-col gap-4 relative">
-          {/* <button className="absolute top-0 right-10 text-[--text-primary]"><EditIcon /></button> */}
           <div className="flex items-center justify-between">
             <h5 className="text-2xl font-semibold text-[--text-primary]">{employeeData.name}</h5>
             <Link href={`/employees/update/${employeeData.id}`} className="shadow-sm text-[--text-primary] text-sm font-semibold  rounded-full h-[40px] px-4 flex items-center gap-1"><EditIcon /> Editar</Link>
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-20">
-              <FieldData field="Endereço" value={`${employeeData.address.street}, ${employeeData.address.city}`} icon={<LocationIcon />} />
+              <FieldData field="Endereço" value={`${address.street}, ${address.city}`} icon={<LocationIcon />} />
               <FieldData field="Telefone" value={formatPhone(employeeData.phone)} icon={<CallIcon />} />
               <FieldData field="Email" value={employeeData.email} icon={<EmailIcon />} />
             </div>
@@ -57,7 +38,9 @@ export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo }) 
         </div>
       </div>
 
-      <EmployeeDetails employeeData={employeeData} />
+      <EmployeeDetails employeeData={employee} />
+      <EmployeeAddress address={address} />
+
     </section>
   )
 }

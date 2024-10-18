@@ -4,7 +4,8 @@ import { LocationIcon } from "@/components/icons/LocationsIcon"
 import { formatCEP } from "@/utils/formatCEP"
 import { IAddress } from "@/types/address/IAddress"
 
-export const EmployeeAddress = ({ address }: { address: IAddress }) => {
+
+export const GuardianAddress = ({ address }: { address: IAddress }) => {
   return (
     <details className=" rounded-b-xl bg-gray-50  group">
       <summary className="p-4 grid grid-cols-3 border-t place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><LocationIcon /> Endereço completo</span> <DotsIcon /> <span /></summary>
