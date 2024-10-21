@@ -1,4 +1,4 @@
-export interface ICreateEmployee {
+export interface ICreateStudent {
   name?: string
   dateOfBirth?: string
   gender?: string

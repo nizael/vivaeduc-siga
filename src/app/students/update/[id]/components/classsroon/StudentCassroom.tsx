@@ -8,12 +8,14 @@ const classrooms = [
   { id: '5', name: '5º ANO', academicYear: '2021', grade: '4º Ano', status: 'Concluído' },
 ]
 
-export const StudentClassrooms = () => {
+export const EmployeeClassrooms = () => {
   return (
-    <section className="rounded-xl bg-gray-50 shadow-sm flex flex-col max-h-[395px]">
+    <section className="rounded-xl bg-gray-50 shadow-md flex flex-col max-h-[395px]">
       <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl p-4 border-b">
-        <ClassroomIcon />
-        <h5 className="font-semibold">Turmas</h5>
+        <h5 className="text-[--text-primary] font-semibold flex items-center gap-2">
+          <ClassroomIcon />
+          Turmas
+        </h5>
       </div>
 
       <table className=" overflow-y-auto h-full ">
@@ -31,7 +33,7 @@ export const StudentClassrooms = () => {
             <td className="p-4 text-center"> {classroom.academicYear}</td>
             <td className="p-4 text-center"> {classroom.grade}</td>
             <td className="p-4 text-end"> {classroom.status}</td>
-          </tr>).reverse()}
+          </tr>)}
         </tbody>
       </table>
     </section>

@@ -1,4 +1,3 @@
-
 'use client'
 import { LoginIcon } from '@/components/icons/LoginIcon';
 import { InputText } from '@/components/inputs/InputText';
@@ -7,14 +6,13 @@ import { cookiesManager } from '../../di/dependencyInjection';
 import { redirect } from 'next/navigation';
 
 
-export default function SessionPage  () {
-
+export default function SessionPage() {
   const handleLogin = async (formData: FormData) => {
     const result = await sessionCreate(formData)
     if (result.status === 201) {
       cookiesManager.setCookie('user_token', result.data.token)
       sessionStorage.setItem('user_token', result.data.token)
-      redirect('/')
+     redirect('/')
     }
   };
 

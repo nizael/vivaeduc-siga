@@ -4,6 +4,7 @@ interface IUseStudentStore {
   listStudents?: IStudents[]
   studentsView?: IStudents[]
   currentPage: number
+  // pushEmployee(student: IStudents): void
   setCurrentPage(currentPage: number): void
   setListStudents(listStudents: IStudents[]): void
 }
@@ -30,5 +31,13 @@ export const useStudentsStore = create<IUseStudentStore>((set, get) => ({
       currentPage,
       studentsView: listStudents?.slice(start, end)
     })
-  }
+  },
+  // pushEmployee: (student) => {
+  //   const listStudents = get().listStudents
+  //   if (listStudents) {
+  //     set({ listStudents: [student, ...listStudents] })
+  //   } else {
+  //     set({ listStudents: [student] })
+  //   }
+  // }
 }))

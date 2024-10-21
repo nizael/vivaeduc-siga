@@ -4,11 +4,9 @@ import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { formatPhone } from "@/utils/formatPhone"
 import { InputEdit } from "../InputEdit"
 import { SelectEdit } from "../SelectEdit"
-import { colorOrRaceOptions, employeeRoleOptions, maritalStatusOptions } from "../../../../create/components/FormGuardian"
-import { colorOrRace } from "@/configs/colorOrRace"
-import { employeeRole } from "@/configs/employeeRole"
+import { colorOrRace, colorOrRaceOptions } from "@/configs/colorOrRace"
 import { gender } from "@/configs/gender"
-import { maritalStatus } from "@/configs/maritalStatus"
+import { maritalStatus, maritalStatusOptions } from "@/configs/maritalStatus"
 import { IGuardianInfo } from "../../../../@types/IGuardianInfo"
 
 

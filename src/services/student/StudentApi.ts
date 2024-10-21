@@ -1,8 +1,8 @@
 import { FetchApi } from "../fetch-api/FetchApi";
-import { ICreateEmployee } from "./ICreateEmployee";
+import { ICreateStudent } from "./ICreateStudent";
 
 export class StudentApi extends FetchApi {
-  async create(data: ICreateEmployee) {
+  async create(data: ICreateStudent) {
     return this.post('/v1/students/create', data)
   }
   async listAll() {

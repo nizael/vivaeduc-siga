@@ -4,7 +4,6 @@ interface IUseEmployeeStore {
   listEmployees?: IEmployees[]
   employeesView?: IEmployees[]
   currentPage: number
-  pushEmployee(employee: IEmployees): void
   setCurrentPage(currentPage: number): void
   setListEmployees(listEmployees: IEmployees[]): void
 }
@@ -31,12 +30,5 @@ export const useEmployeesStore = create<IUseEmployeeStore>((set, get) => ({
       employeesView: listEmployees?.slice(start, end)
     })
   },
-  pushEmployee: (employee) => {
-    const listEmployee = get().listEmployees
-    if (listEmployee) {
-      set({ listEmployees: [employee, ...listEmployee] })
-    } else {
-      set({ listEmployees: [employee] })
-    }
-  }
+
 }))

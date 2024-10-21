@@ -5,7 +5,8 @@ import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { ImageUpload } from "@/components/image-uploads/ImageUpload"
 import { InputText } from "@/components/inputs/InputText"
 import { CheckboxGender } from "../CheckboxGender"
-import { colorOrRaceOptions, maritalStatusOptions } from "../FormGuardian"
+import { colorOrRaceOptions } from "@/configs/colorOrRace"
+import { maritalStatusOptions } from "@/configs/maritalStatus"
 
 export const PersonalData = ()=>{
   return(
@@ -30,7 +31,6 @@ export const PersonalData = ()=>{
         <InputText label="UF" name="issueState" />
         <InputText required label="Celular *" name="phone" />
         <InputText required label="email *" name="email" />
-        <InputText label="Apelido" name="nickname" />
       </div>
     </div>
   </details>

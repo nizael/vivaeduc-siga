@@ -1,4 +1,4 @@
-import { employeeApi, studentApi } from "../../di/dependencyInjection"
+import { studentApi } from "../../di/dependencyInjection"
 
 export const studentListAll = async () => {
   return studentApi.listAll()

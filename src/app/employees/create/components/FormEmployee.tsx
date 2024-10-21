@@ -6,43 +6,20 @@ import { InputText } from "@/components/inputs/InputText"
 import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
 import { CheckboxGender } from "./CheckboxGender"
 import { employeeCreate } from "@/services/employee/employeeCreate"
-import { useEmployeesStore } from "../../stores/useEmployeesStore"
 import { DotsIcon } from "@/components/icons/DotsIcon"
 import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
 import { LoginIcon } from "@/components/icons/LoginIcon"
 import { ToolIcon } from "@/components/icons/ToolIcon"
 import { redirect } from "next/navigation"
-
-export const maritalStatusOptions = [
-  { label: "Solteiro", value: 'SINGLE' },
-  { label: "Casado", value: 'MARRIED' },
-  { label: "Divorciado", value: 'DIVORCED' },
-  { label: "Viúvo", value: 'WINDOWED' },
-]
-
-export const colorOrRaceOptions = [
-  { label: "Amamrelo", value: 'YELLOW' },
-  { label: "Branco", value: 'WHITE' },
-  { label: "Pardo", value: 'BROWN' },
-  { label: "Preto", value: 'BLACK' },
-  { label: "Índigena", value: 'INDIGENOUS' },
-]
-
-export const employeeRoleOptions = [
-  { label: "Professor(a)", value: 'TEACHER' },
-  { label: "Coordenador(a)", value: 'COORDINATOR' },
-  { label: "Secretário(a)", value: 'SECRETARY' },
-  { label: "Assistente", value: 'ASSISTANT' },
-  { label: "Orientador(a)", value: 'ADVISOR' }
-]
+import { colorOrRaceOptions } from "@/configs/colorOrRace"
+import { maritalStatusOptions } from "@/configs/maritalStatus"
+import { employeeRoleOptions } from "@/configs/employeeRole"
 
 export const FormEmployee = () => {
-  const { pushEmployee } = useEmployeesStore()
   async function handleFormCation(formData: FormData) {
-    const {status, data} = await employeeCreate(formData)
+    const { status, data } = await employeeCreate(formData)
     if (status === 201) {
-      pushEmployee(data)
       redirect('/employees')
     }
   }
