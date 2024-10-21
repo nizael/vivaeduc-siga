@@ -1,3 +1,4 @@
+import { IGuardianInfo } from "../../app/guardians/@types/IGuardianInfo";
 import { FetchApi } from "../fetch-api/FetchApi";
 import { ICreateGuardian } from "./ICreateGuardian";
 
@@ -10,6 +11,8 @@ export class GuardianApi extends FetchApi {
   }
   async details(id: string) {
     return this.get(`/v1/guardians/details/${id}`)
-
+  }
+  async update(data: Partial<IGuardianInfo>, id: string) {
+    return this.put(`/v1/guardians/${id}`, data)
   }
 }

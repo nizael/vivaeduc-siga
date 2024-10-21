@@ -32,9 +32,8 @@ export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & {
           <h5 className="text-2xl  h-[40px] flex items-center font-semibold text-[--text-primary]">{employee?.name}</h5>
         </div>
       </div>
-      <EmployeeDetails employee={employee} />
+      <EmployeeDetails />
       <EmployeeAddress />
-
     </section>
   )
 }

@@ -3,20 +3,20 @@ import { DotsIcon } from "@/components/icons/DotsIcon"
 import { FieldData } from "../field-data/FieldData"
 import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { formatPhone } from "@/utils/formatPhone"
-import { SelectEdit } from "../SelectEdit"
 import { colorOrRace, colorOrRaceOptions } from "@/configs/colorOrRace"
 import { employeeRole, employeeRoleOptions } from "@/configs/employeeRole"
 import { gender, genderOptions } from "@/configs/gender"
 import { maritalStatus, maritalStatusOptions } from "@/configs/maritalStatus"
 import { employeeUpdate } from "@/services/employee/employeeUpdate"
 import { InputEdit } from "@/components/inputs/InputEdit"
-import { IEmployeeData, useUpdateEmployeesStore } from "../../../../stores/useUpdateEmployeesStore"
+import { useUpdateEmployeesStore } from "../../../../stores/useUpdateEmployeesStore"
+import { SelectEdit } from "@/components/selects/SelectEdit"
 
 
-export const EmployeeDetails = ({ employee }: { employee?: IEmployeeData }) => {
-  const { updateAttribute } = useUpdateEmployeesStore()
+export const EmployeeDetails = () => {
+  const {employee, updateAttribute } = useUpdateEmployeesStore()
 
-  async function updatePersonalDataInputEdit(evt: React.FormEvent<HTMLFormElement>, field: string, isNumber?: Boolean) {
+  async function updatePersonalDataInputEdit(evt: React.FormEvent<HTMLFormElement>, field: string) {
     evt.preventDefault()
     const formData = new FormData(evt.currentTarget)
     const value = formData.get(field)?.toString()

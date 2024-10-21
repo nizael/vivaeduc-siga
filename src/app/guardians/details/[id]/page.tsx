@@ -11,10 +11,6 @@ const historyPayments = [
   { id: '2', code: '#2125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
   { id: '3', code: '#2125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
   { id: '4', code: '#2125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
-  // { id: '5',code: '#2125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
-  // { id: '6',code: '#2125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
-  // { id: '7',code: '#2125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
-  // { id: '8',code: '#2125469654', date: '21/05/2024', value: 'R$ 50,00', status: 'Concluido', },
 ]
 
 interface IGuardianDetailsPageProps {
@@ -30,7 +26,6 @@ export default async function GuardianDetailsPage(props: IGuardianDetailsPagePro
         {status === 200 && data ? <GuardianInfo guardianData={data} /> : <EmptyPage label="Responsável não encontrado!"/>}
         <ListDependents />
         <PaymentHistory historyPayments={historyPayments} />
-
       </div>
     </LayoutWeb>
   )

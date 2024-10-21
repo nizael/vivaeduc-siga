@@ -7,7 +7,7 @@ export const colorOrRace = {
 }
 
 export const colorOrRaceOptions = [
-  { label: "Amamrelo", value: 'YELLOW' },
+  { label: "Amarelo", value: 'YELLOW' },
   { label: "Branco", value: 'WHITE' },
   { label: "Pardo", value: 'BROWN' },
   { label: "Preto", value: 'BLACK' },
