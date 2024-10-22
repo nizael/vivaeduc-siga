@@ -1,3 +1,4 @@
+import { IStudentInfo } from "../../app/students/@types/IStudentInfo";
 import { FetchApi } from "../fetch-api/FetchApi";
 import { ICreateStudent } from "./ICreateStudent";
 
@@ -10,5 +11,8 @@ export class StudentApi extends FetchApi {
   }
   async details(id: string) {
     return this.get(`/v1/students/details/${id}`)
+  }
+  async update(data: Partial<IStudentInfo>, id: string) {
+    return this.put(`/v1/students/${id}`, data)
   }
 }
