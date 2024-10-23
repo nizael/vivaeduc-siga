@@ -13,6 +13,6 @@ export class StudentApi extends FetchApi {
     return this.get(`/v1/students/details/${id}`)
   }
   async update(data: Partial<IStudentInfo>, id: string) {
-    return this.put(`/v1/students/${id}`, data)
+    return this.put(`/v1/students/update/${id}`, data)
   }
 }

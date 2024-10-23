@@ -13,6 +13,6 @@ export class GuardianApi extends FetchApi {
     return this.get(`/v1/guardians/details/${id}`)
   }
   async update(data: Partial<IGuardianInfo>, id: string) {
-    return this.put(`/v1/guardians/${id}`, data)
+    return this.put(`/v1/guardians/update/${id}`, data)
   }
 }

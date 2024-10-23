@@ -15,6 +15,6 @@ export class EmployeeApi extends FetchApi {
   }
 
   async update(data: Partial<IEmployeeInfo & { address: Partial<IAddress> }>, id: string) {
-    return this.put(`/v1/employees/${id}`, data)
+    return this.put(`/v1/employees/update/${id}`, data)
   }
 }

@@ -47,8 +47,8 @@ export const StudentDetails = () => {
         <InputEdit name="name" onSubmit={evt => updatePersonalDataInputEdit(evt, 'name')} defaultValue={student.name}>
           <FieldData id="name" field="Nome completo" value={student.name} />
         </InputEdit>
-        <InputEdit name='dateOfBirth' onSubmit={evt => updatePersonalDataInputEdit(evt, 'dateOfBirth')} defaultValue={student.dateOfBirth}>
-          <FieldData id="dateOfBirth" field="Data de nascimento" value={student.dateOfBirth} />
+        <InputEdit name='dateOfBirth' type="date" onSubmit={evt => updatePersonalDataInputEdit(evt, 'dateOfBirth')} defaultValue={student.dateOfBirth}>
+          <FieldData id="dateOfBirth" field="Data de nascimento" value={`${new Date(student.dateOfBirth).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}`} />
         </InputEdit>
         <SelectEdit name='maritalStatus' options={maritalStatusOptions} defaultValue={student.maritalStatus} onSubmit={evt => updatePersonalDataSelectEdit(evt, 'maritalStatus')} >
           <FieldData id="maritalStatus" field="Estado civil" value={maritalStatus[student.maritalStatus as keyof typeof maritalStatus]} />
@@ -69,7 +69,7 @@ export const StudentDetails = () => {
           <FieldData id="issuingAuthority" field="Orgão emissor" value={student.issuingAuthority} />
         </InputEdit>
         <InputEdit name='issueDate' type="date" defaultValue={student.issueDate} onSubmit={evt => updatePersonalDataInputEdit(evt, 'issueDate')}>
-          <FieldData id="issueDate" field="Data de emissão" value={student.issueDate} />
+          <FieldData id="issueDate" field="Data de emissão" value={student.issueDate ? `${new Date(student.issueDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}` : '-'} />
         </InputEdit>
         <InputEdit name='state' defaultValue={student.state} onSubmit={evt => updatePersonalDataInputEdit(evt, 'state')}>
           <FieldData id="state" field="UF" value={student.state} />
