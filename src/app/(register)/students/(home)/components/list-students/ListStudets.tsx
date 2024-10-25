@@ -41,6 +41,7 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
               <td className="p-4 text-center"><NavMenu items={[
                 { href: `/students/details/${student.id}`, label: 'Detalhes' },
                 { href: `/students/update/${student.id}`, label: 'Editar' },
+                { href: `/students/enrollment/${student.id}`, label: 'Matrícula' },
               ]} /></td>
             </tr>)}
           </tbody>

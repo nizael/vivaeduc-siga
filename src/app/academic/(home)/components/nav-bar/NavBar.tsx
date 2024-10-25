@@ -1,14 +1,18 @@
+import { CalendarIcon } from "@/components/icons/CalendarIcon"
+import { ClassroomIcon } from "@/components/icons/ClassroomIcon"
+import { SchoolIcon } from "@/components/icons/SchoolIcon"
+import { SubjectIcon } from "@/components/icons/SubjectIcon"
 import Link from "next/link"
 import { ReactNode } from "react"
 
 export const NavBar = () => {
   return (
     <section className="p-4 rounded-xl bg-gray-50 flex gap-4">
-      <NavButton href="/academic/school-years" label="Períodos" />
-      <NavButton href="/academic/courses" label="Cursos" />
-      <NavButton href="/academic/grades" label="Séries" />
-      <NavButton href="/academic/classrooms" label="Turmas" />
-      <NavButton href="/academic/subjects" label="Disciplinas" />
+      <NavButton href="/academic/school-years" label="Períodos" icon={<CalendarIcon />} />
+      <NavButton href="/academic/courses" label="Cursos" icon={<SchoolIcon />} />
+      <NavButton href="/academic/grades" label="Séries"  />
+      <NavButton href="/academic/classrooms" label="Turmas" icon={<ClassroomIcon />} />
+      <NavButton href="/academic/subjects" label="Disciplinas" icon={<SubjectIcon />} />
       {/* <NavButton href="/" label="Grade Curricular" />
       <NavButton href="/" label="Diário de Classe" />
       <NavButton href="/" label="Notas" />
