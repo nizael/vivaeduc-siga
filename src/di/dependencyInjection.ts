@@ -8,6 +8,11 @@ import { EmployeeApi } from "@/services/employee/EmployeeApi";
 import { env } from "../configs/env";
 import { GuardianApi } from "@/services/guardian/GuardianApi";
 import { StudentApi } from "@/services/student/StudentApi";
+import { CourseApi } from "@/services/course/CourseApi";
+import { SchoolYearApi } from "@/services/school-year/SchoolYearApi";
+import { GradeApi } from "@/services/grade/GradeApi";
+import { ClassroomApi } from "@/services/classroom/ClassroomApi";
+import { SubjectApi } from "@/services/subject/SubjectApi";
 // import { StudentApi } from "@/services/register/student/StudentApi";
 // import { GuardianApi } from "@/services/register/guardian/GuardianApi";
 // import { AddressApi } from "@/services/register/address/AddressApi";
@@ -17,18 +22,25 @@ const sessionApi = new SessionApi(axios)
 const employeeApi = new EmployeeApi(axios)
 const guardianApi = new GuardianApi(axios)
 const studentApi = new StudentApi(axios)
-// const addressApi = new AddressApi(axios)
+const courseApi = new CourseApi(axios)
 const cookiesManager = new CookiesManager()
 const guardian = new Guardian(env)
-
+const schoolYearApi = new SchoolYearApi(axios)
+const gradeApi = new GradeApi(axios)
+const classroomApi = new ClassroomApi(axios)
+const subjectApi = new SubjectApi(axios)
 
 export {
   fetchApi,
+  subjectApi,
+  classroomApi,
   sessionApi,
   employeeApi,
   guardianApi,
   studentApi,
-  // addressApi,
+  courseApi,
   cookiesManager,
   guardian,
+  schoolYearApi,
+  gradeApi,
 }
