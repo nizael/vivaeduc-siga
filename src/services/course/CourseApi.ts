@@ -8,10 +8,10 @@ export class CourseApi extends FetchApi {
   async listAll() {
     return this.get('/v1/courses/listAll')
   }
-  async details(id: string) {
-    return this.get(`/v1/courses/details/${id}`)
-  }
-  async update(data: Partial<ICreateCourse>, id: string) {
-    return this.put(`/v1/courses/update/${id}`, data)
-  }
+  // async details(id: string) {
+  //   return this.get(`/v1/courses/details/${id}`)
+  // }
+  // async update(data: Partial<ICreateCourse>, id: string) {
+  //   return this.put(`/v1/courses/update/${id}`, data)
+  // }
 }

@@ -1,4 +1,4 @@
-import { IEmployees } from "../../app/employees/stores/useEmployeesStore"
+import { IEmployees } from "../../app/(register)/employees/stores/useEmployeesStore"
 import { ICourse } from "../course/ICourse"
 import { IGrade } from "../grade/IGrade"
 import { ISchoolYear } from "../school-year/ISchoolYear"

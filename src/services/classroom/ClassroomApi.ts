@@ -1,6 +1,6 @@
 import { FetchApi } from "../fetch-api/FetchApi";
 
-import { ICreateClassroom} from "./ICreateClassroom";
+import { ICreateClassroom } from "./ICreateClassroom";
 
 export class ClassroomApi extends FetchApi {
   async create(data: ICreateClassroom) {

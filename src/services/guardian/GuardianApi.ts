@@ -1,4 +1,4 @@
-import { IGuardianInfo } from "../../app/guardians/@types/IGuardianInfo";
+import { IGuardianInfo } from "../../app/(register)/guardians/@types/IGuardianInfo";
 import { FetchApi } from "../fetch-api/FetchApi";
 import { ICreateGuardian } from "./ICreateGuardian";
 

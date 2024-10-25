@@ -7,7 +7,7 @@ export interface ICreateClassroom {
   shift: "MORNING" | "AFTERNOON" | "NIGHT" | "INTERMEDIATE" | "FULL_TIME"
   numberVacancies: number
   inep?: string
-  startDate: Date
-  endDate: Date
+  startDate: string
+  endDate: string
   coordinatorId: string
 }

@@ -144,7 +144,7 @@ export const CustomSelect = ({
   }
 
   return (
-    <label className={`flex flex-col gap-1 justify-between ${className}`} >
+    <label className={`flex flex-col gap-2 justify-between ${className}`} >
       {label && <span className='font-semibold text-[--text-primary]'>{label}</span>}
       <div className="relative h-[42px] w-full" ref={dropdownRef}>
         <input
@@ -162,7 +162,7 @@ export const CustomSelect = ({
           disabled={disabled}
           onClick={toggleDropdown}
           className={`${disabled ? 'bg-gray-200' : 'bg-gray-50'
-            } flex justify-between w-full border border-gray-300 rounded-lg px-1 py-2 text-left focus:outline-none focus:ring-2 focus:ring-[--bg-primary]`}
+            } flex justify-between w-full border border-[#C1BBEB] rounded-lg px-1 py-2 text-left focus:outline-none focus:ring-2 focus:ring-[--bg-primary]`}
           onKeyDown={handleKeyDown}
           aria-expanded={isOpen}
           aria-haspopup="listbox"

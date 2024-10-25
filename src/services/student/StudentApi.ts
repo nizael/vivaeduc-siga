@@ -1,4 +1,4 @@
-import { IStudentInfo } from "../../app/students/@types/IStudentInfo";
+import { IStudentInfo } from "../../app/(register)/students/@types/IStudentInfo";
 import { FetchApi } from "../fetch-api/FetchApi";
 import { ICreateStudent } from "./ICreateStudent";
 

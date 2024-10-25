@@ -1,26 +1,33 @@
 'use client'
 import { InputText } from "@/components/inputs/InputText"
 import { ModalOverlay } from "@/components/modals/ModalOverlay"
-import { useSchoolYearCreateModalStore } from "../stores/useSchoolYearCreateModal"
-import { schoolYearCreate } from "@/services/school-year/schoolYearCreate"
-import { useSchoolYearStore } from "../stores/useSchoolYearStore"
+import { courseCreate } from "@/services/course/courseCreate"
+import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
+import { modalityCourseOptions } from "@/configs/modalityCourse"
+import { useEffect, useState } from "react"
+import { courseListAll } from "@/services/course/courseListAll"
+import { ICourse } from "@/services/course/ICourse"
+import { gradeCreate } from "@/services/grade/gradeCreate"
+import { useSubjectStore } from "../stores/useSubjectStore"
+import { useSubjectCreateModalStore } from "../stores/useSubjectCreateModal"
+import { subjectCreate } from "@/services/subject/subjectCreate"
+import { bnccCodeOptions } from "@/configs/bnccCode"
 
-export const SchoolYearCreateModal = () => {
-  const { isOpen, onClose } = useSchoolYearCreateModalStore()
-  const { pushSchoolYear } = useSchoolYearStore()
+export const SubjectCreateModal = () => {
+  const { isOpen, onClose } = useSubjectCreateModalStore()
+  const { pushSubject } = useSubjectStore()
 
   return (
     <ModalOverlay isOpen={isOpen} onClose={onClose}>
       <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-lg w-full" onClick={evt => evt.stopPropagation()}>
         <div className="flex justify-between p-4 border-b ">
-          <h5 className="text-xl text-[--text-primary] font-semibold">Novo Período</h5>
+          <h5 className="text-xl text-[--text-primary] font-semibold">Nova Série</h5>
           <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>
         </div>
         <form action={async formData => {
-          const { data, status } = await schoolYearCreate(formData)
+          const { data, status } = await subjectCreate(formData)
           if (status === 201) {
-            console.log('=== data ', data)
-            pushSchoolYear(data)
+            pushSubject(data)
             onClose()
           }
         }} className="p-4 flex flex-col gap-4" >
@@ -30,16 +37,10 @@ export const SchoolYearCreateModal = () => {
               <InputText required label="Nome *" name="name" />
             </div>
             <div className="col-start-1 col-end-3">
-              <InputText required type="date" label="Início" name="startDate" />
+              <InputText label="Educacenso" name="educacenso" />
             </div>
-            <div className="col-start-3 col-end-5">
-              <InputText required type="date" label="Final" name="endDate" />
-            </div>
-            <div className="col-start-1 col-end-3">
-              <InputText required type="date" label="Conclusão" name="yearCompletion" />
-            </div>
-            <div className="col-start-3 col-end-5">
-              <InputText type="number" label="Dias letivos" name="schoolDays" />
+            <div className="col-start-1 col-end-5">
+              <CustomSelect required options={bnccCodeOptions} onChange={() => ({})} label="BNCC" name="bncc" />
             </div>
           </div>
           <div className="flex items-center gap-4 justify-end">

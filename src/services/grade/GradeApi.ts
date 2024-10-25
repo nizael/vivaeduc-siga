@@ -8,6 +8,10 @@ export class GradeApi extends FetchApi {
   async listAll() {
     return this.get('/v1/grades/listAll')
   }
+
+  async getByCourseId(courseId: string) {
+    return this.get(`/v1/grades/getByCourseId/${courseId}`)
+  }
   // async details(id: string) {
   //   return this.get(`/v1/grades/details/${id}`)
   // }

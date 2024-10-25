@@ -2,7 +2,7 @@ import { DotsIcon } from "@/components/icons/DotsIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
 import { IAddress } from "@/types/address/IAddress"
 import { formatCEP } from "@/utils/formatCEP"
-import { FieldData } from "../../../../app/school/components/principal-data/FieldData"
+import { FieldData } from "../../../../app/(register)/school/components/principal-data/FieldData"
 
 export const AddressDetails = ({ address }: { address: IAddress }) => {
   return (
