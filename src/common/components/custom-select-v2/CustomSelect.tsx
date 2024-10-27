@@ -145,7 +145,7 @@ export const CustomSelect = ({
 
   return (
     <label className={`flex flex-col gap-2 justify-between ${className}`} >
-      {label && <span className='font-semibold text-[--text-primary]'>{label}</span>}
+      {label && <span className='font-semibold text-sm text-[--text-primary]'>{label}</span>}
       <div className="relative h-[42px] w-full" ref={dropdownRef}>
         <input
           type="text"

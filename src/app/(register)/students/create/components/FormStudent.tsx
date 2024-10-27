@@ -12,21 +12,8 @@ import { LoginIcon } from "@/components/icons/LoginIcon"
 import { redirect } from "next/navigation"
 import { studentCreate } from "@/services/student/studentCreate"
 import { ToolIcon } from "@/components/icons/ToolIcon"
-
-export const maritalStatusOptions = [
-  { label: "Solteiro", value: 'SINGLE' },
-  { label: "Casado", value: 'MARRIED' },
-  { label: "Divorciado", value: 'DIVORCED' },
-  { label: "Viúvo", value: 'WINDOWED' },
-]
-
-export const colorOrRaceOptions = [
-  { label: "Amamrelo", value: 'YELLOW' },
-  { label: "Branco", value: 'WHITE' },
-  { label: "Pardo", value: 'BROWN' },
-  { label: "Preto", value: 'BLACK' },
-  { label: "Índigena", value: 'INDIGENOUS' },
-]
+import { colorOrRaceOptions } from "@/configs/colorOrRace"
+import { maritalStatusOptions } from "@/configs/maritalStatus"
 
 
 export const FormStudent = () => {

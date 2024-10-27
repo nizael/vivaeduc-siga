@@ -10,6 +10,7 @@ import { LocationIcon } from "@/components/icons/LocationsIcon";
 import { CallIcon } from "@/components/icons/CallIcon";
 import { EmailIcon } from "@/components/icons/EmailIcon";
 import { StepSection } from "./components/steps/StepSection";
+import { FormClassroom } from "./components/forms/Formenrollment";
 
 
 export default async function StudentsEnrollmentPage(props: IPageProps) {
@@ -31,7 +32,8 @@ export default async function StudentsEnrollmentPage(props: IPageProps) {
               </div>
             </div> */}
         </div>
-        <StepSection />
+        {/* <StepSection /> */}
+        <FormClassroom />
       </div>
     </LayoutWeb>
   );
