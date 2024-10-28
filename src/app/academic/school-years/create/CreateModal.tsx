@@ -19,7 +19,6 @@ export const SchoolYearCreateModal = () => {
         <form action={async formData => {
           const { data, status } = await schoolYearCreate(formData)
           if (status === 201) {
-            console.log('=== data ', data)
             pushSchoolYear(data)
             onClose()
           }

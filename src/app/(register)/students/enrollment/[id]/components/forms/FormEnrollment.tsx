@@ -11,7 +11,6 @@ import { DiscountData } from "./DiscountData"
 
 export const FormClassroom = () => {
   return (
-
     <form action="" className="flex flex-col gap-4">
       <ClassroomData />
       <DocumentData />

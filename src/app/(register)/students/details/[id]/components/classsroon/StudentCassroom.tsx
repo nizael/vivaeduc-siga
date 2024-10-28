@@ -18,7 +18,7 @@ export const StudentClassrooms = () => {
 
       <table className=" overflow-y-auto h-full ">
         <thead>
-          <tr className="text-sm font-semibold text-gray-500">
+          <tr className="text-sm font-semibold text-gray-500 bg-[--bg-tertiary]">
             <td className="px-4 py-2">Turna</td>
             <td className="px-4 py-2 text-center">Período letivo</td>
             <td className="px-4 py-2 text-center">Série</td>
@@ -26,7 +26,7 @@ export const StudentClassrooms = () => {
           </tr>
         </thead>
         <tbody>
-          {classrooms.map(classroom => <tr key={classroom.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary]">
+          {classrooms.map(classroom => <tr key={classroom.id} className="text-[--text-primary] font-semibold text-sm">
             <td className="p-4"> {classroom.name}</td>
             <td className="p-4 text-center"> {classroom.academicYear}</td>
             <td className="p-4 text-center"> {classroom.grade}</td>

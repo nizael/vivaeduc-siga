@@ -13,8 +13,5 @@ export const schoolYearCreate = async (formData: FormData) => {
     yearCompletion: new Date(yearCompletion).toISOString(),
     schoolDays: Number(formData.get('schoolDays')!),
   }
-
-
-  console.log(data)
   return schoolYearApi.create(data)
 }

@@ -14,6 +14,7 @@ import { GradeApi } from "@/services/grade/GradeApi";
 import { ClassroomApi } from "@/services/classroom/ClassroomApi";
 import { SubjectApi } from "@/services/subject/SubjectApi";
 import { ReportApi } from "@/services/report/ReportApi";
+import { PaymentPlanApi } from "@/services/paymentPlan/PaymentPlanApi";
 // import { StudentApi } from "@/services/register/student/StudentApi";
 // import { GuardianApi } from "@/services/register/guardian/GuardianApi";
 // import { AddressApi } from "@/services/register/address/AddressApi";
@@ -31,10 +32,12 @@ const gradeApi = new GradeApi(axios)
 const classroomApi = new ClassroomApi(axios)
 const subjectApi = new SubjectApi(axios)
 const reportApi = new ReportApi(axios)
+const paymentPlanApi = new PaymentPlanApi(axios)
 
 export {
   fetchApi,
   reportApi,
+  paymentPlanApi,
   subjectApi,
   classroomApi,
   sessionApi,

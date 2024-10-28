@@ -23,7 +23,6 @@ export const useClassroomStore = create<IUseClassroomStore>((set, get) => ({
   toggleSequence: () => {
     const classrooms = get().classrooms?.reverse()
     const sequence = get().sequence
-    console.log(sequence)
     if (classrooms) {
       set({
         classrooms: [...classrooms],

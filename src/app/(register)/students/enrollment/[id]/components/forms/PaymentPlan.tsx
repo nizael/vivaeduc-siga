@@ -1,56 +1,69 @@
-import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
+'use client'
 import { CreditCardIcon } from "@/components/icons/CreditCardIcon"
 import { DotsIcon } from "@/components/icons/DotsIcon"
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
-import { FinanceIcon } from "@/components/icons/FinanceIcon"
-import { InputText } from "@/components/inputs/InputText"
+import { paymentPlanListByCourseIdSchoolYearId } from "@/services/paymentPlan/paymentPlaGet"
+import { useEffect, useState } from "react"
+import { useEnrollmentStore } from "../../../../stores/useEnrollmentStore"
+import { IPaymentPlan } from "@/services/paymentPlan/IPaymentPlan"
+import { methodReceipt } from "@/configs/methodReceipt"
 
 
 export const PaymentPlan = () => {
+  const { schoolYearId, courseId, setPaymentPlan } = useEnrollmentStore()
+  const [paymentPlans, setPaymentPlans] = useState<IPaymentPlan[]>([])
+  useEffect(() => {
+    (async () => {
+      if (schoolYearId && courseId) {
+        const { data, status } = await paymentPlanListByCourseIdSchoolYearId(schoolYearId, courseId)
+        if (status === 200 && data) setPaymentPlans(data)
+      }
+    })()
+  }, [schoolYearId, courseId]
+  )
+
+  function handleOnChange(evt: React.ChangeEvent<HTMLInputElement>) {
+    const currentPaymentPlan = paymentPlans?.find(paymentPlan => paymentPlan.id === evt.currentTarget.value)
+    console.log(currentPaymentPlan, paymentPlans, evt.currentTarget.value)
+    if (currentPaymentPlan) setPaymentPlan(currentPaymentPlan)
+  }
+
   return (
     <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
-      <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><CreditCardIcon /> Plano de pagamento</span> <DotsIcon /> <span className="grid w-full place-content-end"><DropdownIcon /></span></summary>
-      <div className="p-4 flex flex-col gap-4">
-        <table className="w-full">
-          <thead>
-            <tr className="text-sm text-gray-500 border-b">
-              <td className="px-4">Plano</td>
-              <td className="px-4">Parcelas</td>
-              <td className="px-4">Valor</td>
-              <td className="px-4">Método de pagamento</td>
-            </tr>
-          </thead>
+      <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500">
+        <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><CreditCardIcon /> Plano de pagamento</span>
+        <DotsIcon />
+        <span className="grid w-full place-content-end"><DropdownIcon /></span>
+      </summary>
+      {/* <div className="p-4 flex flex-col gap-4"> */}
+      <table className="w-full">
+        <thead>
+          <tr className="text-sm font-semibold text-gray-500 bg-[--bg-tertiary]">
+            <td className="px-4 py-2">Plano</td>
+            <td className="px-4 py-2">Parcelas</td>
+            <td className="px-4 py-2">Valor</td>
+            <td className="px-4 py-2">Método de pagamento</td>
+          </tr>
+        </thead>
 
-          <tbody className="font-medium text-sm text-[--text-primary]">
-            <tr className="border-b">
-              <td className="p-4">
-                <label htmlFor="plan_2" className="flex gap-1 text-sm font-semibold"  >
-                  <input type="radio" name="paymentPlan" id="plan_2" />
-                  Mensalidade Ensino Fundamental II
-                </label>
-              </td>
-              <td className="p-4">12</td>
-              <td className="p-4">R$ 5000</td>
-              <td className="p-4">Boleto</td>
-            </tr>
-            <tr className="border-b">
-              <td className="px-4">
-                <label htmlFor="plan_1" className="flex gap-1 grow text-sm font-semibold">
-                  <input type="radio" name="paymentPlan" id="plan_1" />
-                  Mensalidade Ensino Fundamental II
-                </label>
-              </td>
-              <td className="p-4">1</td>
-              <td className="p-4">R$ 5000</td>
-              <td className="p-4">Cartão de crédito</td>
-            </tr>
-          </tbody>
-        </table>
-        <div className="grid grid-cols-4 gap-4">
-          <CustomSelect label="Vencimento da primeira parcela" options={[{ label: 'Hoje', value: 'now' }, { label: 'Amanhã', value: 'tomorrow' }]} />
-          <CustomSelect label="Vencimento das demais" options={Array.from({ length: 31 }, (_, index) => ({ label: `Dia ${index + 1} de cada mês`, value: `${index + 1}` }))} />
-        </div>
-      </div>
+        <tbody className="font-medium text-sm text-[--text-primary]">
+          {paymentPlans.map(paymentPlan => {
+            return (
+              <tr key={paymentPlan.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary]">
+                <td className="p-4">
+                  <label htmlFor="plan_2" className="flex gap-1 text-sm font-semibold"  >
+                    <input type="radio" value={paymentPlan.id} name="paymentPlan" id="plan_2" onChange={handleOnChange} />
+                    {paymentPlan.name}
+                  </label>
+                </td>
+                <td className="p-4">{paymentPlan.installmentAmount}</td>
+                <td className="p-4">{paymentPlan.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                <td className="p-4">{methodReceipt[paymentPlan.methodReceipt]}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
     </details>
   )
 }

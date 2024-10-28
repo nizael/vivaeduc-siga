@@ -4,7 +4,10 @@ interface IInputTextProps {
   id?: string
   name?: string
   required?: boolean
+  value?: string
   autoFocus?: boolean
+  disabled?: boolean
+  onChange?(evt: React.ChangeEvent<HTMLInputElement>): void
 }
 
 export const InputText = (props: IInputTextProps) => {
@@ -12,7 +15,7 @@ export const InputText = (props: IInputTextProps) => {
   return (
     <label htmlFor="" className="flex flex-col gap-2 w-full">
       {label && <span className=" text-sm text-[--text-primary] font-semibold ">{label}</span>}
-      <input  {...rest} className="border border-[#C1BBEB] bg-white rounded-lg p-2 text-base text-[--text-primary] font-medium outline-[--bg-primary]" />
+      <input {...rest} className={`${props.disabled ? ' bg-gray-200' : 'bg-white'} border border-[#C1BBEB] rounded-lg p-2 text-base text-[--text-primary] font-medium outline-[--bg-primary]`} />
     </label>
   )
 }

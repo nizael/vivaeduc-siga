@@ -9,6 +9,10 @@ export class ClassroomApi extends FetchApi {
   async listAll() {
     return this.get('/v1/classrooms/listAll')
   }
+
+  async listByGradeIdSchoolYearId(schoolYearId: string, gradeId: string) {
+    return this.get(`/v1/classrooms/listByGradeIdSchoolYearId?schoolYearId=${schoolYearId}&gradeId=${gradeId}`)
+  }
   // async details(id: string) {
   //   return this.get(`/v1/classrooms/details/${id}`)
   // }
