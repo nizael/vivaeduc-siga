@@ -3,10 +3,11 @@ import { ICourse } from "../course/ICourse"
 import { IGrade } from "../grade/IGrade"
 import { ISchoolYear } from "../school-year/ISchoolYear"
 import { ICreateClassroom } from "./ICreateClassroom"
-import { ICreatePaymentPlan } from "./ICreatePaymentPlan"
+import { ICreateEnrollmentRequirement } from "./ICreateEnrollmentRequirement"
 
-export interface IPaymentPlan extends ICreatePaymentPlan {
+export interface IEnrollmentRequirement extends ICreateEnrollmentRequirement {
   id: string
   courseName: string
-  isActive: boolean
+  gradeName: string
+  schoolYearName: string
 }

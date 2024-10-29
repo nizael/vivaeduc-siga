@@ -2,7 +2,7 @@
 import { UptrendIcon } from "@/components/icons/UptrendIcon"
 import { ListView } from "../ListView"
 import { Pagination } from "./Pagination"
-import { useOutgoingStore } from "../../../stores/useOutgoingStore"
+import { useOutgoingStore } from "../../../../stores/useOutgoingStore"
 import { useEffect } from "react"
 import { DowntrendIcon } from "@/components/icons/DowntrendIcon"
 

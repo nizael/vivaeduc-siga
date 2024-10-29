@@ -1,7 +1,7 @@
 'use client'
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { useEffect, useState } from "react"
-import { useIncomingStore } from "../../../stores/useIncomingStore"
+import { useIncomingStore } from "../../../../stores/useIncomingStore"
 
 export const Pagination = () => {
   const { listIncomings, setCurrentPage, currentPage, } = useIncomingStore()

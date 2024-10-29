@@ -1,20 +1,21 @@
 'use client'
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { useEffect, useState } from "react"
-import { useOutgoingStore } from "../../../../stores/useOutgoingStore"
+import { useEnrollmentRequirementsStore } from "../../../../stores/useEnrollmentRequirementStore"
+
 
 export const Pagination = () => {
-  const { listOutgoings, setCurrentPage, currentPage, } = useOutgoingStore()
+  const { enrollmentRequirements, setCurrentPage, currentPage, } = useEnrollmentRequirementsStore()
 
   const [pageNumbers, setPageNumbers] = useState<number[]>([])
 
   useEffect(() => {
-    if (listOutgoings) {
-      const pageAmount = Math.ceil(listOutgoings.length / 5);
+    if (enrollmentRequirements) {
+      const pageAmount = Math.ceil(enrollmentRequirements.length / 8);
       const pageNumbers = Array.from({ length: pageAmount }, (_, index) => index + 1);
       setPageNumbers(pageNumbers)
     }
-  }, [listOutgoings])
+  }, [enrollmentRequirements])
 
   const previousPage = () => {
     if (currentPage > 1)
@@ -27,7 +28,7 @@ export const Pagination = () => {
   }
 
   return (
-    <div className="flex items-center justify-between p-4">
+    <div className="flex items-center justify-between">
       <p className="text-xs text-gray-500">Exibindo <b>{currentPage}-{pageNumbers.length}</b> paginas</p>
       <div className="flex items-center gap-2">
         <button onClick={previousPage} className="w-[40px] h-[40px] rounded-full grid place-content-center text-gray-500 rotate-90"><DropdownIcon /></button>

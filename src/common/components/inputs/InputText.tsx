@@ -5,6 +5,7 @@ interface IInputTextProps {
   name?: string
   required?: boolean
   value?: string
+  readOnly?: boolean
   autoFocus?: boolean
   disabled?: boolean
   onChange?(evt: React.ChangeEvent<HTMLInputElement>): void

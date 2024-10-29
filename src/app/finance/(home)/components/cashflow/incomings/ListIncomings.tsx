@@ -2,7 +2,7 @@
 import { UptrendIcon } from "@/components/icons/UptrendIcon"
 import { ListView } from "../ListView"
 import { Pagination } from "./Pagination"
-import { useIncomingStore } from "../../../stores/useIncomingStore"
+import { useIncomingStore } from "../../../../stores/useIncomingStore"
 import { useEffect } from "react"
 
 interface IListIncomingsProps {

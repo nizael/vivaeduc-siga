@@ -9,15 +9,12 @@ const recentStudents = [
   { id: '5', image: '/temp/employee.jpg', studentName: 'Nadila Adja', classroom: 'VII A' },
 ]
 
-export const RecentStudents = () => {
+export const RecentEnrollment = () => {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-2xl font-semibold text-[--text-primary]">Alunos Recentes</p>
+      <div className="flex flex-col">
+          <p className="text-2xl font-semibold text-[--text-primary]">Matrículas Recentes</p>
           <p className="text-gray-500">Você tem <b>452</b> alunos</p>
-        </div>
-        <Link href={'/students/create'} className="font-semibold text-3xl bg-[--bg-primary] w-[40px] h-[40px] grid place-content-center rounded-full text-gray-50">+</Link>
       </div>
       <ul className="flex-col flex gap-4">
         {recentStudents.map(student => <ListView key={student.id} id={student.id} classroomName={student.classroom} studentName={student.studentName} image={student.image} />)}

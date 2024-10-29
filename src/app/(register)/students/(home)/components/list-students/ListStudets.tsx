@@ -16,7 +16,7 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
 
   return (
     <section className="bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
-      <div className=" grow">
+      <div className="grow">
         <table className="w-full">
           <thead className="p-4">
             <tr className="text-xs font-semibold text-[--text-primary]">
