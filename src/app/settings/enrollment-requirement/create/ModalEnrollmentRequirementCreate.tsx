@@ -52,7 +52,6 @@ export const ModalEnrollmentRequirementCreate = () => {
         <form action={async formData => {
           const { data, status } = await enrollmentRequirementCreate(formData)
           if (status === 201) {
-            console.log(courses.find(course => course.id === data.courseId), courseId)
             pushEnrollmentRequirement({
               ...data,
               courseName: courses.find(course => course.id === data.courseId)?.name,

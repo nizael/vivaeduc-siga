@@ -21,7 +21,7 @@ export const DiscountData = () => {
   }, [discountName])
 
   return (
-    <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
+    <details className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
       <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500">
         <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><DiscountIcon /> Desconto</span>
         <DotsIcon />
@@ -29,13 +29,13 @@ export const DiscountData = () => {
       </summary>
       <div className="p-4 flex flex-col gap-4 ">
         <div className="grid grid-cols-4 gap-4 w-full">
-          <CustomSelect options={discountOptions} label="Nome do desconto" onChange={evt => setDiscountName(evt.currentTarget.value)} />
-          <CustomSelect disabled={discountName === 'FULL'} initialValue={discountTypeOptions.find(discountTypeOption => discountTypeOption.value === discountType)} options={discountTypeOptions} label="Tipo" position="top" onChange={evt => setDiscountType(evt.currentTarget.value as 'PERCENTAGE' | 'VALUE')} />
-          <InputText disabled={discountName === 'FULL'} value={discountValue?.toString()} type="number" label="Valor" onChange={evt => setDiscountValue(Number(evt.currentTarget.value))} />
+          <CustomSelect name="discountName" options={discountOptions} label="Nome do desconto" onChange={evt => setDiscountName(evt.currentTarget.value)} />
+          <CustomSelect required={!!discountName} name="type" disabled={discountName === 'FULL'} initialValue={discountTypeOptions.find(discountTypeOption => discountTypeOption.value === discountType)} options={discountTypeOptions} label="Tipo" position="top" onChange={evt => setDiscountType(evt.currentTarget.value as 'PERCENTAGE' | 'VALUE')} />
+          <InputText  required={!!discountName} name="value" disabled={discountName === 'FULL'} value={discountValue?.toString()||''} type="number" label="Valor" onChange={evt => setDiscountValue(Number(evt.currentTarget.value))} />
         </div>
         <div className="grid grid-cols-4 gap-4 w-full">
-          <InputText type="date" label="Data inicial" />
-          <InputText type="date" label="Data final" />
+          <InputText name="startDate" type="date" label="Data inicial" />
+          <InputText name="endDate" type="date" label="Data final" />
         </div>
       </div>
 

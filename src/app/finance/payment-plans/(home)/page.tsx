@@ -7,7 +7,6 @@ import { ModalPaymentPlanCreate } from "../create/ModalPaymentPlanCreate";
 
 export default async function PaymentPlanPage() {
   const { data, status } = await paymentPlanListAll()
-  console.log('====>', data)
   return (
     <>
       <ModalPaymentPlanCreate />

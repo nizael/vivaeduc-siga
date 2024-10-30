@@ -3,7 +3,6 @@ import { courseApi, paymentPlanApi, schoolYearApi } from "../../di/dependencyInj
 export const paymentPlanCreate = async (formData: FormData) => {
   const installmentAmount = formData.get('installmentAmount')
   const dueDate = formData.get('dueDate')
-  console.log(installmentAmount)
 
   const data = {
     schoolYearId: formData.get('schoolYearId')!.toString(),
@@ -15,7 +14,6 @@ export const paymentPlanCreate = async (formData: FormData) => {
     methodReceipt: formData.get('methodReceipt')!.toString() as "CREDIT_CARD" | "DEBIT_CARD" | "TICKET" | "MONEY",
     description: formData.get('description')!.toString(),
   }
-  console.log(data)
 
   return paymentPlanApi.create(data)
 }

@@ -24,12 +24,11 @@ export const PaymentPlan = () => {
 
   function handleOnChange(evt: React.ChangeEvent<HTMLInputElement>) {
     const currentPaymentPlan = paymentPlans?.find(paymentPlan => paymentPlan.id === evt.currentTarget.value)
-    console.log(currentPaymentPlan, paymentPlans, evt.currentTarget.value)
     if (currentPaymentPlan) setPaymentPlan(currentPaymentPlan)
   }
 
   return (
-    <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
+    <details className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
       <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500">
         <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><CreditCardIcon /> Plano de pagamento</span>
         <DotsIcon />
@@ -51,8 +50,8 @@ export const PaymentPlan = () => {
             return (
               <tr key={paymentPlan.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary]">
                 <td className="p-4">
-                  <label htmlFor="plan_2" className="flex gap-1 text-sm font-semibold"  >
-                    <input type="radio" value={paymentPlan.id} name="paymentPlan" id="plan_2" onChange={handleOnChange} />
+                  <label htmlFor={paymentPlan.id} className="flex gap-2 text-sm font-semibold"  >
+                    <input required className="w-4 h-4" type="radio" value={paymentPlan.id} name="paymentPlanId" id={paymentPlan.id} onChange={handleOnChange} />
                     {paymentPlan.name}
                   </label>
                 </td>

@@ -15,13 +15,12 @@ import { useEffect, useState } from "react"
 import { useEnrollmentStore } from "../../../../stores/useEnrollmentStore"
 
 export const ClassroomData = () => {
-  const { schoolYearId, courseId, setSchoolYearId, setCourseId } = useEnrollmentStore()
+  const { schoolYearId, courseId, setSchoolYearId, setCourseId, gradeId, setGradeId } = useEnrollmentStore()
   const [schoolYears, setSchoolYears] = useState<ISchoolYear[]>([])
 
   const [courses, setCourses] = useState<ICourse[]>([])
 
   const [grades, setGrades] = useState<IGrade[]>([])
-  const [gradeId, setGradeId] = useState<string>()
   const [gradeDefaultValue, setGradeDefaultValue] = useState<{ label: string, value: string }>({ label: '', value: '' })
 
   const [classrooms, setClassrooms] = useState<IClassroom[]>([])
@@ -71,10 +70,10 @@ export const ClassroomData = () => {
         <span className="grid w-full place-content-end"><DropdownIcon /></span>
       </summary>
       <div className="grid grid-cols-4 gap-4 p-4 w-full">
-        <CustomSelect options={schoolYears.map(schoolYear => ({ label: schoolYear.name, value: schoolYear.id }))} label="Período letivo" onChange={evt => setSchoolYearId(evt.currentTarget.value)} />
-        <CustomSelect options={courses.map(course => ({ label: course.name, value: course.id }))} label="Curso" onChange={evt => setCourseId(evt.currentTarget.value)} />
-        <CustomSelect initialValue={gradeDefaultValue} required options={grades.map(grade => ({ label: grade.name, value: grade.id }))} label="Série" onChange={evt => setGradeId(evt.currentTarget.value)} />
-        <CustomSelect initialValue={classroomDefaultValue} required options={classrooms.map(classroom => ({ label: classroom.name, value: classroom.id }))} label="Turma" onChange={evt => ({})} />
+        <CustomSelect name="schoolYearId" options={schoolYears.map(schoolYear => ({ label: schoolYear.name, value: schoolYear.id }))} label="Período letivo" onChange={evt => setSchoolYearId(evt.currentTarget.value)} />
+        <CustomSelect name="courseId" options={courses.map(course => ({ label: course.name, value: course.id }))} label="Curso" onChange={evt => setCourseId(evt.currentTarget.value)} />
+        <CustomSelect name="gradeId" initialValue={gradeDefaultValue} required options={grades.map(grade => ({ label: grade.name, value: grade.id }))} label="Série" onChange={evt => setGradeId(evt.currentTarget.value)} />
+        <CustomSelect name="classroomId" initialValue={classroomDefaultValue} required options={classrooms.map(classroom => ({ label: classroom.name, value: classroom.id }))} label="Turma" onChange={evt => ({})} />
       </div>
     </details>
   )

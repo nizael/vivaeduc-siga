@@ -11,7 +11,7 @@ export const Pagination = () => {
 
   useEffect(() => {
     if (enrollmentRequirements) {
-      const pageAmount = Math.ceil(enrollmentRequirements.length / 8);
+      const pageAmount = Math.ceil(enrollmentRequirements.length / 10);
       const pageNumbers = Array.from({ length: pageAmount }, (_, index) => index + 1);
       setPageNumbers(pageNumbers)
     }

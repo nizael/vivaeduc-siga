@@ -27,7 +27,6 @@ export const DetailsBilling = () => {
   useEffect(() => {
     if (discountType && discountValue && paymentPlan) {
       const discountTotal = discountType === 'VALUE' ? discountValue : (paymentPlan.value / 100) * discountValue
-      console.log((paymentPlan.value / 100) * discountValue)
       setDiscount(discountTotal)
     } else {
       setDiscount(0)

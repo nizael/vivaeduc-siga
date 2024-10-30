@@ -18,12 +18,12 @@ export const useEnrollmentRequirementsStore = create<IUseEnrollmentRequirementSt
   sequence: 'desc',
   setListEnrollmentRequirements: (listEnrollmentRequirements) => set({
     enrollmentRequirements: listEnrollmentRequirements,
-    enrollmentRequirementsView: listEnrollmentRequirements?.slice(0, 8)
+    enrollmentRequirementsView: listEnrollmentRequirements?.slice(0, 10)
   }),
   setCurrentPage: (currentPage) => {
     const listEnrollmentRequirements = get().enrollmentRequirements
-    const start = (currentPage - 1) * 8
-    const end = currentPage * 8
+    const start = (currentPage - 1) * 10
+    const end = currentPage * 10
     set({
       currentPage,
       enrollmentRequirementsView: listEnrollmentRequirements?.slice(start, end)
@@ -36,7 +36,7 @@ export const useEnrollmentRequirementsStore = create<IUseEnrollmentRequirementSt
     if (enrollmentRequirements) {
       set({
         enrollmentRequirements: [...enrollmentRequirements],
-        enrollmentRequirementsView: [...enrollmentRequirements]?.slice(0, 8),
+        enrollmentRequirementsView: [...enrollmentRequirements]?.slice(0, 10),
         // subjectViews: [...subjects].slice(0, 10),
         sequence: sequence === 'asc' ? 'desc' : 'asc'
       })

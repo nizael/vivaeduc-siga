@@ -3,7 +3,7 @@ import { TitlePage } from "./components/TitlePage";
 import { IPageProps } from "@/types/page-props/IPageProps";
 import { studentDetails } from "@/services/student/studentDetails";
 import Image from "next/image";
-import { FormClassroom } from "./components/forms/FormEnrollment";
+import { FormEnrollment } from "./components/forms/FormEnrollment";
 import { IStudentInfo } from "../../@types/IStudentInfo";
 import { IAddress } from "@/types/address/IAddress";
 
@@ -26,8 +26,7 @@ export default async function StudentsEnrollmentPage(props: IPageProps) {
             <p>Inep: <b>{student.inep || '-'}</b></p>
           </div>
         </div>
-        {/* <StepSection /> */}
-        <FormClassroom />
+        <FormEnrollment studentId={student.id} />
       </div>
     </LayoutWeb>
   );

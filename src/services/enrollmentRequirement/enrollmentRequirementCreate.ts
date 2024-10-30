@@ -9,7 +9,6 @@ export const enrollmentRequirementCreate = async (formData: FormData) => {
     gradeId:formData.get('gradeId')!.toString(),
     isRequired: Boolean(formData.get('isRequired')),
   }
-  console.log(data)
 
   return enrollmentRequirementApi.create(data)
 }
