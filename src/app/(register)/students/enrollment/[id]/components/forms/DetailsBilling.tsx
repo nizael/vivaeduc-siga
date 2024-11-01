@@ -62,12 +62,12 @@ export const DetailsBilling = () => {
         <tbody className="font-medium text-sm text-[--text-primary]">
           {
             paymentPlan && generateInstallmentDates(paymentPlan.amount, paymentPlan.installmentAmount, paymentPlan.dueDay || 0).map((installment, index) => {
-              const discountStart = installmentDiscount
+              const isDiscountPeriod = installmentDiscount
                 && (!discountStartDate || (discountStartDate && new Date(discountStartDate) < installment.dueDate))
                 && (!discountEndDate || (discountEndDate && new Date(discountEndDate) > installment.dueDate))
 
-              const discount = discountStart ? installmentDiscount : 0
-              const total = discountStart ? (installmentValue - installmentDiscount) : installmentValue
+              const discount = isDiscountPeriod ? installmentDiscount : 0
+              const total = isDiscountPeriod ? (installmentValue - installmentDiscount) : installmentValue
               return (
                 <tr className="border-b" key={`tr_${index}`}>
                   <td className="p-4">{installment.dueDate.toLocaleDateString()}</td>

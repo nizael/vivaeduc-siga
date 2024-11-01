@@ -6,9 +6,9 @@ export const enrollmentCreate = async (formData: FormData) => {
   const discount = {
     name: formData.get('discountName')!.toString(),
     type: formData.get('type')!.toString(),
-    value: Number(formData.get('value')),
-    startDate: formData.get('startDate')?.toString(),
-    endDate: formData.get('startDate')?.toString(),
+    amount: Number(formData.get('amount')),
+    startDate: formData.get('startDate')?.toString()|| undefined,
+    endDate: formData.get('startDate')?.toString()|| undefined,
   }
 
   const data = {

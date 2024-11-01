@@ -13,7 +13,7 @@ export interface ICreateEnrollment {
   discount?: {
     name: string
     type: string
-    value: number
+    amount: number
     startDate?: string
     endDate?: string
   }

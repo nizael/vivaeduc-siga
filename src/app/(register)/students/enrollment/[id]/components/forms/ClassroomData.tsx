@@ -74,7 +74,7 @@ export const ClassroomData = () => {
         <CustomSelect name="courseId" options={courses.map(course => ({ label: course.name, value: course.id }))} label="Curso" onChange={evt => setCourseId(evt.currentTarget.value)} />
         <CustomSelect name="gradeId" initialValue={gradeDefaultValue} required options={grades.map(grade => ({ label: grade.name, value: grade.id }))} label="Série" onChange={evt => setGradeId(evt.currentTarget.value)} />
         <CustomSelect name="classroomId" initialValue={classroomDefaultValue} required options={classrooms.map(classroom => ({ label: classroom.name, value: classroom.id }))} label="Turma" onChange={evt => ({})} />
-        <CustomSelect name="status" initialValue={classroomDefaultValue} required options={[{label: 'Cursando', value:'STUDYING'},{label: 'Concluido', value:'COMPLETED'}]} label="Turma" onChange={evt => ({})} />
+        <CustomSelect name="status" initialValue={classroomDefaultValue} required options={[{label: 'Cursando', value:'STUDYING'},{label: 'Concluido', value:'COMPLETED'}]} label="Situação" onChange={evt => ({})} />
       </div>
     </details>
   )

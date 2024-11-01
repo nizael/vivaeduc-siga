@@ -27,6 +27,7 @@ export const FormEnrollment = ({ studentId }: { studentId: string }) => {
     formData.set('enrollmentRequirementChecklists', JSON.stringify(enrollmentRequirements))
     formData.set('studentId', studentId)
     const { data, status } = await enrollmentCreate(formData)
+    console.log(data.message)
     if (status === 201) {
       setToastType('success')
       setToastType('success')

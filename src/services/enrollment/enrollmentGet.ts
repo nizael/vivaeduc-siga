@@ -9,3 +9,7 @@ export const enrollmentListAll = async () => {
 export const enrollmentGetByStudentId = async (studentId: string) => {
   return enrollmentApi.getByStudentId(studentId)
 }
+
+export const enrollmentGetTheLatest = async () => {
+  return enrollmentApi.getTheLatest()
+}

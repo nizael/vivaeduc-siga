@@ -12,4 +12,8 @@ export class EnrollmentApi extends FetchApi {
   async getByStudentId(studentId: string) {
     return this.get(`/v1/enrollments/getByStudentId/${studentId}`)
   }
+  async getTheLatest() {
+    return this.get(`/v1/enrollments/getTheLatest`)
+  }
+  
 }

@@ -68,7 +68,7 @@ export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { add
       </div>
       <StudentDetails student={student} />
       <AddressDetails address={address} />
-      <MedicalRecord medicalRecord={medicalRecord} />
+      {/* <MedicalRecord medicalRecord={medicalRecord} /> */}
     </section>
   )
 }
