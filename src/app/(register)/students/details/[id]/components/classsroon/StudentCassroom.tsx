@@ -19,15 +19,15 @@ interface IStudentClassroomsProps {
 
 export const StudentClassrooms = ({ enrollments }: IStudentClassroomsProps) => {
   return (
-    <section className="rounded-xl bg-gray-50 shadow-sm flex flex-col max-h-[395px]">
-      <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl p-4 border-b">
+    <section className=" bg-gray-50 shadow-sm flex flex-col">
+      <div className="flex items-center text-gray-50 gap-2 bg-primary px-4 py-2 border-b">
         <ClassroomIcon />
         <h5 className="font-semibold">Turmas</h5>
       </div>
 
      { enrollments.length ? <table className=" overflow-y-auto h-full ">
-        <thead>
-          <tr className="text-sm font-semibold text-gray-500 bg-[--bg-tertiary]">
+        <thead className="">
+          <tr className="text-sm font-semibold  text-gray-500 ">
             <td className="px-4 py-2">Turna</td>
             <td className="px-4 py-2 text-center">Período letivo</td>
             <td className="px-4 py-2 text-center">Série</td>

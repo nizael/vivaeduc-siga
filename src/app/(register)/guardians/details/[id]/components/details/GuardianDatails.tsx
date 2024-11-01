@@ -8,8 +8,8 @@ import { IGuardianInfo } from "../../../../@types/IGuardianInfo"
 
 export const GuardianDetails = ({ guardian }: { guardian: IGuardianInfo }) => {
   return (
-    <details open className=" rounded-b-xl bg-gray-50 group">
-      <summary className="px-4 grid grid-cols-3  border-t p-4 place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
+    <details open className=" bg-gray-50 group">
+      <summary className="px-4 grid grid-cols-3  border-t p-4 place-items-center bg-primary"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
       <div className="relative grid grid-cols-4 gap-4  p-6">
         <FieldData field="Data de nascimento" value={guardian?.dateOfBirth || '-'} />
         <FieldData field="Estado civil" value={maritalStatus[guardian?.maritalStatus as keyof typeof maritalStatus] || '-'} />

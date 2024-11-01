@@ -28,7 +28,7 @@ export const Pagination = () => {
   }
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between py-2 px-4 bg-gray-200">
       <p className="text-xs text-gray-500">Exibindo <b>{currentPage}-{pageNumbers.length}</b> paginas</p>
       <div className="flex items-center gap-2">
         <button onClick={previousPage} className="w-[40px] h-[40px] rounded-full grid place-content-center text-gray-500 rotate-90"><DropdownIcon /></button>

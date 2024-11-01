@@ -14,11 +14,11 @@ export const ListSchoolYears = ({ schoolYears }: { schoolYears: ISchoolYear[] })
   }, [schoolYears])
   if (!schoolYearsView) return <EmptyPage label="Não existem períodos letivos cadastrados" />
   return (
-    <section className="bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
+    <section className="bg-gray-50 shadow-sm  w-full flex flex-col gap-4  h-full">
       <div className="grow">
         <table className="w-full">
-          <thead>
-            <tr className="text-sm font-semibold text-gray-500 border-b">
+          <thead className="bg-primary text-gray-50">
+            <tr className="text-sm font-semiboldborder-b">
               <td className="px-4 py-2">Codigo</td>
               <td className="px-4 py-2">Nome do período</td>
               <td className="px-4 py-2 text-center">Data inicial</td>
@@ -29,12 +29,12 @@ export const ListSchoolYears = ({ schoolYears }: { schoolYears: ISchoolYear[] })
           </thead>
           <tbody>
             {schoolYearsView?.map(schoolYear => <tr key={schoolYear.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary] border-b last:border-none">
-              <td className="p-4"> {schoolYear.code}</td>
-              <td className="p-4"> {schoolYear.name}</td>
-              <td className="p-4 text-center"> {new Date(schoolYear.startDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</td>
-              <td className="p-4 text-center"> {new Date(schoolYear.endDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</td>
-              <td className="p-4 text-center"> {schoolYear.isActive ? 'Ativo' : 'Inativo'}</td>
-              <td className="p-4 text-center"> <button><EditIcon /></button> </td>
+              <td className="px-4 py-2"> {schoolYear.code}</td>
+              <td className="px-4 py-2"> {schoolYear.name}</td>
+              <td className="px-4 py-2 text-center"> {new Date(schoolYear.startDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</td>
+              <td className="px-4 py-2 text-center"> {new Date(schoolYear.endDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</td>
+              <td className="px-4 py-2 text-center"> {schoolYear.isActive ? 'Ativo' : 'Inativo'}</td>
+              <td className="px-4 py-2 text-center"> <button><EditIcon /></button> </td>
             </tr>)}
           </tbody>
         </table>

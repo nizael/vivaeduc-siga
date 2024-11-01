@@ -7,7 +7,7 @@ import { countStudentClassroomSubject } from "@/services/report/reportGet"
 export const Overview = async () => {
   const { data, status } = await countStudentClassroomSubject()
   return (
-    <section className="flex items-center p-4 rounded-lg bg-gray-50 justify-between shadow-md">
+    <section className="flex items-center p-4   bg-gray-50 justify-between ">
       <Kpi icon={<Student2Icon />} label="Alunos" value={data?.countStudents} />
       <Kpi icon={<ClassroomIcon />} label="Turmas" value={data?.countClassrooms} />
       <Kpi icon={<SubjectIcon />} label="Disciplinas" value={data?.countSubjects} />

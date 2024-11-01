@@ -14,11 +14,11 @@ export const ListCourses = ({ courses }: { courses: ICourse[] }) => {
   }, [courses])
   if (!courseViews?.length) return <EmptyPage label="Não existem cursos cadastrados" />
   return (
-    <section className="bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
+    <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4  h-full">
       <div className="grow">
         <table className="w-full">
-          <thead>
-            <tr className="text-sm font-semibold text-gray-500 border-b">
+        <thead className="bg-primary text-gray-50">
+            <tr className="text-sm font-semibold border-b">
               <td className="px-4 py-2">Código</td>
               <td className="px-4 py-2">Nome</td>
               <td className="px-4 py-2 text-center">Portaria autorização</td>
@@ -29,12 +29,12 @@ export const ListCourses = ({ courses }: { courses: ICourse[] }) => {
           </thead>
           <tbody>
             {courseViews?.map(course => <tr key={course.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary] border-b last:border-none">
-              <td className="p-4"> {course.code}</td>
-              <td className="p-4 "> {course.name}</td>
-              <td className="p-4 text-center"> {course.authorizationOrdinance || '-'}</td>
-              <td className="p-4 text-center"> {courseModality[course.modality]}</td>
-              <td className="p-4 text-center"> {course.isActive ? 'Ativo' : 'Inativo'}</td>
-              <td className="p-4 text-end"> <button><EditIcon /></button> </td>
+              <td className="p-4 py-2"> {course.code}</td>
+              <td className="p-4 py-2 "> {course.name}</td>
+              <td className="p-4 py-2 text-center"> {course.authorizationOrdinance || '-'}</td>
+              <td className="p-4 py-2 text-center"> {courseModality[course.modality]}</td>
+              <td className="p-4 py-2 text-center"> {course.isActive ? 'Ativo' : 'Inativo'}</td>
+              <td className="p-4 py-2 text-end"> <button><EditIcon /></button> </td>
             </tr>)}
           </tbody>
         </table>

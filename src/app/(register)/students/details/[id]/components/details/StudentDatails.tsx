@@ -9,8 +9,8 @@ import { colorOrRace } from "@/configs/colorOrRace"
 
 export const StudentDetails = ({ student }: { student: IStudentInfo }) => {
   return (
-    <details open className=" rounded-b-x ">
-      <summary className="p-4 grid grid-cols-3 border-t  place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
+    <details open className="rounded-b-x ">
+      <summary className="px-4 py-2 grid grid-cols-3 border-t bg-primary place-items-center text-gray-50"><span className="font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
       <div className="relative grid grid-cols-4 gap-4  p-4">
         <FieldData field="Matrícula" value={student?.code || '-'} />
         <FieldData field="INEP" value={student?.inep || '-'} />

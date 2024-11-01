@@ -56,8 +56,8 @@ export const ListMonthlyFees = ({ enrollments }: { enrollments: IEnrollment[] })
   if (!enrollments.length) return null
 
   return (
-    <section className="bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4 h-full">
-      <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl p-4 border-b">
+    <section className="bg-gray-50 shadow-sm  w-full flex flex-col gap-4 h-full">
+      <div className="flex items-center gap-2 bg-primary text-gray-50  px-4 py-2 border-b">
         <ClassroomIcon />
         <h5 className="font-semibold">Mensalidades</h5>
       </div>
@@ -73,7 +73,7 @@ export const ListMonthlyFees = ({ enrollments }: { enrollments: IEnrollment[] })
       <div className="grow">
         <table className="w-full">
           <thead>
-            <tr className="text-sm font-semibold text-gray-500 bg-[--bg-tertiary]">
+            <tr className="text-sm font-semibold text-gray-500 ">
               <td className="px-4 py-2">Período letivo</td>
               <td className="px-4 py-2">Turma</td>
               <td className="px-4 py-2 text-center">Vencimento</td>
@@ -86,7 +86,7 @@ export const ListMonthlyFees = ({ enrollments }: { enrollments: IEnrollment[] })
           </thead>
           <tbody>
             {monthlyFeesView?.map(monthlyFee => (
-              <tr key={monthlyFee.id} className="text-[--text-primary] text-sm">
+              <tr key={monthlyFee.id} className="text-[--text-primary] text-sm border-b">
                 <td className="p-4">{monthlyFee.schoolYearName}</td>
                 <td className="p-4">{monthlyFee.classroomName}</td>
                 <td className="p-4 text-center">{monthlyFee.dueDate}</td>

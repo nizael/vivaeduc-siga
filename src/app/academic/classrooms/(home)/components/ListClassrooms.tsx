@@ -16,11 +16,11 @@ export const ListClassrooms = ({ classrooms }: { classrooms: IClassroom[] }) => 
   }, [classrooms])
   if (!classroomViews?.length) return <EmptyPage label="Não existem turmas cadastradas" />
   return (
-    <section className="bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
+    <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4  h-full">
       <div className="grow">
         <table className="w-full">
-          <thead>
-            <tr className="text-sm font-semibold text-gray-500 border-b">
+        <thead className="bg-primary text-gray-50">
+            <tr className="text-sm font-semibold border-b">
               <td className="px-4 py-2">Período</td>
               <td className="px-4 py-2">Curso</td>
               <td className="px-4 py-2 text-center">Série</td>
@@ -34,15 +34,15 @@ export const ListClassrooms = ({ classrooms }: { classrooms: IClassroom[] }) => 
           </thead>
           <tbody>
             {classroomViews?.map(classroom => <tr key={classroom.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary] border-b last:border-none">
-              <td className="p-4"> {classroom.schoolYear.code}</td>
-              <td className="p-4"> {classroom.course.name}</td>
-              <td className="p-4 text-center"> {classroom.grade.name}</td>
-              <td className="p-4 text-center"> {classroom.name}</td>
-              <td className="p-4 text-center"> {classroom.code}</td>
-              <td className="p-4 text-center"> {shift[classroom.shift]}</td>
-              <td className="p-4 text-center"> {classroom.numberVacancies}</td>
-              <td className="p-4 text-center"> {classroom.isActive ? 'Ativo' : 'Inativo'}</td>
-              <td className="p-4 text-center"> <button><EditIcon /></button> </td>
+              <td className="px-4 py-2"> {classroom.schoolYear.code}</td>
+              <td className="px-4 py-2"> {classroom.course.name}</td>
+              <td className="px-4 py-2 text-center"> {classroom.grade.name}</td>
+              <td className="px-4 py-2 text-center"> {classroom.name}</td>
+              <td className="px-4 py-2 text-center"> {classroom.code}</td>
+              <td className="px-4 py-2 text-center"> {shift[classroom.shift]}</td>
+              <td className="px-4 py-2 text-center"> {classroom.numberVacancies}</td>
+              <td className="px-4 py-2 text-center"> {classroom.isActive ? 'Ativo' : 'Inativo'}</td>
+              <td className="px-4 py-2 text-center"> <button><EditIcon /></button> </td>
             </tr>)}
           </tbody>
         </table>

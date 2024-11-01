@@ -7,7 +7,7 @@ import { FieldData } from "../../../../app/(register)/school/components/principa
 export const AddressDetails = ({ address }: { address: IAddress }) => {
   return (
     <details className=" rounded-b-xl bg-gray-50  group">
-      <summary className="p-4 grid grid-cols-3 border-t place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><LocationIcon /> Endereço completo</span> <DotsIcon /> <span /></summary>
+      <summary className="px-4 py-2 grid grid-cols-3 border-t place-items-center bg-primary  text-gray-50"><span className="font-semibold text-start w-full flex items-center gap-2"><LocationIcon /> Endereço completo</span> <DotsIcon /> <span /></summary>
       <div className="relative grid grid-cols-4 gap-4  p-4">
         <FieldData field="CEP" value={formatCEP(address.postalCode)} />
         <FieldData field="Logradouro" value={address.street} />

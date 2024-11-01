@@ -8,7 +8,7 @@ import { ReactNode } from "react"
 
 export const NavBar = () => {
   return (
-    <section className="p-4 rounded-xl bg-gray-50 flex gap-4">
+    <section className="p-4  bg-gray-50 flex gap-4">
       <NavButton href="/academic/school-years" label="Períodos letivo" icon={<CalendarIcon />} />
       <NavButton href="/academic/courses" label="Cursos" icon={<SchoolIcon />} />
       <NavButton href="/academic/grades" label="Séries" icon={<SwipeIcon />} />
