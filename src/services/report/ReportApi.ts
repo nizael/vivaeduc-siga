@@ -6,6 +6,11 @@ export class ReportApi extends FetchApi {
     return this.get('/v1/reports/countStudentClassroomSubject')
   }
 
+  async countEnrollmentReport() {
+    return this.get('/v1/reports/getEnrollmentReport')
+  }
+
+
   // async getByCourseId(courseId: string) {
   //   return this.get(`/v1/grades/getByCourseId/${courseId}`)
   // }
