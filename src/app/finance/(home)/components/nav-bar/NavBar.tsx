@@ -7,7 +7,7 @@ import { ReactNode } from "react"
 
 export const NavBar = () => {
   return (
-    <section className="p-4 rounded-xl bg-gray-50 flex gap-4">
+    <section className="p-4 shadow-sm bg-gray-50 flex gap-4">
       <NavButton href="/finance/payment-plans" label="Planos de pagamento" />
       {/*  
       <NavButton href="/finance/courses" label="Cursos" icon={<SchoolIcon />} />

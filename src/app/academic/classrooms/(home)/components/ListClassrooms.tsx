@@ -19,7 +19,7 @@ export const ListClassrooms = ({ classrooms }: { classrooms: IClassroom[] }) => 
     <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4  h-full">
       <div className="grow">
         <table className="w-full">
-        <thead className="bg-primary text-gray-50">
+          <thead className="bg-primary text-gray-50">
             <tr className="text-sm font-semibold border-b">
               <td className="px-4 py-2">Período</td>
               <td className="px-4 py-2">Curso</td>

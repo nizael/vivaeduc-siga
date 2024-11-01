@@ -10,15 +10,15 @@ const classrooms = [
 
 export const EmployeeClassrooms = () => {
   return (
-    <section className="rounded-xl bg-gray-50 shadow-md flex flex-col max-h-[395px]">
-      <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl p-4 border-b">
-        <h5 className="text-[--text-primary] font-semibold flex items-center gap-2">
+    <section className=" bg-gray-50 shadow-sm flex flex-col">
+      <div className="flex items-center gap-2 bg-primary px-4 py-2 border-b">
+        <h5 className="text-gray-50 font-semibold flex items-center gap-2">
           <ClassroomIcon />
           Turmas
         </h5>
       </div>
 
-      <table className=" overflow-y-auto h-full ">
+      <table className="overflow-y-auto h-full ">
         <thead>
           <tr className="text-sm font-semibold text-gray-500">
             <td className="px-4 py-2">Turna</td>
@@ -28,11 +28,11 @@ export const EmployeeClassrooms = () => {
           </tr>
         </thead>
         <tbody>
-          {classrooms.map(classroom => <tr key={classroom.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary]">
-            <td className="p-4"> {classroom.name}</td>
-            <td className="p-4 text-center"> {classroom.academicYear}</td>
-            <td className="p-4 text-center"> {classroom.grade}</td>
-            <td className="p-4 text-end"> {classroom.status}</td>
+          {classrooms.map(classroom => <tr key={classroom.id} className="text-primary font-semibold text-sm hover:bg-[--hover-secondary]">
+            <td className="px-4 py-2"> {classroom.name}</td>
+            <td className="px-4 py-2 text-center"> {classroom.academicYear}</td>
+            <td className="px-4 py-2 text-center"> {classroom.grade}</td>
+            <td className="px-4 py-2 text-end"> {classroom.status}</td>
           </tr>)}
         </tbody>
       </table>

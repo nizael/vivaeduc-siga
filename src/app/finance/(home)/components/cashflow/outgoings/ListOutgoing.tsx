@@ -19,8 +19,8 @@ export const ListOutgoings = ({ outgoings }: { outgoings: IListIncomingsProps[] 
   }, [outgoings])
 
   return (
-    <div className="flex flex-col w-full shadow-sm rounded-xl bg-gray-50">
-      <div className="flex justify-between p-4 rounded-t-xl">
+    <div className="flex flex-col w-full shadow-sm  bg-gray-50">
+      <div className="flex justify-between p-4 ">
         <h3 className="text-lg text-[--text-primary] font-semibold flex items-center gap-2">
           <DowntrendIcon />
           Saídas

@@ -63,9 +63,9 @@ export const ClassroomData = () => {
   }, [gradeId, schoolYearId])
 
   return (
-    <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
-      <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500">
-        <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><ClassroomIcon /> Turma</span>
+    <details open className="bg-gray-50 flex flex-col gap-4 shadow-sm ">
+      <summary className="px-4 py-2 bg-primary grid grid-cols-3 border-b place-items-center text-gray-50">
+        <span className=" font-semibold text-start w-full flex items-center gap-2"><ClassroomIcon /> Turma</span>
         <DotsIcon />
         <span className="grid w-full place-content-end"><DropdownIcon /></span>
       </summary>

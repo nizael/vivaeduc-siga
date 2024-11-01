@@ -19,13 +19,13 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
       <div className="grow">
         <table className="w-full">
           <thead className="bg-primary text-gray-50">
-            <tr className="text-xs font-semibold ">
-              <td className="p-2">Nome</td>
-              <td className="p-2">Matrícula</td>
-              <td className="p-2 text-center w-[120px]">Contato</td>
-              <td className="p-2 text-center">Série</td>
-              <td className="p-2 text-center">Turma</td>
-              <td className="p-2  w-16">Ação</td>
+            <tr className="text-sm font-semibold ">
+              <td className="px-4 py-2">Nome</td>
+              <td className="px-4 py-2">Matrícula</td>
+              <td className="px-4 py-2 text-center w-[120px]">Contato</td>
+              <td className="px-4 py-2 text-center">Série</td>
+              <td className="px-4 py-2 text-center">Turma</td>
+              <td className="px-4 py-2  w-16">Ação</td>
             </tr>
           </thead>
           <tbody className="p-4">

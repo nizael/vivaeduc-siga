@@ -14,27 +14,27 @@ export const ListEnrollmentRequirement = ({ enrollmentRequirements }: { enrollme
   }, [enrollmentRequirements])
   if (!enrollmentRequirementsView?.length) return <EmptyPage label="Não existem requisitos cadastrados!" />
   return (
-    <section className="bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
+    <section className="bg-gray-50shadow-sm  w-full flex flex-col gap-4  h-full">
       <div className="grow">
         <table className="w-full">
-          <thead className="p-4">
-            <tr className="text-xs font-semibold text-[--text-primary]">
-              <td className="p-4">Nome</td>
-              <td className="p-4">Período letivo</td>
-              <td className="p-4 text-center ">Curso</td>
-              <td className="p-4 text-center">Série</td>
-              <td className="p-4 text-center">Obrigatorio</td>
-              <td className="p-4  w-16">Ação</td>
+          <thead className="bg-primary text-gray-50">
+            <tr className="text-sm font-semibold  border-b">
+              <td className="px-4 py-2">Nome</td>
+              <td className="px-4 py-2">Período letivo</td>
+              <td className="px-4 py-2 text-center ">Curso</td>
+              <td className="px-4 py-2 text-center">Série</td>
+              <td className="px-4 py-2 text-center">Obrigatorio</td>
+              <td className="px-4 py-2  w-16">Ação</td>
             </tr>
           </thead>
-          <tbody className="p-4">
+          <tbody>
             {enrollmentRequirementsView?.map(enrollmentRequirement => <tr key={enrollmentRequirement.id} className="hover:bg-[--hover-secondary] text-xs font-semibold text-[--text-primary] border-l-[4px] border-transparent border-t border-t-gray-200 even:border-l-[--bg-primary]">
-              <td className="p-4 text-[--text-primary] text-sm font-bold">{enrollmentRequirement.name}</td>
-              <td className="p-4">{enrollmentRequirement.schoolYearName}</td>
-              <td className="p-4  text-center">{enrollmentRequirement.courseName}</td>
-              <td className="p-4 text-center">{enrollmentRequirement.gradeName}</td>
-              <td className="p-4 text-center">{enrollmentRequirement.isRequired ? 'Sim' : 'Não'}</td>
-              <td className="p-4 text-center"><NavMenu items={[
+              <td className="px-4 py-2 text-primary text-sm font-bold">{enrollmentRequirement.name}</td>
+              <td className="px-4 py-2">{enrollmentRequirement.schoolYearName}</td>
+              <td className="px-4 py-2  text-center">{enrollmentRequirement.courseName}</td>
+              <td className="px-4 py-2 text-center">{enrollmentRequirement.gradeName}</td>
+              <td className="px-4 py-2 text-center">{enrollmentRequirement.isRequired ? 'Sim' : 'Não'}</td>
+              <td className="px-4 py-2 text-center"><NavMenu items={[
                 { href: `#`, label: 'Editar' },
                 { href: `#`, label: 'Detalhes' },
               ]} /></td>

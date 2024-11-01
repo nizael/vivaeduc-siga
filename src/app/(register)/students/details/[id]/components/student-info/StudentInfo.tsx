@@ -41,8 +41,8 @@ export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { add
   const { address, ...student } = studentData
   return (
     <section className=" bg-gray-50 shadow-sm relative flex flex-col gap-4">
-      <div className="rounded-b-xl bg-gray-50 flex flex-col ">
-        <div className="h-36 w-full bg-[--bg-primary] rounded-t-xl flex justify-end p-10 overflow-hidden">
+      <div className=" bg-gray-50 flex flex-col ">
+        <div className="h-36 w-full bg-[--bg-primary] flex justify-end p-10 overflow-hidden">
           <div className="w-[261px] h-[275px] rounded-3xl bg-[#FB7D5B] mt-10 -mr-40 " />
           <div className="w-[261px] h-[275px] rounded-3xl bg-[#FCC43E]  " />
         </div>
