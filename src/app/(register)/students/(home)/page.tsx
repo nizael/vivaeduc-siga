@@ -10,7 +10,7 @@ export default async function StudentsPage() {
     <LayoutWeb titlePage="Alunos">
       <div className="flex flex-col gap-4 h-full">
         <ToolBar />
-        {status === 200 && data ? <ListStudents students={data} /> : <EmptyPage label="Não existem alunos cadastrados!" />}
+        {status === 200 && data.length ? <ListStudents students={data} /> : <EmptyPage label="Não existem alunos cadastrados!" />}
       </div>
     </LayoutWeb>
   );

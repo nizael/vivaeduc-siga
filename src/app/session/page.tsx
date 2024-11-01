@@ -3,16 +3,17 @@ import { LoginIcon } from '@/components/icons/LoginIcon';
 import { InputText } from '@/components/inputs/InputText';
 import { sessionCreate } from '@/services/session/sessionCreate';
 import { cookiesManager } from '../../di/dependencyInjection';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 
 export default function SessionPage() {
+  const router = useRouter()
   const handleLogin = async (formData: FormData) => {
     const result = await sessionCreate(formData)
     if (result.status === 201) {
       cookiesManager.setCookie('user_token', result.data.token)
       sessionStorage.setItem('user_token', result.data.token)
-     redirect('/')
+      router.push('/')
     }
   };
 

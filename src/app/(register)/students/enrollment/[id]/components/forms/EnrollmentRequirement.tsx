@@ -17,6 +17,7 @@ const documentStatus = [
 export const EnrollmentRequirement = () => {
   const { schoolYearId, gradeId, enrollmentRequirements, setEnrollmentRequirements, pushEnrollmentRequirementChecklists } = useEnrollmentStore()
 
+  if (!enrollmentRequirements.length) return null
   useEffect(() => {
     if (schoolYearId && gradeId) {
       (async () => {

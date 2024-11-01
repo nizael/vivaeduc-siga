@@ -1,12 +1,10 @@
 'use client'
-import { CallIcon } from "@/components/icons/CallIcon"
-import { EmailIcon } from "@/components/icons/EmailIcon"
 import { Pagination } from "./Pagination"
 import { NavMenu } from "@/components/nav-menu/NavMenu"
 import { useEffect } from "react"
-import Link from "next/link"
 import { IEnrollmentRequirement } from "@/services/enrollmentRequirement/IEnrollmentRequirement"
 import { useEnrollmentRequirementsStore } from "../../../../stores/useEnrollmentRequirementStore"
+import { EmptyPage } from "@/components/empty-state/EmptyPage"
 
 
 export const ListEnrollmentRequirement = ({ enrollmentRequirements }: { enrollmentRequirements: IEnrollmentRequirement[] }) => {
@@ -14,7 +12,7 @@ export const ListEnrollmentRequirement = ({ enrollmentRequirements }: { enrollme
   useEffect(() => {
     if (enrollmentRequirements) setListEnrollmentRequirements(enrollmentRequirements)
   }, [enrollmentRequirements])
-
+  if (!enrollmentRequirementsView?.length) return <EmptyPage label="Não existem requisitos cadastrados!" />
   return (
     <section className="bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
       <div className="grow">

@@ -5,6 +5,7 @@ import { ToolBar } from "./components/ToolBar";
 import { TitlePage } from "./components/TitlePage";
 import { classroomListAll } from "@/services/classroom/classroomGet";
 import { ClassroomCreateModal } from "../create/CreateModal";
+import { EmptyPage } from "@/components/empty-state/EmptyPage";
 
 export default async function ClassroomPage() {
   const { data, status } = await classroomListAll()
@@ -12,9 +13,9 @@ export default async function ClassroomPage() {
     <>
       <ClassroomCreateModal />
       <LayoutWeb titlePage={<TitlePage />}>
-        <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 h-full">
           <ToolBar />
-          {(status === 200 && data) && <ListClassrooms classrooms={data} />}
+          {(status === 200) && <ListClassrooms classrooms={data} />}
         </div>
       </LayoutWeb>
     </>

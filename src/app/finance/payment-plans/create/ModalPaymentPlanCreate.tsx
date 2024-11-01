@@ -20,6 +20,31 @@ export const ModalPaymentPlanCreate = () => {
   const [courses, setCourses] = useState<ICourse[]>([])
   const [methodReceipt, setMethodReceipt] = useState<string>('')
   const [courseId, setCourseId] = useState<string>('')
+  const [installmentAmount, setInstallmentAmount] = useState<string>('')
+  const [dueDay, setDueDay] = useState<string>('')
+
+
+  useEffect(() => {
+    if (methodReceipt && methodReceipt !== 'TICKET') {
+      const today = new Date()
+
+      let installmentDate = new Date(today)
+      installmentDate.setDate(installmentDate.getDate() + 1);
+    
+      let dayOfWeek = installmentDate.getDay();
+      if (dayOfWeek === 6) {
+        installmentDate.setDate(installmentDate.getDate() + 2);
+      } else if (dayOfWeek === 0) {
+        installmentDate.setDate(installmentDate.getDate() + 1);
+      }
+      setDueDay(installmentDate.getDate().toString())
+
+      setInstallmentAmount('1')
+    } else {
+      setDueDay('')
+      setInstallmentAmount('')
+    }
+  }, [methodReceipt])
 
   useEffect(() => {
     (async () => {
@@ -39,7 +64,7 @@ export const ModalPaymentPlanCreate = () => {
         </div>
         <form action={async formData => {
           //readOnly não funcionou 
-          if(methodReceipt !== 'TICKET') formData.set('installmentAmount', '1')
+          if (methodReceipt !== 'TICKET') formData.set('installmentAmount', '1')
           const { data, status } = await paymentPlanCreate(formData)
           if (status === 201) {
             pushPaymentPlan({ ...data, courseName: courses.find(course => course.id === courseId)?.name })
@@ -52,10 +77,10 @@ export const ModalPaymentPlanCreate = () => {
             <div className="col-start-1 col-end-3">
               <InputText required label="Nome *" name="name" />
             </div>
-            <InputText required label="Valor R$" name="value" />
-            <InputText  disabled={methodReceipt !== 'TICKET'} value={methodReceipt !== 'TICKET' ? '1' : ''} required type="number" label="Quantidade de parcelas" name="installmentAmount" />
+            <InputText required label="Valor R$" name="amount" />
             <CustomSelect required options={methodReceiptOptions} onChange={evt => setMethodReceipt(evt.currentTarget.value)} label="Metodo de recebimento" name="methodReceipt" />
-            <InputText label="Dia de vencimento" name="dueDate" disabled={methodReceipt !== 'TICKET'} />
+            <InputText disabled={methodReceipt !== 'TICKET'} value={installmentAmount} onChange={evt => setInstallmentAmount(evt.currentTarget.value)} required type="number" label="Quantidade de parcelas" name="installmentAmount" />
+            <InputText label="Dia de vencimento" name="dueDay" disabled={methodReceipt !== 'TICKET'} value={dueDay} onChange={evt => setDueDay(evt.currentTarget.value)} />
             <div className="col-start-1 col-end-3">
               <InputText label="Descrição" name="description" />
             </div>

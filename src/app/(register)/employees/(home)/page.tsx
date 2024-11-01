@@ -10,7 +10,7 @@ export default async function EmployeesPage() {
     <LayoutWeb titlePage="Funcionários">
       <div className="flex flex-col gap-4 h-full">
         <ToolBar />
-        {status === 200 && data ? <ListEmployees employees={data} /> : <EmptyPage label="Não existem funcionários cadastrados!" />}
+        {status === 200 && data.length ? <ListEmployees employees={data} /> : <EmptyPage label="Não existem funcionários cadastrados!" />}
       </div>
     </LayoutWeb>
   );

@@ -4,6 +4,7 @@ import { ToolBar } from "./components/ToolBar";
 import { TitlePage } from "./components/TitlePage";
 import { courseListAll } from "@/services/course/courseListAll";
 import { CourseCreateModal } from "../create/CreateModal";
+import { EmptyPage } from "@/components/empty-state/EmptyPage";
 
 export default async function CoursePage() {
   const { data, status } = await courseListAll()
@@ -11,9 +12,9 @@ export default async function CoursePage() {
     <>
       <CourseCreateModal />
       <LayoutWeb titlePage={<TitlePage />}>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 h-full">
           <ToolBar />
-          {(status === 200 && data) && <ListCourses courses={data} />}
+          {(status === 200) && <ListCourses courses={data} /> }
         </div>
       </LayoutWeb>
     </>

@@ -12,10 +12,10 @@ export default function AcademicPage() {
         <Overview />
         <NavBar />
         <div className="grid grid-cols-2 gap-4">
-          <ListClassrooms />
+          {/* <ListClassrooms /> */}
           {/* <ListAcademicYear />
            */}
-          <ListSubjects />
+          {/* <ListSubjects /> */}
         </div>
       </div>
     </LayoutWeb>

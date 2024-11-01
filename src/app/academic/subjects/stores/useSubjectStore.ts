@@ -7,6 +7,8 @@ interface IUseSubjectStore {
   subjects?: ISubject[]
   subjectViews?: ISubject[]
   sequence: 'asc' | 'desc',
+  currentPage: number
+  setCurrentPage(currentPage: number): void
   toggleSequence(): void
   setSubjects(subjects: ISubject[]): void
   pushSubject(subject: ISubject): void
@@ -14,6 +16,7 @@ interface IUseSubjectStore {
 
 export const useSubjectStore = create<IUseSubjectStore>((set, get) => ({
   sequence: 'desc',
+  currentPage: 1,
   setSubjects: (subjects) => {
     set({ subjects: subjects, subjectViews: subjects.slice(0, 10) })
   },
@@ -32,5 +35,14 @@ export const useSubjectStore = create<IUseSubjectStore>((set, get) => ({
         sequence: sequence === 'asc' ? 'desc' : 'asc'
       })
     }
+  },
+  setCurrentPage: (currentPage) => {
+    const subjects = get().subjects
+    const start = (currentPage - 1) * 8
+    const end = currentPage * 8
+    set({
+      currentPage,
+      subjectViews: subjects?.slice(start, end)
+    })
   },
 }))

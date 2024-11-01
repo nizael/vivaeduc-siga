@@ -3,6 +3,7 @@ export interface ICreateEnrollment {
   schoolYearId: string;
   isActive?: boolean;
   classroomId: string;
+  status: string
   studentId: string;
   paymentPlanId: string;
   enrollmentRequirementChecklists?: {

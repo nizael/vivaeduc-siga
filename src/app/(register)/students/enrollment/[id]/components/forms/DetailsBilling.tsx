@@ -5,28 +5,32 @@ import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { FieldData } from "../field-data/FieldData"
 import { useEnrollmentStore } from "../../../../stores/useEnrollmentStore"
 import { useEffect, useState } from "react"
+import { generateInstallmentDates } from "@/utils/generateInstallmentDates"
 
 export const DetailsBilling = () => {
-  const { paymentPlan, discountType, discountValue } = useEnrollmentStore()
+  const { paymentPlan, discountType, discountValue, discountStartDate, discountEndDate } = useEnrollmentStore()
   const [discount, setDiscount] = useState(0)
   const [installmentDiscount, setInstallmentDiscount] = useState(0)
   const [installmentValue, setInstallmentValue] = useState(0)
+  const [startDate, setStartDate] = useState()
 
   useEffect(() => {
     if (paymentPlan) {
-      setInstallmentValue(paymentPlan.value / paymentPlan.installmentAmount)
+      setInstallmentValue(paymentPlan.amount / paymentPlan.installmentAmount)
     }
   }, [paymentPlan])
 
   useEffect(() => {
-    if (paymentPlan && discount) {
-      setInstallmentDiscount(discount/ paymentPlan.installmentAmount)
+
+    const isDiscount = (discount || typeof discount === 'number')
+    if (paymentPlan && isDiscount) {
+      setInstallmentDiscount(discount / paymentPlan.installmentAmount)
     }
   }, [discount])
 
   useEffect(() => {
     if (discountType && discountValue && paymentPlan) {
-      const discountTotal = discountType === 'VALUE' ? discountValue : (paymentPlan.value / 100) * discountValue
+      const discountTotal = discountType === 'VALUE' ? discountValue : (paymentPlan.amount / 100) * discountValue
       setDiscount(discountTotal)
     } else {
       setDiscount(0)
@@ -41,9 +45,9 @@ export const DetailsBilling = () => {
       </summary>
       <div className="grid grid-cols-4 gap-4 p-4 w-full">
         <FieldData field="Títulos" value={paymentPlan?.installmentAmount.toString() || '-'} />
-        <FieldData field="Valor Total" value={paymentPlan?.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) || '- '} />
-        <FieldData field="Desconto" value={`${discountType === 'PERCENTAGE' ? discount + ' %' : discount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`} />
-        <FieldData field="Valor a receber" value={(paymentPlan) ? (paymentPlan.value - discount).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '-'} />
+        <FieldData field="Valor Total" value={paymentPlan?.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) || '- '} />
+        <FieldData field="Desconto" value={`${discount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`} />
+        <FieldData field="Valor a receber" value={(paymentPlan) ? (paymentPlan.amount - discount).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '-'} />
       </div>
       <table className="w-full">
         <thead>
@@ -57,14 +61,20 @@ export const DetailsBilling = () => {
         </thead>
         <tbody className="font-medium text-sm text-[--text-primary]">
           {
-            Array.from({ length: paymentPlan?.installmentAmount || 0 }, (_, index) => {
+            paymentPlan && generateInstallmentDates(paymentPlan.amount, paymentPlan.installmentAmount, paymentPlan.dueDay || 0).map((installment, index) => {
+              const discountStart = installmentDiscount
+                && (!discountStartDate || (discountStartDate && new Date(discountStartDate) < installment.dueDate))
+                && (!discountEndDate || (discountEndDate && new Date(discountEndDate) > installment.dueDate))
+
+              const discount = discountStart ? installmentDiscount : 0
+              const total = discountStart ? (installmentValue - installmentDiscount) : installmentValue
               return (
                 <tr className="border-b" key={`tr_${index}`}>
-                  <td className="p-4">05/10/2025</td>
+                  <td className="p-4">{installment.dueDate.toLocaleDateString()}</td>
                   <td className="p-4">{`${(index + 1).toString().padStart(2, '0')}/12`}</td>
                   <td className="p-4">{installmentValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-                  <td className="p-4">{installmentDiscount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-                  <td className="p-4">{(installmentValue - installmentDiscount).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                  <td className="p-4">{discount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                  <td className="p-4">{total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                 </tr>
               )
             })

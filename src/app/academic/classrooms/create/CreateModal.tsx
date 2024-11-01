@@ -61,44 +61,44 @@ export const ClassroomCreateModal = () => {
           }
         }} className="p-4 flex flex-col gap-4" >
           <div className="grid grid-cols-4 gap-4 w-full">
-            <InputText required label="Código" name="code" />
+            <InputText required label="Código *" name="code" />
             <div className="col-start-2 col-end-5">
               <InputText required label="Nome *" name="name" />
             </div>
             <div className="col-start-1 col-end-3">
-              <CustomSelect required options={schoolYears?.map(schoolYear => ({ label: schoolYear.name, value: schoolYear.id }))} onChange={() => ({})} label="Período" name="schoolYearId" />
+              <CustomSelect required options={schoolYears?.map(schoolYear => ({ label: schoolYear.name, value: schoolYear.id }))} onChange={() => ({})} label="Período *" name="schoolYearId" />
             </div>
             <div className="col-start-3 col-end-5">
-              <CustomSelect required options={courses?.map(course => ({ label: course.name, value: course.id }))} onChange={evt => setSelectCourseId(evt.currentTarget.value)} label="Curso" name="courseId" />
+              <CustomSelect required options={courses?.map(course => ({ label: course.name, value: course.id }))} onChange={evt => setSelectCourseId(evt.currentTarget.value)} label="Curso *" name="courseId" />
             </div>
             <div className="col-start-1 col-end-3">
-              <CustomSelect required options={grades?.map(grade => ({ label: grade.name, value: grade.id }))} onChange={() => ({})} label="Série" name="gradeId" />
+              <CustomSelect required options={grades?.map(grade => ({ label: grade.name, value: grade.id }))} onChange={() => ({})} label="Série *" name="gradeId" />
             </div>
             <div className="col-start-3 col-end-5">
-              <InputText label="INEP" name="inep" />
+              <InputText label="INEP" name="inep" placeholder="Opcional" />
             </div>
             <div className="col-start-1 col-end-5">
               <div className="flex flex-col gap-2 w-full">
-                <span className=" text-[--text-primary] font-semibold ">Turno</span>
+                <span className=" text-[--text-primary] font-semibold ">Turno *</span>
                 <div className="border border-[#C1BBEB] bg-white rounded-lg p-2 text-base text-[--text-primary] font-medium outline-[--bg-primary] flex items-center gap-2" >
                   <label htmlFor="morning" className="flex items-center gap-1">
-                    <input value="MORNING" id="morning" type="radio" name="shift" />
+                    <input required value="MORNING" id="morning" type="radio" name="shift" />
                     Manhã
                   </label>
                   <label htmlFor="afternoon" className="flex items-center gap-1">
-                    <input value="AFTERNOON" id="afternoon" type="radio" name="shift" />
+                    <input required value="AFTERNOON" id="afternoon" type="radio" name="shift" />
                     Tarde
                   </label>
                   <label htmlFor="night" className="flex items-center gap-1">
-                    <input value="NIGHT" type="radio" id="night" name="shift" />
+                    <input required value="NIGHT" type="radio" id="night" name="shift" />
                     Noite
                   </label>
                   <label htmlFor="intermediate" className="flex items-center gap-1">
-                    <input value="INTERMEDIATE" type="radio" id="intermediate" name="shift" />
+                    <input required value="INTERMEDIATE" type="radio" id="intermediate" name="shift" />
                     Intermediário
                   </label>
                   <label htmlFor="fullTime" className="flex items-center gap-1">
-                    <input value="FULL_TIME" type="radio" id="fullTime" name="shift" />
+                    <input required value="FULL_TIME" type="radio" id="fullTime" name="shift" />
                     Integral
                   </label>
                 </div>
@@ -111,9 +111,9 @@ export const ClassroomCreateModal = () => {
             <div className="col-start-3 col-end-5">
               <InputText type="date" required label="Tèrmino *" name="endDate" />
             </div>
-            <InputText type="number" required label="Vagas" name="numberVacancies" />
+            <InputText type="number" required label="Vagas *" name="numberVacancies" />
             <div className="col-start-2 col-end-5">
-              <CustomSelect required options={coordinators?.map(coord => ({ label: coord.name, value: coord.id }))} onChange={() => ({})} label="Coordenador" name="coordinatorId" />
+              <CustomSelect required options={coordinators?.map(coord => ({ label: coord.name, value: coord.id }))} onChange={() => ({})} label="Coordenador *" name="coordinatorId" />
             </div>
           </div>
           <div className="flex items-center gap-4 justify-end">

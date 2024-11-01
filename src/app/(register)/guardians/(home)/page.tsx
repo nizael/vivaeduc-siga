@@ -10,7 +10,7 @@ export default async function GuardiansPage() {
     <LayoutWeb titlePage="Responsáveis">
       <div className="flex flex-col gap-4 h-full">
         <ToolBar />
-        {status === 200 && data ? <ListGuardians guardians={data} /> : <EmptyPage label="Não existem responsáveis cadastrados!" />}
+        {status === 200 && data.length ? <ListGuardians guardians={data} /> : <EmptyPage label="Não existem responsáveis cadastrados!" />}
       </div>
     </LayoutWeb>
   );

@@ -9,4 +9,7 @@ export class EnrollmentApi extends FetchApi {
   async listAll() {
     return this.get('/v1/enrollments/listAll')
   }
+  async getByStudentId(studentId: string) {
+    return this.get(`/v1/enrollments/getByStudentId/${studentId}`)
+  }
 }

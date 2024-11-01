@@ -8,11 +8,14 @@ import { useEnrollmentStore } from "../../../../stores/useEnrollmentStore"
 import { enrollmentCreate } from "@/services/enrollment/enrollmentCreate"
 import { Toast } from "@/components/toast/Toast"
 import { useState } from "react"
+import {  useRouter } from "next/navigation"
 
 export const FormEnrollment = ({ studentId }: { studentId: string }) => {
   const { enrollmentRequirements, enrollmentRequirementChecklists } = useEnrollmentStore()
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [toastType, setToastType] = useState<'success' | 'error'>('error');
+
+  const router = useRouter()
 
   async function handleSubmit(formData: FormData) {
     const isValid = enrollmentRequirementChecklist()
@@ -24,7 +27,12 @@ export const FormEnrollment = ({ studentId }: { studentId: string }) => {
     formData.set('enrollmentRequirementChecklists', JSON.stringify(enrollmentRequirements))
     formData.set('studentId', studentId)
     const { data, status } = await enrollmentCreate(formData)
-    setToastType(status === 201 ? 'success' : 'error')
+    if (status === 201) {
+      setToastType('success')
+      setToastType('success')
+      router.push(`/students/details/${studentId}`)
+    }
+    setToastType('error')
     setToastMessage(data.message)
 
   }
@@ -33,7 +41,7 @@ export const FormEnrollment = ({ studentId }: { studentId: string }) => {
     const requirements = enrollmentRequirements.filter(enrollmentRequirement => enrollmentRequirement.isRequired)
     return requirements.every(requirement => {
       const enrollmentRequirementChecklist = enrollmentRequirementChecklists.find(item => item.enrollmentRequirementId == requirement.id)
-      return enrollmentRequirementChecklist && enrollmentRequirementChecklist.status==='DELIVERED' 
+      return enrollmentRequirementChecklist && enrollmentRequirementChecklist.status === 'DELIVERED'
     });
   }
 

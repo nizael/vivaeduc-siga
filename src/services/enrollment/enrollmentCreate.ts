@@ -14,7 +14,9 @@ export const enrollmentCreate = async (formData: FormData) => {
   const data = {
     courseId: formData.get('courseId')!.toString(),
     schoolYearId: formData.get('schoolYearId')!.toString(),
+    status: formData.get('status')!.toString(),
     classroomId: formData.get('classroomId')!.toString(),
+    gradeId: formData.get('gradeId')!.toString(),
     studentId: formData.get('studentId')!.toString(),
     paymentPlanId: formData.get('paymentPlanId')!.toString(),
     enrollmentRequirementChecklists: JSON.parse(enrollmentRequirementChecklists),

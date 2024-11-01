@@ -36,14 +36,14 @@ export const FormEmployee = () => {
             <div className="col-start-1 col-end-3">
               <InputText required label="Nome Completo *" name="name" />
             </div>
-            <InputText required label="Data de nascimento *" name="dateOfBirth" />
+            <InputText type="date" required label="Data de nascimento *" name="dateOfBirth" />
             <CustomSelect required name="colorOrRace" label="Cor/Raça *" options={colorOrRaceOptions} className="w-full" onChange={() => ({})} />
             <CustomSelect required name="maritalStatus" label="Estado civil *" options={maritalStatusOptions} className="w-full" onChange={() => ({})} />
             <CheckboxGender />
             <InputText required label="CPF *" name="document" />
             <InputText label="RG" name="identityCard" />
             <InputText label="Orgão emissor" name="issuingAuthority" />
-            <InputText label="Date de emissão" name="issueDate" />
+            <InputText type="date" label="Date de emissão" name="issueDate" />
             <InputText label="UF" name="issueState" />
             <InputText required label="Celular *" name="phone" />
             <InputText required label="email *" name="email" />

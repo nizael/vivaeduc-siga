@@ -4,6 +4,7 @@ import { PaymentPlanList } from "./components/PaymentPlanList";
 import { paymentPlanListAll } from "@/services/paymentPlan/paymentPlaGet";
 import { ToolBar } from "./components/ToolBar";
 import { ModalPaymentPlanCreate } from "../create/ModalPaymentPlanCreate";
+import { EmptyPage } from "@/components/empty-state/EmptyPage";
 
 export default async function PaymentPlanPage() {
   const { data, status } = await paymentPlanListAll()
@@ -11,9 +12,9 @@ export default async function PaymentPlanPage() {
     <>
       <ModalPaymentPlanCreate />
       <LayoutWeb titlePage={<TitlePage />}>
-      <div className="flex flex-col gap-4 h-full">
+        <div className="flex flex-col gap-4 h-full">
           <ToolBar />
-          {(status === 200 && data) && <PaymentPlanList paymentPlans={data} />}
+          {(status === 200 ) && <PaymentPlanList paymentPlans={data} /> }
         </div>
       </LayoutWeb>
     </>

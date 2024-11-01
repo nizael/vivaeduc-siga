@@ -27,6 +27,8 @@ export const PaymentPlan = () => {
     if (currentPaymentPlan) setPaymentPlan(currentPaymentPlan)
   }
 
+  if (!paymentPlans.length) return null
+
   return (
     <details className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
       <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500">
@@ -56,7 +58,7 @@ export const PaymentPlan = () => {
                   </label>
                 </td>
                 <td className="p-4">{paymentPlan.installmentAmount}</td>
-                <td className="p-4">{paymentPlan.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                <td className="p-4">{paymentPlan.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                 <td className="p-4">{methodReceipt[paymentPlan.methodReceipt]}</td>
               </tr>
             )

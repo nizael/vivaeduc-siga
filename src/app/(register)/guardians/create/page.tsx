@@ -3,7 +3,7 @@ import { FormGuardian } from "./components/FormGuardian";
 
 export default async function EmployeeCreatePage() {
   return (
-    <LayoutWeb titlePage="Novo Funcionário">
+    <LayoutWeb titlePage="Novo Responsável">
       <div className="flex flex-col gap-4">
         <FormGuardian />
       </div>

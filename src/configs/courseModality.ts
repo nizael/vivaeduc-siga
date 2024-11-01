@@ -1,5 +1,5 @@
 export const courseModality = {
-  HYBRID: 'HÍbrido',
+  HYBRID: 'Híbrido',
   ONLINE: 'À Distância',
   IN_PERSON: 'Presencial'
 }

@@ -53,8 +53,8 @@ export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { add
           <div className="flex items-center justify-between">
             <h5 className="text-2xl font-semibold text-[--text-primary]">{student.name}</h5>
             <div className="flex items-center top-0 right-10 gap-4">
-              <Link href={'/students/create'} className="shadow-sm text-sm font-semibold text-[--text-primary] rounded-full h-[40px] px-4 flex items-center gap-1"><b className="text-2xl">+</b> Nova matrícula</Link>
-              <Link href={`/students/enrollment/${student.id}`} className="shadow-sm text-[--text-primary] text-sm font-semibold  rounded-full h-[40px] px-4 flex items-center gap-1"><EditIcon /> Editar</Link>
+              <Link href={`/students/enrollment/${student.id}`} className="shadow-sm text-sm font-semibold text-[--text-primary] rounded-full h-[40px] px-4 flex items-center gap-1"><b className="text-2xl">+</b> Nova matrícula</Link>
+              <Link href={`/students/update/${student.id}`} className="shadow-sm text-[--text-primary] text-sm font-semibold  rounded-full h-[40px] px-4 flex items-center gap-1"><EditIcon /> Editar</Link>
             </div>
           </div>
           <div className="flex flex-col gap-4">

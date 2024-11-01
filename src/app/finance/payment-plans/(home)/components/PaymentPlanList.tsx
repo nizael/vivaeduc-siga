@@ -5,6 +5,7 @@ import { methodReceipt } from "@/configs/methodReceipt"
 import { usePaymentPlanStore } from "../../../stores/usePaymentPlanStore"
 import { NavMenu } from "@/components/nav-menu/NavMenu"
 import { Pagination } from "./Pagination"
+import { EmptyPage } from "@/components/empty-state/EmptyPage"
 
 
 export const PaymentPlanList = ({ paymentPlans }: { paymentPlans: IPaymentPlan[] }) => {
@@ -13,6 +14,7 @@ export const PaymentPlanList = ({ paymentPlans }: { paymentPlans: IPaymentPlan[]
     if (paymentPlans) setPaymentPlans(paymentPlans)
   }, [paymentPlans])
 
+  if (!paymentPlanViews?.length) return <EmptyPage label="Não existem planos de pagamento cadastrados" />
   return (
     <section className="bg-gray-50 p-4 shadow-sm rounded-xl w-full flex flex-col gap-4  h-full">
       <div className="grow">
@@ -35,7 +37,7 @@ export const PaymentPlanList = ({ paymentPlans }: { paymentPlans: IPaymentPlan[]
                   <td className="p-4">{paymentPlan.name}</td>
                   <td className="p-4">{paymentPlan.courseName}</td>
                   <td className="p-4 text-center">{paymentPlan.installmentAmount}</td>
-                  <td className="p-4 text-center">{paymentPlan.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                  <td className="p-4 text-center">{paymentPlan.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                   <td className="p-4 text-center">{methodReceipt[paymentPlan.methodReceipt]}</td>
                   <td className="p-4 text-center">
                     <NavMenu items={[

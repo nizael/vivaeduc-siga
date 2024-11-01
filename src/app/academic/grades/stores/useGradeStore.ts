@@ -5,6 +5,8 @@ import { create } from "zustand";
 interface IUseGradeStore {
   grades?: IGrade[]
   gradeViews?: IGrade[]
+  currentPage: number
+  setCurrentPage(currentPage: number): void
   sequence: 'asc' | 'desc',
   toggleSequence(): void
   setGrades(grades: IGrade[]): void
@@ -13,6 +15,7 @@ interface IUseGradeStore {
 
 export const useGradeStore = create<IUseGradeStore>((set, get) => ({
   sequence: 'desc',
+  currentPage: 1,
   setGrades: (grades) => {
     set({ grades: grades, gradeViews: grades.slice(0, 10) })
   },
@@ -31,5 +34,14 @@ export const useGradeStore = create<IUseGradeStore>((set, get) => ({
         sequence: sequence === 'asc' ? 'desc' : 'asc'
       })
     }
+  },
+  setCurrentPage: (currentPage) => {
+    const grades = get().grades
+    const start = (currentPage - 1) * 8
+    const end = currentPage * 8
+    set({
+      currentPage,
+      gradeViews: grades?.slice(start, end)
+    })
   },
 }))

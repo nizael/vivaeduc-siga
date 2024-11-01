@@ -10,7 +10,7 @@ import { useEffect, useState } from "react"
 
 
 export const DiscountData = () => {
-  const { setDiscountType, setDiscountValue, discountType, discountValue } = useEnrollmentStore()
+  const { setDiscountType, setDiscountValue, discountType, discountValue, setDiscountEndDate, setDiscountStartDate } = useEnrollmentStore()
   const [discountName, setDiscountName] = useState('')
 
   useEffect(() => {
@@ -31,11 +31,11 @@ export const DiscountData = () => {
         <div className="grid grid-cols-4 gap-4 w-full">
           <CustomSelect name="discountName" options={discountOptions} label="Nome do desconto" onChange={evt => setDiscountName(evt.currentTarget.value)} />
           <CustomSelect required={!!discountName} name="type" disabled={discountName === 'FULL'} initialValue={discountTypeOptions.find(discountTypeOption => discountTypeOption.value === discountType)} options={discountTypeOptions} label="Tipo" position="top" onChange={evt => setDiscountType(evt.currentTarget.value as 'PERCENTAGE' | 'VALUE')} />
-          <InputText  required={!!discountName} name="value" disabled={discountName === 'FULL'} value={discountValue?.toString()||''} type="number" label="Valor" onChange={evt => setDiscountValue(Number(evt.currentTarget.value))} />
+          <InputText required={!!discountName} name="value" disabled={discountName === 'FULL'} value={discountValue?.toString() || ''} type="number" label="Valor" onChange={evt => setDiscountValue(Number(evt.currentTarget.value))} />
         </div>
         <div className="grid grid-cols-4 gap-4 w-full">
-          <InputText name="startDate" type="date" label="Data inicial" />
-          <InputText name="endDate" type="date" label="Data final" />
+          <InputText onChange={evt => setDiscountStartDate(evt.currentTarget.value)} name="startDate" type="date" label="Data inicial" />
+          <InputText onChange={evt => setDiscountEndDate(evt.currentTarget.value)}  name="endDate" type="date" label="Data final" />
         </div>
       </div>
 

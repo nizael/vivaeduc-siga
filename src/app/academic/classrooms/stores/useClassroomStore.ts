@@ -5,6 +5,8 @@ interface IUseClassroomStore {
   classrooms?: IClassroom[]
   classroomViews?: IClassroom[]
   sequence: 'asc' | 'desc',
+  currentPage: number
+  setCurrentPage(currentPage: number): void
   toggleSequence(): void
   setClassrooms(classrooms: IClassroom[]): void
   pushClassroom(classroom: IClassroom): void
@@ -12,6 +14,7 @@ interface IUseClassroomStore {
 
 export const useClassroomStore = create<IUseClassroomStore>((set, get) => ({
   sequence: 'desc',
+  currentPage: 1,
   setClassrooms: (classrooms) => {
     set({ classrooms: classrooms, classroomViews: classrooms.slice(0, 10) })
   },
@@ -31,4 +34,13 @@ export const useClassroomStore = create<IUseClassroomStore>((set, get) => ({
       })
     }
   },
+  setCurrentPage: (currentPage) => {
+    const classrooms = get().classrooms
+    const start = (currentPage - 1) * 8
+    const end = currentPage * 8
+    set({
+      currentPage,
+      classroomViews: classrooms?.slice(start, end)
+    })
+  }
 }))

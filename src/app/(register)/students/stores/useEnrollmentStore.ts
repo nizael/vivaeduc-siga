@@ -6,6 +6,8 @@ interface IUseEnrollmentStore {
   schoolYearId?: string
   courseId?: string
   gradeId?: string
+  discountStartDate?: string
+  discountEndDate?: string
   discountType?: 'VALUE' | 'PERCENTAGE'
   discountValue?: number
   paymentPlan?: IPaymentPlan
@@ -19,7 +21,8 @@ interface IUseEnrollmentStore {
   setCourseId(courseId: string): void
   setDiscountType(discountType?: 'VALUE' | 'PERCENTAGE'): void
   setDiscountValue(discountValue: number): void
-
+  setDiscountStartDate(discountStartDate: string): void
+  setDiscountEndDate(discountEndDate: string): void
 }
 
 export const useEnrollmentStore = create<IUseEnrollmentStore>((set, get) => ({
@@ -35,11 +38,13 @@ export const useEnrollmentStore = create<IUseEnrollmentStore>((set, get) => ({
   pushEnrollmentRequirementChecklists: (enrollmentRequirementChecklist) => {
     const currentEnrollmentRequirementChecklists = get().enrollmentRequirementChecklists
     const index = currentEnrollmentRequirementChecklists.findIndex(item => item.enrollmentRequirementId === enrollmentRequirementChecklist.enrollmentRequirementId)
-    if (index>=0) {
+    if (index >= 0) {
       currentEnrollmentRequirementChecklists[index].status = enrollmentRequirementChecklist.status
       set({ enrollmentRequirementChecklists: [...currentEnrollmentRequirementChecklists] })
     } else {
       set({ enrollmentRequirementChecklists: [enrollmentRequirementChecklist, ...currentEnrollmentRequirementChecklists] })
     }
-  }
+  },
+  setDiscountStartDate: (discountStartDate) => set({ discountStartDate }),
+  setDiscountEndDate: (discountEndDate) => set({ discountEndDate })
 }))

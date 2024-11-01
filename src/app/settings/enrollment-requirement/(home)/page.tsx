@@ -15,7 +15,7 @@ export default async function EnrollmentRequirementPage() {
       <LayoutWeb titlePage={<TitlePage />}>
         <div className="flex flex-col gap-4 h-full">
           <ToolBar />
-          {status === 200 && data ? <ListEnrollmentRequirement enrollmentRequirements={data} /> : <EmptyPage label="Não existem requisitos cadastrados!" />}
+          {status === 200 && <ListEnrollmentRequirement enrollmentRequirements={data} />}
         </div>
       </LayoutWeb>
     </>
