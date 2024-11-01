@@ -3,7 +3,7 @@ import { Chart } from "./Chart"
 
 export const Finance = () => {
   return (
-    <section className="flex flex-col rounded-lg bg-gray-50 shadow-sm w-full">
+    <section className="flex flex-col bg-gray-50 shadow-sm w-full">
       <div className="text-[--text-primary] font-semibold flex  justify-between rounded-t-xl p-4">
         <h5 className="text-[--text-primary] font-semibold flex items-center gap-2">
           <FinanceIcon />

@@ -38,7 +38,7 @@ export const Calendar = () => {
   }
 
   return (
-    <div className="flex flex-col w-full bg-gray-50  rounded-xl shadow-sm h-full">
+    <div className="flex flex-col w-full bg-gray-50  shadow-sm h-full">
       <div className="flex justify-between  rounded-t-xl p-4">
         <h5 className="text-[--text-primary] font-semibold flex items-center gap-2">
           <CalendarIcon />
