@@ -2,8 +2,8 @@ import { FetchApi } from "../fetch-api/FetchApi";
 
 export class ReportApi extends FetchApi {
 
-  async countStudentClassroomSubject() {
-    return this.get('/v1/reports/countStudentClassroomSubject')
+  async countStudentClassroomSubjectEventEmployee() {
+    return this.get('/v1/reports/countStudentClassroomSubjectEventEmployee')
   }
 
   async countEnrollmentReport() {

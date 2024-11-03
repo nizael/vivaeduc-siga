@@ -2,10 +2,10 @@ import { Kpi } from "./Kpi"
 import { Student2Icon } from "@/components/icons/Student2Icon"
 import { ClassroomIcon } from "@/components/icons/ClassroomIcon"
 import { SubjectIcon } from "@/components/icons/SubjectIcon"
-import { countStudentClassroomSubject } from "@/services/report/reportGet"
+import { countStudentClassroomSubjectEventEmployee } from "@/services/report/reportGet"
 
 export const Overview = async () => {
-  const { data, status } = await countStudentClassroomSubject()
+  const { data, status } = await countStudentClassroomSubjectEventEmployee()
   return (
     <section className="flex items-center p-4   bg-gray-50 justify-between ">
       <Kpi icon={<Student2Icon />} label="Alunos" value={data?.countStudents} />

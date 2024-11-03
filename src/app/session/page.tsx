@@ -5,16 +5,23 @@ import { sessionCreate } from '@/services/session/sessionCreate';
 import { cookiesManager } from '../../di/dependencyInjection';
 import { redirect, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { LoadingSpinner } from '@/components/loading-spinner/LoadingSpinner';
+import { useState } from 'react';
+import { Toast } from '@/components/toast/Toast';
 
 
 export default function SessionPage() {
+  const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const handleLogin = async (formData: FormData) => {
+    setIsLoading(true)
     const result = await sessionCreate(formData)
     if (result.status === 201) {
       cookiesManager.setCookie('user_token', result.data.token)
       sessionStorage.setItem('user_token', result.data.token)
       router.push('/')
+    } else {
+      <Toast message={result.data.message} onClose={() => ({})} />
     }
   };
 
@@ -29,7 +36,8 @@ export default function SessionPage() {
           <Image src="/img/objects-3d.png" alt="" width={612} height={524} className='' />
         </div>
       </div>
-      <div className='w-full bg-gray-50 h-full flex items-center justify-center p-4'>
+      <div className='relative w-full bg-gray-50 h-full flex items-center justify-center p-4'>
+        <LoadingSpinner isLoading={isLoading} />
         <div className="bg-gray-50 rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col gap-10">
           <h2 className="text-3xl font-bold text-primary">Login</h2>
           <form action={handleLogin} className='flex flex-col gap-4'>
