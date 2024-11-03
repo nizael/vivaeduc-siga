@@ -30,16 +30,22 @@ export default function SessionPage() {
       <div className='w-full md:h-full flex flex-col items-center  bg-primary'>
         <div className="flex p-4 items-center gap-2 w-full">
           <p className="w-10 h-10 rounded-xl font-bold text-gray-50 text-2xl grid place-content-center bg-[#FB7D5B]">A</p>
-          <p className=" text-2xl font-bold text-gray-50">Akademi</p>
+          <p className=" text-[26px] text-gray-50"><b className="font">Viva</b>Educ</p>
         </div>
         <div className='grow flex items-center justify-end w-full max-sm:hidden'>
           <Image src="/img/objects-3d.png" alt="" width={612} height={524} className='' />
         </div>
       </div>
-      <div className='relative w-full bg-gray-50 h-full flex items-center justify-center p-4'>
+      <div className='relative w-full bg-gray-50 h-full flex flex-col items-center justify-center p-4 gap-8'>
+        <div className="flex flex-col p-4 items-center  gap-2 w-full max-w-md">
+          <p className="w-10 h-10 rounded-xl font-bold text-gray-50 text-2xl grid place-content-center bg-[#FB7D5B]">A</p>
+          {/* <p className=" text-[26px] text-gray-50"><b className="font">Viva</b>Educ</p> */}
+          <p className=" text-[26px] text-primary"><b className="font">Viva</b>Educ</p>
+        </div>
+
         <LoadingSpinner isLoading={isLoading} />
         <div className="bg-gray-50 rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col gap-10">
-          <h2 className="text-3xl font-bold text-primary">Login</h2>
+          <h1 className="text-3xl font-bold text-primary">Entrar</h1>
           <form action={handleLogin} className='flex flex-col gap-4'>
             <InputText label="Usuário" id='username' name='username' />
             <InputText label="Senha" type="password" id='password' name='password' />
