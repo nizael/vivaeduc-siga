@@ -11,7 +11,7 @@ export default function CalendarPage() {
           <ToolBar />
           <Calendar />
         </div>
-        <RightSide />
+        {/* <RightSide /> */}
       </div>
     </LayoutWeb>
   );

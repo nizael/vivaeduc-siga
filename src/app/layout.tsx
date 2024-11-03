@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Akademi",
+  title: "VivaEduc",
   description: "Sistema de gestão escolar",
   icons: {
     icon: '/svg/logo_48.svg',

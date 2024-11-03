@@ -38,27 +38,6 @@ export const Calendar = () => {
 
   return (
     <section className=" bg-gray-50 p-4 rounded-lg shadow-sm h-full">
-      {/* <div className="flex justify-between items-center mb-4">
-        <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}>
-          Anterior
-        </button>
-
-        <select
-          value={currentDate.getMonth()}
-          onChange={handleMonthChange}
-          className="border p-2 rounded-md"
-        >
-          {months.map((month, index) => (
-            <option key={index} value={index}>
-              {month}
-            </option>
-          ))}
-        </select>
-
-        <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() + 1)))}>
-          Próximo
-        </button>
-      </div> */}
       <table className="w-full table-fixed h-full">
         <thead>
           <tr className="text-center text-[--text-primary] text-sm font-semibold">
