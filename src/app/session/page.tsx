@@ -14,7 +14,7 @@ export default function SessionPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const handleLogin = async (formData: FormData) => {
-    setIsLoading(true)
+    setIsLoading(s => !s)
     const result = await sessionCreate(formData)
     if (result.status === 201) {
       cookiesManager.setCookie('user_token', result.data.token)
@@ -36,7 +36,7 @@ export default function SessionPage() {
           <Image src="/img/objects-3d.png" alt="" width={612} height={524} className='' />
         </div>
       </div>
-      <div className='relative w-full bg-gray-50 h-full flex flex-col items-center justify-center p-4 gap-8'>
+      <div className='relative w-full bg-gray-50 h-full flex flex-col items-center justify-center gap-8'>
         <div className="flex flex-col p-4 items-center  gap-2 w-full max-w-md">
           <p className="w-10 h-10 rounded-xl font-bold text-gray-50 text-2xl grid place-content-center bg-[#FB7D5B]">A</p>
           {/* <p className=" text-[26px] text-gray-50"><b className="font">Viva</b>Educ</p> */}

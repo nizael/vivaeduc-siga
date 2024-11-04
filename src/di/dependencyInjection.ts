@@ -18,6 +18,7 @@ import { PaymentPlanApi } from "@/services/paymentPlan/PaymentPlanApi";
 import { EnrollmentRequirementApi } from "@/services/enrollmentRequirement/EnrollmentRequirementApi";
 import { EnrollmentApi } from "@/services/enrollment/EnrollmentApi";
 import { MonthlyFeesApi } from "@/services/monthly-fees/MonthlyFeesApi";
+import { SchoolApi } from "@/services/school/SchoolApi";
 // import { StudentApi } from "@/services/register/student/StudentApi";
 // import { GuardianApi } from "@/services/register/guardian/GuardianApi";
 // import { AddressApi } from "@/services/register/address/AddressApi";
@@ -31,6 +32,7 @@ const courseApi = new CourseApi(axios)
 const cookiesManager = new CookiesManager()
 const guardian = new Guardian(env)
 const schoolYearApi = new SchoolYearApi(axios)
+const schoolApi = new SchoolApi(axios)
 const gradeApi = new GradeApi(axios)
 const classroomApi = new ClassroomApi(axios)
 const subjectApi = new SubjectApi(axios)
@@ -50,6 +52,7 @@ export {
   subjectApi,
   classroomApi,
   sessionApi,
+  schoolApi,
   employeeApi,
   guardianApi,
   studentApi,
