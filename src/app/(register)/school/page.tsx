@@ -10,8 +10,8 @@ export default async function SchoolPage() {
     <LayoutWeb titlePage="Detalhes da Escola">
       <div className="flex gap-4 h-full">
         <div className="flex flex-col gap-4 grow">
-          {(status === 200 && data) && <SchoolData schoolData={data.school} />}
-          {(status === 200 && data.address) && <AddressDetails address={address} />}
+          {(status === 200 && data) && <SchoolData schoolData={data} />}
+          {(status === 200 && data.address) && <AddressDetails address={data.address} />}
         </div>
         <RightSide />
       </div>
