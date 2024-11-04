@@ -74,11 +74,11 @@ export const FormStudent = () => {
         <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><ToolIcon />Responsaveis</span> <DotsIcon /> <span className="grid w-full place-content-end"><DropdownIcon /></span></summary>
         <div className="grid grid-cols-4 gap-4 p-4">
           <CustomSelect position="top" name="financialResponsible" label="Responsável financeiro *" options={guardians} className="w-full" onChange={() => ({})} />
-          <CustomSelect position="top" name="degreeOfKinship_1" label="Parentesco *" options={kinshipOptions} className="w-full" onChange={() => ({})} />
+          <CustomSelect position="top" name="kinship_1" label="Parentesco *" options={kinshipOptions} className="w-full" onChange={() => ({})} />
         </div>
         <div className="grid grid-cols-4 gap-4 p-4">
           <CustomSelect position="top" name="responsible" label="Responsável" options={guardians} className="w-full" onChange={() => ({})} />
-          <CustomSelect position="top" name="degreeOfKinship_2" label="Parentesco" options={kinshipOptions} className="w-full" onChange={() => ({})} />
+          <CustomSelect position="top" name="kinship_2" label="Parentesco" options={kinshipOptions} className="w-full" onChange={() => ({})} />
         </div>
       </details>
 

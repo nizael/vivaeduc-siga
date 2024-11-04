@@ -10,6 +10,8 @@ import Link from "next/link"
 import { IStudentInfo } from "../../../../@types/IStudentInfo"
 import { IAddress } from "@/types/address/IAddress"
 import { AddressDetails } from "@/components/templates/address/AddressDetails"
+import { StudentGuardians } from "../details/StudentGuardians"
+import { IStudentGuardian } from "../../../../@types/student-guardian/IStudentGuardian"
 
 
 
@@ -37,8 +39,9 @@ const medicalRecord = {
   bloodType: 'B+'
 }
 
-export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { address: IAddress } }) => {
-  const { address, ...student } = studentData
+export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { address: IAddress, studentGuardians: (IStudentGuardian & { guardianName: string })[] } }) => {
+  const { address, studentGuardians, ...student } = studentData
+  console.log(studentData)
   return (
     <section className=" bg-gray-50 shadow-sm relative flex flex-col gap-4">
       <div className=" bg-gray-50 flex flex-col ">
@@ -68,6 +71,7 @@ export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { add
       </div>
       <StudentDetails student={student} />
       <AddressDetails address={address} />
+      <StudentGuardians studentGuardians={studentGuardians} />
       {/* <MedicalRecord medicalRecord={medicalRecord} /> */}
     </section>
   )

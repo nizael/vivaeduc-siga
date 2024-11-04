@@ -3,16 +3,16 @@ import { studentApi } from "../../di/dependencyInjection"
 
 export const studentCreate = async (formData: FormData) => {
   const responsible = formData.get('responsible')?.toString()
-  const degreeOfKinship_2 = formData.get('degreeOfKinship_2')?.toString()
+  const kinship_2 = formData.get('kinship_2')?.toString()
 
   const studentGuardian = [{
-    degreeOfKinship: formData.get('degreeOfKinship_1')?.toString(),
-    isFinancialResponsible: true,
+    kinship: formData.get('kinship_1')?.toString(),
+    isFinanciallyResponsible: true,
     guardianId: formData.get('financialResponsible')?.toString()
   },
-  ...([(responsible && degreeOfKinship_2) && {
-    degreeOfKinship: formData.get('degreeOfKinship_2')?.toString(),
-    isFinancialResponsible: false,
+  ...([(responsible && kinship_2) && {
+    kinship: formData.get('kinship_2')?.toString(),
+    isFinanciallyResponsible: false,
     guardianId: formData.get('responsible')?.toString()
   }])
   ]
