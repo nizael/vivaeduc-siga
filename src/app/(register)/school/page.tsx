@@ -6,14 +6,12 @@ import { AddressDetails } from "@/components/templates/address/AddressDetails";
 
 export default async function SchoolPage() {
   const { data, status } = await schoolDetails()
-  const { address, ...school } = data
-  console.log({ data })
   return (
     <LayoutWeb titlePage="Detalhes da Escola">
       <div className="flex gap-4 h-full">
         <div className="flex flex-col gap-4 grow">
-          <SchoolData schoolData={school} />
-          <AddressDetails address={address}  />
+          {(status === 200 && data) && <SchoolData schoolData={data.school} />}
+          {(status === 200 && data.address) && <AddressDetails address={address} />}
         </div>
         <RightSide />
       </div>
