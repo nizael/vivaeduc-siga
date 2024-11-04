@@ -86,15 +86,15 @@ export const ListMonthlyFees = ({ enrollments }: { enrollments: IEnrollment[] })
           </thead>
           <tbody>
             {monthlyFeesView?.map(monthlyFee => (
-              <tr key={monthlyFee.id} className="text-[--text-primary] text-sm border-b">
+              <tr key={monthlyFee.id} className={`${monthlyFee.delay ? 'text-red-400' : "text-primary"}  text-sm border-b"`}>
                 <td className="p-4">{monthlyFee.schoolYearName}</td>
                 <td className="p-4">{monthlyFee.classroomName}</td>
                 <td className="p-4 text-center">{monthlyFee.dueDate}</td>
                 <td className="p-4 text-center">{monthlyFee.installment}</td>
-                <td className="p-4 text-center text-green-600 font-semibold">{monthlyFee.totalAmount}</td>
+                <td className={`${monthlyFee.delay ? 'text-red-400' : "text-green-600"} "p-4 text-center  font-semibold"`}>{monthlyFee.totalAmount}</td>
                 <td className="p-4 text-center text-[#FB7D5B]">{monthlyFee.discountAmount}</td>
                 <td className={`${monthlyFee.delay && 'text-red-400'} p-4 text-center`}>{monthlyFee.status}</td>
-                <td className="p-2 font-semibold text-center "><button disabled={monthlyFee.status === 'Pago'} className={`${monthlyFee.status === 'Pago'? 'bg-gray-300': 'bg-green-600'} w-fit text-gray-50 px-2 py-1 rounded-md`}>Receber</button></td>
+                <td className="p-2 font-semibold text-center "><button disabled={monthlyFee.status === 'Pago'} className={`${monthlyFee.status === 'Pago' ? 'bg-gray-300' : 'bg-green-600'} w-fit text-gray-50 px-2 py-1 rounded-md`}>Receber</button></td>
               </tr>
             ))}
           </tbody>
