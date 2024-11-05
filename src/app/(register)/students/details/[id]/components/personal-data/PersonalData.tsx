@@ -1,13 +1,13 @@
 import { DotsIcon } from "@/components/icons/DotsIcon"
 import { FieldData } from "../field-data/FieldData"
 import { UserEditIcon } from "@/components/icons/UserEditIcon"
-import { IStudentInfo } from "../../../../@types/IStudentInfo"
+import { IStudent } from "../../../../@types/IStudentInfo"
 import { maritalStatus } from "@/configs/maritalStatus"
 import { gender } from "@/configs/gender"
 import { colorOrRace } from "@/configs/colorOrRace"
 
 
-export const StudentDetails = ({ student }: { student: IStudentInfo }) => {
+export const PersonalData = ({ student }: { student: IStudent }) => {
   return (
     <details open className="">
       <summary className="px-4 py-2 grid grid-cols-3 border-t bg-primary place-items-center text-gray-50"><span className="font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>

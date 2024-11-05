@@ -6,7 +6,7 @@ import { GuardianDetails } from "../details/GuardianDatails"
 import { EditIcon } from "@/components/icons/EditIcon"
 import { IGuardianInfo } from "../../../../@types/IGuardianInfo"
 import { IAddress } from "@/types/address/IAddress"
-import { AddressDetails } from "@/components/templates/address/AddressDetails"
+import { Address } from "@/components/templates/address/Address"
 import Image from "next/image"
 import Link from "next/link"
 import { formatPhone } from "@/utils/formatPhone"
@@ -38,7 +38,7 @@ export const GuardianInfo = ({ guardianData }: { guardianData: IGuardianInfo & {
         </div>
       </div>
       <GuardianDetails guardian={guardian} />
-      <AddressDetails address={address} />
+      <Address address={address} />
     </section>
   )
 }

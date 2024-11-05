@@ -2,14 +2,14 @@
 import Image from "next/image"
 import { StudentDetails } from "../details/StudentDetails"
 import { IAddress } from "@/types/address/IAddress"
-import { IStudentInfo } from "../../../../@types/IStudentInfo"
+import { IStudent } from "../../../../@types/IStudentInfo"
 import { useUpdateStudentStore } from "../../../../stores/useUpdateStudentStore"
 import { useEffect } from "react"
 import { StudentAddress } from "../details/StudentAddress"
 
 
 
-export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { address: IAddress } }) => {
+export const StudentInfo = ({ studentData }: { studentData: IStudent & { address: IAddress } }) => {
 
   const { student, setStudent, setAddress } = useUpdateStudentStore()
 

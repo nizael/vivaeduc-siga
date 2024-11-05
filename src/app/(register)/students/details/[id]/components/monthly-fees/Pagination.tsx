@@ -5,17 +5,17 @@ import { useMonthlyFeesStore } from "../../../../stores/useMonthlyFeesStore"
 
 
 export const Pagination = () => {
-  const { monthlyFees, setCurrentPage, currentPage, } = useMonthlyFeesStore()
+  const { monthlyFeesCurrent, setCurrentPage, currentPage, } = useMonthlyFeesStore()
 
   const [pageNumbers, setPageNumbers] = useState<number[]>([])
 
   useEffect(() => {
-    if (monthlyFees) {
-      const pageAmount = Math.ceil(monthlyFees.length / 6);
+    if (monthlyFeesCurrent) {
+      const pageAmount = Math.ceil(monthlyFeesCurrent.length / 6);
       const pageNumbers = Array.from({ length: pageAmount }, (_, index) => index + 1);
       setPageNumbers(pageNumbers)
     }
-  }, [monthlyFees])
+  }, [monthlyFeesCurrent])
 
   const previousPage = () => {
     if (currentPage > 1)

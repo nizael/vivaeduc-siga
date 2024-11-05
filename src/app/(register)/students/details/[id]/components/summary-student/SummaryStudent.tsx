@@ -4,44 +4,20 @@ import { FieldData } from "../field-data/FieldData"
 import { CallIcon } from "@/components/icons/CallIcon"
 import { EmailIcon } from "@/components/icons/EmailIcon"
 import { LocationIcon } from "@/components/icons/LocationsIcon"
-import { StudentDetails } from "../details/StudentDatails"
+import { PersonalData } from "../personal-data/PersonalData"
 import { MedicalRecord } from "../medical-record/MedicalRecord"
 import Link from "next/link"
-import { IStudentInfo } from "../../../../@types/IStudentInfo"
+import { IStudent } from "../../../../@types/IStudentInfo"
 import { IAddress } from "@/types/address/IAddress"
-import { AddressDetails } from "@/components/templates/address/AddressDetails"
-import { StudentGuardians } from "../details/StudentGuardians"
+import { Address } from "@/components/templates/address/Address"
+import { StudentGuardians } from "../student-guardians/StudentGuardians"
 import { IStudentGuardian } from "../../../../@types/student-guardian/IStudentGuardian"
-
-
-
-const studentData = {
-  id: '4',
-  image: '/temp/employee.jpg',
-  name: 'Thalita Valente',
-  address: 'Passagem Dom Jorge, Belém',
-  phone: '(12) 3456-7890',
-  email: 'jordan@mail.com',
-  dateOfBirth: '21/05/2010',
-  maritalStatus: 'Solteiro',
-  gender: 'FEMALE',
-  colorOrRace: 'WHITE',
-  document: '888.888.888-88',
-  identityCard: '8888888',
-  issuingAuthority: 'SSP',
-  state: 'PA',
-  issueDate: '25/04/2019',
-  code: '#01242',
-  inep: '12456',
-}
 
 const medicalRecord = {
   bloodType: 'B+'
 }
 
-export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { address: IAddress, studentGuardians: (IStudentGuardian & { guardianName: string })[] } }) => {
-  const { address, studentGuardians, ...student } = studentData
-  console.log(studentData)
+export const SummaryStudent = ({ student }: { student: IStudent & { address: string } }) => {
   return (
     <section className=" bg-gray-50 shadow-sm relative flex flex-col gap-4">
       <div className=" bg-gray-50 flex flex-col ">
@@ -62,16 +38,15 @@ export const StudentInfo = ({ studentData }: { studentData: IStudentInfo & { add
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-20">
-              <FieldData field="Endereço" value={`${address.street}, ${address.city}`} icon={<LocationIcon />} />
+              <FieldData field="Endereço" value={student.address} icon={<LocationIcon />} />
               <FieldData field="Telefone" value={student.phone} icon={<CallIcon />} />
               <FieldData field="Email" value={student.email} icon={<EmailIcon />} />
             </div>
           </div>
         </div>
       </div>
-      <StudentDetails student={student} />
-      <AddressDetails address={address} />
-      <StudentGuardians studentGuardians={studentGuardians} />
+      {/* 
+      <StudentGuardians studentGuardians={studentGuardians} /> */}
       {/* <MedicalRecord medicalRecord={medicalRecord} /> */}
     </section>
   )

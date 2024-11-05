@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ListView } from "./ListView"
 import { enrollmentGetTheLatest } from "@/services/enrollment/enrollmentGet"
 import { IEnrollment } from "@/services/enrollment/IEnrollment"
-import { IStudentInfo } from "../../../(register)/students/@types/IStudentInfo"
+import { IStudent } from "../../../(register)/students/@types/IStudentInfo"
 import { IPersonalData } from "@/types/personal/IPersonalData"
 
 const recentStudents = [
@@ -20,7 +20,7 @@ export const RecentEnrollment = async () => {
     <div className="flex flex-col gap-4">
       <p className="text-lg font-semibold text-[--text-primary]">Matrículas Recentes</p>
       <ul className="flex-col flex gap-4">
-        {data.map((enrollment: IEnrollment & { student: IStudentInfo & { person: IPersonalData } }) => {
+        {data.map((enrollment: IEnrollment & { student: IStudent & { person: IPersonalData } }) => {
           const { student: { person, ...student }, classroom } = enrollment
           const name = person.name.split(' ')
           return (

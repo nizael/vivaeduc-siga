@@ -1,25 +1,31 @@
 import { create } from "zustand";
 
 interface IUseMonthlyFeesStore {
-  monthlyFees?: IMonthlyFees[]
-  monthlyFeesView?: IMonthlyFees[]
+  monthlyFees?: IMonthlyFees
+  monthlyFeesView?: IMonthlyFee[]
+  monthlyFeesCurrent?: IMonthlyFee[]
   currentPage: number
   sequence: 'asc' | 'desc',
+  resetStore(): void
   toggleSequence(): void
+  setMonthlyFeesCurrent(key: string): void
   setCurrentPage(currentPage: number): void
-  setMonthlyFees(monthlyFees: IMonthlyFees[]): void
+  setMonthlyFees(monthlyFees: IMonthlyFees): void
 }
 
 export interface IMonthlyFees {
+  [key: string]: IMonthlyFee[]
+}
+
+interface IMonthlyFee {
   id: string
-  dueDate: string
-  installment: string
-  discountAmount: string
   schoolYearName: string
   classroomName: string
-  status: string
-  totalAmount: string
-  delay: boolean
+  dueDate: Date
+  installmentNumber: number
+  toReceiveAmount: number
+  discountAmount: number
+  status: 'PAID' | 'PENDING'
 }
 
 export const useMonthlyFeesStore = create<IUseMonthlyFeesStore>((set, get) => ({
@@ -27,10 +33,19 @@ export const useMonthlyFeesStore = create<IUseMonthlyFeesStore>((set, get) => ({
   sequence: 'desc',
   setMonthlyFees: (monthlyFees) => set({
     monthlyFees: monthlyFees,
-    monthlyFeesView: monthlyFees?.slice(0, 6)
   }),
-  setCurrentPage: (currentPage) => {
+  setMonthlyFeesCurrent(key) {
     const monthlyFees = get().monthlyFees
+    console.log(monthlyFees)
+    if (monthlyFees) {
+      set({
+        monthlyFeesCurrent: [...monthlyFees[key as keyof typeof monthlyFees]],
+        monthlyFeesView: monthlyFees[key as keyof typeof monthlyFees].slice(0, 6)
+      })
+    }
+  },
+  setCurrentPage: (currentPage) => {
+    const monthlyFees = get().monthlyFeesCurrent
     const start = (currentPage - 1) * 6
     const end = currentPage * 6
     set({
@@ -40,15 +55,22 @@ export const useMonthlyFeesStore = create<IUseMonthlyFeesStore>((set, get) => ({
   },
 
   toggleSequence: () => {
-    const monthlyFees = get().monthlyFees?.reverse()
+    const monthlyFeesCurrent = get().monthlyFeesCurrent
     const sequence = get().sequence
-    if (monthlyFees) {
+    if (monthlyFeesCurrent) {
       set({
-        monthlyFees: [...monthlyFees],
-        monthlyFeesView: [...monthlyFees]?.slice(0, 8),
+        monthlyFeesView: [...monthlyFeesCurrent]?.slice(0, 6),
         sequence: sequence === 'asc' ? 'desc' : 'asc'
       })
     }
   },
-
+  resetStore: () => {
+    set({
+      monthlyFees: undefined,
+      monthlyFeesCurrent: undefined,
+      monthlyFeesView: undefined,
+      currentPage: 1,
+      sequence: 'desc',
+    })
+  }
 }))

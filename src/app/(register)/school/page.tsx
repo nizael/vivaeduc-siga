@@ -2,7 +2,7 @@ import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { SchoolData } from "./components/principal-data/SchoolData";
 import { RightSide } from "./components/right-side/RightSide";
 import { schoolDetails } from "@/services/school/schoolGets";
-import { AddressDetails } from "@/components/templates/address/AddressDetails";
+import { Address } from "@/components/templates/address/Address";
 
 export default async function SchoolPage() {
   const { data, status } = await schoolDetails()
@@ -11,7 +11,7 @@ export default async function SchoolPage() {
       <div className="flex gap-4 h-full">
         <div className="flex flex-col gap-4 grow">
           {(status === 200 && data) && <SchoolData schoolData={data} />}
-          {(status === 200 && data.address) && <AddressDetails address={data.address} />}
+          {(status === 200 && data.address) && <Address address={data.address} />}
         </div>
         <RightSide />
       </div>

@@ -1,7 +1,7 @@
 import { DotsIcon } from "@/components/icons/DotsIcon"
 import { FieldData } from "../field-data/FieldData"
 import { UserEditIcon } from "@/components/icons/UserEditIcon"
-import { IStudentInfo } from "../../../../@types/IStudentInfo"
+import { IStudent } from "../../../../@types/IStudentInfo"
 import { maritalStatus } from "@/configs/maritalStatus"
 import { gender } from "@/configs/gender"
 import { colorOrRace } from "@/configs/colorOrRace"
@@ -10,7 +10,6 @@ import { kinship } from "@/configs/kinship"
 
 
 export const StudentGuardians = ({ studentGuardians }: { studentGuardians: (IStudentGuardian & { guardianName: string })[] }) => {
-  console.log(studentGuardians)
   if (!studentGuardians.length) return null
   return (
     <details open className="">

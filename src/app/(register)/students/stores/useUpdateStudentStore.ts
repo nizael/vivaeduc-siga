@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { IAddress } from "@/types/address/IAddress";
-import { IStudentInfo } from "../@types/IStudentInfo";
+import { IStudent } from "../@types/IStudentInfo";
 
-export interface IStudentData extends IStudentInfo {
+export interface IStudentData extends IStudent {
   id: string
 }
 interface IUseUpdateStudentStore {

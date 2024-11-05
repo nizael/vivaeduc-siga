@@ -4,7 +4,7 @@ import { IPageProps } from "@/types/page-props/IPageProps";
 import { studentDetails } from "@/services/student/studentDetails";
 import Image from "next/image";
 import { FormEnrollment } from "./components/forms/FormEnrollment";
-import { IStudentInfo } from "../../@types/IStudentInfo";
+import { IStudent } from "../../@types/IStudentInfo";
 import { IAddress } from "@/types/address/IAddress";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
 

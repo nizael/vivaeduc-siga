@@ -9,7 +9,7 @@ import Link from "next/link"
 import { formatPhone } from "@/utils/formatPhone"
 import { IEmployeeInfo } from "../../../../@types/IEmployeeInfo"
 import { IAddress } from "@/types/address/IAddress"
-import { AddressDetails } from "@/components/templates/address/AddressDetails"
+import { Address } from "@/components/templates/address/Address"
 
 export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & { address: IAddress } }) => {
   const { address, ...employee } = employeeData
@@ -39,7 +39,7 @@ export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & {
       </div>
 
       <EmployeeDetails employee={employee} />
-      <AddressDetails address={address} />
+      <Address address={address} />
 
     </section>
   )
