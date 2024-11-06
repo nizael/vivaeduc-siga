@@ -1,11 +1,11 @@
 'use client'
 import { useEffect } from "react"
 import { CardGuardian } from "./CardGuardian"
-import { Pagination } from "./Pagination"
 import { IGuardians, useGuardiansStore } from "../../../stores/useGuardianStore"
+import { Pagination } from "@/components/pagination/Pagination"
 
 export const ListGuardians = ({ guardians }: { guardians: IGuardians[] }) => {
-  const { setListGuardians, guardiansView } = useGuardiansStore()
+  const { setListGuardians, guardiansView, listGuardians, setCurrentPage, currentPage, } = useGuardiansStore()
 
   useEffect(() => {
     if (guardians) setListGuardians(guardians)
@@ -18,7 +18,7 @@ export const ListGuardians = ({ guardians }: { guardians: IGuardians[] }) => {
           {guardiansView?.map(guardian => <CardGuardian key={guardian.id} contact={guardian.contact} guardianName={guardian.name} employeeRole={guardian.role} image={guardian.image} id={guardian.id} />)}
         </div>
       </div>
-      <Pagination />
+      {listGuardians && <Pagination currentPage={currentPage} items={listGuardians} setCurrentPage={setCurrentPage} itemsPerPage={10} />}
     </section>
 
   )

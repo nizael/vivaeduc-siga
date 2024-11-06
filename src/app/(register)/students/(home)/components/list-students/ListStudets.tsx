@@ -1,15 +1,15 @@
 'use client'
 import { CallIcon } from "@/components/icons/CallIcon"
 import { EmailIcon } from "@/components/icons/EmailIcon"
-import { Pagination } from "./Pagination"
 import { NavMenu } from "@/components/nav-menu/NavMenu"
 import { IStudents, useStudentsStore } from "../../../stores/useStudentsStore"
 import { useEffect } from "react"
 import Link from "next/link"
+import { Pagination } from "@/components/pagination/Pagination"
 
 
 export const ListStudents = ({ students }: { students: IStudents[] }) => {
-  const { setListStudents, studentsView } = useStudentsStore()
+  const { setListStudents, studentsView, listStudents, setCurrentPage, currentPage, } = useStudentsStore()
   useEffect(() => {
     if (students) setListStudents(students)
   }, [students])
@@ -46,7 +46,7 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {listStudents && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} items={listStudents} itemsPerPage={10} />}
     </section>
   )
 }

@@ -9,6 +9,7 @@ interface IInputTextProps {
   readOnly?: boolean
   autoFocus?: boolean
   disabled?: boolean
+  step?: any
   onChange?(evt: React.ChangeEvent<HTMLInputElement>): void
 }
 

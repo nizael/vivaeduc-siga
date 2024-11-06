@@ -10,6 +10,11 @@ export class ReportApi extends FetchApi {
     return this.get('/v1/reports/getEnrollmentReport')
   }
 
+  async reportPaymentRecordsForCurrentWeek() {
+    return this.get('/v1/reports/reportPaymentRecordsForCurrentWeek')
+  }
+
+  
 
   // async getByCourseId(courseId: string) {
   //   return this.get(`/v1/grades/getByCourseId/${courseId}`)

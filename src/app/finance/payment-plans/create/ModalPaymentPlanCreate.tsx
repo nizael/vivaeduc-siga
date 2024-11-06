@@ -12,6 +12,7 @@ import { courseListAll } from "@/services/course/courseListAll"
 import { ISchoolYear } from "@/services/school-year/ISchoolYear"
 import { ICourse } from "@/services/course/ICourse"
 import { methodReceipt, methodReceiptOptions } from "@/configs/methodReceipt"
+import { currencyFormat } from "@/utils/currencyFormat"
 
 export const ModalPaymentPlanCreate = () => {
   const { isOpen, onClose } = usePaymentPlanCreateModal()
@@ -22,6 +23,7 @@ export const ModalPaymentPlanCreate = () => {
   const [courseId, setCourseId] = useState<string>('')
   const [installmentAmount, setInstallmentAmount] = useState<string>('')
   const [dueDay, setDueDay] = useState<string>('')
+  const [amount, setAmount] = useState("0,00");
 
 
   useEffect(() => {
@@ -55,6 +57,15 @@ export const ModalPaymentPlanCreate = () => {
       if (courses.status === 200 && courses.data) setCourses(courses.data)
     })()
   }, [])
+
+  
+    const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+      const value = evt.currentTarget.value 
+      setAmount(currencyFormat(value));
+    };
+
+
+
   return (
     <ModalOverlay isOpen={isOpen} onClose={onClose}>
       <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-lg w-full" onClick={evt => evt.stopPropagation()}>
@@ -77,7 +88,7 @@ export const ModalPaymentPlanCreate = () => {
             <div className="col-start-1 col-end-3">
               <InputText required label="Nome *" name="name" />
             </div>
-            <InputText required label="Valor R$" name="amount" />
+            <InputText required label="Valor R$" name="amount" value={amount} onChange={handleChange} />
             <CustomSelect required options={methodReceiptOptions} onChange={evt => setMethodReceipt(evt.currentTarget.value)} label="Metodo de recebimento" name="methodReceipt" />
             <InputText disabled={methodReceipt !== 'TICKET'} value={installmentAmount} onChange={evt => setInstallmentAmount(evt.currentTarget.value)} required type="number" label="Quantidade de parcelas" name="installmentAmount" />
             <InputText label="Dia de vencimento" name="dueDay" disabled={methodReceipt !== 'TICKET'} value={dueDay} onChange={evt => setDueDay(evt.currentTarget.value)} />

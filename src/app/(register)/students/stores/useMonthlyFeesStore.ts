@@ -17,11 +17,13 @@ export interface IMonthlyFees {
   [key: string]: IMonthlyFee[]
 }
 
-interface IMonthlyFee {
+export interface IMonthlyFee {
   id: string
   schoolYearName: string
   classroomName: string
+  previousPayments: number
   dueDate: Date
+  amount: number
   installmentNumber: number
   toReceiveAmount: number
   discountAmount: number
@@ -36,7 +38,6 @@ export const useMonthlyFeesStore = create<IUseMonthlyFeesStore>((set, get) => ({
   }),
   setMonthlyFeesCurrent(key) {
     const monthlyFees = get().monthlyFees
-    console.log(monthlyFees)
     if (monthlyFees) {
       set({
         monthlyFeesCurrent: [...monthlyFees[key as keyof typeof monthlyFees]],

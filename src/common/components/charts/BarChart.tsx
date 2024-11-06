@@ -1,16 +1,17 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 
-interface EnrollmentData {
+interface chartData {
   label: string
   value: number
 }
 
 interface IChartBarProps {
-  data: EnrollmentData[]
+  data: chartData[]
 }
 
-export const BarChart = ({ data }: IChartBarProps) => {
+export const BarChart = ({ data }: { data: chartData[] }) => {
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
 
@@ -34,7 +35,9 @@ export const BarChart = ({ data }: IChartBarProps) => {
       const chartWidth = width - 2 * padding
       const chartHeight = height - 2 * padding
 
-      const maxValue = Math.max(...data.map((item) => item.value))
+      // Ajusta o maxValue para o maior valor + 10
+      const maxDataValue = Math.max(...data.map((item) => item.value))
+      const maxValue = maxDataValue + 10
       const stepY = chartHeight / maxValue
 
       ctx.strokeStyle = 'rgba(200, 200, 200, 0.5)'
@@ -48,7 +51,6 @@ export const BarChart = ({ data }: IChartBarProps) => {
         ctx.stroke()
       }
 
-
       const stepX = chartWidth / data.length
       data.forEach((_, index) => {
         const x = padding + index * stepX
@@ -57,7 +59,6 @@ export const BarChart = ({ data }: IChartBarProps) => {
         ctx.lineTo(x, height - padding)
         ctx.stroke()
       })
-
 
       const barWidth = stepX * 0.6
       ctx.fillStyle = '#FB7D5B'
@@ -70,7 +71,6 @@ export const BarChart = ({ data }: IChartBarProps) => {
         ctx.fillRect(x, y, barWidth, barHeight)
       })
 
-
       ctx.font = '14px Arial'
       ctx.fillStyle = 'black'
       ctx.textAlign = 'center'
@@ -78,7 +78,6 @@ export const BarChart = ({ data }: IChartBarProps) => {
         const x = padding + index * stepX + stepX / 2
         ctx.fillText(item.label, x, height - 10)
       })
-
 
       ctx.textAlign = 'right'
       for (let i = 0; i <= maxValue; i += Math.floor(maxValue / 5)) {

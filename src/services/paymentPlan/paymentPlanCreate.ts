@@ -8,7 +8,7 @@ export const paymentPlanCreate = async (formData: FormData) => {
     name: formData.get('name')!.toString(),
     installmentAmount: Number(formData.get('installmentAmount')),
     dueDay: Number(formData.get('dueDay')),
-    amount: Number(formData.get('amount')),
+    amount: Number(formData.get('amount')?.toString().replace(',', '.')),
     methodReceipt: formData.get('methodReceipt')!.toString() as "CREDIT_CARD" | "DEBIT_CARD" | "TICKET" | "MONEY",
     description: formData.get('description')!.toString(),
   }

@@ -7,3 +7,10 @@ export const countStudentClassroomSubjectEventEmployee = async () => {
 export const countEnrollmentReport = async () => {
   return reportApi.countEnrollmentReport()
 }
+
+export const reportPaymentRecordsForCurrentWeek = async () => {
+  return reportApi.reportPaymentRecordsForCurrentWeek()
+}
+
+
+

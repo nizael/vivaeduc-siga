@@ -1,7 +1,10 @@
 import { FinanceIcon } from "@/components/icons/FinanceIcon"
 import { Chart } from "./Chart"
+import { reportPaymentRecordsForCurrentWeek } from "@/services/report/reportGet"
 
-export const Finance = () => {
+export const Finance = async () => {
+  const { data } = await reportPaymentRecordsForCurrentWeek()
+  console.log(data)
   return (
     <section className="flex flex-col bg-gray-50 shadow-sm w-full">
       <div className="text-[--text-primary] font-semibold flex  justify-between rounded-t-xl p-4">
@@ -14,11 +17,11 @@ export const Finance = () => {
             <p className="text-slate-500 text-xs flex items-center gap-1">
               Esta semana
             </p>
-            <p>R$ 1.245,00</p>
+            <p>{data.total?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
           </div>
         </div>
       </div>
-      <Chart />
+      <Chart dailySums={data.dailySums} />
     </section>
 
   )

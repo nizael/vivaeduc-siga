@@ -19,6 +19,7 @@ import { EnrollmentRequirementApi } from "@/services/enrollmentRequirement/Enrol
 import { EnrollmentApi } from "@/services/enrollment/EnrollmentApi";
 import { MonthlyFeesApi } from "@/services/monthly-fees/MonthlyFeesApi";
 import { SchoolApi } from "@/services/school/SchoolApi";
+import { PaymentApi } from "@/services/payment/PaymentApi";
 // import { StudentApi } from "@/services/register/student/StudentApi";
 // import { GuardianApi } from "@/services/register/guardian/GuardianApi";
 // import { AddressApi } from "@/services/register/address/AddressApi";
@@ -41,9 +42,11 @@ const paymentPlanApi = new PaymentPlanApi(axios)
 const enrollmentRequirementApi = new EnrollmentRequirementApi(axios)
 const enrollmentApi = new EnrollmentApi(axios)
 const monthlyFeesApi = new MonthlyFeesApi(axios)
+const paymentApi = new PaymentApi(axios)
 
 export {
   fetchApi,
+  paymentApi,
   monthlyFeesApi,
   enrollmentRequirementApi,
   reportApi,

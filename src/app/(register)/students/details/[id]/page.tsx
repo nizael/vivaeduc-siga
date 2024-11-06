@@ -11,6 +11,7 @@ import { MonthlyFees } from "./components/monthly-fees/MonthlyFees";
 import { monthlyFeesListBayStudentId } from "@/services/monthly-fees/enrollmentGet";
 import { PersonalData } from "./components/personal-data/PersonalData";
 import { Address } from "@/components/templates/address/Address";
+import { ReceivePayment } from "./components/receive-payment/ReceivePayment";
 
 export default async function StudentDetailsPage(props: IPageProps) {
   const { data, status } = await studentDetails(props.params.id)
@@ -19,17 +20,20 @@ export default async function StudentDetailsPage(props: IPageProps) {
   // const getMonthlyFees = monthlyFeesListBayStudentId(props.params.id)
   // const [details, enrollment, monthlyFees] = await Promise.all([getDetails, getEnrollment, getMonthlyFees])
   return (
-    <LayoutWeb titlePage="Detalhes do Aluno">
-      <div className="flex flex-col gap-4 grow">
-        {status === 200 && student && <SummaryStudent student={{ ...student, address: address?.street }} />}
-        {status === 200 && student && <PersonalData student={student} />}
-        {status === 200 && address && <Address address={address} />}
-        {status === 200 && classrooms && <Classrooms classrooms={classrooms} />}
-        {status === 200 && monthlyFees && <MonthlyFees monthlyFees={monthlyFees} />}
-        {/*
+    <>
+      <ReceivePayment />
+      <LayoutWeb titlePage="Detalhes do Aluno">
+        <div className="flex flex-col gap-4 grow">
+          {status === 200 && student && <SummaryStudent student={{ ...student, address: address?.street }} />}
+          {status === 200 && student && <PersonalData student={student} />}
+          {status === 200 && address && <Address address={address} />}
+          {status === 200 && classrooms && <Classrooms classrooms={classrooms} />}
+          {status === 200 && monthlyFees && <MonthlyFees monthlyFees={monthlyFees} />}
+          {/*
         */}
 
-      </div>
-    </LayoutWeb>
+        </div>
+      </LayoutWeb>
+    </>
   )
 }
