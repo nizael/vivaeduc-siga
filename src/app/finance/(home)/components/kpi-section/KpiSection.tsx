@@ -2,13 +2,15 @@ import { Student2Icon } from "@/components/icons/Student2Icon"
 import { KpiCard } from "./KpiCard"
 import { EmployeeIcon } from "@/components/icons/EmployeeIcon"
 import { FinanceIcon } from "@/components/icons/FinanceIcon"
+import { generalFinancialStudentEmployeeReport } from "@/services/report/reportGet"
 
-export const KpiSection = () => {
+export const KpiSection = async () => {
+  const { data, status } = await generalFinancialStudentEmployeeReport()
   return (
     <section className="flex items-center gap-4">
-      <KpiCard amount="932" score={10} title="Total de alunos" color="blue" icon={<Student2Icon />} />
-      <KpiCard amount="754" score={1} title="Total de funcionarios" color="orange" icon={<EmployeeIcon />} />
-      <KpiCard amount="R$ 123.456,00" score={23} title="Saldo da escola" color="yellow" icon={<FinanceIcon />} />
+      {status === 200 && <KpiCard amount={data.analyzeStudents.totalCount} score={data.analyzeStudents.percentageDifference} title="Total de alunos" color="blue" icon={<Student2Icon />} />}
+      {status === 200 && <KpiCard amount={data.analyzeEmployees.totalCount} score={data.analyzeEmployees.percentageDifference} title="Total de funcionarios" color="orange" icon={<EmployeeIcon />} />}
+      {status === 200 && <KpiCard amount={data.analyzePayments.totalPaymentsSum.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} score={data.analyzePayments.percentageDifference} title="Saldo da escola" color="yellow" icon={<FinanceIcon />} />}
     </section>
   )
 }

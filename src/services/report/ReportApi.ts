@@ -14,7 +14,17 @@ export class ReportApi extends FetchApi {
     return this.get('/v1/reports/reportPaymentRecordsForCurrentWeek')
   }
 
-  
+  async generalFinancialStudentEmployeeReport() {
+    return this.get('/v1/reports/generalFinancialStudentEmployeeReport')
+  }
+
+  async reportPaymentRecordsForMonth(year: number, month: number) {
+    return this.get(`/v1/reports/reportPaymentRecordsForMonth?year=${year}&month=${month}`)
+  }
+
+
+
+
 
   // async getByCourseId(courseId: string) {
   //   return this.get(`/v1/grades/getByCourseId/${courseId}`)

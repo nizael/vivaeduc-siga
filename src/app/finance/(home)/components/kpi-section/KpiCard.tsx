@@ -24,7 +24,7 @@ export const KpiCard = ({ score, title, amount, color, icon }: IKpiCardProps) =>
       <div>
         <p className="text-sm text-gray-500">{title}</p>
         <p className="text-3xl text-[--text-primary] font-semibold">{amount}</p>
-        <p className="text-sm text-gray-500"><b className="text-green-500">+{score}%</b> que no mês passado</p>
+        <p className="text-sm text-gray-500"><b className="text-green-500">{score > 0 ? `+${score}` : score}%</b> que no mês passado</p>
       </div>
     </div>
   )
