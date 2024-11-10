@@ -9,7 +9,7 @@ import { MedicalRecord } from "../medical-record/MedicalRecord"
 import Link from "next/link"
 import { IStudent } from "../../../../@types/IStudentInfo"
 import { IAddress } from "@/types/address/IAddress"
-import { Address } from "@/components/templates/address/Address"
+import { AddressView } from "@/components/templates/address/AddressView"
 import { StudentGuardians } from "../student-guardians/StudentGuardians"
 import { IStudentGuardian } from "../../../../@types/student-guardian/IStudentGuardian"
 

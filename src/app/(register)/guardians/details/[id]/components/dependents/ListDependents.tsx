@@ -9,7 +9,7 @@ const listDependents = [
 
 export const ListDependents = () => {
   return (
-    <div className="flex flex-col shadow-sm rounded-xl bg-gray-50">
+    <div className="flex flex-col shadow-sm bg-gray-50">
       <div className="flex text-[--text-primary] items-center rounded-t-xl gap-2 p-4 border-b">
         <Student2Icon />
         <p className="font-semibold">Dependentes</p>
@@ -20,7 +20,7 @@ export const ListDependents = () => {
             <td className="px-4 py-2 w-[72px]"></td>
             <td className="px-4 py-2">Nome</td>
             <td className="px-4 py-2 text-center">Parentesco</td>
-            <td className="px-4 py-2 text-center">Situação</td>
+            <td className="px-4 py-2 text-center max-sm:hidden">Situação</td>
             <td className="px-4 py-2 text-center w-[80px]">Ação</td>
           </tr>
         </thead>
@@ -33,7 +33,7 @@ export const ListDependents = () => {
             </td>
             <td className="p-4">{dependent.dependentName}</td>
             <td className="p-4 text-center">{dependent.kinship}</td>
-            <td className="p-4 text-center">{dependent.isActive ? 'Ativo' : 'Inativo'}</td>
+            <td className="p-4 text-center max-sm:hidden">{dependent.isActive ? 'Ativo' : 'Inativo'}</td>
             <td className="p-4 flex justify-end">
               <NavMenu items={[
                 { href: `/students/details/${dependent.id}`, label: 'Detalhes' },

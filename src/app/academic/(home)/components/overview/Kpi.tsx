@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 export const Kpi = ({ icon, label, value }: { value: string, label: string, icon: ReactNode }) => {
 
   return (
-    <div className="flex  gap-4 ">
+    <div className="flex  gap-4  max-sm:w-full  max-sm:justify-between">
       <div className="rounded-full w-[80px] h-[80px] p-2 border-[4px] border-[--text-primary] grid place-content-center">
         <div className="w-[60px] h-[60px] grid place-content-center rounded-full text-[--text-primary] bg-gray-50 shadow-lg">
           {icon}

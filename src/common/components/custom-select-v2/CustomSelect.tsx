@@ -154,7 +154,7 @@ export const CustomSelect = ({
           value={selectedOption?.value || ''}
           name={name}
           onChange={onChange}
-          className="-z-10 opacity-0 absolute outline-none pointer-events-none"
+          className="-z-10 opacity-0 w-0 absolute outline-none pointer-events-none"
           ref={inputRef}
         />
         <button

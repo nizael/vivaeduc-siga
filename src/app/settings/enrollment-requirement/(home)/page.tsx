@@ -1,10 +1,9 @@
-import { LayoutWeb } from "@/components/_layout/LayoutWeb";
-import { TitlePage } from "./components/TitlePage";
 import { enrollmentRequirementListAll } from "@/services/enrollmentRequirement/enrollmentRequirementGet";
-import { EmptyPage } from "@/components/empty-state/EmptyPage";
 import { ListEnrollmentRequirement } from "./components/list-enrollmentRequirements/ListEnrollmentRequirements";
 import { ToolBar } from "./components/ToolBar";
 import { ModalEnrollmentRequirementCreate } from "../create/ModalEnrollmentRequirementCreate";
+import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { TitlePage } from "@/components/templates/title-page/TitlePage";
 
 export default async function EnrollmentRequirementPage() {
   const { data, status } = await enrollmentRequirementListAll()
@@ -12,12 +11,13 @@ export default async function EnrollmentRequirementPage() {
   return (
     <>
       <ModalEnrollmentRequirementCreate />
-      <LayoutWeb titlePage={<TitlePage />}>
-        <div className="flex flex-col gap-4 h-full">
+      <LayoutApp >
+        <div className="flex flex-col gap-4 p-4">
+        <TitlePage title="Requisitos de matrícula" />
           <ToolBar />
           {status === 200 && <ListEnrollmentRequirement enrollmentRequirements={data} />}
         </div>
-      </LayoutWeb>
+      </LayoutApp>
     </>
   )
 

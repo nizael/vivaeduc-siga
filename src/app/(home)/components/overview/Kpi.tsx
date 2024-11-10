@@ -7,7 +7,7 @@ export const Kpi = ({ bgColor, icon, label, value }: { value: string, label: str
     yellow: 'bg-[#FCC43E]',
   }
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center max-sm:w-full justify-between gap-4">
       <div className={`w-[40px] h-[40px] grid place-content-center text-gray-50 rounded-full ${bgColors[bgColor]}`}>
         {icon}
       </div>

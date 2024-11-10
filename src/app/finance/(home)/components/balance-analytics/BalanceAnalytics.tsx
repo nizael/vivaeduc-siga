@@ -37,7 +37,7 @@ export const BalanceAnalytics = () => {
   ]
   return (
     <section className="flex flex-col  bg-gray-50 shadow-sm p-6 w-full">
-      <div className=" text-[--text-primary] flex items-center gap-6  ">
+      <div className=" text-[--text-primary] flex items-center gap-6 justify-between ">
         <p className="text-lg font-semibold">Análise de saldo</p>
         <div className="flex flex-col items-end gap-0.5 ">
           <p className="text-slate-500 text-xs flex items-center gap-1">

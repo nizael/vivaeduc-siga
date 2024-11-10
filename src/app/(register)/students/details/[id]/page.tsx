@@ -10,30 +10,31 @@ import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 import { MonthlyFees } from "./components/monthly-fees/MonthlyFees";
 import { monthlyFeesListBayStudentId } from "@/services/monthly-fees/enrollmentGet";
 import { PersonalData } from "./components/personal-data/PersonalData";
-import { Address } from "@/components/templates/address/Address";
+import { AddressView } from "@/components/templates/address/AddressView";
 import { ReceivePayment } from "./components/receive-payment/ReceivePayment";
+import { TitlePage } from "@/components/templates/title-page/TitlePage";
+import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { redirect } from "next/navigation";
 
 export default async function StudentDetailsPage(props: IPageProps) {
   const { data, status } = await studentDetails(props.params.id)
+  if(!data) redirect('/students')
   const { student, address, classrooms, monthlyFees } = data
-  // const getEnrollment = enrollmentGetByStudentId(props.params.id)
-  // const getMonthlyFees = monthlyFeesListBayStudentId(props.params.id)
-  // const [details, enrollment, monthlyFees] = await Promise.all([getDetails, getEnrollment, getMonthlyFees])
+
   return (
     <>
       <ReceivePayment />
-      <LayoutWeb titlePage="Detalhes do Aluno">
-        <div className="flex flex-col gap-4 grow">
+      <LayoutApp>
+        <div className="flex flex-col gap-4 p-4">
+          <TitlePage title="Detalhes do Aluno"/>
           {status === 200 && student && <SummaryStudent student={{ ...student, address: address?.street }} />}
           {status === 200 && student && <PersonalData student={student} />}
-          {status === 200 && address && <Address address={address} />}
+          {status === 200 && address && <AddressView address={address} />}
           {status === 200 && classrooms && <Classrooms classrooms={classrooms} />}
           {status === 200 && monthlyFees && <MonthlyFees monthlyFees={monthlyFees} />}
-          {/*
-        */}
 
         </div>
-      </LayoutWeb>
+      </LayoutApp>
     </>
   )
 }

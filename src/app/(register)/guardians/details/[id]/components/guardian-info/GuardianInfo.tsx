@@ -6,7 +6,7 @@ import { GuardianDetails } from "../details/GuardianDatails"
 import { EditIcon } from "@/components/icons/EditIcon"
 import { IGuardianInfo } from "../../../../@types/IGuardianInfo"
 import { IAddress } from "@/types/address/IAddress"
-import { Address } from "@/components/templates/address/Address"
+import { AddressView } from "@/components/templates/address/AddressView"
 import Image from "next/image"
 import Link from "next/link"
 import { formatPhone } from "@/utils/formatPhone"
@@ -14,7 +14,7 @@ import { formatPhone } from "@/utils/formatPhone"
 export const GuardianInfo = ({ guardianData }: { guardianData: IGuardianInfo & { address: IAddress } }) => {
   const { address, ...guardian } = guardianData
   return (
-    <section className="rounded-xl bg-gray-50 shadow-sm relative">
+    <section className="bg-gray-50 shadow-sm relative">
       <div className="flex flex-col">
         <div className="h-36 w-full bg-[--bg-primary] rounded-t-xl flex justify-end p-10 overflow-hidden">
           <div className="w-[261px] h-[275px] rounded-3xl border-[16px] border-[#FB7D5B] mt-10 -mr-40 " />
@@ -38,7 +38,7 @@ export const GuardianInfo = ({ guardianData }: { guardianData: IGuardianInfo & {
         </div>
       </div>
       <GuardianDetails guardian={guardian} />
-      <Address address={address} />
+      <AddressView address={address} />
     </section>
   )
 }

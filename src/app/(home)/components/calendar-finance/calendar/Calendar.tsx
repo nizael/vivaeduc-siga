@@ -73,12 +73,12 @@ export const Calendar = () => {
                       isToday={today.getDate() === day && currentDate.getMonth() === today.getMonth() && currentDate.getFullYear() === today.getFullYear()}
                       isSunday={dayIndex === 0}
                       isSaturday={dayIndex === 6}
-                    /> : <div className="rounded-full p-2 h-[48px] w-[48px]" />}
+                    /> : <div className="rounded-full p-2 h-12" />}
                   </td>
                 ))}
                 {week.length < 7 &&
                   Array.from({ length: 7 - week.length }).map((_, i) => (
-                    <td key={`empty-${i}`} className="p-2 border" ><div className="rounded-full p-2 h-[48px] w-[48px]" /></td>
+                    <td key={`empty-${i}`} className="p-2 border" ><div className="rounded-full p-2 h-12" /></td>
                   ))}
               </tr>
             ))}

@@ -143,7 +143,7 @@ export const LineChart = ({ data = [] }: IChartLineProps) => {
   }
 
   return (
-    <div ref={containerRef} className="w-full relative" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <div ref={containerRef} className="w-[99%] relative" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <canvas ref={canvasRef}></canvas>
       {tooltip && (
         <div

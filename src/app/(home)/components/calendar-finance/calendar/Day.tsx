@@ -15,7 +15,7 @@ export const Day = ({ value, isToday, isSunday, isSaturday, selected }: DayProps
   ].filter(Boolean).join(" ")
 
   return (
-    <div className={`inline-block rounded-full  place-content-center p-2 w-[48px]  h-[48px] ${dayClasses}`}>
+    <div className={`inline-block rounded-md  place-content-center p-2 w-full  h-full ${dayClasses}`}>
       <span className="text-lg font-semibold ">{value}</span>
     </div>
   )

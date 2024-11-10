@@ -1,23 +1,23 @@
 'use client'
 import { ReportMoneyIcon } from "@/components/icons/ReportMoneyIcon"
-import { Pagination } from "./Pagination"
 import { IHistoryPayments, useHistoryPaymentStore } from "../../stores/useHistoryPaymentStore"
 import { useEffect, useMemo } from "react"
+import { Pagination } from "@/components/pagination/Pagination"
 
 export const PaymentHistory = ({ historyPayments }: { historyPayments: IHistoryPayments[] }) => {
-  const { setListHistoryPayments, historyPaymentsViews } = useHistoryPaymentStore()
+  const { setListHistoryPayments, historyPaymentsViews, listHistoryPayments, setCurrentPage, currentPage, } = useHistoryPaymentStore()
   useEffect(() => {
     if (historyPayments) setListHistoryPayments(historyPayments)
   }, [historyPayments])
 
   const { height } = useMemo(() => {
     return {
-      height: `${historyPayments.length > 6 ? 6*56 : historyPayments.length*56}px`
+      height: `${historyPayments.length > 6 ? 6 * 56 : historyPayments.length * 56}px`
     }
   }, [historyPayments])
 
   return (
-    <div className="flex flex-col gap-4 shadow-sm rounded-xl bg-gray-50">
+    <div className="flex flex-col gap-4 shadow-sm bg-gray-50">
       <div className="flex items-center gap-2 text-[--text-primary] rounded-t-xl p-4 border-b">
         <h5 className="text-[--text-primary] font-semibold flex items-center gap-2">
           <ReportMoneyIcon />
@@ -28,7 +28,7 @@ export const PaymentHistory = ({ historyPayments }: { historyPayments: IHistoryP
         <table className="w-full">
           <tbody className="p-4">
             {historyPaymentsViews?.map(payment => <tr key={payment.id}>
-              <td className="p-4 flex text-[--text-primary] font-semibold">
+              <td className="p-4 flex text-[--text-primary] font-semibold max-sm:hidden">
                 {payment.code}
               </td>
               <td className="p-4 text-sm text-gray-500">{payment.date}</td>
@@ -39,7 +39,7 @@ export const PaymentHistory = ({ historyPayments }: { historyPayments: IHistoryP
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {listHistoryPayments && <Pagination currentPage={currentPage} items={listHistoryPayments} setCurrentPage={setCurrentPage} />}
     </div>
   )
 }

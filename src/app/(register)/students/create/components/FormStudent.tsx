@@ -18,6 +18,9 @@ import { useEffect, useState } from "react"
 import { guardianListAll } from "@/services/guardian/guardianListAll"
 import { IGuardians } from "../../../guardians/stores/useGuardianStore"
 import { kinshipOptions } from "@/configs/kinship"
+import { UserHeartIcon } from "@/components/icons/UserHeartIcon"
+import { SecurityForm } from "@/components/templates/security/SecurityForm"
+import { AddressForm } from "@/components/templates/address/AddressForm"
 
 
 export const FormStudent = () => {
@@ -45,13 +48,16 @@ export const FormStudent = () => {
   return (
     <form action={handleFormCation} className="flex flex-col gap-4">
       <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm">
-        <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span className="grid w-full place-content-end"><DropdownIcon /></span></summary>
-        <div className="flex gap-4 p-4 ">
-          <div className="border rounded-lg border-[#C1BBEB] h-fit">
+        <summary className="p-4 flex justify-between border-b  text-gray-500">
+          <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span>
+          <DropdownIcon className="w-5" />
+        </summary>
+        <div className="flex gap-4 p-4 max-[769px]:flex-col">
+          <div className="border rounded-lg border-[#C1BBEB] h-fit flex justify-center">
             <ImageUpload />
           </div>
-          <div className="grid grid-cols-4 gap-4 p-4 w-full">
-            <div className="col-start-1 col-end-3">
+          <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
+            <div className="col-start-1 max-sm:col-end-2  max-md:col-end-3">
               <InputText required label="Nome Completo *" name="name" />
             </div>
             <InputText label="Inep" name="inep" />
@@ -71,43 +77,24 @@ export const FormStudent = () => {
       </details>
 
       <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm">
-        <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><ToolIcon />Responsaveis</span> <DotsIcon /> <span className="grid w-full place-content-end"><DropdownIcon /></span></summary>
-        <div className="grid grid-cols-4 gap-4 p-4">
+        <summary className="p-4 flex justify-between border-b  text-gray-500">
+          <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserHeartIcon />Responsaveis</span>
+          <DropdownIcon className="w-5" />
+        </summary>
+        <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
           <CustomSelect position="top" name="financialResponsible" label="Responsável financeiro *" options={guardians} className="w-full" onChange={() => ({})} />
           <CustomSelect position="top" name="kinship_1" label="Parentesco *" options={kinshipOptions} className="w-full" onChange={() => ({})} />
         </div>
-        <div className="grid grid-cols-4 gap-4 p-4">
+        <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
           <CustomSelect position="top" name="responsible" label="Responsável" options={guardians} className="w-full" onChange={() => ({})} />
           <CustomSelect position="top" name="kinship_2" label="Parentesco" options={kinshipOptions} className="w-full" onChange={() => ({})} />
         </div>
       </details>
 
-      <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
-        <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><LocationIcon /> Endereço</span> <DotsIcon /> <span className="grid w-full place-content-end"><DropdownIcon /></span></summary>
-        <div className="grid grid-cols-4 gap-4 p-4">
-          <div className="flex items-end gap-1 justify-between">
-            <InputText required label="CEP *" name="postalCode" />
-            <button className="w-[40px] h-[40px] grid place-content-center text-gray-50 rounded-lg bg-[--bg-primary]"><SearchIcon /></button>
-          </div>
-          <InputText required label="Número *" name="number" />
-          <div className="col-start-3 col-end-5">
-            <InputText required label="Logradouro *" name="street" />
-          </div>
-          <InputText required label="Bairro *" name="neighborhood" />
-          <InputText required label="Cidade *" name="city" />
-          <InputText required label="UF *" name="state" />
-          <InputText label="Complemento" name="complement" />
-        </div>
-      </details>
+      <AddressForm />
 
+      <SecurityForm />
 
-      <details className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm">
-        <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><LoginIcon />Dados e login</span> <DotsIcon /> <span className="grid w-full place-content-end"><DropdownIcon /></span></summary>
-        <div className="grid grid-cols-4 gap-4 p-4">
-          <InputText label="Usuário" name="username" onChange={evt => setUsername(evt.currentTarget.value)} />
-          <InputText required={!!username} type="password" label="Senha *" name="password" />
-        </div>
-      </details>
       <div className="flex items-center gap-4 justify-end">
         <button type="button" className="flex items-center px-4 h-[40px] text-[--text-primary] border border-[--bg-primary] rounded-full">Cancelar</button>
         <button type="submit" className="flex items-center px-4 h-[40px] text-gray-50 bg-[--bg-primary] rounded-full">Salvar</button>

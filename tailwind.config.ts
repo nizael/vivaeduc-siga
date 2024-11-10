@@ -26,6 +26,7 @@ const config: Config = {
         'bg-secondary': '#C1BBEB',
         'bg-tertiary': '#dcd9f0',
         'text-primary': '#303972',
+        'hover-secondary': '#e3e1f3',
         accent: '#FCC43E',
         background: '#FFFFFF',
       },

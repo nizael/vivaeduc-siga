@@ -7,7 +7,7 @@ import { countStudentClassroomSubjectEventEmployee } from "@/services/report/rep
 export const Overview = async () => {
   const { data, status } = await countStudentClassroomSubjectEventEmployee()
   return (
-    <section className="flex items-center p-4  bg-gray-50 justify-between shadow-sm">
+    <section className="flex items-center sm:gap-8 p-4 max-sm:flex-col bg-gray-50 justify-between shadow-sm">
       <Kpi bgColor="blue" icon={<Student2Icon />} label="Alunos" value={data.countStudents} />
       <Kpi bgColor="orange" icon={<EmployeeIcon />} label="Funcionários" value={data.countEmployees} />
       <Kpi bgColor="yellow" icon={<CalendarIcon />} label="Eventos" value={data.events}/>

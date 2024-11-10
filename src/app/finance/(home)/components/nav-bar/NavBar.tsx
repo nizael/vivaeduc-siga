@@ -1,6 +1,6 @@
 import { CalendarIcon } from "@/components/icons/CalendarIcon"
 import { ClassroomIcon } from "@/components/icons/ClassroomIcon"
-import { SchoolIcon } from "@/components/icons/SchoolIcon"
+import { BookIcon } from "@/components/icons/BookIcon"
 import { SubjectIcon } from "@/components/icons/SubjectIcon"
 import Link from "next/link"
 import { ReactNode } from "react"

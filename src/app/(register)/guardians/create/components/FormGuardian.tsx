@@ -1,10 +1,10 @@
 'use client'
 import { guardianCreate } from "@/services/guardian/guardianCreate"
-import { AddressData } from "./form-guardian/AddressData"
 import { JobData } from "./form-guardian/JobData"
-import { SecurityData } from "./form-guardian/SecurityData"
 import { PersonalData } from "./form-guardian/PersonalData"
 import { redirect } from "next/navigation"
+import { AddressForm } from "@/components/templates/address/AddressForm"
+import { SecurityForm } from "@/components/templates/security/SecurityForm"
 
 export const FormGuardian = () => {
   async function handleFormCation(formData: FormData) {
@@ -17,9 +17,9 @@ export const FormGuardian = () => {
   return (
     <form action={handleFormCation} className="flex flex-col gap-4">
       <PersonalData />
-      <AddressData />
+      <AddressForm />
       <JobData />
-      <SecurityData />
+      <SecurityForm />
       <div className="flex items-center gap-4 justify-end">
         <button type="button" className="flex items-center px-4 h-[40px] text-[--text-primary] border border-[--bg-primary] rounded-full">Cancelar</button>
         <button type="submit" className="flex items-center px-4 h-[40px] text-gray-50 bg-[--bg-primary] rounded-full">Salvar</button>

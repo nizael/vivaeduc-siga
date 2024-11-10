@@ -18,7 +18,7 @@ export const LayoutWeb = async ({ titlePage, children }: ILayoutWebProps) => {
       <div className="grid grid-cols-[250px,1fr] grid-rows-[66px,1fr]  w-full h-full">
         <Aside />
         <Header titlePage={titlePage} authData={authData} />
-        <main className="flex flex-col gap-4 overflow-y-auto p-4">
+        <main className="flex flex-col gap-4 overflow-y-auto p-4 bg-green-200">
           {children}
         </main>
       </div>

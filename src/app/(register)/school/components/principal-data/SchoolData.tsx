@@ -8,14 +8,15 @@ import { ISchool } from "@/services/school/ISchool"
 import { formatPhone } from "@/utils/formatPhone"
 import { UserEditIcon } from "@/components/icons/UserEditIcon"
 import { DotsIcon } from "@/components/icons/DotsIcon"
-import { SchoolIcon } from "@/components/icons/SchoolIcon"
+import { BookIcon } from "@/components/icons/BookIcon"
+import { DropdownIcon } from "@/components/icons/DropdownIcon"
 
 export const SchoolData = ({ schoolData }: { schoolData: ISchool }) => {
 
   return (
-    <section className=" bg-gray-50 shadow-sm relative">
+    <section className=" bg-gray-50 shadow-sm relative w-full">
       <div className="h-36 w-full bg-primary flex justify-end p-10 overflow-hidden">
-        <div className="w-[261px] h-[275px] rounded-full bg-[#FB7D5B] mt-10 -mr-40 " />
+        <div className="sm:w-[261px] h-[275px] rounded-full bg-[#FB7D5B] mt-10 -mr-40 " />
         <div className="w-[261px] h-[275px] rounded-full bg-[#FCC43E] " />
       </div>
       <div className="absolute top-36 -translate-y-1/2 left-8 w-36 h-36 rounded-full border-[8px] bg-[#C1BBEB] border-gray-50 overflow-hidden shadow-sm">
@@ -23,18 +24,19 @@ export const SchoolData = ({ schoolData }: { schoolData: ISchool }) => {
       </div>
       <div className="p-4 mt-14 flex flex-col gap-4 relative">
         <button className="absolute top-0 right-10 text-primary"><EditIcon /></button>
-        <h5 className="text-2xl font-semibold text-primary">{schoolData.name}</h5>
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <FieldData field="Admin" value={schoolData.principal} icon={<UserIcon />} />
-            <FieldData field="Telefone" value={formatPhone(schoolData.phone)} icon={<CallIcon />} />
-            <FieldData field="Email" value={schoolData.email} icon={<EmailIcon />} />
-          </div>
+        <h5 className="text-xl font-semibold text-primary">{schoolData.name}</h5>
+        <div className="flex items-center justify-between max-sm:flex-col gap-4">
+          <FieldData field="Admin" value={schoolData.principal} icon={<UserIcon />} />
+          <FieldData field="Telefone" value={formatPhone(schoolData.phone)} icon={<CallIcon />} />
+          <FieldData field="Email" value={schoolData.email} icon={<EmailIcon />} />
         </div>
       </div>
       <details open className=" rounded-b-xl bg-gray-50  group">
-        <summary className="px-4 py-2 grid grid-cols-3 border-t place-items-center bg-primary text-gray-50"><span className=" font-semibold text-start w-full flex items-center gap-2"><SchoolIcon /> Dados da escola</span> <DotsIcon /> <span /></summary>
-        <div className="relative grid grid-cols-4 gap-4  p-4">
+        <summary className="p-4 flex justify-between border-b bg-primary text-gray-50">
+          <span className=" font-semibold text-start w-full flex items-center gap-2"><BookIcon /> Dados da escola</span>
+          <DropdownIcon className="w-5" />
+        </summary>
+        <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
           <FieldData field="Razão social" value={schoolData.corporateName} />
           <FieldData field="CNPJ" value={schoolData.taxId} />
           <FieldData field="Inscrição estadual" value={schoolData.stateRegistration} />

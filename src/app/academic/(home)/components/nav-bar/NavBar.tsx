@@ -1,6 +1,6 @@
 import { CalendarIcon } from "@/components/icons/CalendarIcon"
 import { ClassroomIcon } from "@/components/icons/ClassroomIcon"
-import { SchoolIcon } from "@/components/icons/SchoolIcon"
+import { BookIcon } from "@/components/icons/BookIcon"
 import { SubjectIcon } from "@/components/icons/SubjectIcon"
 import { SwipeIcon } from "@/components/icons/SwipeIcon"
 import Link from "next/link"
@@ -8,9 +8,9 @@ import { ReactNode } from "react"
 
 export const NavBar = () => {
   return (
-    <section className="p-4  bg-gray-50 flex gap-4">
+    <section className="p-4 bg-gray-50 flex gap-4 shadow-sm max-sm:flex-col">
       <NavButton href="/academic/school-years" label="Períodos letivo" icon={<CalendarIcon />} />
-      <NavButton href="/academic/courses" label="Cursos" icon={<SchoolIcon />} />
+      <NavButton href="/academic/courses" label="Cursos" icon={<BookIcon />} />
       <NavButton href="/academic/grades" label="Séries" icon={<SwipeIcon />} />
       <NavButton href="/academic/classrooms" label="Turmas" icon={<ClassroomIcon />} />
       <NavButton href="/academic/subjects" label="Disciplinas" icon={<SubjectIcon />} />
