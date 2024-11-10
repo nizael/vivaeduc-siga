@@ -1,6 +1,6 @@
 interface IInputTextProps {
   label?: string
-  type?: 'text' | 'email' | 'password' | 'date' | 'number'
+  type?: 'text' | 'email' | 'password' | 'date' | 'number'|'time'
   id?: string
   name?: string
   required?: boolean
