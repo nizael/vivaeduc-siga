@@ -1,17 +1,17 @@
 'use client'
-import { Pagination } from "./Pagination"
 import { NavMenu } from "@/components/nav-menu/NavMenu"
 import { useEffect } from "react"
 import { IEnrollmentRequirement } from "@/services/enrollmentRequirement/IEnrollmentRequirement"
 import { useEnrollmentRequirementsStore } from "../../../../stores/useEnrollmentRequirementStore"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
+import { Pagination } from "@/components/pagination/Pagination"
 
 
-export const ListEnrollmentRequirement = ({ enrollmentRequirements }: { enrollmentRequirements: IEnrollmentRequirement[] }) => {
-  const { setListEnrollmentRequirements, enrollmentRequirementsView } = useEnrollmentRequirementsStore()
+export const ListEnrollmentRequirement = ({ listEnrollmentRequirements }: { listEnrollmentRequirements: IEnrollmentRequirement[] }) => {
+  const { setListEnrollmentRequirements, enrollmentRequirementsView, enrollmentRequirements, setCurrentPage, currentPage } = useEnrollmentRequirementsStore()
   useEffect(() => {
-    if (enrollmentRequirements) setListEnrollmentRequirements(enrollmentRequirements)
-  }, [enrollmentRequirements])
+    if (listEnrollmentRequirements) setListEnrollmentRequirements(listEnrollmentRequirements)
+  }, [listEnrollmentRequirements])
   if (!enrollmentRequirementsView?.length) return <EmptyPage label="Não existem requisitos cadastrados!" />
   return (
     <section className="bg-gray-50shadow-sm  w-full flex flex-col gap-4  h-full">
@@ -42,7 +42,7 @@ export const ListEnrollmentRequirement = ({ enrollmentRequirements }: { enrollme
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {enrollmentRequirements && <Pagination currentPage={currentPage} items={enrollmentRequirements} setCurrentPage={setCurrentPage} />}
     </section>
   )
 }

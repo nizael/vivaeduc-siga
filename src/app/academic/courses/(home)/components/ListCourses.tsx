@@ -5,19 +5,19 @@ import { ICourse } from "@/services/course/ICourse"
 import { useCourseStore } from "../../stores/useCourseStore"
 import { useEffect } from "react"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
-import { Pagination } from "./Pagination"
+import { Pagination } from "@/components/pagination/Pagination"
 
-export const ListCourses = ({ courses }: { courses: ICourse[] }) => {
-  const { setCourses, courseViews } = useCourseStore()
+export const ListCourses = ({ listCourses }: { listCourses: ICourse[] }) => {
+  const { setCourses, courseViews, courses, setCurrentPage, currentPage } = useCourseStore()
   useEffect(() => {
-    if (courses) setCourses(courses)
-  }, [courses])
+    if (listCourses) setCourses(listCourses)
+  }, [listCourses])
   if (!courseViews?.length) return <EmptyPage label="Não existem cursos cadastrados" />
   return (
     <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4  h-full">
       <div className="grow">
         <table className="w-full">
-        <thead className="bg-primary text-gray-50">
+          <thead className="bg-primary text-gray-50">
             <tr className="text-sm font-semibold border-b">
               <td className="px-4 py-2">Código</td>
               <td className="px-4 py-2">Nome</td>
@@ -39,7 +39,7 @@ export const ListCourses = ({ courses }: { courses: ICourse[] }) => {
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {courses && <Pagination currentPage={currentPage} items={courses} setCurrentPage={setCurrentPage} />}
     </section>
   )
 }

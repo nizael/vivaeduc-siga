@@ -1,14 +1,8 @@
-import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { SummaryStudent } from "./components/summary-student/SummaryStudent";
 import { Classrooms } from "./components/classsroon/Classrooms";
-import { StudentEvaluations } from "./components/evaluations/StudentEvaluations";
 import { studentDetails } from "@/services/student/studentDetails";
 import { IPageProps } from "@/types/page-props/IPageProps";
-import { EmptyPage } from "@/components/empty-state/EmptyPage";
-import { enrollmentGetByStudentId } from "@/services/enrollment/enrollmentGet";
-import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 import { MonthlyFees } from "./components/monthly-fees/MonthlyFees";
-import { monthlyFeesListBayStudentId } from "@/services/monthly-fees/enrollmentGet";
 import { PersonalData } from "./components/personal-data/PersonalData";
 import { AddressView } from "@/components/templates/address/AddressView";
 import { ReceivePayment } from "./components/receive-payment/ReceivePayment";

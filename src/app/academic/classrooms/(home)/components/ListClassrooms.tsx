@@ -5,15 +5,15 @@ import { IClassroom } from "@/services/classroom/IClassroom"
 import { useEffect } from "react"
 import { useClassroomStore } from "../../stores/useClassroomStore"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
-import { Pagination } from "./Pagination"
+import { Pagination } from "@/components/pagination/Pagination"
 
 
-export const ListClassrooms = ({ classrooms }: { classrooms: IClassroom[] }) => {
-  const { setClassrooms, classroomViews } = useClassroomStore()
+export const ListClassrooms = ({ listClassrooms }: { listClassrooms: IClassroom[] }) => {
+  const { setClassrooms, classroomViews, classrooms, setCurrentPage, currentPage } = useClassroomStore()
 
   useEffect(() => {
-    if (classrooms) setClassrooms(classrooms)
-  }, [classrooms])
+    if (listClassrooms) setClassrooms(listClassrooms)
+  }, [listClassrooms])
   if (!classroomViews?.length) return <EmptyPage label="Não existem turmas cadastradas" />
   return (
     <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4  h-full">
@@ -47,7 +47,7 @@ export const ListClassrooms = ({ classrooms }: { classrooms: IClassroom[] }) => 
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {classrooms && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} items={classrooms} />}
     </section>
   )
 }

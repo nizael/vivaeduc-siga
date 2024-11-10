@@ -1,10 +1,8 @@
-import { LayoutWeb } from "../../../../common/components/_layout/LayoutWeb";
 import { guardianListAll } from "@/services/guardian/guardianListAll";
 import { ListGuardians } from "./components/list-guardians/ListGuardians";
 import { ToolBar } from "./components/ToolBar";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
-import { TitlePage } from "@/components/templates/title-page/TitlePage";
 
 export default async function GuardiansPage() {
   const { status, data } = await guardianListAll()

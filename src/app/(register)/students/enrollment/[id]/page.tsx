@@ -1,19 +1,18 @@
-import { LayoutWeb } from "@/components/_layout/LayoutWeb";
-import { TitlePage } from "./components/TitlePage";
 import { IPageProps } from "@/types/page-props/IPageProps";
 import { studentDetails } from "@/services/student/studentDetails";
 import Image from "next/image";
 import { FormEnrollment } from "./components/forms/FormEnrollment";
-import { IStudent } from "../../@types/IStudentInfo";
-import { IAddress } from "@/types/address/IAddress";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
+import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { TitlePage } from "@/components/templates/title-page/TitlePage";
 
 
 export default async function StudentsEnrollmentPage(props: IPageProps) {
   const { data, status } = await studentDetails(props.params.id)
   return (
-    <LayoutWeb titlePage={<TitlePage />}>
-      <div className="flex flex-col gap-4">
+    <LayoutApp >
+      <div className="flex flex-col gap-4 p-4">
+      <TitlePage title="Nova Matrícula" />
         <div className=" bg-gray-50 flex items-center gap-4 justify-between  px-4 py-2">
           <div className="flex items-center gap-4">
             <div className=" w-10 h-10 rounded-full  bg-[#C1BBEB] border-gray-50 overflow-hidden shadow-sm">
@@ -28,6 +27,6 @@ export default async function StudentsEnrollmentPage(props: IPageProps) {
         </div>
         {(status === 200 && data) ? <FormEnrollment studentId={data?.id} /> : <EmptyPage label="Aluno não encontrado" />}
       </div>
-    </LayoutWeb>
+    </LayoutApp>
   );
 }

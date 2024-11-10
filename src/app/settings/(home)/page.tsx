@@ -1,6 +1,4 @@
-import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { NavBar } from "./components/nav-bar/NavBar";
-import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
 
 

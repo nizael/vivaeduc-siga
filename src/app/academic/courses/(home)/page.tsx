@@ -15,7 +15,7 @@ export default async function CoursePage() {
         <div className="flex flex-col gap-4 p-4">
           <TitlePage title="Cursos" />
           <ToolBar />
-          {(status === 200) && <ListCourses courses={data} />}
+          {(status === 200) && <ListCourses listCourses={data} />}
         </div>
       </LayoutApp>
     </>

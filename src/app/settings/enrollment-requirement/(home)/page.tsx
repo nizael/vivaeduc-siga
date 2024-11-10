@@ -15,7 +15,7 @@ export default async function EnrollmentRequirementPage() {
         <div className="flex flex-col gap-4 p-4">
         <TitlePage title="Requisitos de matrícula" />
           <ToolBar />
-          {status === 200 && <ListEnrollmentRequirement enrollmentRequirements={data} />}
+          {status === 200 && <ListEnrollmentRequirement listEnrollmentRequirements={data} />}
         </div>
       </LayoutApp>
     </>

@@ -1,9 +1,7 @@
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
-import { LayoutWeb } from "../../../../common/components/_layout/LayoutWeb";
 import { ListStudents } from "./components/list-students/ListStudets";
 import { ToolBar } from "./components/ToolBar";
 import { studentListAll } from "@/services/student/studentListAll";
-import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
 
 export default async function StudentsPage() {

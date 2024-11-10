@@ -1,10 +1,10 @@
 'use client'
 import { UptrendIcon } from "@/components/icons/UptrendIcon"
 import { ListView } from "../ListView"
-import { Pagination } from "./Pagination"
 import { useOutgoingStore } from "../../../../stores/useOutgoingStore"
 import { useEffect } from "react"
 import { DowntrendIcon } from "@/components/icons/DowntrendIcon"
+import { Pagination } from "@/components/pagination/Pagination"
 
 interface IListIncomingsProps {
   id: string
@@ -12,7 +12,7 @@ interface IListIncomingsProps {
   date: string
 }
 export const ListOutgoings = ({ outgoings }: { outgoings: IListIncomingsProps[] }) => {
-  const { setListOutgoings, outgoingsViews, totalCashOutflow } = useOutgoingStore()
+  const { setListOutgoings, outgoingsViews, totalCashOutflow, listOutgoings, setCurrentPage, currentPage } = useOutgoingStore()
 
   useEffect(() => {
     if (outgoings) setListOutgoings(outgoings)
@@ -33,7 +33,7 @@ export const ListOutgoings = ({ outgoings }: { outgoings: IListIncomingsProps[] 
       <div className="flex flex-col gap-4 grow p-4">
         {outgoingsViews?.map(outgoing => <ListView key={outgoing.id} date={outgoing.date} icon={<UptrendIcon />} value={outgoing.value} transaction="outgoing" id={outgoing.id} />)}
       </div>
-      <Pagination />
+      {listOutgoings && <Pagination currentPage={currentPage} items={listOutgoings} setCurrentPage={setCurrentPage} />}
     </div>
   )
 }

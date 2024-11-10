@@ -1,7 +1,4 @@
 // import { ListAcademicYear } from "./components/list-academic-year/ListAcademicYear";
-import { LayoutWeb } from "@/components/_layout/LayoutWeb";
-import { ListClassrooms } from "./components/list-classroom/ListClassrooms";
-import { ListSubjects } from "./components/list-subjects/ListSubjects";
 import { NavBar } from "./components/nav-bar/NavBar";
 import { Overview } from "./components/overview/Overview";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";

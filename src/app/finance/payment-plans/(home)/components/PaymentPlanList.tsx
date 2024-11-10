@@ -4,15 +4,15 @@ import { IPaymentPlan } from "@/services/paymentPlan/IPaymentPlan"
 import { methodReceipt } from "@/configs/methodReceipt"
 import { usePaymentPlanStore } from "../../../stores/usePaymentPlanStore"
 import { NavMenu } from "@/components/nav-menu/NavMenu"
-import { Pagination } from "./Pagination"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
+import { Pagination } from "@/components/pagination/Pagination"
 
 
-export const PaymentPlanList = ({ paymentPlans }: { paymentPlans: IPaymentPlan[] }) => {
-  const { setPaymentPlans, paymentPlanViews } = usePaymentPlanStore()
+export const PaymentPlanList = ({ ListPaymentPlans }: { ListPaymentPlans: IPaymentPlan[] }) => {
+  const { setPaymentPlans, paymentPlanViews, paymentPlans, setCurrentPage, currentPage, } = usePaymentPlanStore()
   useEffect(() => {
-    if (paymentPlans) setPaymentPlans(paymentPlans)
-  }, [paymentPlans])
+    if (ListPaymentPlans) setPaymentPlans(ListPaymentPlans)
+  }, [ListPaymentPlans])
 
   if (!paymentPlanViews?.length) return <EmptyPage label="Não existem planos de pagamento cadastrados" />
   return (
@@ -51,7 +51,7 @@ export const PaymentPlanList = ({ paymentPlans }: { paymentPlans: IPaymentPlan[]
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {paymentPlans && <Pagination items={paymentPlans} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
     </section>
   )
 }

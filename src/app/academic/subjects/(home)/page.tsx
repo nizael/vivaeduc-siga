@@ -1,9 +1,7 @@
-import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { ListGrades } from "./components/ListSubjects";
 import { ToolBar } from "./components/ToolBar";
 import { subjectListAll } from "@/services/subject/subjectListAll";
 import { SubjectCreateModal } from "../create/CreateModal";
-import { EmptyPage } from "@/components/empty-state/EmptyPage";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 
@@ -16,7 +14,7 @@ export default async function SubjectPage() {
         <div className="flex flex-col gap-4 p-4">
           <TitlePage title="Disciplinas" />
           <ToolBar />
-          {(status === 200) && <ListGrades subjects={data} />}
+          {(status === 200) && <ListGrades listSubjects={data} />}
         </div>
       </LayoutApp>
     </>

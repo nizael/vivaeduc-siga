@@ -3,15 +3,15 @@ import { EditIcon } from "@/components/icons/EditIcon"
 import { ISubject } from "@/services/subject/ISubject"
 import { useSubjectStore } from "../../stores/useSubjectStore"
 import { useEffect } from "react"
-import { Pagination } from "./Pagination"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
+import { Pagination } from "@/components/pagination/Pagination"
 
-export const ListGrades = ({ subjects }: { subjects: ISubject[] }) => {
-  const { setSubjects, subjectViews } = useSubjectStore()
+export const ListGrades = ({ listSubjects }: { listSubjects: ISubject[] }) => {
+  const { setSubjects, subjectViews, subjects, setCurrentPage, currentPage } = useSubjectStore()
 
   useEffect(() => {
-    if (subjects) setSubjects(subjects)
-  }, [subjects])
+    if (listSubjects) setSubjects(listSubjects)
+  }, [listSubjects])
   if (!subjectViews?.length) return <EmptyPage label="Não existem disciplinas cadastrados" />
   return (
     <section className="bg-gray-50  shadow-sm w-full flex flex-col gap-4  h-full">
@@ -39,7 +39,7 @@ export const ListGrades = ({ subjects }: { subjects: ISubject[] }) => {
           </tbody>
         </table>
       </div>
-      <Pagination />
+     {subjects&& <Pagination currentPage={currentPage} items={subjects} setCurrentPage={setCurrentPage} />}
     </section>
   )
 }

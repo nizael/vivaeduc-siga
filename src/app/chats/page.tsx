@@ -1,5 +1,4 @@
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
-import { LayoutWeb } from "../../common/components/_layout/LayoutWeb";
 
 export default function Chat() {
   return (

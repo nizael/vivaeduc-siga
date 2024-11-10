@@ -1,9 +1,7 @@
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
-import { LayoutWeb } from "../../common/components/_layout/LayoutWeb";
 import { Calendar } from "./components/calendar/Calendar";
 import { RightSide } from "./components/right-side/RightSide";
 import { ToolBar } from "./components/ToolBar";
-import { TitlePage } from "@/components/templates/title-page/TitlePage";
 
 export default function CalendarPage() {
   return (

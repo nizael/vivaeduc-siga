@@ -5,20 +5,20 @@ import { IGrade } from "@/services/grade/IGrade"
 import { useGradeStore } from "../../stores/useGradeStore"
 import { useEffect } from "react"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
-import { Pagination } from "./Pagination"
+import { Pagination } from "@/components/pagination/Pagination"
 
-export const ListGrades = ({ grades }: { grades: IGrade[] }) => {
-  const { setGrades, gradeViews } = useGradeStore()
+export const ListGrades = ({ listGrades }: { listGrades: IGrade[] }) => {
+  const { setGrades, gradeViews, grades, setCurrentPage, currentPage } = useGradeStore()
 
   useEffect(() => {
-    if (grades) setGrades(grades)
-  }, [grades])
+    if (listGrades) setGrades(listGrades)
+  }, [listGrades])
   if (!gradeViews?.length) return <EmptyPage label="Não existem séries cadastradas" />
   return (
     <section className="bg-gray-50 shadow-sm  w-full flex flex-col gap-4  h-full">
       <div className="grow">
         <table className="w-full">
-        <thead className="bg-primary text-gray-50">
+          <thead className="bg-primary text-gray-50">
             <tr className="text-sm font-semibold border-b">
               <td className="px-4 py-2">Código</td>
               <td className="px-4 py-2 text-center">Nome</td>
@@ -42,7 +42,7 @@ export const ListGrades = ({ grades }: { grades: IGrade[] }) => {
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {grades && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} items={grades} />}
     </section>
   )
 }

@@ -1,9 +1,7 @@
-import { LayoutWeb } from "@/components/_layout/LayoutWeb";
 import { ListEmployees } from "./components/list-employees/ListEmployees";
 import { ToolBar } from "./components/ToolBar";
 import { employeeListAll } from "@/services/employee/employeeGet";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
-import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
 
 export default async function EmployeesPage() {

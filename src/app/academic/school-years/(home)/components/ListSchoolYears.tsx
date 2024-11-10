@@ -4,14 +4,14 @@ import { ISchoolYear } from "@/services/school-year/ISchoolYear"
 import { useSchoolYearStore } from "../../stores/useSchoolYearStore"
 import { useEffect, useState } from "react"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
-import { Pagination } from "./Pagination"
+import { Pagination } from "@/components/pagination/Pagination"
 
-export const ListSchoolYears = ({ schoolYears }: { schoolYears: ISchoolYear[] }) => {
-  const { setSchoolYears, schoolYearsView } = useSchoolYearStore()
+export const ListSchoolYears = ({ listSchoolYears }: { listSchoolYears: ISchoolYear[] }) => {
+  const { setSchoolYears, schoolYearsView, schoolYears, setCurrentPage, currentPage } = useSchoolYearStore()
 
   useEffect(() => {
-    if (schoolYears.length) setSchoolYears(schoolYears)
-  }, [schoolYears])
+    if (listSchoolYears.length) setSchoolYears(listSchoolYears)
+  }, [listSchoolYears])
   if (!schoolYearsView) return <EmptyPage label="Não existem períodos letivos cadastrados" />
   return (
     <section className="bg-gray-50 shadow-sm  w-full flex flex-col gap-4  h-full">
@@ -39,7 +39,7 @@ export const ListSchoolYears = ({ schoolYears }: { schoolYears: ISchoolYear[] })
           </tbody>
         </table>
       </div>
-      <Pagination />
+      {schoolYears && <Pagination currentPage={currentPage} items={schoolYears} setCurrentPage={setCurrentPage} />}
     </section>
   )
 }
