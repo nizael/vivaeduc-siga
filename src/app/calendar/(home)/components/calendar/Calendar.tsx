@@ -41,13 +41,13 @@ export const Calendar = () => {
       <table className="w-full table-fixed h-full">
         <thead>
           <tr className="text-center text-[--text-primary] text-sm font-semibold">
-            <td>Domingo</td>
-            <td>Segunda</td>
-            <td>Terça</td>
-            <td>Quarta</td>
-            <td>Quinta</td>
-            <td>Sexta</td>
-            <td>Sábado</td>
+            <td>Dom</td>
+            <td>Seg</td>
+            <td>Ter</td>
+            <td>Qua</td>
+            <td>Qui</td>
+            <td>Sex</td>
+            <td>Sáb</td>
           </tr>
         </thead>
         <tbody>

@@ -4,6 +4,7 @@ import { useCalendarStore } from "../stores/useCalendarStore"
 import { InputText } from "@/components/inputs/InputText"
 import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
 import { eventTypeOptions } from "@/configs/eventType"
+import { createEvent } from "@/services/calendar-school/createEvent"
 
 
 export const CreateEvent = () => {
@@ -15,7 +16,11 @@ export const CreateEvent = () => {
           <h5 className="text-xl text-[--text-primary] font-semibold">Novo evento</h5>
           <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>
         </div>
-        <form action="" className="p-4 flex flex-col gap-4">
+        <form action={async formData => {
+          const { data } = await createEvent(formData)
+          console.log(data)
+        }
+        } className="p-4 flex flex-col gap-4">
           <div className="grid max-[641px]:grid-cols-1 grid-cols-2  gap-4" onClick={evt => evt.stopPropagation()}>
             <InputText required name="eventName" label="Nome" />
             <CustomSelect required options={eventTypeOptions} name="eventType" label="Tipo do evento" />
