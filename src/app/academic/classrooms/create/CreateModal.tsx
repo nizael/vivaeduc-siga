@@ -48,7 +48,7 @@ export const ClassroomCreateModal = () => {
 
   return (
     <ModalOverlay isOpen={isOpen} onClose={onClose}>
-      <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-xl w-full" onClick={evt => evt.stopPropagation()}>
+      <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-xl w-full max-h-[80%] h-full" onClick={evt => evt.stopPropagation()}>
         <div className="flex justify-between p-4 border-b ">
           <h5 className="text-xl text-[--text-primary] font-semibold">Nova Turma</h5>
           <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>
@@ -59,16 +59,16 @@ export const ClassroomCreateModal = () => {
             pushClassroom(data)
             onClose()
           }
-        }} className="p-4 flex flex-col gap-4" >
-          <div className="grid grid-cols-4 gap-4 w-full">
+        }} className="p-4 flex flex-col gap-4 h-full overflow-y-auto" >
+          <div className="grid grid-cols-4 gap-4 w-full ">
             <InputText required label="Código *" name="code" />
             <div className="col-start-2 col-end-5">
               <InputText required label="Nome *" name="name" />
             </div>
-            <div className="col-start-1 col-end-3">
+            <div className="col-start-1 max-sm:col-end-5 col-end-3">
               <CustomSelect required options={schoolYears?.map(schoolYear => ({ label: schoolYear.name, value: schoolYear.id }))} onChange={() => ({})} label="Período *" name="schoolYearId" />
             </div>
-            <div className="col-start-3 col-end-5">
+            <div className="max-sm:col-start-1 col-start-3 col-end-5">
               <CustomSelect required options={courses?.map(course => ({ label: course.name, value: course.id }))} onChange={evt => setSelectCourseId(evt.currentTarget.value)} label="Curso *" name="courseId" />
             </div>
             <div className="col-start-1 col-end-3">
@@ -80,7 +80,7 @@ export const ClassroomCreateModal = () => {
             <div className="col-start-1 col-end-5">
               <div className="flex flex-col gap-2 w-full">
                 <span className=" text-[--text-primary] font-semibold ">Turno *</span>
-                <div className="border border-[#C1BBEB] bg-white rounded-lg p-2 text-base text-[--text-primary] font-medium outline-[--bg-primary] flex items-center gap-2" >
+                <div className="border border-[#C1BBEB] bg-white rounded-lg p-2 text-base text-[--text-primary] font-medium outline-[--bg-primary] flex items-center gap-2 max-sm:flex-col max-sm:items-start" >
                   <label htmlFor="morning" className="flex items-center gap-1">
                     <input required value="MORNING" id="morning" type="radio" name="shift" />
                     Manhã
@@ -112,7 +112,7 @@ export const ClassroomCreateModal = () => {
               <InputText type="date" required label="Tèrmino *" name="endDate" />
             </div>
             <InputText type="number" required label="Vagas *" name="numberVacancies" />
-            <div className="col-start-2 col-end-5">
+            <div className="max-sm:col-start-1 col-start-2 col-end-5">
               <CustomSelect required options={coordinators?.map(coord => ({ label: coord.name, value: coord.id }))} onChange={() => ({})} label="Coordenador *" name="coordinatorId" />
             </div>
           </div>

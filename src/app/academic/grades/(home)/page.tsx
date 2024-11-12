@@ -11,7 +11,7 @@ export default async function GradePage() {
     <>
       <GradeCreateModal />
       <LayoutApp >
-      <div className="flex flex-col gap-4 p-4">
+      <div className="flex flex-col gap-4 p-4 min-h-full">
         <TitlePage title="Séries" />
           <ToolBar />
           {(status === 200) && < ListGrades listGrades={data} />}

@@ -11,7 +11,7 @@ export default async function SchoolYearPage() {
     <>
       <SchoolYearCreateModal />
       <LayoutApp>
-        <div className="flex flex-col gap-4 p-4">
+        <div className="flex flex-col gap-4 p-4 min-h-full">
           <TitlePage title="Período letivo" />
           <ToolBar />
           {(status === 200) && <ListSchoolYears listSchoolYears={data} />}
