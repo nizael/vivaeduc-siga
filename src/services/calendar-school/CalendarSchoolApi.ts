@@ -5,13 +5,7 @@ export class CalendarSchoolApi extends FetchApi {
   async createEvent(data: ICreateEvent) {
     return this.post('/v1/calendarSchools/createEvent', data)
   }
-  async listEvents() {
-    return this.get('/v1/calendarSchools/listEvents')
+  async listEventsByDate(day: number, month: number, year: number) {
+    return this.get(`/v1/calendarSchools/listEventsByDate?day=${day}&month=${month}&year=${year}`)
   }
-  // async details(id: string) {
-  //   return this.get(`/v1/coursschoolYeares/details/${id}`)
-  // }
-  // async update(data: Partial<ICreateSchoolYear>, id: string) {
-  //   return this.put(`/v1/schoolYear/update/${id}`, data)
-  // }
 }

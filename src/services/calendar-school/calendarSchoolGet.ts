@@ -1,6 +1,7 @@
 'use server'
 import { calendarSchoolApi, schoolYearApi } from "../../di/dependencyInjection"
 
-export const listEvents = async () => {
-  return calendarSchoolApi.listEvents()
+export const listEventsByDate = async (day: number, month: number, year: number) => {
+  return calendarSchoolApi.listEventsByDate(day, month, year)
 }
+

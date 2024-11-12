@@ -4,7 +4,6 @@ import { reportPaymentRecordsForCurrentWeek } from "@/services/report/reportGet"
 
 export const Finance = async () => {
   const { data } = await reportPaymentRecordsForCurrentWeek()
-  console.log(data)
   return (
     <section className="flex flex-col bg-gray-50 shadow-sm w-full">
       <div className="text-[--text-primary] font-semibold flex  justify-between rounded-t-xl p-4">

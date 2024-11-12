@@ -29,15 +29,15 @@ export const SummaryStudent = ({ student }: { student: IStudent & { address: str
           {student.image && <Image src={student.image} alt={student.name} width={144} height={144} />}
         </div>
         <div className="p-4 mt-14 flex flex-col gap-4 relative">
-          <div className="flex items-center justify-between">
-            <h5 className="text-2xl font-semibold text-[--text-primary]">{student.name}</h5>
-            <div className="flex items-center top-0 right-10 gap-4">
+          <div className="flex items-center justify-between max-sm:flex-col max-sm:items-start gap-2 ">
+            <h5 className="text-2xl font-semibold text-[--text-primary] grow">{student.name}</h5>
+            <div className="flex items-center top-0 right-10 gap-4 max-sm:justify-between max-sm:w-full">
               <Link href={`/students/enrollment/${student.id}`} className="shadow-sm text-sm font-semibold text-[--text-primary] rounded-full h-[40px] px-4 flex items-center gap-1"><b className="text-2xl">+</b> Nova matrícula</Link>
               <Link href={`/students/update/${student.id}`} className="shadow-sm text-[--text-primary] text-sm font-semibold  rounded-full h-[40px] px-4 flex items-center gap-1"><EditIcon /> Editar</Link>
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-20">
+          <div className="flex items-center justify-between max-sm:flex-col gap-4">
               <FieldData field="Endereço" value={student.address} icon={<LocationIcon />} />
               <FieldData field="Telefone" value={student.phone} icon={<CallIcon />} />
               <FieldData field="Email" value={student.email} icon={<EmailIcon />} />

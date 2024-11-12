@@ -1,6 +1,8 @@
-export const EmptyResult = () => {
+import { SVGProps } from "react"
+
+export const EmptyResult = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width="298" height="237" viewBox="0 0 298 237" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg {...props} width="298" height="237" viewBox="0 0 298 237" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M8.09363 15.4131L19.56 8.79297C23.3863 6.58383 28.2791 7.89484 30.4882 11.7212L43.9052 34.9601L32.4388 41.5802C28.6125 43.7893 23.7198 42.4783 21.5106 38.652L8.09363 15.4131Z" fill="#33474F" />
       <path d="M2.75 24.8491C1.23122 22.2185 2.13253 18.8547 4.76314 17.3359L8.09361 15.4131L11.0672 20.5636L2.97363 25.2364L2.75 24.8491Z" fill="#EEEEEE" />
       <path d="M5.91675 23.5372L11.0672 20.5636L12.7664 23.5067L10.5591 24.7811C8.93365 25.7196 6.8552 25.1627 5.91675 23.5372V23.5372Z" fill="#E0E0E0" />

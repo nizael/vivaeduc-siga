@@ -5,12 +5,16 @@ import { gender } from "@/configs/gender"
 import { colorOrRace } from "@/configs/colorOrRace"
 import { maritalStatus } from "@/configs/maritalStatus"
 import { IGuardianInfo } from "../../../../@types/IGuardianInfo"
+import { DropdownIcon } from "@/components/icons/DropdownIcon"
 
 export const GuardianDetails = ({ guardian }: { guardian: IGuardianInfo }) => {
   return (
     <details open className=" bg-gray-50 group">
-      <summary className="px-4 grid grid-cols-3  border-t p-4 place-items-center bg-primary"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
-      <div className="relative grid grid-cols-4 gap-4  p-6">
+      <summary className="p-4 flex justify-between border-b bg-primary text-gray-50">
+        <span className=" font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span>
+        <DropdownIcon className="w-5" />
+      </summary>
+      <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
         <FieldData field="Data de nascimento" value={guardian?.dateOfBirth || '-'} />
         <FieldData field="Estado civil" value={maritalStatus[guardian?.maritalStatus as keyof typeof maritalStatus] || '-'} />
         <FieldData field="Sexo" value={gender[guardian?.gender as keyof typeof gender] || '-'} />

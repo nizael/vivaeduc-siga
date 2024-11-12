@@ -8,7 +8,7 @@ import { createEvent } from "@/services/calendar-school/createEvent"
 
 
 export const CreateEvent = () => {
-  const { isOpen, onClose } = useCalendarStore()
+  const { isOpen, onClose, pushEvent } = useCalendarStore()
   return (
     <ModalOverlay isOpen={isOpen} onClose={onClose} >
       <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-lg w-full overflow-y-auto" onClick={evt => evt.stopPropagation()}>
@@ -17,13 +17,19 @@ export const CreateEvent = () => {
           <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>
         </div>
         <form action={async formData => {
-          const { data } = await createEvent(formData)
-          console.log(data)
+          const { data, status } = await createEvent(formData)
+          if (status === 201) {
+            const startDate = new Date(data.startDate).toLocaleDateString('pt-BR')
+            if (startDate === new Date().toLocaleDateString('pt-BR')) {
+              pushEvent(data)
+            }
+            onClose()
+          }
         }
         } className="p-4 flex flex-col gap-4">
           <div className="grid max-[641px]:grid-cols-1 grid-cols-2  gap-4" onClick={evt => evt.stopPropagation()}>
             <InputText required name="eventName" label="Nome" />
-            <CustomSelect required options={eventTypeOptions} name="eventType" label="Tipo do evento" />
+            <CustomSelect required options={eventTypeOptions} onChange={() => ({})} name="eventType" label="Tipo do evento" />
             <div className="flex flex-col gap-4 col-start-1 col-end-3">
               <div className="flex items-center gap-4">
                 <InputText type="date" required name="startDate" label="Inicio" />

@@ -16,7 +16,6 @@ export const MenuMobile = () => {
   const { isOpen, onClose, moduleSelect, setModuleSelect } = useMobileMenuStore()
 
   useEffect(() => {
-    console.log('i')
     const handleResize = () => {
       if (window.innerWidth >= 768 && isOpen) {
         onClose()

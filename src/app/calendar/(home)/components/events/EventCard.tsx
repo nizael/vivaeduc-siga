@@ -6,19 +6,22 @@ interface IEventCardProps {
   title: string
   subtitle: string
   date: string
-  hour: string
+  time: string
 }
-export const EventCard = ({ date, hour, indexColor, subtitle, title }: IEventCardProps) => {
+export const EventCard = ({ date, time, indexColor, subtitle, title }: IEventCardProps) => {
   const colors = {
     0: 'border-[--bg-primary]',
     1: 'border-[#FB7D5B]',
     2: 'border-[#FCC43E]',
     3: 'border-[--text-primary]',
   }
+
+
+
   return (
     <div className={`w-full rounded-xl p-4 border-l-[16px] flex flex-col gap-4 shadow-sm ${colors[indexColor as keyof typeof colors]}`}>
       <div className="flex flex-col gap2">
-        <h3 className="font-semibold text-[#363B64]">{title}</h3>
+        <h3 className="font-semibold text-[#363B64] truncate">{title}</h3>
         <p className="text-sm text-gray-500">{subtitle}</p>
       </div>
       <div className="flex flex-col gap-1">
@@ -32,7 +35,7 @@ export const EventCard = ({ date, hour, indexColor, subtitle, title }: IEventCar
           <span className="text-[#FCC43E]">
             <ClockIcon />
           </span>
-          {hour}
+          {time}
         </p>
       </div>
     </div>

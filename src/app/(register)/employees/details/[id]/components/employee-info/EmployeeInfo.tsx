@@ -29,7 +29,7 @@ export const EmployeeInfo = ({ employeeData }: { employeeData: IEmployeeInfo & {
             <Link href={`/employees/update/${employeeData.id}`} className="shadow-sm text-[--text-primary] text-sm font-semibold  rounded-full h-[40px] px-4 flex items-center gap-1"><EditIcon /> Editar</Link>
           </div>
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-20">
+          <div className="flex items-center justify-between max-sm:flex-col gap-4">
               <FieldData field="Endereço" value={`${address.street}, ${address.city}`} icon={<LocationIcon />} />
               <FieldData field="Telefone" value={formatPhone(employeeData.phone)} icon={<CallIcon />} />
               <FieldData field="Email" value={employeeData.email} icon={<EmailIcon />} />

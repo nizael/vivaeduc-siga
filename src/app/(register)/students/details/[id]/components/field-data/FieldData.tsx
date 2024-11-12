@@ -8,7 +8,7 @@ interface IFieldDataProps {
 export const FieldData = ({ field, value, icon }: IFieldDataProps) => {
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 max-sm:w-full">
       <p className="text-gray-500 text-sm">{field}</p>
       <p className="text-[--text-primary] font-semibold flex items-center gap-2">
         {icon && <span className="grid place-content-center w-9 h-9 bg-[#FB7D5B] rounded-full text-gray-50">{icon}</span>}

@@ -19,19 +19,19 @@ export class Guardian {
 
   private async getToken() {
     if (!this.env.JWT_SECRET) {
-      return redirect('/session')
+      return redirect('http://localhost:3001')
     }
     const token = await cookiesManager.getCookie('user_token')
-    if (!token) return redirect('/session')
+    if (!token) return redirect('http://localhost:3001')
     return token.value
   }
 
   private async decodedToken(token: string) {
     try {
-      if (!this.env.JWT_SECRET) return redirect('/session')
+      if (!this.env.JWT_SECRET) return redirect('http://localhost:3001')
       return jwt.verify(token, this.env.JWT_SECRET) as unknown as DecodedToken
     } catch {
-      return redirect('/session')
+      return redirect('http://localhost:3001')
     }
   }
 
