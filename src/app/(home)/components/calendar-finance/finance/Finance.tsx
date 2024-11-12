@@ -16,11 +16,11 @@ export const Finance = async () => {
             <p className="text-slate-500 text-xs flex items-center gap-1">
               Esta semana
             </p>
-            <p>{data.total?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+            <p>{data?.total?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
           </div>
         </div>
       </div>
-      <Chart dailySums={data.dailySums} />
+      <Chart dailySums={data?.dailySums||[]} />
     </section>
 
   )

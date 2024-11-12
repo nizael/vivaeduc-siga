@@ -10,11 +10,11 @@ export const Performance = async () => {
         <div className="flex items-center gap-4">
           <div className="flex flex-col items-center">
             <p className="text-slate-500 text-xs ">Esta semana</p>
-            <p>{data.thisWeek}</p>
+            <p>{data?.thisWeek}</p>
           </div>
         </div>
       </div>
-      <Chart monthlyReport ={data.monthlyReport}/>
+      <Chart monthlyReport ={data?.monthlyReport}/>
     </section>
   )
 }
