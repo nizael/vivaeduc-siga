@@ -18,20 +18,23 @@ export class Guardian {
   constructor(private env: IEnv) { }
 
   private async getToken() {
+    const authUrl = this.env.NEXT_PUBLIC_AUTH_BASE_URL || '/error'
+
     if (!this.env.JWT_SECRET) {
-      return redirect('http://localhost:3001')
+      return redirect(authUrl)
     }
     const token = await cookiesManager.getCookie('user_token')
-    if (!token) return redirect('http://localhost:3001')
+    if (!token) return redirect(authUrl)
     return token.value
   }
 
   private async decodedToken(token: string) {
+    const authUrl = this.env.NEXT_PUBLIC_AUTH_BASE_URL || '/error'
     try {
-      if (!this.env.JWT_SECRET) return redirect('http://localhost:3001')
+      if (!this.env.JWT_SECRET) return redirect(authUrl)
       return jwt.verify(token, this.env.JWT_SECRET) as unknown as DecodedToken
     } catch {
-      return redirect('http://localhost:3001')
+      return redirect(authUrl)
     }
   }
 
