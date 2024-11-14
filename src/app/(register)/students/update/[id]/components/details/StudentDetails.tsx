@@ -9,6 +9,7 @@ import { useUpdateStudentStore } from "../../../../stores/useUpdateStudentStore"
 import { studentUpdate } from "@/services/student/studentUpdate"
 import { InputEdit } from "@/components/inputs/InputEdit"
 import { SelectEdit } from "@/components/selects/SelectEdit"
+import { DropdownIcon } from "@/components/icons/DropdownIcon"
 
 
 export const StudentDetails = () => {
@@ -42,8 +43,11 @@ export const StudentDetails = () => {
 
   return (
     <details open className="  bg-gray-50 ">
-      <summary className="px-4 py-2 grid grid-cols-3 border-b place-items-center bg-primary text-gray-50"><span className="font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
-      <div className="relative grid grid-cols-4 gap-4  p-4">
+      <summary className="p-4 flex justify-between border-b bg-primary text-gray-50">
+        <span className="font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span>
+        <DropdownIcon className="w-5" />
+      </summary>
+      <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
         <InputEdit name="name" onSubmit={evt => updatePersonalDataInputEdit(evt, 'name')} defaultValue={student.name}>
           <FieldData id="name" field="Nome completo" value={student.name} />
         </InputEdit>
@@ -59,11 +63,11 @@ export const StudentDetails = () => {
         <SelectEdit name='colorOrRace' options={colorOrRaceOptions} defaultValue={student.colorOrRace} onSubmit={evt => updatePersonalDataSelectEdit(evt, 'colorOrRace')}>
           <FieldData id="colorOrRace" field="Cor/Raça" value={colorOrRace[student.colorOrRace as keyof typeof colorOrRace]} />
         </SelectEdit>
-        <InputEdit name='document' type="number" defaultValue={student.document.replace(/\D/g, '')} onSubmit={evt => updatePersonalDataInputEdit(evt, 'document')} >
-          <FieldData id="document" field="CPF" value={`***.***.***-${student.document.slice(-2)}`} />
+        <InputEdit name='document' type="number" defaultValue={student.document?.replace(/\D/g, '')} onSubmit={evt => updatePersonalDataInputEdit(evt, 'document')} >
+          <FieldData id="document" field="CPF" value={`***.***.***-${student.document?.slice(-2)}`} />
         </InputEdit>
         <InputEdit name='identityCard' defaultValue={student.identityCard} onSubmit={evt => updatePersonalDataInputEdit(evt, 'identityCard')}>
-          <FieldData id="identityCard" field="Identidade" value={`******${student.identityCard.slice(-2)}`} />
+          <FieldData id="identityCard" field="Identidade" value={`******${student.identityCard?.slice(-2)}`} />
         </InputEdit>
         <InputEdit name='issuingAuthority' defaultValue={student.issuingAuthority} onSubmit={evt => updatePersonalDataInputEdit(evt, 'issuingAuthority')} >
           <FieldData id="issuingAuthority" field="Orgão emissor" value={student.issuingAuthority} />

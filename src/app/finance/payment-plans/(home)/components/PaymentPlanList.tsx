@@ -16,7 +16,7 @@ export const PaymentPlanList = ({ ListPaymentPlans }: { ListPaymentPlans: IPayme
 
   if (!paymentPlanViews?.length) return <EmptyPage label="Não existem planos de pagamento cadastrados" />
   return (
-    <section className="bg-gray-50 shadow-sm  w-full flex flex-col gap-4  h-full">
+    <section className="bg-gray-50 shadow-sm  w-full flex flex-col gap-4  grow">
       <div className="grow">
         <table className="w-full">
           <thead className="bg-primary text-gray-50">

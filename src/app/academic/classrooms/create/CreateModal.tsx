@@ -112,9 +112,9 @@ export const ClassroomCreateModal = () => {
               <InputText type="date" required label="Tèrmino *" name="endDate" />
             </div>
             <InputText type="number" required label="Vagas *" name="numberVacancies" />
-            <div className="max-sm:col-start-1 col-start-2 col-end-5">
+            {/* <div className="max-sm:col-start-1 col-start-2 col-end-5">
               <CustomSelect required options={coordinators?.map(coord => ({ label: coord.name, value: coord.id }))} onChange={() => ({})} label="Coordenador *" name="coordinatorId" />
-            </div>
+            </div> */}
           </div>
           <div className="flex items-center gap-4 justify-end">
             <button type="button" onClick={onClose} className="flex items-center px-4 h-[40px] text-[--text-primary] border border-[--bg-primary] rounded-full">Cancelar</button>

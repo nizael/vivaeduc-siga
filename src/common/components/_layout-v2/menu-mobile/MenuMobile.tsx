@@ -7,13 +7,15 @@ import { SchoolIcon } from "@/components/icons/SchoolIcon"
 import Link from "next/link"
 import { useEffect } from "react"
 import { CalendarIcon } from "@/components/icons/CalendarIcon"
-import { HomeIcon } from "@/components/icons/HomeIcom"
+import { HomeIcon } from "@/components/icons/HomeIcon"
 import { Student2Icon } from "@/components/icons/Student2Icon"
 import { UserHeartIcon } from "@/components/icons/UserHeartIcon"
 import { UsersGroupIcon } from "@/components/icons/UsersGroupIcon"
+import { Logout } from "../side-bar/Logout"
+import { LogoutMobile } from "./LogoutMobile"
 
 export const MenuMobile = () => {
-  const { isOpen, onClose, moduleSelect, setModuleSelect } = useMobileMenuStore()
+  const { isOpen, onClose } = useMobileMenuStore()
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,7 +32,8 @@ export const MenuMobile = () => {
   return (
     <div className="absolute top-0 left-0 w-full h-full bg-opacity-70 z-20 flex items-center justify-center">
       <div className="w-full h-full flex flex-col bg-gray-50">
-        <div className="border-b p-2 flex items-center">
+        <div className="border-b h-12 p-2 flex items-center justify-between">
+        <p className="font-semibold text-[--text-primary]">Menu</p>
           <button onClick={onClose}><XIcon /></button>
         </div>
         <div className="flex flex-col gap-1 p-2 grow">
@@ -45,6 +48,7 @@ export const MenuMobile = () => {
         <div className="flex flex-col overflow-y-auto p-2 ">
           <Link onClick={onClose} href={'/school'} className="flex items-center font-semibold text-[--text-primary] p-2 text-sm gap-1"><SchoolIcon className="w-4" />Escola</Link>
           <Link onClick={onClose} href={'/settings'} className="flex items-center font-semibold text-[--text-primary] p-2 text-sm gap-1"><SettingsIcon className="w-4" />Configurações</Link>
+          <LogoutMobile />
         </div>
       </div>
     </div>

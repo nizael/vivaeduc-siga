@@ -16,16 +16,16 @@ export default async function StudentsEnrollmentPage(props: IPageProps) {
         <div className=" bg-gray-50 flex items-center gap-4 justify-between  px-4 py-2">
           <div className="flex items-center gap-4">
             <div className=" w-10 h-10 rounded-full  bg-[#C1BBEB] border-gray-50 overflow-hidden shadow-sm">
-              {data?.image && <Image src={data?.image} alt={data?.name} width={144} height={144} />}
+              {data?.student.image && <Image src={data?.student.image} alt={data?.student.name} width={144} height={144} />}
             </div>
-            <h5 className="text-2xl font-semibold text-primary">{data?.name}</h5>
+            <h5 className="text-2xl font-semibold text-primary">{data?.student.name}</h5>
           </div>
           <div className="flex items-center gap-4 text-primary">
-            <p>Matrícula: <b>{data?.code}</b></p>
-            <p>Inep: <b>{data?.inep || '-'}</b></p>
+            <p>Matrícula: <b>{data?.student.code}</b></p>
+            <p>Inep: <b>{data?.student.inep || '-'}</b></p>
           </div>
         </div>
-        {(status === 200 && data) ? <FormEnrollment studentId={data?.id} /> : <EmptyPage label="Aluno não encontrado" />}
+        {(status === 200 && data) ? <FormEnrollment studentId={data?.student.id} /> : <EmptyPage label="Aluno não encontrado" />}
       </div>
     </LayoutApp>
   );

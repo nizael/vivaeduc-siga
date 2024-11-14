@@ -2,7 +2,7 @@ import { UserIcon } from "@/components/icons/UserIcon"
 import { AcademicMenu } from "../menu-mobile/AcademicMenu"
 import { FinanceIcon } from "@/components/icons/FinanceIcon"
 import { SchoolIcon } from "@/components/icons/SchoolIcon"
-import { HomeIcon } from "@/components/icons/HomeIcom"
+import { HomeIcon } from "@/components/icons/HomeIcon"
 import Link from "next/link"
 
 export const MenuWeb = () => {

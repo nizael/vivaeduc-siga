@@ -9,17 +9,18 @@ import { StudentAddress } from "../details/StudentAddress"
 
 
 
-export const StudentInfo = ({ studentData }: { studentData: IStudent & { address: IAddress } }) => {
+export const StudentInfo = (props: { studentData: { student: IStudent, address: IAddress } }) => {
 
   const { student, setStudent, setAddress } = useUpdateStudentStore()
 
   useEffect(() => {
-    const { address, ...student } = studentData
-    if (studentData) {
+    const { address, student } = props.studentData
+    if (props) {
       setStudent(student)
       setAddress(address)
     }
-  }, [studentData])
+  }, [props])
+
 
   return (
     <section className=" bg-gray-50 shadow-sm relative flex flex-col gap-4 ">
@@ -37,7 +38,6 @@ export const StudentInfo = ({ studentData }: { studentData: IStudent & { address
       </div>
       <StudentDetails />
       <StudentAddress />
-
     </section>
   )
 }

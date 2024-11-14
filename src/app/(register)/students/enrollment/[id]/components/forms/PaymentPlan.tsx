@@ -31,17 +31,17 @@ export const PaymentPlan = () => {
 
   return (
     <details className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm ">
-      <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500">
-        <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><CreditCardIcon /> Plano de pagamento</span>
-        <DotsIcon />
-        <span className="grid w-full place-content-end"><DropdownIcon /></span>
+      <summary className="p-4 flex justify-between border-b bg-primary text-gray-50">
+        <span className=" font-semibold text-start w-full flex items-center gap-2"><CreditCardIcon /> Plano de pagamento</span>
+        <DropdownIcon className="w-5" />
       </summary>
       {/* <div className="p-4 flex flex-col gap-4"> */}
+      <div className="w-full overflow-x-auto">
       <table className="w-full">
         <thead>
           <tr className="text-sm font-semibold text-gray-500 bg-[--bg-tertiary]">
             <td className="px-4 py-2">Plano</td>
-            <td className="px-4 py-2">Parcelas</td>
+            <td className="px-4 py-2 max-sm:hidden">Parcelas</td>
             <td className="px-4 py-2">Valor</td>
             <td className="px-4 py-2">Método de pagamento</td>
           </tr>
@@ -57,7 +57,7 @@ export const PaymentPlan = () => {
                     {paymentPlan.name}
                   </label>
                 </td>
-                <td className="p-4">{paymentPlan.installmentAmount}</td>
+                <td className="p-4 max-sm:hidden">{paymentPlan.installmentAmount}</td>
                 <td className="p-4">{paymentPlan.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                 <td className="p-4">{methodReceipt[paymentPlan.methodReceipt]}</td>
               </tr>
@@ -65,6 +65,8 @@ export const PaymentPlan = () => {
           })}
         </tbody>
       </table>
+      </div>
+
     </details>
   )
 }

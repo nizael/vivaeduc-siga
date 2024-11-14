@@ -4,7 +4,7 @@ import { ChatIcon } from "../../icons/ChatIcon"
 import { EmployeeIcon } from "../../icons/EmployeeIcon"
 import { FinanceIcon } from "../../icons/FinanceIcon"
 import { GuardianIcon } from "../../icons/GuardianIcon"
-import { HomeIcon } from "../../icons/HomeIcom"
+import { HomeIcon } from "../../icons/HomeIcon"
 import { Student2Icon } from "../../icons/Student2Icon"
 import { LinkButton } from "./LinkButton"
 

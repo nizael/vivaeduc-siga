@@ -14,7 +14,6 @@ export const classroomCreate = async (formData: FormData) => {
     startDate: new Date(startDate).toISOString(),
     endDate: new Date(endDate).toISOString(),
     courseId: formData.get('courseId')!.toString(),
-    coordinatorId: formData.get('coordinatorId')!.toString(),
     shift: formData.get('shift')!.toString() as "MORNING" | "AFTERNOON" | "NIGHT" | "INTERMEDIATE" | "FULL_TIME",
   }
 

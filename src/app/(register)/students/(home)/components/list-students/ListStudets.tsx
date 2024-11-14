@@ -15,7 +15,7 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
   }, [students])
 
   return (
-    <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4  h-full">
+    <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4 grow">
       <div className="grow">
         <table className="w-full">
           <thead className="bg-primary text-gray-50">
@@ -28,7 +28,7 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
               <td className="px-4 py-2  w-16">Ação</td>
             </tr>
           </thead>
-          <tbody className="p-4">
+          <tbody>
             {studentsView?.map(student => <tr key={student.id} className="hover:bg-[--hover-secondary] text-xs font-semibold text-[--text-primary] border-l-[4px] border-transparent border-t border-t-gray-200 even:border-l-[--bg-primary]">
               <td className="py-2 px-4 text-[--text-primary] text-sm font-bold truncate">{student.name}</td>
               <td className="py-2 px-4 max-sm:hidden ">{student.code}</td>

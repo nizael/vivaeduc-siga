@@ -9,5 +9,4 @@ export interface ICreateClassroom {
   inep?: string
   startDate: string
   endDate: string
-  coordinatorId: string
 }

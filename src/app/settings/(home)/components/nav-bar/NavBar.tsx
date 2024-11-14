@@ -1,25 +1,10 @@
-import { CalendarIcon } from "@/components/icons/CalendarIcon"
-import { ClassroomIcon } from "@/components/icons/ClassroomIcon"
-import { BookIcon } from "@/components/icons/BookIcon"
-import { SubjectIcon } from "@/components/icons/SubjectIcon"
 import Link from "next/link"
 import { ReactNode } from "react"
 
 export const NavBar = () => {
   return (
     <section className="p-4 bg-gray-50 flex gap-4 shadow-sm max-sm:flex-col">
-      <NavButton href="/settings/enrollment-requirement" label="Requistios de matrícula" />
-      {/*  
-      <NavButton href="/finance/courses" label="Cursos" icon={<SchoolIcon />} />
-      <NavButton href="/finance/grades" label="Séries" />
-      <NavButton href="/finance/classrooms" label="Turmas" icon={<ClassroomIcon />} />
-      <NavButton href="/finance/subjects" label="Disciplinas" icon={<SubjectIcon />} />
-      <NavButton href="/" label="Grade Curricular" />
-      <NavButton href="/" label="Diário de Classe" />
-      <NavButton href="/" label="Notas" />
-      <NavButton href="/" label="Frequências" />
-      <NavButton href="/" label="Avaliações" />
-       */}
+      <NavButton href="/settings/enrollment-requirement" label="Requisitos de matrícula" />
     </section>
   )
 }

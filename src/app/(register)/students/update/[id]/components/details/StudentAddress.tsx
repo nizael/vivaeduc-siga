@@ -6,6 +6,7 @@ import { IAddress } from "@/types/address/IAddress"
 import { InputEdit } from "@/components/inputs/InputEdit"
 import { useUpdateStudentStore } from "../../../../stores/useUpdateStudentStore"
 import { studentUpdate } from "@/services/student/studentUpdate"
+import { DropdownIcon } from "@/components/icons/DropdownIcon"
 
 export const StudentAddress = () => {
   const { student, address, updateAttributeAddress } = useUpdateStudentStore()
@@ -22,8 +23,11 @@ export const StudentAddress = () => {
   if (!address) return null
   return (
     <details className="  bg-gray-50 overflow-hidden">
-      <summary className="px-4 py-2 bg-primary grid grid-cols-3 border-b place-items-center text-gray-50"><span className="font-semibold text-start w-full flex items-center gap-2"><LocationIcon /> Endereço</span> <DotsIcon /> <span /></summary>
-      <div className="relative grid grid-cols-4 gap-4  p-4">
+      <summary className="p-4 flex justify-between border-b bg-primary text-gray-50">
+        <span className="font-semibold text-start w-full flex items-center gap-2"><LocationIcon /> Endereço</span>
+        <DropdownIcon className="w-5" />
+      </summary>
+      <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
         <InputEdit name="postalCode" onSubmit={evt => updateAddressSelectEdit(evt, 'postalCode')} defaultValue={address.postalCode}>
           <FieldData field="CEP" value={formatCEP(address.postalCode)} />
         </InputEdit>

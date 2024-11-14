@@ -11,7 +11,7 @@ export default async function PaymentPlanPage() {
     <>
       <ModalPaymentPlanCreate />
       <LayoutApp >
-        <div className="flex flex-col gap-4 p-4">
+        <div className="flex flex-col gap-4 p-4 min-h-full">
           <TitlePage title="Planos de pagamento" />
           <ToolBar />
           {(status === 200) && <PaymentPlanList ListPaymentPlans={data} />}

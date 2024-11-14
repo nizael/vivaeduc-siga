@@ -19,7 +19,7 @@ export const BannerPlan = () => {
           <li>- Gestão de Mensalidades</li>
         </ul> */}
         <p className="text-sm z-10 font-semibold">Atualize para o plano Premium para obter mais recursos</p>
-        <Link className="z-10  h-[40px] px-4 rounded-full bg-gray-50 text-[--text-primary] grid place-content-center font-semibold w-fit" href={'/'}>Alterar Plano</Link>
+        <Link className="z-10  h-[40px] px-4 rounded-full bg-gray-50 text-[--text-primary] grid place-content-center font-semibold w-fit" href={'#'}>Alterar Plano</Link>
       </div>
     </div>
   )

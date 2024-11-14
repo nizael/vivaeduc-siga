@@ -5,7 +5,7 @@ import { cookiesManager } from "../../../../di/dependencyInjection"
 import { LogoutIcon } from "../../icons/LogoutIcon"
 import { env } from "@/configs/env"
 
-export const Logout = () => {
+export const LogoutMobile = () => {
   const { reset: resetStore } = useAuthDataStore()
   const router = useRouter()
   function handleClick() {
@@ -15,8 +15,9 @@ export const Logout = () => {
    if(authUrl) router.push(authUrl)
   }
   return (
-    <button onClick={handleClick} className={`  text-[#C1BBEB] rounded-md w-10 h-10 flex items-center justify-center gap-4 text-base`}>
-      <LogoutIcon />
+    <button onClick={handleClick}  className="flex items-center font-semibold text-[--text-primary] p-2 text-sm gap-1">
+      <LogoutIcon className="w-4" />
+      Sair
     </button>
   )
 }
