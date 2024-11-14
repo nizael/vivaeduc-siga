@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     type:'website',
     images: [
       {
-        url: 'https://siga.vivaeduc.com/svg/logo_48.svg', 
-        width: 48,
-        height: 48,
+        url: 'https://siga.vivaeduc.com/svg/logo_512.svg', 
+        width: 512,
+        height: 512,
         type: 'image/svg+xml',
       },
     ],
