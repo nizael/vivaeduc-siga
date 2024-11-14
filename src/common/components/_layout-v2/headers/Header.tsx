@@ -3,7 +3,6 @@ import { BellIcon } from "@/components/icons/BellIcon";
 import { Menu2Icon } from "../../icons/Menu2Icon";
 import { useMobileMenuStore } from "../stores/useMobileMenuStore";
 import { UserIcon } from "@/components/icons/UserIcon";
-import { MenuWeb } from "../menu-web/MenuWeb";
 import { IUserData, useAuthDataStore } from "../../../../app/(auth)/stores/useAuthData";
 import { useEffect } from "react";
 import { useProfileMobileStore } from "../stores/useProfileMobileStore";
@@ -41,7 +40,6 @@ export const Header = ({ authData }: { authData: IUserData }) => {
         <p className="w-9 h-9  rounded-lg font-bold text-gray-50 text-xl  grid place-content-center bg-[#FB7D5B]">ve</p>
         <p className=" text-2xl text-[--text-primary]"><b className="font">Viva</b>Educ</p>
       </div>
-      {/* <MenuWeb /> */}
       <div className="flex grow gap-4 justify-end">
         <button className="w-10 h-10 grid place-content-center"><BellIcon /></button>
         <button onClick={onOpenProfile} className="w-10 h-10 grid place-content-center rounded-full border"><UserIcon /></button>
