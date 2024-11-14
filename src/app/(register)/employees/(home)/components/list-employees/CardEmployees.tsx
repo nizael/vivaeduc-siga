@@ -3,7 +3,7 @@ import { EmailIcon } from "@/components/icons/EmailIcon"
 import Image from "next/image"
 import { NavMenu } from "@/components/nav-menu/NavMenu"
 import Link from "next/link"
-import { roles } from "@/components/_layout/Header"
+import { roles } from "@/configs/roles"
 
 interface ICardEmployeesProps {
   image?: string

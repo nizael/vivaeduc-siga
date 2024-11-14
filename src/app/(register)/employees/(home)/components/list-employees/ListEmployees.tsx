@@ -3,7 +3,6 @@ import { useEffect } from "react"
 import { IEmployees, useEmployeesStore } from "../../../stores/useEmployeesStore"
 import { CardEmployees } from "./CardEmployees"
 import { Pagination } from "@/components/pagination/Pagination"
-// import { Pagination } from "./Pagination"
 
 
 export const ListEmployees = ({ employees }: { employees: IEmployees[] }) => {
