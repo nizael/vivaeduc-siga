@@ -4,7 +4,7 @@ import { Header } from "./headers/Header"
 import { guardian } from "../../../di/dependencyInjection"
 import { AsideBar } from "./side-bar/AsideBar"
 import { ProfileMobile } from "./profile/ProfileMobile"
-import Head from "next/head"
+import { Head } from "next/document"
 
 
 export const LayoutApp = async ({ children }: PropsWithChildren) => {
