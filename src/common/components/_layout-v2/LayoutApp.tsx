@@ -22,8 +22,8 @@ export const LayoutApp = async ({ children }: PropsWithChildren) => {
         <meta property="og:description" content="Sistema de gestão escolar" />
         <meta property="og:image" content="https://siga.vivaeduc.com/svg/logo_48.svg" />
         <meta property="og:image:type" content="image/svg+xml" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image:width" content="48" />
+        <meta property="og:image:height" content="48" />
       </Head>
       <MenuMobile />
       <ProfileMobile />
