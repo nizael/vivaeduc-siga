@@ -17,7 +17,6 @@ export const LayoutApp = async ({ children }: PropsWithChildren) => {
         <meta name="description" content="Sistema de gestão escolar completo com funcionalidades de controle acadêmico, financeiro, RH e mais." />
         <meta name="keywords" content="sistema escolar, gestão escolar, controle acadêmico, sistema de escola" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:image" content="/svg/logo_48.svg" />
         <meta name="description" content="Sistema de gestão escolar" />
         <meta property="og:title" content="VivaEduc" />
         <meta property="og:description" content="Sistema de gestão escolar" />
