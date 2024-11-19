@@ -11,7 +11,7 @@ export default async function SubjectPage() {
     <>
       <SubjectCreateModal />
       <LayoutApp>
-        <div className="flex flex-col gap-4 p-4">
+        <div className="flex flex-col gap-4 p-4 min-h-full">
           <TitlePage title="Disciplinas" />
           <ToolBar />
           {(status === 200) && <ListGrades listSubjects={data} />}
