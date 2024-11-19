@@ -15,7 +15,7 @@ export default async function CurriculumPage() {
         <div className="flex flex-col gap-4 p-4 min-h-full">
           <TitlePage title="Grades currículares" />
           <ToolBar />
-          {(status === 200 && data) ? <ListCurriculum listCurriculum={data} />: <EmptyPage label="Nenhuma grade curricular encontrada"/>}
+          {(status === 200 && data.length) ? <ListCurriculum listCurriculum={data} />: <EmptyPage label="Nenhuma grade curricular encontrada"/>}
         </div>
       </LayoutApp>
     </>
