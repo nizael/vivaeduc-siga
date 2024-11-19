@@ -11,10 +11,10 @@ import { DropdownIcon } from "@/components/icons/DropdownIcon"
 export const PersonalData = ({ student }: { student: IStudent }) => {
   return (
     <details open className="">
-      <summary className="p-4 flex justify-between border-b bg-primary text-gray-50">
+      <summary className="px-4 py-2 flex justify-between border-b bg-primary text-gray-50">
         <span className="font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span>
         <DropdownIcon className="w-5" />
-      </summary>z
+      </summary>
       <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
         <FieldData field="Matrícula" value={student?.code || '-'} />
         <FieldData field="INEP" value={student?.inep || '-'} />

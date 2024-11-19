@@ -47,15 +47,15 @@ export const GradeCreateModal = () => {
                 <span className=" text-[--text-primary] font-semibold ">Tipo de avaliação</span>
                 <div className="border border-[#C1BBEB] bg-white rounded-lg p-2 text-base text-[--text-primary] font-medium outline-[--bg-primary] flex items-center gap-2" >
                   <label htmlFor="report" className="flex items-center gap-1">
-                    <input value="REPORT" id="report" type="radio" name="typeAssessment" />
+                    <input required value="REPORT" id="report" type="radio" name="typeAssessment" />
                     Relatório
                   </label>
                   <label htmlFor="grade" className="flex items-center gap-1">
-                    <input value="GRADE" id="garde" type="radio" name="typeAssessment" />
+                    <input required value="GRADE" id="garde" type="radio" name="typeAssessment" />
                     Nota
                   </label>
                   <label htmlFor="goal" className="flex items-center gap-1">
-                    <input value="GOAL" type="radio" id="goal" name="typeAssessment" />
+                    <input required value="GOAL" type="radio" id="goal" name="typeAssessment" />
                     Meta
                   </label>
                 </div>

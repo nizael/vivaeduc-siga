@@ -1,19 +1,11 @@
 'use client'
-import { FinanceIcon } from "../../icons/FinanceIcon"
-import { SettingsIcon } from "../../icons/SettingsIcon"
 import { XIcon } from "../../icons/XIcon"
-import { SchoolIcon } from "@/components/icons/SchoolIcon"
 import Link from "next/link"
 import { useEffect } from "react"
-import { CalendarIcon } from "@/components/icons/CalendarIcon"
-import { HomeIcon } from "@/components/icons/HomeIcon"
-import { Student2Icon } from "@/components/icons/Student2Icon"
-import { UserHeartIcon } from "@/components/icons/UserHeartIcon"
-import { UsersGroupIcon } from "@/components/icons/UsersGroupIcon"
-import { LogoutMobile } from "../menu-mobile/LogoutMobile"
 import { useProfileMobileStore } from "../stores/useProfileMobileStore"
 import Image from "next/image"
 import { UserIcon } from "@/components/icons/UserIcon"
+import { Logout } from "../side-bar/Logout"
 
 export const ProfileMobile = () => {
   const { isOpen, onClose } = useProfileMobileStore()
@@ -31,11 +23,11 @@ export const ProfileMobile = () => {
 
   if (!isOpen) return null
   return (
-    <div className="absolute top-0 left-0 w-full h-full bg-opacity-70 z-20 flex items-center justify-center">
+    <div onMouseLeave={onClose} className="absolute top-0 right-2 max-[769px]:left-0 max-[769px]:w-full md:shadow-sm  max-[769px]:h-full bg-opacity-70 z-20 flex items-center justify-center">
       <div className="w-full h-full flex flex-col bg-gray-50">
         <div className="border-b h-12 p-2 flex items-center justify-between">
           <p className="font-semibold text-[--text-primary]">Perfil</p>
-          <button onClick={onClose}><XIcon /></button>
+          <button className="max-[769px]:block hidden" onClick={onClose}><XIcon /></button>
         </div>
         <div className="flex flex-col gap-4 p-2 grow">
           <div className="flex items-center gap-2">
@@ -47,7 +39,10 @@ export const ProfileMobile = () => {
               <p className="text-gray-500 text-xs">nizaelvalente@gmail.com</p>
             </div>
           </div>
-          <Link onClick={onClose} href={'/'} className="flex items-center font-semibold text-[--text-primary] p-2 text-sm gap-1"><UserIcon className="w-4" />Meus dados</Link>
+          <div className="flex flex-col gap-4 p-2">
+            <Link onClick={onClose} href={'/'} className="flex items-center font-semibold text-[--text-primary] text-sm gap-1"><UserIcon className="w-5" />Meus dados</Link>
+            <Logout />
+          </div>
         </div>
       </div>
     </div>

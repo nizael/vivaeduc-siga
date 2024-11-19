@@ -15,8 +15,9 @@ export const Logout = () => {
    if(authUrl) router.push(authUrl)
   }
   return (
-    <button onClick={handleClick} className={`  text-[#C1BBEB] rounded-md w-10 h-10 flex items-center justify-center gap-4 text-base`}>
-      <LogoutIcon />
+    <button onClick={handleClick} className="flex items-center font-semibold text-[--text-primary] text-sm gap-1">
+      <LogoutIcon  className="w-5" />
+      Sair
     </button>
   )
 }

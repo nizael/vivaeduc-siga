@@ -3,9 +3,9 @@ import { BellIcon } from "@/components/icons/BellIcon";
 import { Menu2Icon } from "../../icons/Menu2Icon";
 import { useMobileMenuStore } from "../stores/useMobileMenuStore";
 import { UserIcon } from "@/components/icons/UserIcon";
-import { IUserData, useAuthDataStore } from "../../../../app/(auth)/stores/useAuthData";
-import { useEffect } from "react";
 import { useProfileMobileStore } from "../stores/useProfileMobileStore";
+import { SettingsIcon } from "@/components/icons/SettingsIcon";
+import Link from "next/link";
 
 export const roles = {
   MANAGER: 'Gerente',
@@ -19,17 +19,9 @@ export const roles = {
   PRINCIPAL: 'Diretor(a)'
 }
 
-export const Header = ({ authData }: { authData: IUserData }) => {
+export const Header = () => {
   const { onOpen } = useMobileMenuStore()
   const { onOpen: onOpenProfile } = useProfileMobileStore()
-  const { userData, reset, setUserData } = useAuthDataStore()
-
-  useEffect(() => {
-    if (authData) {
-      setUserData(authData)
-    }
-    return reset
-  }, [authData])
 
   return (
     <header className="col-start-1 col-end-3 max-[769px]:col-end-2 flex items-center h-12 px-2 border-b bg-gray-50">
@@ -42,6 +34,9 @@ export const Header = ({ authData }: { authData: IUserData }) => {
       </div>
       <div className="flex grow gap-4 justify-end">
         <button className="w-10 h-10 grid place-content-center"><BellIcon /></button>
+        {/* <Link href={'/settings'} className="w-10 h-10 grid place-content-center rounded-full border">
+        <SettingsIcon />
+        </Link> */}
         <button onClick={onOpenProfile} className="w-10 h-10 grid place-content-center rounded-full border"><UserIcon /></button>
       </div>
     </header>

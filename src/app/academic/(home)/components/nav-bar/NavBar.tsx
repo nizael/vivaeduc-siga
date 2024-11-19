@@ -5,6 +5,7 @@ import { SubjectIcon } from "@/components/icons/SubjectIcon"
 import { SwipeIcon } from "@/components/icons/SwipeIcon"
 import Link from "next/link"
 import { ReactNode } from "react"
+import { BooksIcon } from "@/components/icons/BooksIcon"
 
 export const NavBar = () => {
   return (
@@ -14,6 +15,7 @@ export const NavBar = () => {
       <NavButton href="/academic/grades" label="Séries" icon={<SwipeIcon />} />
       <NavButton href="/academic/classrooms" label="Turmas" icon={<ClassroomIcon />} />
       <NavButton href="/academic/subjects" label="Disciplinas" icon={<SubjectIcon />} />
+      <NavButton href="/academic/curriculum" label="Grades currículares" icon={<BooksIcon />} />
       {/* <NavButton href="/" label="Grade Curricular" />
       <NavButton href="/" label="Diário de Classe" />
       <NavButton href="/" label="Notas" />

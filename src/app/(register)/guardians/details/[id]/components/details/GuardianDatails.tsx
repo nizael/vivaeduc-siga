@@ -10,7 +10,7 @@ import { DropdownIcon } from "@/components/icons/DropdownIcon"
 export const GuardianDetails = ({ guardian }: { guardian: IGuardianInfo }) => {
   return (
     <details open className=" bg-gray-50 group">
-      <summary className="p-4 flex justify-between border-b bg-primary text-gray-50">
+      <summary className="px-4 py-2 flex justify-between border-b bg-primary text-gray-50">
         <span className=" font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span>
         <DropdownIcon className="w-5" />
       </summary>

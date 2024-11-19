@@ -40,7 +40,7 @@ export const GuardianDetails = () => {
   if (!guardian) return null
   return (
     <details open className=" rounded-b-xl bg-gray-50 ">
-      <summary className="p-4 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
+      <summary className="px-4 py-2 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span> <DotsIcon /> <span /></summary>
       <div className="relative grid grid-cols-4 gap-4  p-4">
         <InputEdit name="name" onSubmit={evt => updatePersonalDataInputEdit(evt, 'name')} defaultValue={guardian.name} >
           <FieldData id="name" field="Nome completo" value={guardian.name} />

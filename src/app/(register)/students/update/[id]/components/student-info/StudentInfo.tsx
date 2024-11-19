@@ -24,7 +24,7 @@ export const StudentInfo = (props: { studentData: { student: IStudent, address: 
 
   return (
     <section className=" bg-gray-50 shadow-sm relative flex flex-col gap-4 ">
-      <div className=" l flex flex-col">
+      <div className="flex flex-col">
         <div className="h-36 w-full bg-[--bg-primary] flex justify-end p-10 overflow-hidden">
           <div className="w-[261px] h-[275px] rounded-full border-[16px] border-[#FB7D5B] mt-10 -mr-40 " />
           <div className="w-[261px] h-[275px] rounded-full border-[16px] border-[#FCC43E]  " />

@@ -50,7 +50,7 @@ export const FormStudent = () => {
       <ErrorModal isOpen={isOpen} onClose={onClose} message={message} />
       <form action={handleFormCation} className="flex flex-col gap-4">
         <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm">
-          <summary className="p-4 flex justify-between border-b  text-gray-500">
+          <summary className="px-4 py-2 flex justify-between border-b  text-gray-500">
             <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserEditIcon /> Dados pessoais</span>
             <DropdownIcon className="w-5" />
           </summary>
@@ -79,7 +79,7 @@ export const FormStudent = () => {
         </details>
 
         <details open className="bg-gray-50 rounded-lg flex flex-col gap-4 shadow-sm">
-          <summary className="p-4 flex justify-between border-b  text-gray-500">
+          <summary className="px-4 py-2 flex justify-between border-b  text-gray-500">
             <span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><UserHeartIcon />Responsaveis</span>
             <DropdownIcon className="w-5" />
           </summary>
