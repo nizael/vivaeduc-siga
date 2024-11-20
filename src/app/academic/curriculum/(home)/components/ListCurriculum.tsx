@@ -5,6 +5,7 @@ import { ActionMenu } from "@/components/action-menu/ActionMenu"
 import { useEffect, useState } from "react"
 import { ICurriculum } from "@/services/curriculum/ICurriculum"
 import { useCurriculumStore } from "../../stores/useCurriculumStore"
+import { EmptyPage } from "@/components/empty-state/EmptyPage"
 
 export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum[] }) => {
   const { curriculums, setCurriculums } = useCurriculumStore()
@@ -14,7 +15,7 @@ export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum
       setCurriculums(listCurriculum)
     }
   }, [listCurriculum])
-
+  if (!curriculums.length) return <EmptyPage label="Nenhuma grade curricular encontrada" />
   return (
     <section className="flex flex-col gap-4">
       {curriculums?.map(curriculum => {
