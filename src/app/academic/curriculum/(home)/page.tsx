@@ -4,7 +4,6 @@ import { ListCurriculum } from "./components/ListCurriculum";
 import { ToolBar } from "./components/ToolBar";
 import { CreateCurriculum } from "../create/CreateCurriculum";
 import { listAllCurriculums } from "@/services/curriculum/curriculumGets";
-import { EmptyPage } from "@/components/empty-state/EmptyPage";
 
 export default async function CurriculumPage() {
   const { data, status } = await listAllCurriculums()

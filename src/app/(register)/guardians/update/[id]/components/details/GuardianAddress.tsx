@@ -6,6 +6,7 @@ import { formatCEP } from "@/utils/formatCEP"
 import { useUpdateGuardianStore } from "../../../../stores/useUpdateGuardianStore"
 import { guardianUpdate } from "@/services/guardian/guardianUpdate"
 import { InputEdit } from "@/components/inputs/InputEdit"
+import { DropdownIcon } from "@/components/icons/DropdownIcon"
 
 export const GuardianAddress = () => {
   const { guardian, updateAttributeAddress, address } = useUpdateGuardianStore()
@@ -23,7 +24,10 @@ export const GuardianAddress = () => {
   if (!address) return null
   return (
     <details className=" rounded-b-xl bg-gray-50 overflow-hidden">
-      <summary className="px-4 py-2 grid grid-cols-3 border-b place-items-center text-gray-500"><span className="text-[--text-primary] font-semibold text-start w-full flex items-center gap-2"><LocationIcon /> Endereço</span> <DotsIcon /> <span /></summary>
+      <summary className="px-4 py-2 flex justify-between border-b bg-primary text-gray-50">
+        <span className="font-semibold text-start w-full flex items-center gap-2"><LocationIcon /> Endereço</span>
+        <DropdownIcon className="w-5" />
+      </summary>
       <div className="relative grid grid-cols-4 gap-4  p-4">
         <InputEdit name="postalCode" onSubmit={evt => updateAddressSelectEdit(evt, 'postalCode')} defaultValue={address.postalCode}>
           <FieldData field="CEP" value={formatCEP(address.postalCode)} />
