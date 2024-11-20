@@ -11,7 +11,7 @@ export class CookiesManager {
       } : null;
     } else {
       const { cookies } = await import('next/headers');
-      const cookie = cookies().get(name)
+      const cookie =cookies().get(name)
       if (cookie) return cookie
       return null
     }
@@ -25,24 +25,27 @@ export class CookiesManager {
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
         expires = `; expires=${date.toUTCString()}`
       }
-      document.cookie = `${name}=${value || ''}${expires}; path=/`
+      document.cookie = `${name}=${value || ''}${expires}; path=/;  domain=.vivaeduc.com; Secure=true; SameSite=None`
     } else {
       const { cookies } = await import('next/headers')
-      cookies().set(name, value)
+      cookies().set(name, value, {
+        maxAge: days ? days * 24 * 60 * 60 : undefined,
+        path: '/',
+        domain: '.vivaeduc.com',  // Substitua pelo domínio correto
+        secure: true,
+        sameSite: 'none',
+      })
     }
   }
 
   async deleteCookie(name: string): Promise<null> {
     if (typeof document !== 'undefined') {
-      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.vivaeduc.com; Secure=true; SameSite=None`;
       return null;
     } else {
       const { cookies } = await import('next/headers');
-      cookies().delete(name)
+      cookies().delete(name);
       return null
     }
   }
-
 }
-
-
