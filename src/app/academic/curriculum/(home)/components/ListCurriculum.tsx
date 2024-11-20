@@ -17,7 +17,7 @@ export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum
   }, [listCurriculum])
   if (!curriculums.length) return <EmptyPage label="Nenhuma grade curricular encontrada" />
   return (
-    <section className="flex flex-col gap-4">
+    <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4 grow">
       {curriculums?.map(curriculum => {
         return (
           <details key={curriculum.id}>
