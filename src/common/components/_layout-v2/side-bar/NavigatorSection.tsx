@@ -1,4 +1,5 @@
-import { AcademicIcon } from "../../icons/AcademicIcon"
+import { SchoolIcon } from "@/components/icons/SchoolIcon"
+
 import { CalendarIcon } from "../../icons/CalendarIcon"
 import { ChatIcon } from "../../icons/ChatIcon"
 import { EmployeeIcon } from "../../icons/EmployeeIcon"
@@ -9,10 +10,11 @@ import { Student2Icon } from "../../icons/Student2Icon"
 import { LinkButton } from "./LinkButton"
 
 export const NavigatorSection = () => {
+
   return (
     <nav className="flex w-10 flex-col gap-2 grow">
       <LinkButton icon={<HomeIcon />} label="Inicio" href={'/'} />
-      <LinkButton icon={<AcademicIcon />} label="Acadêmico" href={'/academic'} />
+      <LinkButton icon={<SchoolIcon />} label="Acadêmico" href={'/academic'} />
       <LinkButton icon={<CalendarIcon />} label="Calendário" href={'/calendar'} />
       <LinkButton icon={<GuardianIcon />} label="Responsáveis" href={'/guardians'} />
       <LinkButton icon={<Student2Icon />} label="Alunos" href={'/students'} />

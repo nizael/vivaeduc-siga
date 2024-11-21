@@ -21,7 +21,7 @@ export const SubjectCreateModal = () => {
     <ModalOverlay isOpen={isOpen} onClose={onClose}>
       <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-lg w-full" onClick={evt => evt.stopPropagation()}>
         <div className="flex justify-between p-4 border-b ">
-          <h5 className="text-xl text-[--text-primary] font-semibold">Nova Série</h5>
+          <h5 className="text-xl text-[--text-primary] font-semibold">Nova Disciplina</h5>
           <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>
         </div>
         <form action={async formData => {

@@ -11,7 +11,7 @@ export const CreateEvent = () => {
   const { isOpen, onClose, pushEvent } = useCalendarStore()
   return (
     <ModalOverlay isOpen={isOpen} onClose={onClose} >
-      <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-lg w-full overflow-y-auto" onClick={evt => evt.stopPropagation()}>
+      <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-screen-lg w-full overflow-y-auto" onClick={evt => evt.stopPropagation()}>
         <div className="flex justify-between p-4 border-b ">
           <h5 className="text-xl text-[--text-primary] font-semibold">Novo evento</h5>
           <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>

@@ -11,10 +11,8 @@ import { Toast } from '@/components/toast/Toast';
 
 
 export default function SessionPage() {
-  const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const handleLogin = async (formData: FormData) => {
-    setIsLoading(s => !s)
     const result = await sessionCreate(formData)
     if (result.status === 201) {
       cookiesManager.setCookie('user_token', result.data.token)
@@ -43,7 +41,7 @@ export default function SessionPage() {
           <p className=" text-[26px] text-primary"><b className="font">Viva</b>Educ</p>
         </div>
 
-        <LoadingSpinner isLoading={isLoading} />
+        <LoadingSpinner />
         <div className="bg-gray-50 rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col gap-10">
           <h1 className="text-3xl font-bold text-primary">Entrar</h1>
           <form action={handleLogin} className='flex flex-col gap-4'>

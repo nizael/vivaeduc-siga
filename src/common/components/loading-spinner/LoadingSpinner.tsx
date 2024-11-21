@@ -1,10 +1,14 @@
-// components/LoadingSpinner.js
+'use client'
+import { Fragment, PropsWithChildren, useEffect } from "react";
+import { useLoadingSpinnerStore } from "./stores/useLoadingSpinnerStore";
 
-export const LoadingSpinner = ({ isLoading }: { isLoading: boolean }) => {
-  if (!isLoading) return null
+export const LoadingSpinner = ({ children }: PropsWithChildren) => {
+  const { isLoading, setIsLoading } = useLoadingSpinnerStore()
+  useEffect(() => { setIsLoading(false) }, [])
   return (
-    <div className="absolute top-0 left-0 w-full flex items-center justify-center min-h-screen">
-      <div className="w-16 h-16 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
-    </div>
+    <Fragment>
+      {isLoading && <div className="absolute left-[calc(50%-32px)]  top-[calc(50%-32px)]  w-16 h-16 border-4 border-[#FB7D5B] border-dotted rounded-full animate-spin" />}
+      {children}
+    </Fragment>
   );
 };
