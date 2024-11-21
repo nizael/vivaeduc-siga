@@ -25,13 +25,13 @@ export class CookiesManager {
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
         expires = `; expires=${date.toUTCString()}`
       }
-      document.cookie = `${name}=${value || ''}${expires}; path=/;  domain=.vivaeduc.com; Secure=true; SameSite=None`
+      document.cookie = `${name}=${value || ''}${expires}; path=/;  domain=.localhost; Secure=true; SameSite=None`
     } else {
       const { cookies } = await import('next/headers')
       cookies().set(name, value, {
         maxAge: days ? days * 24 * 60 * 60 : undefined,
         path: '/',
-        domain: '.vivaeduc.com',  // Substitua pelo domínio correto
+        domain: '.localhost',  // Substitua pelo domínio correto
         secure: true,
         sameSite: 'none',
       })
@@ -40,7 +40,7 @@ export class CookiesManager {
 
   async deleteCookie(name: string): Promise<null> {
     if (typeof document !== 'undefined') {
-      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.vivaeduc.com; Secure=true; SameSite=None`;
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.localhost; Secure=true; SameSite=None`;
       return null;
     } else {
       const { cookies } = await import('next/headers');

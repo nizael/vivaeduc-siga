@@ -9,18 +9,18 @@ export default async function SchoolPage() {
   const { data, status } = await schoolDetails()
   return (
     <LayoutApp>
-      <div className="flex flex-col gap-4  p-4">
-        <h1 className="flex items-center font-semibold gap-2 text-[--text-primary]">Escola</h1>
-        <div className="flex gap-4">
-          <div className="flex flex-col gap-4 grow">
-            <LoadingSpinner>
+      <LoadingSpinner>
+        <div className="flex flex-col gap-4  p-4">
+          <h1 className="flex items-center font-semibold gap-2 text-[--text-primary]">Escola</h1>
+          <div className="flex gap-4">
+            <div className="flex flex-col gap-4 grow">
               {(status === 200 && data) && <SchoolData schoolData={data} />}
               {/* {(status === 200 && data.address) && <AddressView address={data.address} />} */}
-            </LoadingSpinner>
+            </div>
+            <RightSide />
           </div>
-          <RightSide />
         </div>
-      </div>
+      </LoadingSpinner>
     </LayoutApp>
   )
 }

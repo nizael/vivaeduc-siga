@@ -1,6 +1,5 @@
 'use client'
 import { SearchIcon } from "@/components/icons/SearchIcon"
-import Link from "next/link"
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { useEnrollmentRequirementsStore } from "../../../stores/useEnrollmentRequirementStore"
 import { useEnrollmentRequirementModal } from "../../../stores/useEnrollmentRequirementModal"

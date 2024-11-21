@@ -4,6 +4,7 @@ import { employeeDetails } from "@/services/employee/employeeGet";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 
 interface IEmployeeDetailsPageProps {
   params: { id: string }
@@ -13,11 +14,13 @@ export default async function EmployeeDetailsPage(props: IEmployeeDetailsPagePro
   const { status, data } = await employeeDetails(props.params.id)
   return (
     <LayoutApp >
-      <div className="flex flex-col gap-4 p-4">
-        <TitlePage title="Detalhes do Funcionário" />
-        {status === 200 && data ? <EmployeeInfo employeeData={data} /> : <EmptyPage label="Funcionário não encontrado" />}
-        <EmployeeClassrooms />
-      </div>
+      <LoadingSpinner>
+        <div className="flex flex-col gap-4 p-4">
+          <TitlePage title="Detalhes do Funcionário" />
+          {status === 200 && data ? <EmployeeInfo employeeData={data} /> : <EmptyPage label="Funcionário não encontrado" />}
+          <EmployeeClassrooms />
+        </div>
+      </LoadingSpinner>
     </LayoutApp>
   )
 }

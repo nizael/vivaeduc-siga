@@ -9,15 +9,15 @@ import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 export default function Finance() {
   return (
     <LayoutApp>
-      <div className="flex flex-col gap-4 p-4">
-        <h1 className="flex items-center font-semibold gap-2 text-[--text-primary]">Financeiro</h1>
-        <LoadingSpinner>
+      <LoadingSpinner>
+        <div className="flex flex-col gap-4 p-4">
+          <h1 className="flex items-center font-semibold gap-2 text-[--text-primary]">Financeiro</h1>
           <NavBar />
           <KpiSection />
           <BalanceAnalytics />
           <CashFlow />
-        </LoadingSpinner>
-      </div>
+        </div>
+      </LoadingSpinner>
     </LayoutApp>
   );
 }

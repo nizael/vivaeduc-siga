@@ -1,3 +1,4 @@
+'use client'
 import { CalendarIcon } from "@/components/icons/CalendarIcon"
 import { ClassroomIcon } from "@/components/icons/ClassroomIcon"
 import { BookIcon } from "@/components/icons/BookIcon"
@@ -6,6 +7,7 @@ import { SwipeIcon } from "@/components/icons/SwipeIcon"
 import Link from "next/link"
 import { ReactNode } from "react"
 import { BooksIcon } from "@/components/icons/BooksIcon"
+import { useLoadingSpinnerStore } from "@/components/loading-spinner/stores/useLoadingSpinnerStore"
 
 export const NavBar = () => {
   return (
@@ -26,8 +28,9 @@ export const NavBar = () => {
 }
 
 export const NavButton = ({ label, href, icon }: { label: string, href: string, icon?: ReactNode }) => {
+  const { setIsLoading } = useLoadingSpinnerStore()
   return (
-    <Link href={href} className="flex items-center gap-1 shadow-sm bg-[#C1BBEB] bg-opacity-50 rounded-md font-semibold text-sm text-[--text-primary] px-4 py-2">
+    <Link onClick={() => setIsLoading(true)} href={href} className="flex items-center gap-1 shadow-sm bg-[#C1BBEB] bg-opacity-50 rounded-md font-semibold text-sm text-[--text-primary] px-4 py-2">
       {icon}
       {label}
     </Link>

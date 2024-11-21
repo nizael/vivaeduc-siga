@@ -4,6 +4,7 @@ import { GradeCreateModal } from "../create/CreateModal";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
 import { ToolBar } from "./components/ToolBar";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
+import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 
 export default async function GradePage() {
   const { data, status } = await gradeListAll()
@@ -11,11 +12,13 @@ export default async function GradePage() {
     <>
       <GradeCreateModal />
       <LayoutApp >
-      <div className="flex flex-col gap-4 p-4 min-h-full">
-        <TitlePage title="Séries" />
-          <ToolBar />
-          {(status === 200) && < ListGrades listGrades={data} />}
-        </div>
+        <LoadingSpinner>
+          <div className="flex flex-col gap-4 p-4 min-h-full">
+            <TitlePage title="Séries" />
+            <ToolBar />
+            {(status === 200) && < ListGrades listGrades={data} />}
+          </div>
+        </LoadingSpinner>
       </LayoutApp>
     </>
   );
