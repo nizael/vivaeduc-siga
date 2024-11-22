@@ -10,6 +10,10 @@ export class EmployeeApi extends FetchApi {
   async listAll() {
     return this.get('/v1/employees/listAll')
   }
+  async listAllTeachers() {
+    return this.get('/v1/employees/listAllTeachers')
+  }
+  
   async details(id: string) {
     return this.get(`/v1/employees/details/${id}`)
   }

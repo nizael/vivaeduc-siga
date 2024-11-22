@@ -6,19 +6,26 @@ import { useEffect, useState } from "react"
 import { ICurriculum } from "@/services/curriculum/ICurriculum"
 import { useCurriculumStore } from "../../stores/useCurriculumStore"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
+import { ICurriculumUpdate, useUpdateCurriculum } from "../../stores/useUpdateCurriculum"
 
 export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum[] }) => {
   const { curriculums, setCurriculums } = useCurriculumStore()
-
+  const { onOpen, setCurrentCurriculum: setCurrentTeacher } = useUpdateCurriculum()
   useEffect(() => {
     if (listCurriculum.length) {
       setCurriculums(listCurriculum)
     }
   }, [listCurriculum])
+
+  const handleEdit = (curriculum: ICurriculumUpdate) => {
+    onOpen()
+    setCurrentTeacher(curriculum)
+  }
+
   if (!curriculums.length) return <EmptyPage label="Nenhuma grade curricular encontrada" />
   return (
     <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4 grow">
-      {curriculums?.map(curriculum => {
+      {curriculums?.map((curriculum, curriculumIndex) => {
         return (
           <details key={curriculum.id}>
             <summary className="px-4 py-2 flex justify-between border-b bg-primary text-gray-50">
@@ -35,15 +42,26 @@ export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum
                   </tr>
                 </thead>
                 <tbody>
-                  {curriculum.curriculumSubjects?.map(curriculumSubject => {
+                  {curriculum.curriculumSubjects?.map((curriculumSubject, subjectIndex) => {
                     return (
                       <tr key={curriculumSubject.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary] border-b last:border-none">
                         <td className="px-4 py-2 w-2/6">{curriculumSubject.subject.name}</td>
                         <td className="px-4 py-2 ">{curriculumSubject.employee.name}</td>
                         <td className="py-2 px-4  flex items-center justify-end" >
                           <ActionMenu position="bottom" items={[
-                            { onClick: () => ({}), label: 'Detalhes' },
-                            { onClick: () => ({}), label: 'Editar' },
+                            { onClick: () => ({}), label: 'Excluir' },
+                            {
+                              onClick: () => handleEdit(
+                                {
+                                  curriculumIndex,
+                                  curriculumSubjectId: curriculumSubject.id,
+                                  subjectIndex,
+                                  subjectsName: curriculumSubject.subject.name,
+                                  teacher: { id: curriculumSubject.employee.id, name: curriculumSubject.employee.name }
+                                }
+                              ),
+                              label: 'Editar'
+                            },
                           ]} />
                         </td>
                       </tr>

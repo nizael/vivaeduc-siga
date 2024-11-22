@@ -26,68 +26,71 @@ export const CreateCurriculum = () => {
   const [employeeId, setEmployeeId] = useState('')
   const [initialValue, setInitialValue] = useState({ label: '', value: '' })
   const [curriculumItems, setCurriculumItems] = useState<{ subjectId: string, employeeId: string }[]>([])
-  const { isOpen, onClose, pushCurriculum } = useCurriculumStore()
+  const { isModalOpen, closeModal, addCurriculum } = useCurriculumStore()
   const [listEmployees, setListEmployee] = useState<{ id: string, name: string }[]>([])
   const [listSubjects, setListSubjects] = useState<{ id: string, name: string }[]>([])
   const [listSchoolYears, setListSchoolYears] = useState<{ id: string, name: string }[]>([])
   const [listGrades, setListGrades] = useState<{ id: string, name: string }[]>([])
 
   useEffect(() => {
-    (async () => {
-      const { data, status } = await curriculumDependencies()
+    const fetchDependencies = async () => {
+      const { data, status } = await curriculumDependencies();
       if (status === 200) {
-        const { employees, subjects, grades, schoolYears } = data as ICurriculumDependenciesResponse
-        setListEmployee(employees.map(employee => ({ id: employee.id, name: employee.person.name })))
-        setListSubjects(subjects.map(subject => ({ id: subject.id, name: subject.name })))
-        setListGrades(grades.map(grade => ({ id: grade.id, name: grade.name })))
-        setListSchoolYears(schoolYears.map(schoolYear => ({ id: schoolYear.id, name: schoolYear.name })))
+        const { employees, subjects, grades, schoolYears } = data as ICurriculumDependenciesResponse;
+        setListEmployee(employees.map(employee => ({ id: employee.id, name: employee.person.name })));
+        setListSubjects(subjects.map(subject => ({ id: subject.id, name: subject.name })));
+        setListGrades(grades.map(grade => ({ id: grade.id, name: grade.name })));
+        setListSchoolYears(schoolYears.map(schoolYear => ({ id: schoolYear.id, name: schoolYear.name })));
       }
-    })()
-  }, [])
+    };
+  
+    fetchDependencies();
+  }, []);
 
   const addItem = () => {
-    const isExists = curriculumItems.some(item => item.subjectId === subjectId)
-    if (subjectId && employeeId && !isExists) {
-      const curriculumItem = { subjectId, employeeId }
-      setCurriculumItems([...curriculumItems, curriculumItem])
-      setEmployeeId('')
-      setSubjectId('')
+    if (!subjectId || !employeeId) return;
+  
+    const isExists = curriculumItems.some(item => item.subjectId === subjectId);
+    if (!isExists) {
+      setCurriculumItems(prev => [...prev, { subjectId, employeeId }]);
+      setEmployeeId('');
+      setSubjectId('');
+      setInitialValue({ label: '', value: '' });
     }
-    const initialValue = { label: '', value: '' }
-    setInitialValue({ ...initialValue })
-  }
-
+  };
+  
   const deleteItem = (index: number) => {
-    const currentItems = [...curriculumItems]
-    currentItems.splice(index, 1)
-    setCurriculumItems(currentItems)
-  }
+    setCurriculumItems(prev => prev.filter((_, idx) => idx !== index));
+  };
+  
 
-  const handleCancel = () => {
-    setEmployeeId('')
-    setSubjectId('')
-    setCurriculumName('')
-    setCurriculumItems([])
-    onClose()
-  }
+  const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setEmployeeId('');
+    setSubjectId('');
+    setCurriculumName('');
+    setCurriculumItems([]);
+    closeModal();
+  };
+  
 
   const handleSave = () => {
 
   }
 
   return (
-    <ModalOverlay isOpen={isOpen} onClose={() => ({})}>
+    <ModalOverlay isOpen={isModalOpen} onClose={() => ({})}>
       <form action={async formData => {
         formData.set('curriculumSubjects', JSON.stringify(curriculumItems))
         const { data, status } = await curriculumCreate(formData)
         if (status === 201) {
-          pushCurriculum(data)
-          onClose()
+          addCurriculum(data)
+          closeModal()
         }
       }} className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-screen-lg w-full h-[90%]" >
         <div className="flex justify-between p-4 border-b ">
           <h5 className="text-xl text-[--text-primary] font-semibold">Nova Grade Currícular</h5>
-          <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>
+          <button onClick={closeModal} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>
         </div>
         <div className="p-4 flex flex-col gap-4" >
           <div className="grid grid-cols-2 gap-4">

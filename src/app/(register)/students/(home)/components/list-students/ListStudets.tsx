@@ -6,6 +6,7 @@ import { IStudents, useStudentsStore } from "../../../stores/useStudentsStore"
 import { useEffect } from "react"
 import Link from "next/link"
 import { Pagination } from "@/components/pagination/Pagination"
+import { useLoadingSpinnerStore } from "@/components/loading-spinner/stores/useLoadingSpinnerStore"
 
 
 export const ListStudents = ({ students }: { students: IStudents[] }) => {
@@ -13,6 +14,8 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
   useEffect(() => {
     if (students) setListStudents(students)
   }, [students])
+  const { setIsLoading } = useLoadingSpinnerStore()
+
 
   return (
     <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4 grow">
@@ -38,9 +41,9 @@ export const ListStudents = ({ students }: { students: IStudents[] }) => {
               </td>
               <td className="py-2 px-4 text-center max-sm:hidden">{student.grade}</td>
               <td className="py-2 px-4 text-center max-sm:hidden">{student.classroom}</td>
-              <td className="py-2 px-4 text-center"><NavMenu items={[
-                { href: `/students/update/${student.id}`, label: 'Editar' },
-                { href: `/students/details/${student.id}`, label: 'Detalhes' },
+              <td   className="py-2 px-4 text-center"><NavMenu items={[
+                { href: `/students/update/${student.id}`, label: 'Editar' , onClick:()=>setIsLoading(true)},
+                { href: `/students/details/${student.id}`, label: 'Detalhes', onClick:()=>setIsLoading(true) },
               ]} /></td>
             </tr>)}
           </tbody>

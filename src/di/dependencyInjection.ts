@@ -22,6 +22,7 @@ import { SchoolApi } from "@/services/school/SchoolApi";
 import { PaymentApi } from "@/services/payment/PaymentApi";
 import { CalendarSchoolApi } from "@/services/calendar-school/CalendarSchoolApi";
 import { CurriculumApi } from "@/services/curriculum/CurriculumApi";
+import { CurriculumSubjectApi } from "@/services/curriculum-subject/CurriculumSubjectApi";
 
 // import { StudentApi } from "@/services/register/student/StudentApi";
 // import { GuardianApi } from "@/services/register/guardian/GuardianApi";
@@ -48,10 +49,12 @@ const monthlyFeesApi = new MonthlyFeesApi(axios)
 const paymentApi = new PaymentApi(axios)
 const calendarSchoolApi = new CalendarSchoolApi(axios)
 const curriculumApi = new CurriculumApi(axios)
+const curriculumSubjectApi = new CurriculumSubjectApi(axios)
 
 export {
   fetchApi,
   paymentApi,
+  curriculumSubjectApi,
   curriculumApi,
   calendarSchoolApi,
   monthlyFeesApi,
