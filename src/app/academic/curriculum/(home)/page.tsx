@@ -6,6 +6,7 @@ import { CreateCurriculum } from "../create/CreateCurriculum";
 import { listAllCurriculums } from "@/services/curriculum/curriculumGets";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 import { UpdateCurriculum } from "../update/UpdateCurriculum";
+import { DeleteCurriculum } from "../delete/DeleteCurriculum";
 
 export default async function CurriculumPage() {
   const { data, status } = await listAllCurriculums()
@@ -13,6 +14,7 @@ export default async function CurriculumPage() {
     <>
       <CreateCurriculum />
       <UpdateCurriculum />
+      <DeleteCurriculum />
       <LayoutApp>
         <LoadingSpinner>
           <div className="flex flex-col gap-4 p-4 min-h-full">

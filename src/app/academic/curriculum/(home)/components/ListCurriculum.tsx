@@ -7,10 +7,13 @@ import { ICurriculum } from "@/services/curriculum/ICurriculum"
 import { useCurriculumStore } from "../../stores/useCurriculumStore"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
 import { ICurriculumUpdate, useUpdateCurriculum } from "../../stores/useUpdateCurriculum"
+import { useDeleteSubjectFromCurriculumStore } from "../../stores/useDeleteSubjectFromCurriculumStore"
 
 export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum[] }) => {
-  const { curriculums, setCurriculums } = useCurriculumStore()
-  const { onOpen, setCurrentCurriculum: setCurrentTeacher } = useUpdateCurriculum()
+  const { curriculums, setCurriculums , deleteCurriculumSubject } = useCurriculumStore()
+  const { onOpen, setCurrentCurriculum,  } = useUpdateCurriculum()
+  const { onOpen: openModalDelete, } = useDeleteSubjectFromCurriculumStore()
+
   useEffect(() => {
     if (listCurriculum.length) {
       setCurriculums(listCurriculum)
@@ -19,7 +22,13 @@ export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum
 
   const handleEdit = (curriculum: ICurriculumUpdate) => {
     onOpen()
-    setCurrentTeacher(curriculum)
+    setCurrentCurriculum(curriculum)
+  }
+
+
+  const handleDelete = (curriculum: ICurriculumUpdate) => {
+    setCurrentCurriculum(curriculum)
+    openModalDelete()
   }
 
   if (!curriculums.length) return <EmptyPage label="Nenhuma grade curricular encontrada" />
@@ -43,23 +52,23 @@ export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum
                 </thead>
                 <tbody>
                   {curriculum.curriculumSubjects?.map((curriculumSubject, subjectIndex) => {
+
+                    const dataForEdit = {
+                      curriculumIndex,
+                      curriculumSubjectId: curriculumSubject.id,
+                      subjectIndex,
+                      subjectsName: curriculumSubject.subject.name,
+                      teacher: { id: curriculumSubject.employee.id, name: curriculumSubject.employee.name }
+                    }
                     return (
                       <tr key={curriculumSubject.id} className="text-[--text-primary] font-semibold text-sm hover:bg-[--hover-secondary] border-b last:border-none">
                         <td className="px-4 py-2 w-2/6">{curriculumSubject.subject.name}</td>
                         <td className="px-4 py-2 ">{curriculumSubject.employee.name}</td>
                         <td className="py-2 px-4  flex items-center justify-end" >
                           <ActionMenu position="bottom" items={[
-                            { onClick: () => ({}), label: 'Excluir' },
+                            { onClick: () => handleDelete(dataForEdit), label: 'Excluir' },
                             {
-                              onClick: () => handleEdit(
-                                {
-                                  curriculumIndex,
-                                  curriculumSubjectId: curriculumSubject.id,
-                                  subjectIndex,
-                                  subjectsName: curriculumSubject.subject.name,
-                                  teacher: { id: curriculumSubject.employee.id, name: curriculumSubject.employee.name }
-                                }
-                              ),
+                              onClick: () => handleEdit(dataForEdit),
                               label: 'Editar'
                             },
                           ]} />
