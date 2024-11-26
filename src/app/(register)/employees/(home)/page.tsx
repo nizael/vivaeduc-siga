@@ -2,7 +2,7 @@ import { ListEmployees } from "./components/list-employees/ListEmployees";
 import { ToolBar } from "./components/ToolBar";
 import { employeeListAll } from "@/services/employee/employeeGet";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 
 export default async function EmployeesPage() {

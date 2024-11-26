@@ -2,7 +2,7 @@
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 import { NavBar } from "./components/nav-bar/NavBar";
 import { Overview } from "./components/overview/Overview";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 
 export default function AcademicPage() {
   return (

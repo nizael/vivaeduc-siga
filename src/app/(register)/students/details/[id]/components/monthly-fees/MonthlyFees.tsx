@@ -37,12 +37,9 @@ export const MonthlyFees = ({ monthlyFees }: { monthlyFees: IMonthlyFees }) => {
       monthlyFee
     })
     onOpen()
-
   }
 
-
   if (!monthlyFeesView?.length) return null
-
   return (
     <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4 h-full">
       <header className="flex items-center gap-2 bg-primary text-gray-50 px-4 py-2 border-b">
@@ -51,57 +48,59 @@ export const MonthlyFees = ({ monthlyFees }: { monthlyFees: IMonthlyFees }) => {
       </header>
 
       <div className="grow">
-        <div className="grid grid-cols-4 px-4 py-2">
+        <div className="grid max-sm:grid-cols-1 max-lg:grid-cols-3 grid-cols-4 px-4 py-2">
           <CustomSelect
+            className="w-full"
             initialValue={optionsKeys[0]}
             options={optionsKeys}
             onChange={evt => setClassroomSelect(evt.currentTarget.value)}
           />
         </div>
+        <div className=" w-full overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="text-sm font-semibold text-gray-500">
+                {["Período letivo", "Turma", "Vencimento", "Parcela", "Total", "Desconto", "Valor pago", "A receber", "Situação", "Ação"].map((header, index) => (
+                  <td key={index} className={`px-4 py-2 ${index >= 2 ? 'text-center' : ''}`}>{header}</td>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {monthlyFeesView.map(monthlyFee => {
+                const isDelayed = new Date(monthlyFee.dueDate) < new Date() && monthlyFee.status === 'PENDING'
+                const dueDateFormatted = new Date(monthlyFee.dueDate).toLocaleDateString('pt-BR')
+                const amountFormatted = monthlyFee.amount?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+                const discountFormatted = monthlyFee.discountAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+                const toReceiveFormatted = monthlyFee.toReceiveAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+                const previousPayments = monthlyFee.previousPayments.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
-        <table className="w-full">
-          <thead>
-            <tr className="text-sm font-semibold text-gray-500">
-              {["Período letivo", "Turma", "Vencimento", "Parcela", "Total", "Desconto", "Valor pago", "A receber", "Situação", "Ação"].map((header, index) => (
-                <td key={index} className={`px-4 py-2 ${index >= 2 ? 'text-center' : ''}`}>{header}</td>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {monthlyFeesView.map(monthlyFee => {
-              const isDelayed = new Date(monthlyFee.dueDate) < new Date() && monthlyFee.status === 'PENDING'
-              const dueDateFormatted = new Date(monthlyFee.dueDate).toLocaleDateString('pt-BR')
-              const amountFormatted = monthlyFee.amount?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-              const discountFormatted = monthlyFee.discountAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-              const toReceiveFormatted = monthlyFee.toReceiveAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-              const previousPayments = monthlyFee.previousPayments.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-
-              return (
-                <tr key={monthlyFee.id} className={`${isDelayed ? 'text-red-400' : 'text-primary'} text-sm border-b`}>
-                  <td className="p-4">{monthlyFee.schoolYearName}</td>
-                  <td className="p-4">{monthlyFee.classroomName}</td>
-                  <td className="p-4 text-center">{dueDateFormatted}</td>
-                  <td className="p-4 text-center">{monthlyFee.installmentNumber}</td>
-                  <td className="p-4 text-center font-semibold">{amountFormatted}</td>
-                  <td className="p-4 text-center text-[#FB7D5B]">{discountFormatted}</td>
-                  <td className="p-4 text-center text-[#FB7D5B]">{previousPayments}</td>
-                  <td className={`${isDelayed ? 'text-red-400' : 'text-green-600'} p-4 text-center font-semibold`}>{toReceiveFormatted}</td>
-                  <td className={`${isDelayed ? 'text-red-400' : ''} p-4 text-center`}>{monthlyFee.status === 'PAID' ? 'Pago' : 'Pendente'}</td>
-                  <td className="p-2 text-center">
-                    <button
-                      onClick={() => handleReceive(monthlyFee)}
-                      disabled={monthlyFee.status === 'PAID'}
-                      aria-label="Receber pagamento"
-                      className={`${monthlyFee.status === 'PAID' ? 'bg-gray-300' : 'bg-green-600'} w-fit text-gray-50 px-2 py-1 rounded-md`}
-                    >
-                      Receber
-                    </button>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+                return (
+                  <tr key={monthlyFee.id} className={`${isDelayed ? 'text-red-400' : 'text-primary'} text-sm border-b`}>
+                    <td className="p-4">{monthlyFee.schoolYearName}</td>
+                    <td className="p-4">{monthlyFee.classroomName}</td>
+                    <td className="p-4 text-center">{dueDateFormatted}</td>
+                    <td className="p-4 text-center">{monthlyFee.installmentNumber}</td>
+                    <td className="p-4 text-center font-semibold">{amountFormatted}</td>
+                    <td className="p-4 text-center text-[#FB7D5B]">{discountFormatted}</td>
+                    <td className="p-4 text-center text-[#FB7D5B]">{previousPayments}</td>
+                    <td className={`${isDelayed ? 'text-red-400' : 'text-green-600'} p-4 text-center font-semibold`}>{toReceiveFormatted}</td>
+                    <td className={`${isDelayed ? 'text-red-400' : ''} p-4 text-center`}>{monthlyFee.status === 'PAID' ? 'Pago' : 'Pendente'}</td>
+                    <td className="p-2 text-center">
+                      <button
+                        onClick={() => handleReceive(monthlyFee)}
+                        disabled={monthlyFee.status === 'PAID'}
+                        aria-label="Receber pagamento"
+                        className={`${monthlyFee.status === 'PAID' ? 'bg-gray-300' : 'bg-green-600'} w-fit text-gray-50 px-2 py-1 rounded-md`}
+                      >
+                        Receber
+                      </button>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
       {monthlyFeesCurrent && <Pagination currentPage={currentPage} items={monthlyFeesCurrent} setCurrentPage={setCurrentPage} />}
     </section>

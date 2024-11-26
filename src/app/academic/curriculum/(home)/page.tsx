@@ -1,4 +1,4 @@
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { ListCurriculum } from "./components/ListCurriculum";
 import { ToolBar } from "./components/ToolBar";

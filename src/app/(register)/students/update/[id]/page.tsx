@@ -2,7 +2,7 @@ import { StudentInfo } from "./components/student-info/StudentInfo";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
 import { IPageProps } from "@/types/page-props/IPageProps";
 import { studentDetails } from "@/services/student/studentDetails";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 
 

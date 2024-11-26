@@ -3,7 +3,7 @@ import { ToolBar } from "./components/ToolBar";
 
 import { courseListAll } from "@/services/course/courseListAll";
 import { CourseCreateModal } from "../create/CreateModal";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 

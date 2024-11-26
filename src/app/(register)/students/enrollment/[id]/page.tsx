@@ -3,7 +3,7 @@ import { studentDetails } from "@/services/student/studentDetails";
 import Image from "next/image";
 import { FormEnrollment } from "./components/forms/FormEnrollment";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 

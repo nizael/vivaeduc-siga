@@ -3,7 +3,7 @@ import { ToolBar } from "./components/ToolBar";
 import { classroomListAll } from "@/services/classroom/classroomGet";
 import { ClassroomCreateModal } from "../create/CreateModal";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 
 export default async function ClassroomPage() {

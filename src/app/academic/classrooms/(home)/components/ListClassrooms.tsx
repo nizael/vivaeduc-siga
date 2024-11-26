@@ -17,7 +17,7 @@ export const ListClassrooms = ({ listClassrooms }: { listClassrooms: IClassroom[
   if (!classroomViews?.length) return <EmptyPage label="Não existem turmas cadastradas" />
   return (
     <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4  grow">
-      <div className="grow">
+      <div className="grow overflow-x-auto">
         <table className="w-full">
           <thead className="bg-primary text-gray-50">
             <tr className="text-sm font-semibold border-b">

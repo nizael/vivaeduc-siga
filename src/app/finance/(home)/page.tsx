@@ -3,7 +3,7 @@ import { BalanceAnalytics } from "./components/balance-analytics/BalanceAnalytic
 import { CashFlow } from "./components/cashflow/CashFlow";
 import { KpiSection } from "./components/kpi-section/KpiSection";
 import { NavBar } from "./components/nav-bar/NavBar";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 import { env } from "@/configs/env";
 

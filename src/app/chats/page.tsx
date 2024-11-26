@@ -1,4 +1,4 @@
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { Conversations } from "./components/Conversations";
 import { env } from "@/configs/env";
 

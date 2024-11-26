@@ -2,7 +2,7 @@ import { ListSchoolYears } from "./components/ListSchoolYears";
 import { ToolBar } from "./components/ToolBar";
 import { schoolYearListAll } from "@/services/school-year/schoolYearListAll";
 import { SchoolYearCreateModal } from "../create/CreateModal";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 

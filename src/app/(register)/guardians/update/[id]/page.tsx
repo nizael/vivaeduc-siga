@@ -2,7 +2,7 @@ import { GuardianInfo } from "./components/guardian-info/GuardianInfo";
 import { guardianDetails } from "@/services/guardian/guardianDetails";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
 import { IPageProps } from "@/types/page-props/IPageProps";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 

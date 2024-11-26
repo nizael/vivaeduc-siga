@@ -1,4 +1,4 @@
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 
 export default function TestPage() {
   return (

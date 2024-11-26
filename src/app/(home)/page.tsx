@@ -1,4 +1,4 @@
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { CalendarFinance } from "./components/calendar-finance/CalendarFinance";
 import { Overview } from "./components/overview/Overview";
 import { Performance } from "./components/performance/Perfomance";

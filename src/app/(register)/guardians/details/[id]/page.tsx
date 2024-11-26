@@ -3,7 +3,7 @@ import { ListDependents } from "./components/dependents/ListDependents";
 import { PaymentHistory } from "./components/paument-history/PaymentHistory";
 import { guardianDetails } from "@/services/guardian/guardianDetails";
 import { EmptyPage } from "@/components/empty-state/EmptyPage";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 

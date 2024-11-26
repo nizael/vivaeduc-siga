@@ -2,7 +2,7 @@ import { EmptyPage } from "@/components/empty-state/EmptyPage";
 import { ListStudents } from "./components/list-students/ListStudets";
 import { ToolBar } from "./components/ToolBar";
 import { studentListAll } from "@/services/student/studentListAll";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 
 export default async function StudentsPage() {

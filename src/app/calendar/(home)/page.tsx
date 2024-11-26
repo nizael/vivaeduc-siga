@@ -1,4 +1,4 @@
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { Calendar } from "./components/calendar/Calendar";
 import { RightSide } from "./components/right-side/RightSide";
 import { CreateEvent } from "../create/CreateEvent";

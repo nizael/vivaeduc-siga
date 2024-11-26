@@ -7,7 +7,7 @@ import { PersonalData } from "./components/personal-data/PersonalData";
 import { AddressView } from "@/components/templates/address/AddressView";
 import { ReceivePayment } from "./components/receive-payment/ReceivePayment";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { redirect } from "next/navigation";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 

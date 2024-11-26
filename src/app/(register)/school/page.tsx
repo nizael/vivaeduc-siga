@@ -2,7 +2,7 @@ import { SchoolData } from "./components/principal-data/SchoolData";
 import { RightSide } from "./components/right-side/RightSide";
 import { schoolDetails } from "@/services/school/schoolGets";
 import { AddressView } from "@/components/templates/address/AddressView";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 
 export default async function SchoolPage() {

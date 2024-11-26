@@ -14,7 +14,7 @@ export const ListEnrollmentRequirement = ({ listEnrollmentRequirements }: { list
   }, [listEnrollmentRequirements])
   if (!enrollmentRequirementsView?.length) return <EmptyPage label="Não existem requisitos cadastrados!" />
   return (
-    <section className="bg-gray-50shadow-sm  w-full flex flex-col gap-4  h-full">
+    <section className="bg-gray-50shadow-sm  w-full flex flex-col gap-4  grow">
       <div className="grow">
         <table className="w-full">
           <thead className="bg-primary text-gray-50">

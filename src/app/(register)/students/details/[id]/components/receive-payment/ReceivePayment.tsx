@@ -5,25 +5,25 @@ import { useReceivePaymentModal } from "../../../../stores/useReceivePaymentModa
 import { FieldData } from "../field-data/FieldData"
 import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
 import { paymentCreate } from "@/services/payment/paymentCreate"
-import { useRouter } from "next/navigation"
-import { methodReceipt, methodReceiptOptions } from "@/configs/methodReceipt"
+import { methodReceiptOptions } from "@/configs/methodReceipt"
 import { useState } from "react"
 import { currencyFormat } from "@/utils/currencyFormat"
+import { useMonthlyFeesStore } from "../../../../stores/useMonthlyFeesStore"
 
 export const ReceivePayment = () => {
-  const router = useRouter()
-  const { isOpen, onClose, onOpen, monthlyFee } = useReceivePaymentModal()
+  const { isOpen, onClose, monthlyFee } = useReceivePaymentModal()
   const total = monthlyFee?.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) || '0'
   const discount = monthlyFee?.discountAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) || '0'
   const toReceiveAmount = monthlyFee?.toReceiveAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) || '0'
   const previousPayments = monthlyFee?.previousPayments.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) || '0'
-  const [amount, setAmount] = useState("0,00");
+  const [amount, setAmount] = useState("0,00")
+  const { updateMonthlyFees } = useMonthlyFeesStore()
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const value = evt.currentTarget.value 
-
+    const value = evt.currentTarget.value
     setAmount(currencyFormat(value));
   };
+
   return (
     <ModalOverlay isOpen={isOpen} onClose={() => ({})}>
 
@@ -40,7 +40,8 @@ export const ReceivePayment = () => {
             formData.set('type', `${amount < monthlyFee.toReceiveAmount ? "PARTIAL" : "TOTAL"}`)
           }
           const { status } = await paymentCreate(formData)
-          if (status === 201) {
+          if (status === 201 && monthlyFee) {
+            updateMonthlyFees(monthlyFee.id)
             useReceivePaymentModal.setState({ monthlyFee: undefined })
             onClose()
           }

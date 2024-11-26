@@ -1,6 +1,6 @@
 import { employeeDetails } from "@/services/employee/employeeGet";
 import { EmployeeInfo } from "./components/employee-info/EmployeeInfo";
-import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
+import { LayoutApp } from "@/components/layout/LayoutApp";
 import { TitlePage } from "@/components/templates/title-page/TitlePage";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
 interface IEmployeeDetailsPageProps {
