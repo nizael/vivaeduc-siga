@@ -1,7 +1,9 @@
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
 import { Conversations } from "./components/Conversations";
+import { env } from "@/configs/env";
 
 export default function Chat() {
+  if (env.NODE_ENV === 'production') return null
   return (
     <LayoutApp>
       <div className="flex flex-col gap-4 p-4 min-h-full">

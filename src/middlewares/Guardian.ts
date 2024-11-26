@@ -47,7 +47,9 @@ export class Guardian {
       permissions: decoded.permissions,
       plan: decoded.plan,
       name: decoded.name,
-      role: decoded.role
+      role: decoded.role,
+      employeeId: decoded.employeeId,
+      image: decoded.image
     }
   }
 

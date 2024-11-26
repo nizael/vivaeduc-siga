@@ -8,7 +8,6 @@ import { AuthProvider } from "../../providers/auth/AuthProvider"
 export const LayoutApp = async ({ children }: PropsWithChildren) => {
   return (
     <AuthProvider>
-  
       <MenuMobile />
       <ProfileMobile />
       <div className="grid grid-cols-[48px,1fr] max-[769px]:grid-cols-[1fr] grid-rows-[48px,1fr] h-full">

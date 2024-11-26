@@ -14,6 +14,8 @@ export interface IUserData {
   plan: IPlans;
   name: string
   role: string
+  employeeId: string
+  image?: string
 }
 export const useAuthDataStore = create<IUseAuthData>((set) => ({
   setUserData: (userData) => {
