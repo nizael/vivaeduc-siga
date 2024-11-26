@@ -56,8 +56,8 @@ export const useCurriculumStore = create<IUseCurriculumStore>((set, get) => ({
             curriculumSubjects: curr.curriculumSubjects.filter(cS=> cS.id !== curriculumSubjectId)
           }
           : curr
-      );
-      return { curriculums: updatedCurriculums };
+      )
+      return { curriculums: updatedCurriculums }
     })
   },
 }));

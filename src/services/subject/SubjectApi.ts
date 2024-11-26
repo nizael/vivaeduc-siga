@@ -11,7 +11,7 @@ export class SubjectApi extends FetchApi {
   // async details(id: string) {
   //   return this.get(`/v1/subjects/details/${id}`)
   // }
-  // async update(data: Partial<ICreateSubject>, id: string) {
-  //   return this.put(`/v1/subjects/update/${id}`, data)
-  // }
+  async update(data: Partial<ICreateSubject>, id: string) {
+    return this.put(`/v1/subjects/update/${id}`, data)
+  }
 }

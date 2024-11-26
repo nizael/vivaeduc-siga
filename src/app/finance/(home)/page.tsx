@@ -5,6 +5,7 @@ import { KpiSection } from "./components/kpi-section/KpiSection";
 import { NavBar } from "./components/nav-bar/NavBar";
 import { LayoutApp } from "@/components/_layout-v2/LayoutApp";
 import { LoadingSpinner } from "@/components/loading-spinner/LoadingSpinner";
+import { env } from "@/configs/env";
 
 export default function Finance() {
   return (
@@ -14,7 +15,7 @@ export default function Finance() {
           <h1 className="flex items-center font-semibold gap-2 text-[--text-primary]">Financeiro</h1>
           <NavBar />
           <KpiSection />
-          <BalanceAnalytics />
+          {env.NODE_ENV === 'production' && <BalanceAnalytics />}
           <CashFlow />
         </div>
       </LoadingSpinner>

@@ -1,25 +1,19 @@
 'use client'
 import { InputText } from "@/components/inputs/InputText"
 import { ModalOverlay } from "@/components/modals/ModalOverlay"
-import { courseCreate } from "@/services/course/courseCreate"
 import { CustomSelect } from "@/components/custom-select-v2/CustomSelect"
-import { modalityCourseOptions } from "@/configs/modalityCourse"
-import { useEffect, useState } from "react"
-import { courseListAll } from "@/services/course/courseListAll"
-import { ICourse } from "@/services/course/ICourse"
-import { gradeCreate } from "@/services/grade/gradeCreate"
 import { useSubjectStore } from "../stores/useSubjectStore"
 import { useSubjectCreateModalStore } from "../stores/useSubjectCreateModal"
 import { subjectCreate } from "@/services/subject/subjectCreate"
 import { bnccCodeOptions } from "@/configs/bnccCode"
 
-export const SubjectCreateModal = () => {
+export const CreateSubject = () => {
   const { isOpen, onClose } = useSubjectCreateModalStore()
   const { pushSubject } = useSubjectStore()
 
   return (
     <ModalOverlay isOpen={isOpen} onClose={onClose}>
-      <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-lg w-full" onClick={evt => evt.stopPropagation()}>
+      <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-screen-md w-full" onClick={evt => evt.stopPropagation()}>
         <div className="flex justify-between p-4 border-b ">
           <h5 className="text-xl text-[--text-primary] font-semibold">Nova Disciplina</h5>
           <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>

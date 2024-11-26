@@ -12,6 +12,7 @@ interface IUseSubjectStore {
   toggleSequence(): void
   setSubjects(subjects: ISubject[]): void
   pushSubject(subject: ISubject): void
+  updateSubject(data: Partial<ISubject>, id: string): void
 }
 
 export const useSubjectStore = create<IUseSubjectStore>((set, get) => ({
@@ -45,4 +46,16 @@ export const useSubjectStore = create<IUseSubjectStore>((set, get) => ({
       subjectViews: subjects?.slice(start, end)
     })
   },
+
+  updateSubject: (data, id) => {
+    set((state) => {
+      const updatedSubjects = state.subjectViews?.map(sbj =>
+        sbj.id === id ? {
+          ...sbj,
+          ...data
+        } : sbj
+      )
+      return { subjectViews: updatedSubjects }
+    })
+  }
 }))
