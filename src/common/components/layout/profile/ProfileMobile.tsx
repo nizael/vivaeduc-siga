@@ -33,7 +33,7 @@ export const ProfileMobile = () => {
 
   if (!isOpen) return null
   return (
-    <div onMouseLeave={onClose} className="absolute top-0 right-2 max-[769px]:left-0 md:max-w-sm w-full md:shadow-md  max-[769px]:h-full bg-opacity-70 z-20 flex items-center justify-center">
+    <div onMouseLeave={onClose} className="absolute top-0 right-2 max-[769px]:left-0 md:max-w-sm w-full md:shadow-md md:border-b max-[769px]:h-full bg-opacity-70 z-20 flex items-center justify-center">
       <div className="w-full h-full flex flex-col bg-gray-50">
         <div className="border-b h-12 p-2 flex items-center justify-between">
           <p className="font-semibold text-[--text-primary]">Perfil</p>
