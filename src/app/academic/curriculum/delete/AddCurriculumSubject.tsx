@@ -3,9 +3,10 @@ import { ModalOverlay } from "@/components/modals/ModalOverlay"
 import { useCurriculumStore } from "../stores/useCurriculumStore"
 import { curriculumUpdate } from "@/services/curriculum/curriculumUpdate"
 import { useDeleteCurriculumStore } from "../stores/useDeleteCurriculumStore"
+import { useAddCurriculumSubjectStore } from "../stores/useAddCurriculumSubjectStore"
 
-export const DeleteCurriculum = () => {
-  const { isOpen, onClose } = useDeleteCurriculumStore()
+export const AddCurriculumSubject = () => {
+  const { isOpen, onClose } = useAddCurriculumSubjectStore()
   const { curriculumUpdateData, deleteCurriculum } = useCurriculumStore()
 
   const handleDeleteCurriculum = async () => {
@@ -23,7 +24,7 @@ export const DeleteCurriculum = () => {
     <ModalOverlay isOpen={isOpen} onClose={onClose} >
       <div className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-lg w-full" onClick={evt => evt.stopPropagation()}>
         <div className="flex justify-between p-4 border-b ">
-          <h5 className="text-xl text-[--text-primary] font-semibold">Excluir grade curriculuar</h5>
+          <h5 className="text-xl text-[--text-primary] font-semibold">Adicionar disciplina</h5>
           <button onClick={onClose} className="border text-[--text-primary] rounded-full h-[40px] w-[40px] grid place-content-center">x</button>
         </div>
 

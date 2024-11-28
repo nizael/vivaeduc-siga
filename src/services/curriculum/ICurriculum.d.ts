@@ -1,6 +1,7 @@
 export interface ICurriculum {
   id: string
   name: string
+  isActive: boolean
   curriculumSubjects: ICurriculumSubjects[]
 }
 

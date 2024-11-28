@@ -2,17 +2,22 @@
 'use client'
 import { DropdownIcon } from "@/components/icons/DropdownIcon"
 import { ActionMenu } from "@/components/action-menu/ActionMenu"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { ICurriculum } from "@/services/curriculum/ICurriculum"
 import { useCurriculumStore } from "../../stores/useCurriculumStore"
 import { EmptyPage } from "@/components/empty-state/EmptyPage"
 import { ICurriculumUpdate, useUpdateCurriculum } from "../../stores/useUpdateCurriculum"
 import { useDeleteSubjectFromCurriculumStore } from "../../stores/useDeleteSubjectFromCurriculumStore"
+import { useDeleteCurriculumStore } from "../../stores/useDeleteCurriculumStore"
+import { useAddCurriculumSubjectStore } from "../../stores/useAddCurriculumSubjectStore"
+import { env } from "@/configs/env"
 
 export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum[] }) => {
-  const { curriculums, setCurriculums , deleteCurriculumSubject } = useCurriculumStore()
-  const { onOpen, setCurrentCurriculum,  } = useUpdateCurriculum()
+  const { curriculums, setCurriculums, setCurriculumUpdate } = useCurriculumStore()
+  const { onOpen, setCurrentCurriculum, } = useUpdateCurriculum()
   const { onOpen: openModalDelete, } = useDeleteSubjectFromCurriculumStore()
+  const { onOpen: openModalCurriculumUpdate } = useDeleteCurriculumStore()
+  const { onOpen: openModalAdd } = useAddCurriculumSubjectStore()
 
   useEffect(() => {
     if (listCurriculum.length) {
@@ -25,12 +30,18 @@ export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum
     setCurrentCurriculum(curriculum)
   }
 
-
   const handleDelete = (curriculum: ICurriculumUpdate) => {
     setCurrentCurriculum(curriculum)
     openModalDelete()
   }
 
+  const handleAddSubject = (id: string) => {
+    const curriculum = curriculums.find(curriculum => curriculum.id === id)
+    if (curriculum) {
+      setCurriculumUpdate(curriculum)
+      openModalCurriculumUpdate()
+    }
+  }
   if (!curriculums.length) return <EmptyPage label="Nenhuma grade curricular encontrada" />
   return (
     <section className="bg-gray-50 shadow-sm w-full flex flex-col gap-4 grow">
@@ -41,7 +52,11 @@ export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum
               <span className="font-semibold text-sm">{curriculum.name}</span>
               <DropdownIcon className="w-4" />
             </summary>
-            <div className="">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-4 p-4">
+                {env.NODE_ENV !== 'production' && <button onClick={openModalAdd} className="px-4 py-2 bg-primary rounded-full text-gray-50">Adicionar discplina</button>}
+                <button onClick={() => handleAddSubject(curriculum.id)} className="px-4 py-2 bg-primary rounded-full text-gray-50">Excluir grade</button>
+              </div>
               <table className="w-full">
                 <thead className=" text-gray-500">
                   <tr className="text-sm font-semibold border-b">
@@ -55,6 +70,7 @@ export const ListCurriculum = ({ listCurriculum }: { listCurriculum: ICurriculum
 
                     const dataForEdit = {
                       curriculumIndex,
+                      curriculumId: curriculum.id,
                       curriculumSubjectId: curriculumSubject.id,
                       subjectIndex,
                       subjectsName: curriculumSubject.subject.name,

@@ -1,5 +1,6 @@
 import { FetchApi } from "../fetch-api/FetchApi";
 import { ICreateCurriculum } from "./ICreateCurriculum";
+import { ICurriculum } from "./ICurriculum";
 
 export class CurriculumApi extends FetchApi {
   async create(data: ICreateCurriculum) {
@@ -11,5 +12,9 @@ export class CurriculumApi extends FetchApi {
 
   async listAllCurriculums() {
     return this.get('/v1/curriculums/listAll')
+  }
+
+  async update(data: Partial<ICurriculum>, id: string) {
+    return this.put(`/v1/curriculums/update/${id}`, data)
   }
 }

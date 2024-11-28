@@ -3,6 +3,7 @@ import { create } from "zustand"
 export interface ICurriculumUpdate {
   curriculumIndex: number
   subjectIndex: number
+  curriculumId: string
   subjectsName: string
   curriculumSubjectId: string
   teacher: { id: string, name: string }
@@ -19,7 +20,6 @@ interface IUseUpdateCurriculum {
 
 export const useUpdateCurriculum = create<IUseUpdateCurriculum>((set) => ({
   isOpen: false,
-  curriculums: [],
   onClose: () => set({ isOpen: false }),
   onOpen() {
     set({ isOpen: true })

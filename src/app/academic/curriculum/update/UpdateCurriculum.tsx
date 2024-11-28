@@ -10,27 +10,19 @@ import { curriculumSubjectUpdate } from "@/services/curriculum-subject/curriculu
 
 export const UpdateCurriculum = () => {
   const { isOpen, onClose, currentCurriculum } = useUpdateCurriculum()
-  const [employees, setEmployees] = useState<IEmployee[]>([])
   const [employeeId, setEmployeeId] = useState<string>('')
-  const { updateTeacher } = useCurriculumStore()
+  const { updateTeacher, listTeachers } = useCurriculumStore()
 
-  const x = () => {
+  const handleUpdateTeacher = () => {
     if (currentCurriculum) {
       updateTeacher(
         currentCurriculum.curriculumIndex,
         currentCurriculum.subjectIndex,
-        { id: employeeId, name: employees.find(employee => employee.id === employeeId)?.name || '' }
+        { id: employeeId, name: listTeachers?.find(employee => employee.id === employeeId)?.name || '' }
       )
       onClose()
     }
   }
-
-  useEffect(() => {
-    (async () => {
-      const { data, status } = await listAllTeachers()
-      if (status === 200) setEmployees(data)
-    })()
-  }, [isOpen])
 
   return (
     <ModalOverlay isOpen={isOpen} onClose={onClose}>
@@ -39,7 +31,7 @@ export const UpdateCurriculum = () => {
         const curriculumSubjectId = currentCurriculum?.curriculumSubjectId
         if (curriculumSubjectId) {
           const { data, status } = await curriculumSubjectUpdate(curriculumSubjectId, { employeeId })
-          if (status === 200) x()
+          if (status === 200) handleUpdateTeacher()
         }
       }} className="bg-gray-50 rounded-md shadow-sm flex flex-col max-w-lg w-full" onClick={evt => evt.stopPropagation()}>
         <div className="flex justify-between p-4 border-b ">
@@ -53,7 +45,7 @@ export const UpdateCurriculum = () => {
           </div>
           <CustomSelect
             name="employeeId"
-            options={employees?.map(employee => ({ label: employee.name, value: employee.id }))}
+            options={listTeachers?.map(employee => ({ label: employee.name, value: employee.id })) || []}
             label="Professor"
             onChange={evt => setEmployeeId(evt.currentTarget.value)}
           />

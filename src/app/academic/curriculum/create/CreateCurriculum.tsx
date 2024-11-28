@@ -26,30 +26,11 @@ export const CreateCurriculum = () => {
   const [employeeId, setEmployeeId] = useState('')
   const [initialValue, setInitialValue] = useState({ label: '', value: '' })
   const [curriculumItems, setCurriculumItems] = useState<{ subjectId: string, employeeId: string }[]>([])
-  const { isModalOpen, closeModal, addCurriculum } = useCurriculumStore()
-  const [listEmployees, setListEmployee] = useState<{ id: string, name: string }[]>([])
-  const [listSubjects, setListSubjects] = useState<{ id: string, name: string }[]>([])
-  const [listSchoolYears, setListSchoolYears] = useState<{ id: string, name: string }[]>([])
-  const [listGrades, setListGrades] = useState<{ id: string, name: string }[]>([])
-
-  useEffect(() => {
-    const fetchDependencies = async () => {
-      const { data, status } = await curriculumDependencies();
-      if (status === 200) {
-        const { employees, subjects, grades, schoolYears } = data as ICurriculumDependenciesResponse;
-        setListEmployee(employees.map(employee => ({ id: employee.id, name: employee.person.name })));
-        setListSubjects(subjects.map(subject => ({ id: subject.id, name: subject.name })));
-        setListGrades(grades.map(grade => ({ id: grade.id, name: grade.name })));
-        setListSchoolYears(schoolYears.map(schoolYear => ({ id: schoolYear.id, name: schoolYear.name })));
-      }
-    };
-  
-    fetchDependencies();
-  }, []);
+  const { isModalOpen, closeModal, addCurriculum, listTeachers, listSubjects, listGrades, listSchoolYears } = useCurriculumStore()
 
   const addItem = () => {
     if (!subjectId || !employeeId) return;
-  
+
     const isExists = curriculumItems.some(item => item.subjectId === subjectId);
     if (!isExists) {
       setCurriculumItems(prev => [...prev, { subjectId, employeeId }]);
@@ -58,11 +39,11 @@ export const CreateCurriculum = () => {
       setInitialValue({ label: '', value: '' });
     }
   };
-  
+
   const deleteItem = (index: number) => {
     setCurriculumItems(prev => prev.filter((_, idx) => idx !== index));
   };
-  
+
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -72,7 +53,7 @@ export const CreateCurriculum = () => {
     setCurriculumItems([]);
     closeModal();
   };
-  
+
 
   const handleSave = () => {
 
@@ -94,13 +75,13 @@ export const CreateCurriculum = () => {
         </div>
         <div className="p-4 flex flex-col gap-4" >
           <div className="grid grid-cols-2 gap-4">
-            <CustomSelect required name="schoolYearId" onChange={() => ({})} options={listSchoolYears.map(schoolYear => ({ label: schoolYear.name, value: schoolYear.id }))} label="Período letivo" />
-            <CustomSelect required name="gradeId" onChange={() => ({})} options={listGrades.map(grade => ({ label: grade.name, value: grade.id }))} label="Série" />
+            <CustomSelect required name="schoolYearId" onChange={() => ({})} options={listSchoolYears?.map(schoolYear => ({ label: schoolYear.name, value: schoolYear.id })) || []} label="Período letivo" />
+            <CustomSelect required name="gradeId" onChange={() => ({})} options={listGrades?.map(grade => ({ label: grade.name, value: grade.id })) || []} label="Série" />
           </div>
           <InputText name="name" label="Nome" value={curriculumName} onChange={evt => setCurriculumName(evt.currentTarget.value)} />
           <div className="flex items-end gap-4 w-full border-t py-2">
-            <CustomSelect disabled={!curriculumName} initialValue={initialValue} onChange={evt => setSubjectId(evt.currentTarget.value)} options={listSubjects?.map(subject => ({ label: subject.name, value: subject.id }))} label="Disciplina" className="w-full" />
-            <CustomSelect disabled={!subjectId} initialValue={initialValue} onChange={evt => setEmployeeId(evt.currentTarget.value)} options={listEmployees?.map(employee => ({ label: employee.name, value: employee.id }))} label="Professor" className="w-full" />
+            <CustomSelect disabled={!curriculumName} initialValue={initialValue} onChange={evt => setSubjectId(evt.currentTarget.value)} options={listSubjects?.map(subject => ({ label: subject.name, value: subject.id })) || []} label="Disciplina" className="w-full" />
+            <CustomSelect disabled={!subjectId} initialValue={initialValue} onChange={evt => setEmployeeId(evt.currentTarget.value)} options={listTeachers?.map(employee => ({ label: employee.name, value: employee.id })) || []} label="Professor" className="w-full" />
             <button disabled={!subjectId || !employeeId} onClick={addItem} className="border bg-primary text-gray-50 text-3xl rounded-full h-[40px] w-[40px] grid place-content-center flex-none">+</button>
           </div>
         </div>
@@ -115,8 +96,8 @@ export const CreateCurriculum = () => {
             </thead>
             <tbody>
               {curriculumItems.map((item, index) => {
-                const subject = listSubjects.find(subject => subject.id === item.subjectId)
-                const teacher = listEmployees.find(employee => employee.id === item.employeeId)
+                const subject = listSubjects?.find(subject => subject.id === item.subjectId)
+                const teacher = listTeachers?.find(employee => employee.id === item.employeeId)
                 return (
                   <tr key={`${item.employeeId}-${item.subjectId}`}>
                     <td className="py-2 w-1/2">{subject?.name}</td>
