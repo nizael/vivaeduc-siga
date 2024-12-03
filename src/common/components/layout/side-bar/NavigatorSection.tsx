@@ -9,6 +9,7 @@ import { HomeIcon } from "../../icons/HomeIcon"
 import { Student2Icon } from "../../icons/Student2Icon"
 import { LinkButton } from "./LinkButton"
 import { env } from "@/configs/env"
+import { SettingsIcon } from "@/components/icons/SettingsIcon"
 
 export const NavigatorSection = () => {
 
@@ -22,6 +23,8 @@ export const NavigatorSection = () => {
       <LinkButton icon={<EmployeeIcon />} label="Funcionários" href={'/employees'} />
       <LinkButton icon={<FinanceIcon />} label="Financeiro" href={'/finance'} />
       {(env.NODE_ENV !== 'production') && <LinkButton icon={<ChatIcon />} label="Chat" href={'/chats'} />}
+      <LinkButton icon={<SettingsIcon />} label="Configurações" href={'/settings'} />
+
     </nav>
   )
 } 

@@ -13,10 +13,14 @@ export default function Finance() {
       <LoadingSpinner>
         <div className="flex flex-col gap-4 p-4">
           <h1 className="flex items-center font-semibold gap-2 text-[--text-primary]">Financeiro</h1>
-          <NavBar />
           <KpiSection />
-          {env.NODE_ENV === 'production' && <BalanceAnalytics />}
-          <CashFlow />
+          <NavBar />
+          {env.NODE_ENV !== 'production' && (
+            <>
+              <BalanceAnalytics />
+              <CashFlow />
+            </>
+          )}
         </div>
       </LoadingSpinner>
     </LayoutApp>

@@ -7,6 +7,7 @@ import { InputText } from "@/components/inputs/InputText"
 import { CheckboxGender } from "../CheckboxGender"
 import { colorOrRaceOptions } from "@/configs/colorOrRace"
 import { maritalStatusOptions } from "@/configs/maritalStatus"
+import { env } from "@/configs/env"
 
 export const PersonalData = () => {
   return (
@@ -16,9 +17,9 @@ export const PersonalData = () => {
         <DropdownIcon className="w-5" />
       </summary>
       <div className="flex gap-4 p-4 max-[769px]:flex-col">
-        <div className="border rounded-lg border-[#C1BBEB] h-fit flex justify-center">
+        {env.NODE_ENV !== 'production' && <div className="border rounded-lg border-[#C1BBEB] h-fit flex justify-center">
           <ImageUpload />
-        </div>
+        </div>}
         <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
           <div className="col-start-1 max-sm:col-end-2  max-md:col-end-3">
             <InputText required label="Nome Completo *" name="name" />

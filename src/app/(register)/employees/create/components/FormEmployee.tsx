@@ -17,6 +17,7 @@ import { maritalStatusOptions } from "@/configs/maritalStatus"
 import { employeeRoleOptions } from "@/configs/employeeRole"
 import { AddressForm } from "@/components/templates/address/AddressForm"
 import { SecurityForm } from "@/components/templates/security/SecurityForm"
+import { env } from "@/configs/env"
 
 export const FormEmployee = () => {
   async function handleFormCation(formData: FormData) {
@@ -34,9 +35,9 @@ export const FormEmployee = () => {
           <DropdownIcon className="w-5" />
         </summary>
         <div className="flex gap-4 p-4 max-[769px]:flex-col">
-          <div className="border rounded-lg border-[#C1BBEB] h-fit flex justify-center">
+          {env.NODE_ENV !== 'production' && <div className="border rounded-lg border-[#C1BBEB] h-fit flex justify-center">
             <ImageUpload />
-          </div>
+          </div>}
           <div className="grid max-[641px]:grid-cols-1 max-[769px]:grid-cols-2  max-[1025px]:grid-cols-3 grid-cols-4  gap-4 p-4 w-full">
             <div className="col-start-1 max-sm:col-end-2  max-md:col-end-3">
               <InputText required label="Nome Completo *" name="name" />
