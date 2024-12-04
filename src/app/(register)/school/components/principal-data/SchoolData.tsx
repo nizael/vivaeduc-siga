@@ -41,7 +41,7 @@ export const SchoolData = ({ schoolData }: { schoolData: ISchool }) => {
           <FieldData field="CNPJ" value={schoolData.taxId} />
           <FieldData field="Inscrição estadual" value={schoolData.stateRegistration} />
           <FieldData field="Inscrição municipal" value={schoolData.municipalRegistration} />
-          <FieldData field="Tipo" value={schoolData.typeOfSchool} />
+          <FieldData field="Tipo" value={schoolData.typeOfSchool==='PRIVATE'? 'Privado': 'Pública'} />
           <FieldData field="Website" value={schoolData.website} />
         </div>
       </details>

@@ -9,6 +9,9 @@ import { Logout } from "../side-bar/Logout"
 import { useAuthDataStore } from "../../../../app/(auth)/stores/useAuthData"
 import { employeeRole } from "@/configs/employeeRole"
 import { useLoadingSpinnerStore } from "@/components/loading-spinner/stores/useLoadingSpinnerStore"
+import { LinkButton } from "../side-bar/LinkButton"
+import { BookIcon } from "@/components/icons/BookIcon"
+import { SchoolIcon } from "@/components/icons/SchoolIcon"
 
 export const ProfileMobile = () => {
   const { isOpen, onClose } = useProfileMobileStore()
@@ -50,7 +53,8 @@ export const ProfileMobile = () => {
             </div>
           </div>
           <div className="flex flex-col gap-4 p-2">
-            <Link onClick={handleClickMyData} href={`/employees/details/${userData?.employeeId}`} className="flex items-center font-semibold text-[--text-primary] text-sm gap-1"><UserIcon className="w-5" />Meus dados</Link>
+            <Link onClick={handleClickMyData} href={`/employees/details/${userData?.employeeId}`} className="flex items-center font-semibold text-[--text-primary] text-sm gap-1"><UserIcon className="w-5" />Meu dados</Link>
+            <Link href={'/school'} className="flex items-center font-semibold text-[--text-primary] text-sm gap-1"><SchoolIcon className="w-5" />Intituição</Link>
             <Logout />
           </div>
         </div>
