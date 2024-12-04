@@ -30,11 +30,10 @@ export const SearchModal = () => {
       <div className="h-[80%] bg-gray-50 w-full max-w-lg p-4 flex flex-col gap-4" onClick={evt => evt.stopPropagation()}>
         <input onChange={handleOnChange} type="search" placeholder="Buscar responsáveis por nome" className="py-2 px-4 w-full outline-bg-primary" autoFocus />
         <div className="flex flex-col gap-2">
-          {guardians?.map(employee => {
+          {guardians?.map(guardian => {
             return (
-              <Link onClick={handleClickLink} href={`/students/details/${employee.id}`} className="flex items-center justify-between px-4 py-2">
-                <p className="text-sm">{employee.name}</p>
-                <p className="font-semibold text-sm">{employeeRole[employee.role as keyof typeof employeeRole]}</p>
+              <Link key={guardian.id} onClick={handleClickLink} href={`/guardians/details/${guardian.id}`} className="flex items-center justify-between px-4 py-2">
+                <p className="text-sm">{guardian.name}</p>
               </Link>
             )
           })}

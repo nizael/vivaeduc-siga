@@ -31,7 +31,7 @@ export const SearchModal = () => {
         <div className="flex flex-col gap-2">
           {students?.map(student => {
             return (
-              <Link onClick={handleClickLink} href={`/students/details/${student.id}`} className="flex items-center justify-between px-4 py-2">
+              <Link key={student.id} onClick={handleClickLink} href={`/students/details/${student.id}`} className="flex items-center justify-between px-4 py-2">
                 <p className="text-sm">{student.name}</p>
                 <p className="font-semibold text-sm">{student.code}</p>
               </Link>

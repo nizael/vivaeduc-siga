@@ -32,7 +32,7 @@ export const SearchModal = () => {
         <div className="flex flex-col gap-2">
           {employees?.map(employee => {
             return (
-              <Link onClick={handleClickLink} href={`/students/details/${employee.id}`} className="flex items-center justify-between px-4 py-2">
+              <Link key={employee.id} onClick={handleClickLink} href={`/employees/details/${employee.id}`} className="flex items-center justify-between px-4 py-2">
                 <p className="text-sm">{employee.name}</p>
                 <p className="font-semibold text-sm">{employeeRole[employee.role as keyof typeof employeeRole]}</p>
               </Link>
