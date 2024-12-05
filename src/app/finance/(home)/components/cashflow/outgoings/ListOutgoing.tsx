@@ -5,13 +5,15 @@ import { useOutgoingStore } from "../../../../stores/useOutgoingStore"
 import { useEffect } from "react"
 import { DowntrendIcon } from "@/components/icons/DowntrendIcon"
 import { Pagination } from "@/components/pagination/Pagination"
+import { EmptyPage } from "@/components/empty-state/EmptyPage"
+import { IIncomingsOrOutgoings } from "../../../../stores/useIncomingStore"
 
 interface IListIncomingsProps {
   id: string
   value: string
   date: string
 }
-export const ListOutgoings = ({ outgoings }: { outgoings: IListIncomingsProps[] }) => {
+export const ListOutgoings = ({ outgoings }: { outgoings: IIncomingsOrOutgoings[] }) => {
   const { setListOutgoings, outgoingsViews, totalCashOutflow, listOutgoings, setCurrentPage, currentPage } = useOutgoingStore()
 
   useEffect(() => {
@@ -31,7 +33,13 @@ export const ListOutgoings = ({ outgoings }: { outgoings: IListIncomingsProps[] 
         </div>
       </div>
       <div className="flex flex-col gap-4 grow p-4">
-        {outgoingsViews?.map(outgoing => <ListView key={outgoing.id} date={outgoing.date} icon={<UptrendIcon />} value={outgoing.value} transaction="outgoing" id={outgoing.id} />)}
+        {outgoingsViews?.length ? outgoingsViews?.map(outgoing => <ListView
+          key={outgoing.id}
+          paymentMethod={outgoing.paymentMethod}
+          icon={<UptrendIcon />}
+          amount={outgoing.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+          transaction="outgoing" />) : <EmptyPage label="Sem transações de saída" />
+        }
       </div>
       {listOutgoings && <Pagination currentPage={currentPage} items={listOutgoings} setCurrentPage={setCurrentPage} />}
     </div>

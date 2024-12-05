@@ -1,18 +1,19 @@
 import { create } from "zustand";
 
 interface IUseIncomingStore {
-  listIncomings?: IIncomings[]
-  incomingsViews?: IIncomings[]
+  listIncomings?: IIncomingsOrOutgoings[]
+  incomingsViews?: IIncomingsOrOutgoings[]
   currentPage: number
   totalCashInflow: number
   setCurrentPage(currentPage: number): void
-  setListIncomings(listIncomings: IIncomings[]): void
+  setListIncomings(listIncomings: IIncomingsOrOutgoings[]): void
 }
 
-interface IIncomings {
+export interface IIncomingsOrOutgoings {
   id: string
-  value: string
-  date: string
+  paymentMethod: string
+  amount: number
+  type: string
 }
 export const useIncomingStore = create<IUseIncomingStore>((set, get) => ({
   currentPage: 1,

@@ -16,11 +16,7 @@ export default function Finance() {
           <KpiSection />
           <NavBar />
           <BalanceAnalytics />
-          {env.NODE_ENV !== 'production' && (
-            <>
-              <CashFlow />
-            </>
-          )}
+          <CashFlow />
         </div>
       </LoadingSpinner>
     </LayoutApp>

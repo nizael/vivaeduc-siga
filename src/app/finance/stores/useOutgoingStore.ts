@@ -1,18 +1,13 @@
 import { create } from "zustand";
+import { IIncomingsOrOutgoings } from "./useIncomingStore";
 
 interface IUseOutgoingStore {
-  listOutgoings?: IOutgoings[]
-  outgoingsViews?: IOutgoings[]
+  listOutgoings?: IIncomingsOrOutgoings[]
+  outgoingsViews?: IIncomingsOrOutgoings[]
   currentPage: number
   totalCashOutflow: number
   setCurrentPage(currentPage: number): void
-  setListOutgoings(listOutgoings: IOutgoings[]): void
-}
-
-interface IOutgoings {
-  id: string
-  value: string
-  date: string
+  setListOutgoings(listOutgoings: IIncomingsOrOutgoings[]): void
 }
 
 export const useOutgoingStore = create<IUseOutgoingStore>((set, get) => ({

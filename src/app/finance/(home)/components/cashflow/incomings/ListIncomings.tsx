@@ -1,16 +1,13 @@
 'use client'
 import { UptrendIcon } from "@/components/icons/UptrendIcon"
 import { ListView } from "../ListView"
-import { useIncomingStore } from "../../../../stores/useIncomingStore"
+import { IIncomingsOrOutgoings, useIncomingStore } from "../../../../stores/useIncomingStore"
 import { useEffect } from "react"
 import { Pagination } from "@/components/pagination/Pagination"
+import { EmptyPage } from "@/components/empty-state/EmptyPage"
 
-interface IListIncomingsProps {
-  id: string
-  value: string
-  date: string
-}
-export const ListIncomings = ({ incomings }: { incomings: IListIncomingsProps[] }) => {
+
+export const ListIncomings = ({ incomings }: { incomings: IIncomingsOrOutgoings[] }) => {
   const { setListIncomings, incomingsViews, totalCashInflow, listIncomings, setCurrentPage, currentPage } = useIncomingStore()
 
   useEffect(() => {
@@ -30,7 +27,14 @@ export const ListIncomings = ({ incomings }: { incomings: IListIncomingsProps[] 
         </div>
       </div>
       <div className="flex flex-col gap-4 grow  p-4">
-        {incomingsViews?.map(incoming => <ListView key={incoming.id} date={incoming.date} icon={<UptrendIcon />} value={incoming.value} transaction="incoming" id={incoming.id} />)}
+        {incomingsViews?.length ? incomingsViews?.map(incoming =>
+          <ListView
+            key={incoming.id}
+            paymentMethod={incoming.paymentMethod}
+            icon={<UptrendIcon className="w-4" />}
+            amount={incoming.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+            transaction="incoming" />) : <EmptyPage label="Sem transações entradas" />
+        }
       </div>
       {listIncomings && <Pagination currentPage={currentPage} items={listIncomings} setCurrentPage={setCurrentPage} />}
     </div>

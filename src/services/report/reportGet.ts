@@ -19,6 +19,10 @@ export const generalFinancialStudentEmployeeReport = async () => {
 export const reportPaymentRecordsForMonth = async (year: number, month: number) => {
   return reportApi.reportPaymentRecordsForMonth(year, month)
 }
+export const reportCurrentDayCashFlow = async (day?: number) => {
+  return reportApi.reportCurrentDayCashFlow(day)
+}
+
 
 
 

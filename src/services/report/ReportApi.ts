@@ -22,6 +22,11 @@ export class ReportApi extends FetchApi {
     return this.get(`/v1/reports/reportPaymentRecordsForMonth?year=${year}&month=${month}`)
   }
 
+  async reportCurrentDayCashFlow(day?: number) {
+    return this.get(`/v1/reports/currentDayCashFlow`)
+  }
+
+
 
 
 
