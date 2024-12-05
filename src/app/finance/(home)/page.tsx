@@ -15,9 +15,9 @@ export default function Finance() {
           <h1 className="flex items-center font-semibold gap-2 text-[--text-primary]">Financeiro</h1>
           <KpiSection />
           <NavBar />
+          <BalanceAnalytics />
           {env.NODE_ENV !== 'production' && (
             <>
-              <BalanceAnalytics />
               <CashFlow />
             </>
           )}
